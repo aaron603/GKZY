@@ -12,6 +12,7 @@ export const PAGE_FILES = {
   ,
   tierPlanDocument: "985与头部211梯度及2026招生计划核验.html",
   all985Audit: "985院校全量遍历审计.html",
+  nearScore985Selection: "662分1558位985近分好专业筛选.html",
   ordinaryVolunteerDraft: "普通类志愿草表与梯度方案.html",
   linkValidation: "2026招生计划链接验证报告.html"
 };

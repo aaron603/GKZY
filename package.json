@@ -19,10 +19,11 @@
     "score:rank": "node scripts/generate-score-rank-reference.mjs",
     "itinerary:binhe": "node scripts/generate-binhe-itinerary-audit.mjs",
     "tier:plans": "node scripts/generate-tier-plan-document.mjs",
+    "near985:selection": "node scripts/generate-near-score-985-selection.mjs",
     "ordinary:draft": "node scripts/generate-ordinary-volunteer-draft.mjs",
     "parent:handbook": "node scripts/generate-parent-handbook.mjs",
     "dashboard": "node scripts/generate-dashboard.mjs",
     "dashboard:serve": "node scripts/serve-dashboard.mjs",
-    "build": "node scripts/update-data.mjs && node scripts/generate-score-rank-reference.mjs && node scripts/generate-binhe-itinerary-audit.mjs && node scripts/audit-coverage-2025.mjs && node scripts/audit-high-tier-coverage-2025.mjs && node scripts/audit-985-coverage-2026.mjs && node scripts/fetch-historical-admissions.mjs && node scripts/evaluate-candidates.mjs && node scripts/generate-plan-admit-audit.mjs && node scripts/generate-historical-reference.mjs && node scripts/generate-admission-charter-audit.mjs && node scripts/generate-report.mjs && node scripts/generate-dashboard.mjs && node scripts/generate-course-audit.mjs && node scripts/generate-outcome-audit.mjs && node scripts/generate-tier-plan-document.mjs && node scripts/generate-ordinary-volunteer-draft.mjs && node scripts/generate-parent-handbook.mjs"
+    "build": "node scripts/update-data.mjs && node scripts/generate-score-rank-reference.mjs && node scripts/generate-binhe-itinerary-audit.mjs && node scripts/audit-coverage-2025.mjs && node scripts/audit-high-tier-coverage-2025.mjs && node scripts/audit-985-coverage-2026.mjs && node scripts/fetch-historical-admissions.mjs && node scripts/evaluate-candidates.mjs && node scripts/generate-plan-admit-audit.mjs && node scripts/generate-historical-reference.mjs && node scripts/generate-admission-charter-audit.mjs && node scripts/generate-report.mjs && node scripts/generate-near-score-985-selection.mjs && node scripts/generate-dashboard.mjs && node scripts/generate-course-audit.mjs && node scripts/generate-outcome-audit.mjs && node scripts/generate-tier-plan-document.mjs && node scripts/generate-ordinary-volunteer-draft.mjs && node scripts/generate-parent-handbook.mjs"
   }
 }

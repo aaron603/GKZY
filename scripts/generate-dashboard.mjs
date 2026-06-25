@@ -696,6 +696,7 @@ function dashboardHtml(data) {
             <a class="link-button" href="${PAGE_FILES.admissionCharterAudit}" target="_blank" rel="noreferrer">招生章程规则审计</a>
             <a class="link-button" href="${PAGE_FILES.tierPlanDocument}" target="_blank" rel="noreferrer">985/头部211梯度核验</a>
             <a class="link-button" href="${PAGE_FILES.all985Audit}" target="_blank" rel="noreferrer">985全量遍历审计</a>
+            <a class="link-button" href="${PAGE_FILES.nearScore985Selection}" target="_blank" rel="noreferrer">662位次985近分筛选</a>
             <a class="link-button" href="${PAGE_FILES.ordinaryVolunteerDraft}" target="_blank" rel="noreferrer">普通类志愿草表</a>
             <a class="link-button" href="${PAGE_FILES.linkValidation}" target="_blank" rel="noreferrer">链接验证报告</a>
           </div>
