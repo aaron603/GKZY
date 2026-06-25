@@ -277,10 +277,10 @@ function dashboardHtml(data) {
       border: 0;
     }
     .wide-table {
-      min-width: 1420px;
+      min-width: 1120px;
     }
     .volunteer-table {
-      min-width: 1680px;
+      min-width: 1240px;
     }
     .table-pair {
       position: relative;
@@ -701,6 +701,7 @@ function dashboardHtml(data) {
             <a class="link-button" href="${PAGE_FILES.linkValidation}" target="_blank" rel="noreferrer">链接验证报告</a>
           </div>
         </div>
+        <p class="small">专家分是综合优先级，不是录取概率；它由学校层级、C9/985族群、专业匹配、分数安全、来源质量、计划可靠性、城市资源、风险控制和家庭重点校偏好加总。分数越高表示越值得优先研究，录取难度仍要看最低分、平均分、最高分、位次、计划数和专业组规则。</p>
         <div class="tabs" id="recommendTabs"></div>
         <div id="candidateTableWrap"></div>
       </section>
@@ -965,7 +966,7 @@ function dashboardHtml(data) {
       };
     }
 
-    const nonOrdinaryAdmissionPattern = /中外合作|中外合作办学|合作办学|国家专项|地方专项|高校专项|专项|强基|强基计划|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
+    const nonOrdinaryAdmissionPattern = /中外合作|中外合作办学|合作办学|国家专项|地方专项|高校专项|专项|强基|强基计划|卓越优才|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
     const medicalCategoryPattern = /医学|医工|医疗|临床|口腔|基础医学|预防医学|法医学|护理学?|药学|中药学|临床药学|医学影像学|医学影像技术|医学检验技术|麻醉学|儿科学|精神医学|眼视光医学|放射医学|公共卫生|卫生检验|中医学|针灸推拿|中西医临床|康复治疗|助产/;
 
     function isMainPlanExcluded(item) {
@@ -1036,6 +1037,7 @@ function dashboardHtml(data) {
         schoolUrl: schoolEntryUrl(school),
         city: school?.city || '',
         tier: school?.tier || '',
+        planYear: item.planYear || DATA.schools.defaultQuery?.year || '2026',
         expertScore: total,
         recommendation: recommendation(total, risk.hits, item),
         matchedTrack: major.matchedTrack,
@@ -1289,8 +1291,8 @@ function dashboardHtml(data) {
         $('candidateTableWrap').innerHTML = '<div class="empty">当前筛选条件下没有候选项</div>';
         return;
       }
-      $('candidateTableWrap').innerHTML = '<div class="scroll-hint">表格字段较多，可拖动上方或下方横向滚动条查看全部列；已隐藏序号、录取年、省份、科类和类别，优先展示学校、专业和分数信息。</div><div class="table-pair" data-scroll-pair><div class="scroll-x-top" data-scroll-top><div class="scroll-x-spacer" style="width:1420px"></div></div><div class="table-scroll" data-scroll-body><table class="wide-table candidate-table"><thead><tr>' +
-        '<th style="width:170px">学校</th><th style="width:300px">专业名称</th><th class="num" style="width:84px">最低分</th><th class="num" style="width:84px">平均分</th><th class="num" style="width:84px">最高分</th><th class="num" style="width:96px">位次</th><th class="num" style="width:78px">计划</th><th class="num" style="width:86px">专家分</th><th class="nowrap" style="width:120px">结论</th><th style="width:260px">标签</th><th style="width:170px">城市/层次</th>' +
+      $('candidateTableWrap').innerHTML = '<div class="scroll-hint">表格字段较多，可拖动上方或下方横向滚动条查看全部列；已隐藏序号、录取年、省份、科类和类别，优先展示学校、专业和分数信息。</div><div class="table-pair" data-scroll-pair><div class="scroll-x-top" data-scroll-top><div class="scroll-x-spacer" style="width:1120px"></div></div><div class="table-scroll" data-scroll-body><table class="wide-table candidate-table"><thead><tr>' +
+        '<th style="width:136px">学校</th><th style="width:230px">专业名称</th><th class="num" style="width:66px">最低</th><th class="num" style="width:66px">平均</th><th class="num" style="width:66px">最高</th><th class="num" style="width:82px">位次</th><th class="num" style="width:88px">计划</th><th class="num" style="width:72px">专家分</th><th class="nowrap" style="width:94px">结论</th><th style="width:190px">标签</th><th style="width:120px">城市/层次</th>' +
         '</tr></thead><tbody>' +
         items.map((item, index) => {
           const courseProfile = matchCourseProfile(item);
@@ -1308,7 +1310,8 @@ function dashboardHtml(data) {
             '评分拆解：学校' + item.scoreParts.schoolPlatform + '，专业' + item.scoreParts.majorFit + '，安全' + item.scoreParts.scoreSafety + '，来源' + item.scoreParts.sourceQuality + '，计划' + item.scoreParts.planReliability + '，重点三校' + item.scoreParts.focusSchoolPriority + '，中外/高费优先级调整' + item.scoreParts.paidOpportunity,
             '待核实：' + buildQuestions(item).join('；')
           ].join('<br>');
-          return '<tr data-row="' + index + '"><td>' + schoolNameLink(item) + '</td><td>' + escapeHtml(item.major) + '<div class="detail">' + detail + '</div></td><td class="num">' + escapeHtml(item.minScore ?? '-') + '</td><td class="num">' + escapeHtml(item.avgScore ?? '-') + '</td><td class="num">' + escapeHtml(item.maxScore ?? '-') + '</td><td class="num">' + formatRank(item.rank) + '</td><td class="num">' + escapeHtml(item.plan ?? '-') + '</td><td class="num score">' + item.expertScore + '</td><td><span class="tag ' + tagClass(item.recommendation) + '">' + escapeHtml(item.recommendation) + '</span></td><td>' + tags + '</td><td>' + escapeHtml(item.city) + '<div class="small">' + escapeHtml(item.tier || '') + '</div></td></tr>';
+          const planText = item.plan ? (String(item.planYear || '2026') + '计划 ' + item.plan) : '-';
+          return '<tr data-row="' + index + '"><td>' + schoolNameLink(item) + '</td><td>' + escapeHtml(item.major) + '<div class="detail">' + detail + '</div></td><td class="num">' + escapeHtml(item.minScore ?? '-') + '</td><td class="num">' + escapeHtml(item.avgScore ?? '-') + '</td><td class="num">' + escapeHtml(item.maxScore ?? '-') + '</td><td class="num">' + formatRank(item.rank) + '</td><td class="num">' + escapeHtml(planText) + '</td><td class="num score">' + item.expertScore + '</td><td><span class="tag ' + tagClass(item.recommendation) + '">' + escapeHtml(item.recommendation) + '</span></td><td>' + tags + '</td><td>' + escapeHtml(item.city) + '<div class="small">' + escapeHtml(item.tier || '') + '</div></td></tr>';
         }).join('') +
         '</tbody></table></div></div>';
       syncTableScrollbars('candidateTableWrap');
@@ -1330,8 +1333,8 @@ function dashboardHtml(data) {
         $('volunteerTableWrap').innerHTML = '<div class="empty">点击“自动预填志愿”生成模拟草表。当前只用于理解模板，正式填报前必须用2026计划和真实位次重算。</div>';
         return;
       }
-      $('volunteerTableWrap').innerHTML = '<div class="scroll-hint">表格字段较多，可拖动上方或下方横向滚动条查看全部列；已隐藏序号、录取年、省份、科类和类别，保留梯度和核心专业信息。</div><div class="table-pair" data-scroll-pair><div class="scroll-x-top" data-scroll-top><div class="scroll-x-spacer" style="width:1680px"></div></div><div class="table-scroll" data-scroll-body><table class="wide-table volunteer-table"><thead><tr>' +
-        '<th class="nowrap" style="width:80px">梯度</th><th style="width:170px">院校</th><th style="width:280px">专业名称</th><th style="width:170px">课程画像</th><th class="num" style="width:84px">最低分</th><th class="num" style="width:84px">平均分</th><th class="num" style="width:84px">最高分</th><th class="num" style="width:96px">位次</th><th class="nowrap" style="width:84px">来源</th><th style="width:280px">待核事项</th><th style="width:250px">备注</th>' +
+      $('volunteerTableWrap').innerHTML = '<div class="scroll-hint">表格字段较多，可拖动上方或下方横向滚动条查看全部列；已隐藏序号、录取年、省份、科类和类别，保留梯度和核心专业信息。</div><div class="table-pair" data-scroll-pair><div class="scroll-x-top" data-scroll-top><div class="scroll-x-spacer" style="width:1240px"></div></div><div class="table-scroll" data-scroll-body><table class="wide-table volunteer-table"><thead><tr>' +
+        '<th class="nowrap" style="width:62px">梯度</th><th style="width:136px">院校</th><th style="width:230px">专业名称</th><th style="width:130px">课程画像</th><th class="num" style="width:66px">最低</th><th class="num" style="width:66px">平均</th><th class="num" style="width:66px">最高</th><th class="num" style="width:82px">位次</th><th class="nowrap" style="width:58px">来源</th><th style="width:210px">待核事项</th><th style="width:134px">备注</th>' +
         '</tr></thead><tbody>' +
         items.map(({ order, bucket, item }) => {
           const questions = buildQuestions(item);
@@ -1791,7 +1794,7 @@ function dashboardHtml(data) {
     function exportCsv() {
       const items = filteredItems();
       const header = ['录取参考年份','录取参考省份','录取参考科类','录取参考类别','计划核验年份','计划核验省份','计划核验科类','计划核验类别','学校','城市','层次','专业名称','最低分','平均分','最高分','位次','计划','专家分','结论','方向','风险标签','来源'];
-      const rows = items.map((item) => [item.admissionYear || DATA.baseline.year || '',item.admissionProvince || DATA.baseline.province || '',item.admissionSubject || DATA.baseline.subject || '',item.admissionCategory || inferAdmissionCategory(item),DATA.schools.defaultQuery?.year || '2026',DATA.schools.defaultQuery?.province || DATA.baseline.province || '',DATA.schools.defaultQuery?.branch || DATA.baseline.subject || '',item.admissionCategory || DATA.schools.defaultQuery?.category || '普通类',item.school,item.city,item.tier,item.major,item.minScore ?? '',item.avgScore ?? '',item.maxScore ?? '',item.rank ?? '',item.plan ?? '',item.expertScore,item.recommendation,item.matchedTrack,(item.riskTags || []).join('|'),item.sourceLevel]);
+      const rows = items.map((item) => [item.admissionYear || DATA.baseline.year || '',item.admissionProvince || DATA.baseline.province || '',item.admissionSubject || DATA.baseline.subject || '',item.admissionCategory || inferAdmissionCategory(item),DATA.schools.defaultQuery?.year || '2026',DATA.schools.defaultQuery?.province || DATA.baseline.province || '',DATA.schools.defaultQuery?.branch || DATA.baseline.subject || '',item.admissionCategory || DATA.schools.defaultQuery?.category || '普通类',item.school,item.city,item.tier,item.major,item.minScore ?? '',item.avgScore ?? '',item.maxScore ?? '',item.rank ?? '',item.plan ? (String(item.planYear || DATA.schools.defaultQuery?.year || '2026') + '计划 ' + item.plan) : '',item.expertScore,item.recommendation,item.matchedTrack,(item.riskTags || []).join('|'),item.sourceLevel]);
       const csv = [header, ...rows].map((row) => row.map((cell) => '"' + String(cell).replaceAll('"', '""') + '"').join(',')).join('\\n');
       const blob = new Blob(['\\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
       const url = URL.createObjectURL(blob);

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-25T11:00:57.549Z",
+  "generatedAt": "2026-06-25T15:01:48.741Z",
   "summary": {
-    "localTotal": 14,
-    "localOk": 14,
+    "localTotal": 15,
+    "localOk": 15,
     "httpTotal": 120,
-    "httpOk": 114
+    "httpOk": 8
   },
   "links": [
     {
@@ -92,6 +92,13 @@
       "status": "OK"
     },
     {
+      "label": "662分1558位985近分好专业筛选.html",
+      "url": "662分1558位985近分好专业筛选.html",
+      "type": "local",
+      "ok": true,
+      "status": "OK"
+    },
+    {
       "label": "普通类志愿草表与梯度方案.html",
       "url": "普通类志愿草表与梯度方案.html",
       "type": "local",
@@ -109,257 +116,257 @@
       "label": "西安交通大学 招生网",
       "url": "https://zs.xjtu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.xjtu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "西北工业大学 招生网",
       "url": "https://zsb.nwpu.edu.cn/",
       "type": "school",
       "ok": false,
-      "status": 412,
-      "finalUrl": "https://zsb.nwpu.edu.cn/"
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "西安电子科技大学 招生网",
       "url": "https://zsb.xidian.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.xidian.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "西北大学 招生网",
       "url": "https://zsb.nwu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.nwu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "长安大学 招生网",
       "url": "https://zsb.chd.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.chd.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 招生网",
       "url": "https://zs.uestc.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.uestc.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学 招生网",
       "url": "https://zsb.hit.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hit.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学（深圳） 招生网",
       "url": "https://zsb.hitsz.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hitsz.edu.cn/bzs/zswz"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学（威海） 招生网",
       "url": "https://zsb.hitwh.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hitwh.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 招生网",
       "url": "https://zs.tju.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.tju.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 招生网",
       "url": "https://admission.scut.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.scut.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "厦门大学 招生网",
       "url": "https://zs.xmu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.xmu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "武汉大学 招生网",
       "url": "https://aoff.whu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://aoff.whu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华中科技大学 招生网",
       "url": "https://zsb.hust.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hust.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "东南大学 招生网",
       "url": "https://zsb.seu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.seu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "南京航空航天大学 招生网",
       "url": "https://zs.nuaa.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.nuaa.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "南京理工大学 招生网",
       "url": "https://zsb.njust.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.njust.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工程大学 招生网",
       "url": "https://zsb.hrbeu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hrbeu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华北电力大学（北京） 招生网",
       "url": "https://goto.ncepu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://goto.ncepu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "东北大学秦皇岛分校 招生网",
       "url": "https://zs.neuq.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.neuq.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "东北大学 招生网",
       "url": "https://zs.neu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.neu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "北京邮电大学 招生网",
       "url": "https://zsb.bupt.edu.cn/",
       "type": "school",
       "ok": false,
-      "status": 412,
-      "finalUrl": "https://zsb.bupt.edu.cn/"
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "大连理工大学 招生网",
       "url": "https://zs.dlut.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.dlut.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "同济大学 招生网",
       "url": "https://bkzs.tongji.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://bkzs.tongji.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "南开大学 招生网",
       "url": "https://www.nankai.edu.cn/239/list.htm",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://www.nankai.edu.cn/239/list.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "中山大学 招生网",
       "url": "https://admission.sysu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.sysu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "上海科技大学 招生网",
       "url": "https://admission.shanghaitech.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.shanghaitech.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "This operation was aborted"
     },
     {
       "label": "南方科技大学 招生网",
       "url": "https://zs.sustech.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.sustech.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "北京航空航天大学 招生网",
       "url": "https://zs.buaa.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.buaa.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "北京理工大学 招生网",
       "url": "https://admission.bit.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.bit.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "南京大学 招生网",
       "url": "https://bkzs.nju.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://bkzs.nju.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "山东大学（威海） 招生网",
       "url": "https://bkzsw.wh.sdu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://bkzsw.wh.sdu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "大连理工大学（盘锦校区） 招生网",
@@ -373,25 +380,25 @@
       "label": "上海大学 招生网",
       "url": "https://bkzsw.shu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://bkzsw.shu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "北京科技大学 招生网",
       "url": "https://zhaosheng.ustb.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zhaosheng.ustb.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "重庆大学 招生网",
       "url": "https://zhaosheng.cqu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zhaosheng.cqu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "山东大学 招生网",
@@ -406,40 +413,40 @@
       "url": "https://zs.scu.edu.cn/",
       "type": "school",
       "ok": false,
-      "status": 412,
-      "finalUrl": "https://zs.scu.edu.cn/"
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "湖南大学 招生网",
       "url": "https://admi.hnu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admi.hnu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "中南大学 招生网",
       "url": "https://zhaosheng.csu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zhaosheng.csu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "北京交通大学 招生网",
       "url": "https://zsw.bjtu.edu.cn/",
       "type": "school",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsw.bjtu.edu.cn/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "西安交通大学 招生咨询/行程",
       "url": "https://zswxxcx.xjtu.edu.cn/public/zsxc/xcxcpc/#/",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zswxxcx.xjtu.edu.cn/public/zsxc/xcxcpc/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "西安电子科技大学 报考指南",
@@ -453,33 +460,33 @@
       "label": "西安电子科技大学 招生政策",
       "url": "https://zsb.xidian.edu.cn/zsxx1/zszc.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.xidian.edu.cn/zsxx1/zszc.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "西安电子科技大学 招生计划",
       "url": "https://zsxc.xidian.edu.cn/auth/zsdata/lqxx/#/",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsxc.xidian.edu.cn/auth/zsdata/lqxx/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "西安电子科技大学 咨询行程",
       "url": "https://zsxc.xidian.edu.cn/public/zsxc/xcxcpc/",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsxc.xidian.edu.cn/public/zsxc/xcxcpc/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "西安电子科技大学 06-24 2026年全国各省招生计划及近三年录取分数",
       "url": "https://zsb.xidian.edu.cn/info/1073/6893.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.xidian.edu.cn/info/1073/6893.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "西安电子科技大学 06-10 西电王牌学院展播第十七期！光电工程学院院长与您面对面",
@@ -525,41 +532,41 @@
       "label": "西安电子科技大学 校长高新波带队赴山东开展招生宣传 05-22",
       "url": "https://zsb.xidian.edu.cn/info/1034/6633.htm",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.xidian.edu.cn/info/1034/6633.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "长安大学 招生计划",
       "url": "https://zsdata.chd.edu.cn/zsdata/lqxx/#/",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsdata.chd.edu.cn/zsdata/lqxx/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "长安大学 07 2026.06 长安大学2026年本科招生章程",
       "url": "https://zsb.chd.edu.cn/info/1018/1112.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.chd.edu.cn/info/1018/1112.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "长安大学 12 2026.05 长安大学2026年依据学测成绩招收台湾高中毕业生面试通知",
       "url": "https://zsb.chd.edu.cn/info/1018/1110.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.chd.edu.cn/info/1018/1110.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "长安大学 10 2026.04 长安大学召开2026年本科招生工作大会",
       "url": "https://zsb.chd.edu.cn/info/1018/1106.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.chd.edu.cn/info/1018/1106.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "长安大学 09 2026.04 面对面答疑｜长安大学2026年4月全国招生宣讲会行程",
@@ -573,161 +580,161 @@
       "label": "长安大学 12 2025.12 长安大学2026年依据台湾地区大学入学考试学科能力测试成绩招收台湾高中毕业生简章",
       "url": "https://zsb.chd.edu.cn/info/1018/1104.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.chd.edu.cn/info/1018/1104.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "长安大学 12 2025.12 长安大学2026年招收香港中学文凭考试学生简章",
       "url": "https://zsb.chd.edu.cn/info/1018/1103.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.chd.edu.cn/info/1018/1103.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 2026央视网名校之约｜电子科技大学2026招生政策：以“电子信息+”和国家战略同频共振",
       "url": "https://zs.uestc.edu.cn/view/2197.html",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/7BEUP-6vTSS3YapYwLxHZQ"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 2026年电子科技大学招生解读",
       "url": "https://zs.uestc.edu.cn/view/2196.html",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/KDoJkd7AI0XZkYGb8UMj6w"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 电子科技大学本科2026年全国招生分省咨询行程",
       "url": "https://zs.uestc.edu.cn/view/2171.html",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://chaxun.uestc.edu.cn/public/xcxc/xcxcpc/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 软件学院荣获2026年特色化示范性软件学院关键软件技术创新成果奖",
       "url": "https://zs.uestc.edu.cn/view/2115.html",
       "type": "general",
       "ok": false,
-      "status": 404,
-      "finalUrl": "https://news.uestc.edu.cn/info/1003/40097.htm"
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 成电大明星 | 集成电路科学与工程学院（示范性微电子学院）2026年",
       "url": "https://zs.uestc.edu.cn/view/2189.html",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/5W3HE8zrt9oygGCeiQf7_Q"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 成电大明星 | 格拉斯哥学院2026年",
       "url": "https://zs.uestc.edu.cn/view/2184.html",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/1xN4QibQubRIeHUH77090g"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 计算机（网安）学院算法与逻辑团队在EC 2026上发表重要理论成果",
       "url": "https://zs.uestc.edu.cn/view/2151.html",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://news.uestc.edu.cn/info/1005/40659.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 成电大明星 | 数学科学学院-2026",
       "url": "https://zs.uestc.edu.cn/view/2148.html",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/V--tlIVGHGC7HoyTexTWDQ"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 2026年招生政策解读暨咨询会！6月28日，我们电子科大见~",
       "url": "https://zs.uestc.edu.cn/view/2202.html",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/jd4WvyMp23lKfRulhKgNaw"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 直播预告 | 电子科大2026年本科招生政策解读，一键预约！",
       "url": "https://zs.uestc.edu.cn/view/2201.html",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/a7lSKJrG23ZlWy40-EOlsg"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 格拉斯哥学院开放日来啦！——附2026年四川招生宣传活动",
       "url": "https://zs.uestc.edu.cn/view/2194.html",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/_LD9fhfnVqF9jyrthAwOUA"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 直播预告 | 招办主任@你，电子科大高招咨询大直播来啦",
       "url": "https://zs.uestc.edu.cn/view/2129.html",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/dg2aCsS62QDc1raYaxgd8A"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 直播预告 | 电子科大2026强基要点解读",
       "url": "https://zs.uestc.edu.cn/view/2110.html",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/L7IvabdBKNLP6p-3mF_bJA"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 直播预告 | 电子科技大学2026年强基计划招生政策解读直播来啦！",
       "url": "https://zs.uestc.edu.cn/view/2111.html",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/VbVas6hbL_5YfpmVlEEPEg"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "电子科技大学 电子科技大学各省市高考招生咨询QQ群重磅发布！",
       "url": "https://zs.uestc.edu.cn/view/953.html",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.uestc.edu.cn/view/953.html"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学 报考指南",
       "url": "https://zsb.hit.edu.cn/article/category/b4d5b3b1ffc2bb012fb52138b25a824b",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hit.edu.cn/article/category/b4d5b3b1ffc2bb012fb52138b25a824b"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学 招生计划",
       "url": "https://zsb.hit.edu.cn/information/plan",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hit.edu.cn/information/plan"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学 咨询",
       "url": "https://zsb.hit.edu.cn/article/read/df0c69c3c70670fcd0a2e7c1495c831b",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hit.edu.cn/article/read/df0c69c3c70670fcd0a2e7c1495c831b"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学 咨询各省份",
@@ -741,329 +748,329 @@
       "label": "哈尔滨工业大学 哈尔滨工业大学2026年校园开放日通知 我校“校园开放日”已成为全省优秀学子和家长了解和掌握高考志愿填报信息的重要途径。为使广大考生进一步了解招生情况，学校定于2026年6月25日13：30-17:00，在哈工大（一校区）体育场举办哈尔滨工业大学校园开放日暨高考招生咨询活动",
       "url": "https://zsb.hit.edu.cn/article/read/b4f961f2be9488b8c1dd288fa20111a0",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hit.edu.cn/article/read/b4f961f2be9488b8c1dd288fa20111a0"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学 招生计划",
       "url": "http://zsb.hit.edu.cn/information/plan",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hit.edu.cn/information/plan"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学 2026年 06月 17 哈尔滨工业大学2026年艺术类招生简章 为促进 “大人居” 和 “大设计” 顶层战略发展，拓展多学科交叉基础、提升多学科交叉潜力，促进艺术类学科与理工科专业协同发展，助力哈工大新百年一流工科强校建设，培养引领未来发展的新时代杰出人才，2026年我校建筑与设计学院数字媒体艺术专业和产品设计专业继续招收艺术类考生。",
       "url": "https://zsb.hit.edu.cn/article/read/d5471f322b03d472e2b6cbe98d0baac7",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hit.edu.cn/article/read/d5471f322b03d472e2b6cbe98d0baac7"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学 2026年 06月 09 哈尔滨工业大学2026年第二学士学位招生初审合格名单公示和考试公告的通知 我校2026年第二学士学位招生初审结果现已公布，请考生登录哈尔滨工业大学第二学士学位招生报名系统查询初审结果。",
       "url": "https://zsb.hit.edu.cn/article/read/92c68380283b447ce3a03ee6d3580968",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hit.edu.cn/article/read/92c68380283b447ce3a03ee6d3580968"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学 招生宣传行程 SCHEDULE",
       "url": "https://zsb.hit.edu.cn/itinerary/list",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hit.edu.cn/itinerary/list"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学 2026年06月 26日 江苏 地点:苏州工业园区 2024 年普通高校招生咨询会 苏州工业园区人才市场一楼大厅（金鸡湖街道旺墩路 168 号）",
       "url": "https://zsb.hit.edu.cn/itinerary/read/1618275065",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hit.edu.cn/itinerary/read/1618275065"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学（威海） 招生章程",
       "url": "https://zsb.hitwh.edu.cn/home/admission",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hitwh.edu.cn/home/admission"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学（威海） 招生计划",
       "url": "https://zsb.hitwh.edu.cn/home/query/plan",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hitwh.edu.cn/home/query/plan"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学（威海） 行程信息",
       "url": "https://ai-enroll.360eol.com/teacherenroll/itinerary/index/school_id/3716",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://ai-enroll.360eol.com/teacherenroll/itinerary/index/school_id/3716"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学（威海） 联系招生组",
       "url": "https://zsb.hitwh.edu.cn/home/index/enroll_group",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hitwh.edu.cn/home/index/enroll_group"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学（威海） 招生简章",
       "url": "https://zsb.hitwh.edu.cn/admission",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hitwh.edu.cn/admission"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学（威海） 06月20日 哈尔滨工业大学（威海）2026年综合评价招生学校评价考核结果公示",
       "url": "https://zsb.hitwh.edu.cn/home/article/details?id=1581",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hitwh.edu.cn/home/article/details?id=1581"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学（威海） 06月10日 哈尔滨工业大学（威海）2026年第二学位招生考试公告",
       "url": "https://zsb.hitwh.edu.cn/home/article/details?id=1580",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hitwh.edu.cn/home/article/details?id=1580"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "哈尔滨工业大学（威海） 06月09日 关于2026年综合评价招生资格审核结果及学校考核安排的通知",
       "url": "https://zsb.hitwh.edu.cn/home/article/details?id=1579",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsb.hitwh.edu.cn/home/article/details?id=1579"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 报考指南",
       "url": "https://zs.tju.edu.cn/ym21/bkzn/tzgg.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.tju.edu.cn/ym21/bkzn/tzgg.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 各省招生组联系方式",
       "url": "https://zs.tju.edu.cn/ym21/lxwm/gszszlxfs.htm",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.tju.edu.cn/ym21/lxwm/gszszlxfs.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 招生计划",
       "url": "https://zsdata.tju.edu.cn/zsdata/lqxx/#/",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsdata.tju.edu.cn/zsdata/lqxx/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 03/01 招生第一线—天津大学招生宣传行程",
       "url": "https://zsdata.tju.edu.cn/unauth/zsxc/xcxcpc/#/",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zsdata.tju.edu.cn/unauth/zsxc/xcxcpc/"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 06/04 天津大学2026年艺术类招生简章",
       "url": "https://zs.tju.edu.cn/info/1116/4579.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.tju.edu.cn/info/1116/4579.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 05/29 天津大学2026年本科生招生章程",
       "url": "https://zs.tju.edu.cn/info/1116/4549.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.tju.edu.cn/info/1116/4549.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 05/29 天津大学2026年本科生招生体检标准",
       "url": "https://zs.tju.edu.cn/info/1116/4539.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.tju.edu.cn/info/1116/4539.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 天津大学与内蒙古自治区重点中学人才培养座谈会顺利召开 2026.06.16 6月13日下午，天津大学与内蒙古自治区重点中学人才培养座谈会在呼和浩特顺利召开。天津大学党委副书记、纪委书记、国家监委驻天津大学监察专员、一级高级监察官李炜，内蒙古自治区教育考试院副院长张培文，自治区教育厅高校学生处处长王勇，以及来自全区23所重点中学的校领导与教师代表，天津大学建筑工程学院、未来技术学院及内蒙古招生组代表、内蒙古校友会代表等齐聚一堂，围绕大中衔接协同育人、创新人才早期培育等议题深入研讨、...",
       "url": "https://zs.tju.edu.cn/info/1117/4739.htm",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.tju.edu.cn/info/1117/4739.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 深化大中衔接，共育卓越人才——天津大学与浙江省部分重点中学人才培养座谈会在杭州举行 2026.05.17 5月15日，天津大学与浙江省部分重点中学人才培养座谈会在杭州举行。天津大学党委书记杨贤金出席座谈会并讲话。杭州市教育局党组成员、副局长蒋锋，天津大学党委常务副书记雷鸣分别致辞，天津大学新工科教育中心主任、加拿大工程院院士顾佩华作特邀报告。天津大学校友与基金事务处处长毛照昉，精仪学院党委书记刘琨，未来技术学院党委书记、浙江招生组组长张宇参会。此次座谈会由天津大学主办，天津大学浙江校友会、精密仪器与光电子工程学院承办。...",
       "url": "https://zs.tju.edu.cn/info/1117/4689.htm",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.tju.edu.cn/info/1117/4689.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "天津大学 天津大学党委常委、副校长李斌赴学军中学开展招生宣讲 2026.05.12 5月9日，天津大学党委常委、副校长李斌率队走进浙江省杭州学军中学，开展了一场以“成天大人 做天大事”为主题的招生宣讲活动，浙江招生组相关负责同志陪同参加。活动伊始，学军中学党委书记杨凯锋、校长方润根对李斌一行的到来表示热烈欢迎。双方围绕拔尖创新人才贯通培养、大中衔接协同育人等议题进行了深入交流。学军中学作为浙江省首批一级重点中学、全国知名高中，多年来向天津大学输送了大量优秀学子，两校在人才培养方面建立了深厚的合作情谊。...",
       "url": "https://zs.tju.edu.cn/info/1117/4709.htm",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.tju.edu.cn/info/1117/4709.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 招生计划",
       "url": "https://admission.scut.edu.cn/30820/list.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.scut.edu.cn/30820/list.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 报考指南",
       "url": "https://admission.scut.edu.cn/30822/list.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.scut.edu.cn/30822/list.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 招生政策",
       "url": "https://admission.scut.edu.cn/30762/list.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.scut.edu.cn/30762/list.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 招生章程",
       "url": "https://admission.scut.edu.cn/30824/list.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.scut.edu.cn/30824/list.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 各省咨询群联系方式",
       "url": "https://admission.scut.edu.cn/gszxqlxfs/list.htm",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.scut.edu.cn/gszxqlxfs/list.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 关于公示2026年综合评价入选资格考生名单的通知",
       "url": "https://admission.scut.edu.cn/2026/0622/c30767a630549/page.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.scut.edu.cn/2026/0622/c30767a630549/page.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 华南理工大学2026年依据澳门“四校联考”成绩招收澳门学生拟录取名单公示",
       "url": "https://admission.scut.edu.cn/2026/0616/c30767a630131/page.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.scut.edu.cn/2026/0616/c30767a630131/page.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 关于公布2026年江苏、山东、上海、浙江四省市综合评价入围面试名单的通知",
       "url": "https://admission.scut.edu.cn/2026/0613/c30767a629928/page.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.scut.edu.cn/2026/0613/c30767a629928/page.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 浙江丨华南理工大学2026年本科招生宣传行程",
       "url": "https://admission.scut.edu.cn/_redirect?siteId=348&columnId=30768&articleId=630827",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/OnVenOMNFKMdrc8MPvEEmA"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 吉林丨华南理工大学2026年本科招生宣传行程",
       "url": "https://admission.scut.edu.cn/_redirect?siteId=348&columnId=30768&articleId=630828",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/Y_TtWouM1CfFvMh6n1xMwg"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 辽宁丨华南理工大学2026年本科招生宣传行程",
       "url": "https://admission.scut.edu.cn/_redirect?siteId=348&columnId=30768&articleId=630826",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://mp.weixin.qq.com/s/4eekmP0nDrPPaNtcsEpD8A"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "华南理工大学 广东汕头丨华南理工大学2026年本科招生宣传行程",
       "url": "https://admission.scut.edu.cn/2026/0624/c30768a630759/page.htm",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://admission.scut.edu.cn/2026/0624/c30768a630759/page.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "厦门大学 招生宣传",
       "url": "https://zs.xmu.edu.cn/zsxc.htm",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.xmu.edu.cn/zsxc.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "厦门大学 线上直播安排",
       "url": "https://zs.xmu.edu.cn/zsxc/xszbap.htm",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.xmu.edu.cn/zsxc/xszbap.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "厦门大学 线下宣讲行程",
       "url": "https://zs.xmu.edu.cn/zsxc/xxxjxc.htm",
       "type": "activity",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.xmu.edu.cn/zsxc/xxxjxc.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "厦门大学 厦门大学2026年强基计划招生考试公告（四）：复试校测成绩公布",
       "url": "https://zs.xmu.edu.cn/info/1172/36722.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.xmu.edu.cn/info/1172/36722.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     },
     {
       "label": "厦门大学 关于2026级拟录取博士研究生确认录取通知书邮寄地址及下载电子调档函的公告",
       "url": "https://zs.xmu.edu.cn/info/1174/36702.htm",
       "type": "general",
-      "ok": true,
-      "status": 200,
-      "finalUrl": "https://zs.xmu.edu.cn/info/1174/36702.htm"
+      "ok": false,
+      "status": "ERROR",
+      "error": "fetch failed"
     }
   ]
 }

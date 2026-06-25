@@ -9,7 +9,7 @@ const generatedDir = path.join(rootDir, "data", "generated");
 
 const targetScore = 662;
 const targetRank = 1558;
-const nonOrdinaryPattern = /中外合作|中外合作办学|合作办学|国家专项|地方专项|高校专项|专项|强基|强基计划|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
+const nonOrdinaryPattern = /中外合作|中外合作办学|合作办学|国家专项|地方专项|高校专项|专项|强基|强基计划|卓越优才|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
 const medicalCategoryPattern = /医学|医工|医疗|临床|口腔|基础医学|预防医学|法医学|护理学?|药学|中药学|临床药学|医学影像学|医学影像技术|医学检验技术|麻醉学|儿科学|精神医学|眼视光医学|放射医学|公共卫生|卫生检验|中医学|针灸推拿|中西医临床|康复治疗|助产/;
 const focusPattern = /计算机|软件|人工智能|智能|电子|通信|信息|集成电路|微电子|自动化|电气|机器人|仪器|低空|航空|航天|无人|网安|网络安全|数据|智能制造|光电|测控|具身|未来技术|强工科/;
 
@@ -95,6 +95,11 @@ function planStatus(latestCheck, item) {
   return ordinaryOnlyText(school.statusText || "官网/计划目录人工核对");
 }
 
+function planLabel(item) {
+  if (!item.plan) return "-";
+  return `${item.planYear || 2026}计划 ${item.plan}`;
+}
+
 function schoolLink(item, school) {
   const url = school?.manualCheckUrl || item.schoolUrl || "";
   const name = escapeHtml(item.school);
@@ -116,8 +121,8 @@ function focusSchoolLabel(profile, schoolKey) {
 function focusSummary(schoolKey) {
   if (schoolKey === "hit") return "本部普通批平台最强，但2025陕西物理普通类最低约679，高于662约17分；只作极高冲刺和招生办重点咨询，本轮只按普通批口径判断。";
   if (schoolKey === "xjtu") return "本地C9强工科，662分段最现实的重点冲刺对象；优先核软件工程、智能感知与仪器、智慧能源、智能制造、自动化和电气信息类的计划数、分流、调剂。";
-  if (schoolKey === "hitwh") return "638-650覆盖当前核心区间，是强校异地校区冲稳核心；优先核卓越优才计划、校区安排、毕业证、转专业、保研就业。";
-  if (schoolKey === "hitsz") return "深圳校区平台和城市资源强，2025卓越优才计划最低662、均分665.5，贴着当前分数；只作高风险冲刺，不能当稳项。";
+  if (schoolKey === "hitwh") return "威海校区仍是重点关注对象；带卓越优才字样条目本版先屏蔽，需向招生办确认普通批可报后再单独加回。";
+  if (schoolKey === "hitsz") return "深圳校区平台和城市资源强，但当前贴线线索主要来自卓越优才；本版先从普通类主方案屏蔽，确认普通批可报后再加回。";
   return "按家庭重点院校顺序单独复核。";
 }
 
@@ -172,13 +177,13 @@ function buildDraftHtml({ profile, selection }) {
     * { box-sizing:border-box; }
     body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.55; }
     header { background:#fff; border-bottom:1px solid var(--line); }
-    .wrap { max-width:1280px; margin:0 auto; padding:22px; }
+    .wrap { max-width:none; margin:0 auto; padding:16px 18px; }
     h1 { margin:0 0 8px; font-size:28px; letter-spacing:0; }
     h2 { margin:0 0 12px; font-size:20px; letter-spacing:0; }
     h3 { margin:18px 0 8px; font-size:16px; letter-spacing:0; }
     section { margin:18px 0; padding:18px; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
-    table { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
-    th, td { padding:9px 8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+    table { width:100%; border-collapse:collapse; font-size:13px; background:#fff; }
+    th, td { padding:7px 6px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
     th { background:#f8fafc; color:#344054; }
     a { color:var(--blue); text-decoration:none; }
     a:hover { text-decoration:underline; }
@@ -234,7 +239,7 @@ function buildDraftHtml({ profile, selection }) {
             <td>${escapeHtml(item.major)}<div><span class="tag">${escapeHtml(item.recommendation || item.suggestion || "")}</span><span class="tag">${escapeHtml(item.sourceLevel || "")}源</span></div></td>
             <td>${escapeHtml(item.minScore ?? item.score ?? "-")}</td>
             <td>${escapeHtml(item.rank ?? "-")}</td>
-            <td>${escapeHtml(ordinaryOnlyText(item.plan2026))}</td>
+            <td>${escapeHtml(item.plan ? planLabel(item) : ordinaryOnlyText(item.plan2026))}</td>
             <td>${escapeHtml(item.matchedTrack || item.track || "-")}</td>
             <td>${escapeHtml(item.notes || item.matchReason || "核2026计划、专业组和分流规则")}</td>
           </tr>`).join("\n")}

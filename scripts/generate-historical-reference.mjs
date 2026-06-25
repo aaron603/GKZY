@@ -96,7 +96,7 @@ function historyRows(historical, baseline) {
   return baseline.items || [];
 }
 
-const nonOrdinaryAdmissionPattern = /中外合作|合作办学|国家专项|高校专项|专项|强基|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
+const nonOrdinaryAdmissionPattern = /中外合作|合作办学|国家专项|高校专项|专项|强基|卓越优才|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
 
 function isOrdinaryAdmission(item) {
   const text = [

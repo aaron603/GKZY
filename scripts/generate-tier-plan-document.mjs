@@ -18,7 +18,7 @@ const target211Keys = new Set([
 
 const focusMajorPattern = /计算机|软件|人工智能|智能|电子|通信|信息|集成电路|微电子|自动化|电气|机器人|仪器|低空|航空|航天|无人|网安|网络安全|数据|生物医学|生物信息|智能制造|光电|测控|具身/;
 const trendYears = ["2025", "2024", "2023"];
-const nonOrdinaryAdmissionPattern = /中外|合作办学|国家专项|高校专项|专项|强基|预科|高收费|港校|内地与港澳台/;
+const nonOrdinaryAdmissionPattern = /中外|合作办学|国家专项|高校专项|专项|强基|卓越优才|预科|高收费|港校|内地与港澳台/;
 const coverageKeyAliases = new Map([
   ["吉林大学", "jlu"]
 ]);

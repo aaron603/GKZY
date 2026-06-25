@@ -16,7 +16,7 @@ const focusOrder = new Map([
   ["hitsz", 4]
 ]);
 
-const nonOrdinaryPattern = /中外合作|中外合作办学|合作办学|国家专项|地方专项|高校专项|专项|强基|强基计划|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
+const nonOrdinaryPattern = /中外合作|中外合作办学|合作办学|国家专项|地方专项|高校专项|专项|强基|强基计划|卓越优才|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
 const medicalCategoryPattern = /医学|医工|医疗|临床|口腔|基础医学|预防医学|法医学|护理学?|药学|中药学|临床药学|医学影像学|医学影像技术|医学检验技术|麻醉学|儿科学|精神医学|眼视光医学|放射医学|公共卫生|卫生检验|中医学|针灸推拿|中西医临床|康复治疗|助产/;
 const goodMajorPattern = /计算机|软件|人工智能|智能|电子|通信|信息|集成电路|微电子|自动化|电气|机器人|仪器|低空|航空|航天|无人|网安|网络安全|数据|智能制造|光电|测控|具身|未来技术|强工科|智慧能源|精仪/;
 
@@ -82,10 +82,10 @@ function bandOrder(band) {
 
 function actionFor(row) {
   if (row.schoolKey === "hit") return "只留极高冲刺和招生办咨询，不能当稳项。";
-  if (row.schoolKey === "hitsz") return "贴线高风险冲刺，先问2026陕西计划和专业落点。";
+  if (row.schoolKey === "hitsz") return "当前主方案屏蔽卓越优才，只有招生办明确普通批可报后再单独加回。";
   if (row.schoolKey === "xjtu" && row.scoreGap >= -2) return "重点主攻，需确认专业组、软件学费、分流和调剂边界。";
   if (row.schoolKey === "xjtu") return "作为本地C9核心备选，优先问大类二次分流与目标专业名额。";
-  if (row.schoolKey === "hitwh") return "强校异地校区冲稳核心，重点核卓越优才、校区安排、毕业证和转专业。";
+  if (row.schoolKey === "hitwh") return "强校异地校区重点关注，先核普通批可报专业、校区安排、毕业证和转专业。";
   if (row.isCoverageAudit) return "仅作院校/方向待核线索，必须补官方分专业普通类录取线。";
   if (row.scoreGap >= -2) return "分数贴近，可作冲刺比较项。";
   if (row.scoreGap >= -10) return "分数接近，可作冲稳比较项。";
@@ -100,10 +100,10 @@ function focusConclusion(schoolKey, rows) {
     return "西交大是当前最值得深入拆解的本地C9。软件工程660、智能感知与仪器660贴线，智慧能源653、智能过程655、智能制造/航天航空649更有缓冲；核心风险在专业组、二次分流、调剂和软件收费。";
   }
   if (schoolKey === "hitwh") {
-    return "哈工大威海在638-650区间有多条普通类好专业，和662/1558匹配度高，是重点校里最适合做冲稳承接的对象。需逐项核卓越优才计划、校区培养安排、毕业证、转专业限制和保研就业。";
+    return rows.length ? "哈工大威海当前保留非卓越优才的普通类近分方向；带卓越优才字样的项目先按特殊类型风险屏蔽，只有招生办明确普通批可报后再单独加回。" : "哈工大威海原有近分条目多带卓越优才字样，本版先按特殊类型风险屏蔽；需要向招生办确认普通批可报专业后再补入。";
   }
   if (schoolKey === "hitsz") {
-    return "哈工大深圳2025卓越优才计划最低662，正贴当前分数，但均分665.5、最高672，属于高风险冲刺。平台和城市强，但不能承担稳项功能。";
+    return "哈工大深圳当前近分线索主要来自卓越优才计划，本版先从普通类主方案屏蔽；若招生办确认2026陕西普通批可报，再作为高风险冲刺单独加回。";
   }
   return rows.length ? rows[0].action : "暂无结论。";
 }
@@ -127,6 +127,7 @@ function decorateItem(item, school) {
     avgScore: number(item.avgScore),
     rank,
     plan: number(item.plan),
+    planYear: item.planYear || 2026,
     scoreGap,
     rankGap,
     band,
@@ -207,15 +208,21 @@ function rankGapText(row) {
   return row.rankGap > 0 ? `目标位次优${row.rankGap}` : `目标位次差${Math.abs(row.rankGap)}`;
 }
 
+function planText(row) {
+  return row.plan ? `${row.planYear || 2026}计划 ${row.plan}` : "-";
+}
+
 function renderRows(rows, options = {}) {
   const limit = options.limit || rows.length;
   return rows.slice(0, limit).map((row) => `<tr>
     <td><strong>${escapeHtml(row.school)}</strong><div class="muted">${escapeHtml([row.shortName, row.city, row.tier].filter(Boolean).join("｜"))}</div></td>
     <td>${escapeHtml(row.major)}<div>${renderTags([row.recommendation, row.sourceLevel ? `${row.sourceLevel}源` : "", row.isCoverageAudit ? "待核线索" : "普通类专业"])}</div></td>
     <td class="num">${escapeHtml(row.minScore)}</td>
+    <td class="num">${escapeHtml(row.avgScore ?? "-")}</td>
+    <td class="num">${escapeHtml(row.maxScore ?? "-")}</td>
     <td class="num">${escapeHtml(scoreGapText(row))}</td>
     <td class="num">${escapeHtml(row.rank ?? "-")}<div class="muted">${escapeHtml(rankGapText(row))}</div></td>
-    <td class="num">${escapeHtml(row.plan ?? "-")}</td>
+    <td class="num">${escapeHtml(planText(row))}</td>
     <td>${escapeHtml(row.track || "-")}</td>
     <td><strong>${escapeHtml(row.band)}</strong><div class="muted">${escapeHtml(row.action)}</div></td>
     <td>${escapeHtml(row.notes || "核2026计划、专业组和录取规则。")}</td>
@@ -238,13 +245,13 @@ function buildHtml(output) {
     * { box-sizing:border-box; }
     body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.55; }
     header { background:#fff; border-bottom:1px solid var(--line); }
-    .wrap { max-width:1360px; margin:0 auto; padding:22px; }
+    .wrap { max-width:none; margin:0 auto; padding:16px 18px; }
     h1 { margin:0 0 8px; font-size:28px; letter-spacing:0; }
     h2 { margin:0 0 12px; font-size:20px; letter-spacing:0; }
     h3 { margin:0 0 8px; font-size:16px; letter-spacing:0; }
     section { margin:18px 0; padding:18px; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
-    table { width:100%; min-width:1180px; border-collapse:collapse; font-size:14px; background:#fff; }
-    th, td { padding:9px 8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+    table { width:100%; min-width:1120px; border-collapse:collapse; font-size:13px; background:#fff; }
+    th, td { padding:7px 6px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
     th { background:#f8fafc; color:#344054; }
     .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:#fff; }
     .grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:10px; }
@@ -283,7 +290,8 @@ function buildHtml(output) {
   <main class="wrap">
     <section>
       <h2>硬规则</h2>
-      <p class="note">本页只纳入 2025 分数在 630-679 区间、且方向匹配计算机/软件/AI/电子信息/通信/自动化/电气/集成电路/智能制造/航空航天等工科主线的 985/C9 条目。已硬剔除医学类、医工/医疗、国家专项、地方专项、高校专项、强基计划、综合评价、中外合作办学、合作办学、高收费、预科和港校/港澳台合作项目。</p>
+      <p class="note">本页只纳入 2025 分数在 630-679 区间、且方向匹配计算机/软件/AI/电子信息/通信/自动化/电气/集成电路/智能制造/航空航天等工科主线的 985/C9 条目。已硬剔除医学类、医工/医疗、国家专项、地方专项、高校专项、强基计划、综合评价、中外合作办学、合作办学、卓越优才、高收费、预科和港校/港澳台合作项目。</p>
+      <p class="note">专家分是综合优先级，不是录取概率。它用于排序“是否值得优先研究”，不代表分越高越容易录取；录取风险仍以最低分、平均分、最高分、位次、2026计划和专业组规则为准。</p>
     </section>
 
     <section>
@@ -303,7 +311,7 @@ function buildHtml(output) {
       <h2>主推近分 985 好专业横向表</h2>
       <div class="table-wrap">
         <table>
-          <thead><tr><th style="width:170px">学校</th><th>专业/专业类</th><th style="width:80px">2025最低</th><th style="width:70px">分差</th><th style="width:120px">位次</th><th style="width:70px">计划</th><th style="width:150px">方向</th><th style="width:170px">梯度/动作</th><th>备注</th></tr></thead>
+          <thead><tr><th style="width:132px">学校</th><th style="width:220px">专业/专业类</th><th style="width:60px">最低</th><th style="width:60px">平均</th><th style="width:60px">最高</th><th style="width:56px">分差</th><th style="width:96px">位次</th><th style="width:84px">计划</th><th style="width:126px">方向</th><th style="width:144px">梯度/动作</th><th>备注</th></tr></thead>
           <tbody>${renderRows(output.rows.filter((row) => !row.isCoverageAudit), { limit: 70 })}</tbody>
         </table>
       </div>
@@ -313,7 +321,7 @@ function buildHtml(output) {
       <h2>${escapeHtml(group.band)} <span class="tag">${group.rows.length}条</span></h2>
       <div class="table-wrap">
         <table>
-          <thead><tr><th style="width:170px">学校</th><th>专业/专业类</th><th style="width:80px">2025最低</th><th style="width:70px">分差</th><th style="width:120px">位次</th><th style="width:70px">计划</th><th style="width:150px">方向</th><th style="width:170px">梯度/动作</th><th>备注</th></tr></thead>
+          <thead><tr><th style="width:132px">学校</th><th style="width:220px">专业/专业类</th><th style="width:60px">最低</th><th style="width:60px">平均</th><th style="width:60px">最高</th><th style="width:56px">分差</th><th style="width:96px">位次</th><th style="width:84px">计划</th><th style="width:126px">方向</th><th style="width:144px">梯度/动作</th><th>备注</th></tr></thead>
           <tbody>${renderRows(group.rows)}</tbody>
         </table>
       </div>
@@ -321,7 +329,7 @@ function buildHtml(output) {
 
     <section>
       <h2>执行建议</h2>
-      <p class="note"><span class="good">优先深挖：</span>西交大软件/智能感知/智慧能源/智能制造/智能过程，哈工大威海软件、AI先进技术、机器人与智能装备。<br><span class="warn">只作冲刺：</span>哈工大本部679、哈工大深圳662、东南计算机662、武大网安661、华科光电660等。<br>下一步咨询时，统一问：2026陕西普通批计划数、专业组内不可接受专业、调剂范围、二次分流规则、转专业比例、软件/卓越班学费和校区安排。</p>
+      <p class="note"><span class="good">优先深挖：</span>西交大软件/智能感知/智慧能源/智能制造/智能过程，以及非卓越优才的985近分工科方向。<br><span class="warn">先屏蔽：</span>所有卓越优才字样条目。若招生办明确属于2026陕西普通批可报，再作为单独冲刺项加回。<br>下一步咨询时，统一问：2026陕西普通批计划数、专业组内不可接受专业、调剂范围、二次分流规则、转专业比例、软件学费和校区安排。</p>
     </section>
   </main>
 </body>
@@ -345,7 +353,7 @@ async function main() {
     rules: {
       scoreRange: "630-679",
       include: "985/C9 且匹配计算机、软件、AI、电子信息、通信、自动化、电气、集成电路、智能制造、航空航天等工科主线",
-      exclude: "医学/医工/医疗、专项、强基、综评、中外合作/合作办学、高收费、预科、港校/港澳台合作"
+      exclude: "医学/医工/医疗、专项、强基、综评、中外合作/合作办学、卓越优才、高收费、预科、港校/港澳台合作"
     },
     summary: summaryOf(rows),
     focus: focusRows(rows),
