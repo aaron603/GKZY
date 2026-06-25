@@ -359,8 +359,8 @@
     }
     th {
       position: sticky;
-      top: var(--table-scroll-top);
-      z-index: 30;
+      top: 0;
+      z-index: 50;
       background: #f8fafc;
       color: #344054;
       font-weight: 800;
@@ -553,7 +553,6 @@
       .volunteer-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .status-grid { grid-template-columns: 1fr; }
       .sync-panel { grid-template-columns: 1fr; }
-      th { top: 0; }
     }
     @media (max-width: 720px) {
       :root { --table-scroll-top: 142px; }
