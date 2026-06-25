@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>陕西一分一段与位次对照</title>
+  <style>
+    :root { --bg:#f5f6f8; --panel:#fff; --ink:#172033; --muted:#637083; --line:#d8dee8; --blue:#1f5aa6; --green:#147a4a; --amber:#a85b00; --purple:#7c3aed; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.45; }
+    .wrap { width:100%; padding:22px; }
+    header, section { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; margin-bottom:16px; }
+    h1 { margin:0 0 8px; font-size:24px; letter-spacing:0; }
+    h2 { margin:0 0 12px; font-size:18px; letter-spacing:0; }
+    h3 { margin:0 0 8px; font-size:15px; letter-spacing:0; }
+    p { margin:0 0 8px; }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .subtle, .small { color:var(--muted); }
+    .small { font-size:12px; }
+    .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin-top:12px; }
+    .metric { border:1px solid var(--line); border-radius:8px; padding:12px; background:#fff; min-height:82px; }
+    .metric strong { display:block; font-size:24px; }
+    .notice { border-left:4px solid var(--amber); background:#fff7ed; padding:10px 12px; border-radius:6px; color:#7a3d00; }
+    .source-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; }
+    .source-card { border:1px solid var(--line); border-radius:8px; padding:12px; }
+    .chart-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .rank-chart { min-width:760px; width:100%; height:auto; display:block; }
+    .legend { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .legend span { display:inline-flex; align-items:center; gap:6px; font-size:13px; color:var(--muted); }
+    .swatch { width:12px; height:12px; border-radius:3px; display:inline-block; }
+    .table-scroll { overflow:auto; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    table { width:100%; min-width:980px; border-collapse:collapse; table-layout:fixed; font-size:13px; }
+    th, td { padding:8px 7px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:#f8fafc; color:#344054; font-weight:800; }
+    tr:last-child td { border-bottom:0; }
+    .num { text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .tag { display:inline-flex; align-items:center; border:1px solid var(--line); border-radius:999px; padding:2px 7px; font-size:12px; font-weight:800; white-space:nowrap; }
+    .tag.good { color:var(--green); background:#ecfdf3; border-color:#abefc6; }
+    .tag.warn { color:var(--amber); background:#fff7ed; border-color:#fed7aa; }
+    @media (max-width: 900px) { .wrap { padding:12px; } .metrics { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>陕西一分一段与位次对照</h1>
+      <p class="subtle">普通物理/理工口径｜数据来源：陕西招生考试信息网历年数据。生成时间：2026-06-25T04:32:04.766Z</p>
+      <div class="metrics">
+        <div class="metric"><strong>3</strong><span class="subtle">已入库年份</span></div>
+        <div class="metric"><strong>2025</strong><span class="subtle">最新可用年份</span></div>
+        <div class="metric"><strong>592</strong><span class="subtle">最新年份分数行</span></div>
+        <div class="metric"><strong>待发布</strong><span class="subtle">2026一分段</span></div>
+      </div>
+    </header>
+
+    <section>
+      <h2>使用口径</h2>
+      <p class="notice">2025 是新高考“普通物理”口径；2024、2023 是旧高考“理工”口径。出分后正式决策必须优先使用 2026 陕西普通物理类一分一段和真实省位次，往年表只用于估分和大小年对照。</p>
+    </section>
+
+    <section>
+      <h2>来源状态</h2>
+      <div class="source-grid">
+        <div class="source-card"><h3><a href="https://www.sneac.com/info/1088/18594.htm" target="_blank" rel="noreferrer">2025 物理类</a></h3><p><span class="tag good">已抓取</span> <span class="tag">物理类</span></p><p class="small">2025年陕西省普通高考一分段统计表（普通物理、艺术物理、体育物理）</p></div>
+<div class="source-card"><h3><a href="https://www.sneac.com/info/1088/18015.htm" target="_blank" rel="noreferrer">2024 理工类</a></h3><p><span class="tag good">已抓取</span> <span class="tag">理工类</span></p><p class="small">2024年陕西省普通高校招生一分段统计表（理工、艺理、体育）</p></div>
+<div class="source-card"><h3><a href="https://www.sneac.com/info/1088/17489.htm" target="_blank" rel="noreferrer">2023 理工类</a></h3><p><span class="tag good">已抓取</span> <span class="tag">理工类</span></p><p class="small">2023年陕西省普通高校招生考生成绩统计表（理工、艺理、体育）</p></div>
+        <div class="source-card"><h3>2026 陕西普通物理</h3><p><span class="tag warn">待发布</span></p><p class="small">每次运行更新脚本会检查陕西招生考试信息网历年数据页；发现 2026 一分段后自动纳入。</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>核心分数位次图</h2>
+      <div class="chart-wrap"><svg class="rank-chart" viewBox="0 0 920 320" role="img" aria-label="陕西一分一段位次对比图">
+    <rect x="0" y="0" width="920" height="320" rx="8" fill="#fff"/>
+    <line x1="72" y1="24.0" x2="896" y2="24.0" stroke="#e5e7eb"/><text x="12" y="28.0" font-size="12" fill="#637083">330</text><line x1="72" y1="148.0" x2="896" y2="148.0" stroke="#e5e7eb"/><text x="12" y="152.0" font-size="12" fill="#637083">5,852</text><line x1="72" y1="272.0" x2="896" y2="272.0" stroke="#e5e7eb"/><text x="12" y="276.0" font-size="12" fill="#637083">11,374</text>
+    <line x1="72.0" y1="24" x2="72.0" y2="272" stroke="#f1f5f9"/><text x="60.0" y="302" font-size="12" fill="#637083">600</text><line x1="175.0" y1="24" x2="175.0" y2="272" stroke="#f1f5f9"/><text x="163.0" y="302" font-size="12" fill="#637083">610</text><line x1="278.0" y1="24" x2="278.0" y2="272" stroke="#f1f5f9"/><text x="266.0" y="302" font-size="12" fill="#637083">620</text><line x1="381.0" y1="24" x2="381.0" y2="272" stroke="#f1f5f9"/><text x="369.0" y="302" font-size="12" fill="#637083">630</text><line x1="484.0" y1="24" x2="484.0" y2="272" stroke="#f1f5f9"/><text x="472.0" y="302" font-size="12" fill="#637083">640</text><line x1="587.0" y1="24" x2="587.0" y2="272" stroke="#f1f5f9"/><text x="575.0" y="302" font-size="12" fill="#637083">650</text><line x1="690.0" y1="24" x2="690.0" y2="272" stroke="#f1f5f9"/><text x="678.0" y="302" font-size="12" fill="#637083">660</text><line x1="793.0" y1="24" x2="793.0" y2="272" stroke="#f1f5f9"/><text x="781.0" y="302" font-size="12" fill="#637083">670</text><line x1="896.0" y1="24" x2="896.0" y2="272" stroke="#f1f5f9"/><text x="884.0" y="302" font-size="12" fill="#637083">680</text>
+    <text x="72" y="316" font-size="12" fill="#637083">分数</text>
+    <text x="12" y="18" font-size="12" fill="#637083">累计位次</text>
+    <polyline points="72.0,272.0 175.0,219.4 278.0,173.3 381.0,133.8 484.0,101.7 587.0,75.6 690.0,54.9 793.0,38.9 896.0,27.7" fill="none" stroke="#1f5aa6" stroke-width="3"/><circle cx="72.0" cy="272.0" r="4" fill="#1f5aa6"><title>2025 600分：11,374位</title></circle><circle cx="175.0" cy="219.4" r="4" fill="#1f5aa6"><title>2025 610分：9,032位</title></circle><circle cx="278.0" cy="173.3" r="4" fill="#1f5aa6"><title>2025 620分：6,979位</title></circle><circle cx="381.0" cy="133.8" r="4" fill="#1f5aa6"><title>2025 630分：5,221位</title></circle><circle cx="484.0" cy="101.7" r="4" fill="#1f5aa6"><title>2025 640分：3,788位</title></circle><circle cx="587.0" cy="75.6" r="4" fill="#1f5aa6"><title>2025 650分：2,629位</title></circle><circle cx="690.0" cy="54.9" r="4" fill="#1f5aa6"><title>2025 660分：1,704位</title></circle><circle cx="793.0" cy="38.9" r="4" fill="#1f5aa6"><title>2025 670分：992位</title></circle><circle cx="896.0" cy="27.7" r="4" fill="#1f5aa6"><title>2025 680分：496位</title></circle><polyline points="72.0,223.1 175.0,177.7 278.0,140.3 381.0,109.1 484.0,82.4 587.0,60.9 690.0,45.7 793.0,33.3 896.0,24.8" fill="none" stroke="#147a4a" stroke-width="3"/><circle cx="72.0" cy="223.1" r="4" fill="#147a4a"><title>2024 600分：9,198位</title></circle><circle cx="175.0" cy="177.7" r="4" fill="#147a4a"><title>2024 610分：7,176位</title></circle><circle cx="278.0" cy="140.3" r="4" fill="#147a4a"><title>2024 620分：5,510位</title></circle><circle cx="381.0" cy="109.1" r="4" fill="#147a4a"><title>2024 630分：4,119位</title></circle><circle cx="484.0" cy="82.4" r="4" fill="#147a4a"><title>2024 640分：2,929位</title></circle><circle cx="587.0" cy="60.9" r="4" fill="#147a4a"><title>2024 650分：1,973位</title></circle><circle cx="690.0" cy="45.7" r="4" fill="#147a4a"><title>2024 660分：1,298位</title></circle><circle cx="793.0" cy="33.3" r="4" fill="#147a4a"><title>2024 670分：743位</title></circle><circle cx="896.0" cy="24.8" r="4" fill="#147a4a"><title>2024 680分：364位</title></circle><polyline points="72.0,143.8 175.0,116.5 278.0,93.5 381.0,75.5 484.0,59.5 587.0,47.6 690.0,37.6 793.0,30.1 896.0,24.0" fill="none" stroke="#a85b00" stroke-width="3"/><circle cx="72.0" cy="143.8" r="4" fill="#a85b00"><title>2023 600分：5,663位</title></circle><circle cx="175.0" cy="116.5" r="4" fill="#a85b00"><title>2023 610分：4,450位</title></circle><circle cx="278.0" cy="93.5" r="4" fill="#a85b00"><title>2023 620分：3,427位</title></circle><circle cx="381.0" cy="75.5" r="4" fill="#a85b00"><title>2023 630分：2,622位</title></circle><circle cx="484.0" cy="59.5" r="4" fill="#a85b00"><title>2023 640分：1,912位</title></circle><circle cx="587.0" cy="47.6" r="4" fill="#a85b00"><title>2023 650分：1,380位</title></circle><circle cx="690.0" cy="37.6" r="4" fill="#a85b00"><title>2023 660分：934位</title></circle><circle cx="793.0" cy="30.1" r="4" fill="#a85b00"><title>2023 670分：601位</title></circle><circle cx="896.0" cy="24.0" r="4" fill="#a85b00"><title>2023 680分：330位</title></circle>
+  </svg></div>
+      <div class="legend">
+        <span><i class="swatch" style="background:#1f5aa6"></i>2025 物理类</span><span><i class="swatch" style="background:#147a4a"></i>2024 理工类</span><span><i class="swatch" style="background:#a85b00"></i>2023 理工类</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>关键锚点位次表</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th class="num" style="width:90px">分数</th><th class="num">2025人数</th><th class="num">2025累计位次</th><th class="num">2024人数</th><th class="num">2024累计位次</th><th class="num">2023人数</th><th class="num">2023累计位次</th></tr></thead>
+          <tbody><tr>
+    <td class="num">680</td>
+    <td class="num">37</td><td class="num">496</td><td class="num">28</td><td class="num">364</td><td class="num">18</td><td class="num">330</td>
+  </tr>
+<tr>
+    <td class="num">670</td>
+    <td class="num">61</td><td class="num">992</td><td class="num">43</td><td class="num">743</td><td class="num">29</td><td class="num">601</td>
+  </tr>
+<tr>
+    <td class="num">660</td>
+    <td class="num">79</td><td class="num">1,704</td><td class="num">59</td><td class="num">1,298</td><td class="num">36</td><td class="num">934</td>
+  </tr>
+<tr>
+    <td class="num">650</td>
+    <td class="num">79</td><td class="num">2,629</td><td class="num">79</td><td class="num">1,973</td><td class="num">55</td><td class="num">1,380</td>
+  </tr>
+<tr>
+    <td class="num">640</td>
+    <td class="num">117</td><td class="num">3,788</td><td class="num">107</td><td class="num">2,929</td><td class="num">47</td><td class="num">1,912</td>
+  </tr>
+<tr>
+    <td class="num">630</td>
+    <td class="num">173</td><td class="num">5,221</td><td class="num">137</td><td class="num">4,119</td><td class="num">83</td><td class="num">2,622</td>
+  </tr>
+<tr>
+    <td class="num">620</td>
+    <td class="num">190</td><td class="num">6,979</td><td class="num">158</td><td class="num">5,510</td><td class="num">75</td><td class="num">3,427</td>
+  </tr>
+<tr>
+    <td class="num">610</td>
+    <td class="num">224</td><td class="num">9,032</td><td class="num">180</td><td class="num">7,176</td><td class="num">108</td><td class="num">4,450</td>
+  </tr>
+<tr>
+    <td class="num">600</td>
+    <td class="num">232</td><td class="num">11,374</td><td class="num">223</td><td class="num">9,198</td><td class="num">132</td><td class="num">5,663</td>
+  </tr></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>580-700 分段详表</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th class="num" style="width:90px">分数</th><th class="num">2025人数</th><th class="num">2025累计位次</th><th class="num">2024人数</th><th class="num">2024累计位次</th><th class="num">2023人数</th><th class="num">2023累计位次</th></tr></thead>
+          <tbody><tr>
+    <td class="num">700</td>
+    <td class="num">12</td><td class="num">52</td><td class="num">9</td><td class="num">58</td><td class="num">7</td><td class="num">54</td>
+  </tr>
+<tr>
+    <td class="num">699</td>
+    <td class="num">7</td><td class="num">59</td><td class="num">11</td><td class="num">69</td><td class="num">8</td><td class="num">62</td>
+  </tr>
+<tr>
+    <td class="num">698</td>
+    <td class="num">13</td><td class="num">72</td><td class="num">9</td><td class="num">78</td><td class="num">8</td><td class="num">70</td>
+  </tr>
+<tr>
+    <td class="num">697</td>
+    <td class="num">10</td><td class="num">82</td><td class="num">16</td><td class="num">94</td><td class="num">10</td><td class="num">80</td>
+  </tr>
+<tr>
+    <td class="num">696</td>
+    <td class="num">10</td><td class="num">92</td><td class="num">9</td><td class="num">103</td><td class="num">9</td><td class="num">89</td>
+  </tr>
+<tr>
+    <td class="num">695</td>
+    <td class="num">12</td><td class="num">104</td><td class="num">11</td><td class="num">114</td><td class="num">11</td><td class="num">100</td>
+  </tr>
+<tr>
+    <td class="num">694</td>
+    <td class="num">15</td><td class="num">119</td><td class="num">10</td><td class="num">124</td><td class="num">11</td><td class="num">111</td>
+  </tr>
+<tr>
+    <td class="num">693</td>
+    <td class="num">14</td><td class="num">133</td><td class="num">9</td><td class="num">133</td><td class="num">11</td><td class="num">122</td>
+  </tr>
+<tr>
+    <td class="num">692</td>
+    <td class="num">16</td><td class="num">149</td><td class="num">5</td><td class="num">138</td><td class="num">13</td><td class="num">135</td>
+  </tr>
+<tr>
+    <td class="num">691</td>
+    <td class="num">18</td><td class="num">167</td><td class="num">10</td><td class="num">148</td><td class="num">16</td><td class="num">151</td>
+  </tr>
+<tr>
+    <td class="num">690</td>
+    <td class="num">26</td><td class="num">193</td><td class="num">11</td><td class="num">159</td><td class="num">12</td><td class="num">163</td>
+  </tr>
+<tr>
+    <td class="num">689</td>
+    <td class="num">13</td><td class="num">206</td><td class="num">14</td><td class="num">173</td><td class="num">11</td><td class="num">174</td>
+  </tr>
+<tr>
+    <td class="num">688</td>
+    <td class="num">22</td><td class="num">228</td><td class="num">22</td><td class="num">195</td><td class="num">12</td><td class="num">186</td>
+  </tr>
+<tr>
+    <td class="num">687</td>
+    <td class="num">28</td><td class="num">256</td><td class="num">14</td><td class="num">209</td><td class="num">16</td><td class="num">202</td>
+  </tr>
+<tr>
+    <td class="num">686</td>
+    <td class="num">26</td><td class="num">282</td><td class="num">20</td><td class="num">229</td><td class="num">14</td><td class="num">216</td>
+  </tr>
+<tr>
+    <td class="num">685</td>
+    <td class="num">41</td><td class="num">323</td><td class="num">23</td><td class="num">252</td><td class="num">24</td><td class="num">240</td>
+  </tr>
+<tr>
+    <td class="num">684</td>
+    <td class="num">37</td><td class="num">360</td><td class="num">18</td><td class="num">270</td><td class="num">15</td><td class="num">255</td>
+  </tr>
+<tr>
+    <td class="num">683</td>
+    <td class="num">31</td><td class="num">391</td><td class="num">24</td><td class="num">294</td><td class="num">16</td><td class="num">271</td>
+  </tr>
+<tr>
+    <td class="num">682</td>
+    <td class="num">38</td><td class="num">429</td><td class="num">19</td><td class="num">313</td><td class="num">15</td><td class="num">286</td>
+  </tr>
+<tr>
+    <td class="num">681</td>
+    <td class="num">30</td><td class="num">459</td><td class="num">23</td><td class="num">336</td><td class="num">26</td><td class="num">312</td>
+  </tr>
+<tr>
+    <td class="num">680</td>
+    <td class="num">37</td><td class="num">496</td><td class="num">28</td><td class="num">364</td><td class="num">18</td><td class="num">330</td>
+  </tr>
+<tr>
+    <td class="num">679</td>
+    <td class="num">39</td><td class="num">535</td><td class="num">34</td><td class="num">398</td><td class="num">26</td><td class="num">356</td>
+  </tr>
+<tr>
+    <td class="num">678</td>
+    <td class="num">48</td><td class="num">583</td><td class="num">28</td><td class="num">426</td><td class="num">22</td><td class="num">378</td>
+  </tr>
+<tr>
+    <td class="num">677</td>
+    <td class="num">35</td><td class="num">618</td><td class="num">41</td><td class="num">467</td><td class="num">30</td><td class="num">408</td>
+  </tr>
+<tr>
+    <td class="num">676</td>
+    <td class="num">53</td><td class="num">671</td><td class="num">32</td><td class="num">499</td><td class="num">23</td><td class="num">431</td>
+  </tr>
+<tr>
+    <td class="num">675</td>
+    <td class="num">36</td><td class="num">707</td><td class="num">37</td><td class="num">536</td><td class="num">28</td><td class="num">459</td>
+  </tr>
+<tr>
+    <td class="num">674</td>
+    <td class="num">63</td><td class="num">770</td><td class="num">56</td><td class="num">592</td><td class="num">24</td><td class="num">483</td>
+  </tr>
+<tr>
+    <td class="num">673</td>
+    <td class="num">57</td><td class="num">827</td><td class="num">36</td><td class="num">628</td><td class="num">28</td><td class="num">511</td>
+  </tr>
+<tr>
+    <td class="num">672</td>
+    <td class="num">54</td><td class="num">881</td><td class="num">37</td><td class="num">665</td><td class="num">29</td><td class="num">540</td>
+  </tr>
+<tr>
+    <td class="num">671</td>
+    <td class="num">50</td><td class="num">931</td><td class="num">35</td><td class="num">700</td><td class="num">32</td><td class="num">572</td>
+  </tr>
+<tr>
+    <td class="num">670</td>
+    <td class="num">61</td><td class="num">992</td><td class="num">43</td><td class="num">743</td><td class="num">29</td><td class="num">601</td>
+  </tr>
+<tr>
+    <td class="num">669</td>
+    <td class="num">50</td><td class="num">1,042</td><td class="num">55</td><td class="num">798</td><td class="num">22</td><td class="num">623</td>
+  </tr>
+<tr>
+    <td class="num">668</td>
+    <td class="num">60</td><td class="num">1,102</td><td class="num">54</td><td class="num">852</td><td class="num">35</td><td class="num">658</td>
+  </tr>
+<tr>
+    <td class="num">667</td>
+    <td class="num">62</td><td class="num">1,164</td><td class="num">53</td><td class="num">905</td><td class="num">31</td><td class="num">689</td>
+  </tr>
+<tr>
+    <td class="num">666</td>
+    <td class="num">75</td><td class="num">1,239</td><td class="num">52</td><td class="num">957</td><td class="num">31</td><td class="num">720</td>
+  </tr>
+<tr>
+    <td class="num">665</td>
+    <td class="num">71</td><td class="num">1,310</td><td class="num">45</td><td class="num">1,002</td><td class="num">34</td><td class="num">754</td>
+  </tr>
+<tr>
+    <td class="num">664</td>
+    <td class="num">68</td><td class="num">1,378</td><td class="num">60</td><td class="num">1,062</td><td class="num">35</td><td class="num">789</td>
+  </tr>
+<tr>
+    <td class="num">663</td>
+    <td class="num">77</td><td class="num">1,455</td><td class="num">49</td><td class="num">1,111</td><td class="num">36</td><td class="num">825</td>
+  </tr>
+<tr>
+    <td class="num">662</td>
+    <td class="num">88</td><td class="num">1,543</td><td class="num">70</td><td class="num">1,181</td><td class="num">36</td><td class="num">861</td>
+  </tr>
+<tr>
+    <td class="num">661</td>
+    <td class="num">82</td><td class="num">1,625</td><td class="num">58</td><td class="num">1,239</td><td class="num">37</td><td class="num">898</td>
+  </tr>
+<tr>
+    <td class="num">660</td>
+    <td class="num">79</td><td class="num">1,704</td><td class="num">59</td><td class="num">1,298</td><td class="num">36</td><td class="num">934</td>
+  </tr>
+<tr>
+    <td class="num">659</td>
+    <td class="num">89</td><td class="num">1,793</td><td class="num">67</td><td class="num">1,365</td><td class="num">42</td><td class="num">976</td>
+  </tr>
+<tr>
+    <td class="num">658</td>
+    <td class="num">80</td><td class="num">1,873</td><td class="num">57</td><td class="num">1,422</td><td class="num">42</td><td class="num">1,018</td>
+  </tr>
+<tr>
+    <td class="num">657</td>
+    <td class="num">80</td><td class="num">1,953</td><td class="num">54</td><td class="num">1,476</td><td class="num">34</td><td class="num">1,052</td>
+  </tr>
+<tr>
+    <td class="num">656</td>
+    <td class="num">97</td><td class="num">2,050</td><td class="num">57</td><td class="num">1,533</td><td class="num">45</td><td class="num">1,097</td>
+  </tr>
+<tr>
+    <td class="num">655</td>
+    <td class="num">94</td><td class="num">2,144</td><td class="num">70</td><td class="num">1,603</td><td class="num">48</td><td class="num">1,145</td>
+  </tr>
+<tr>
+    <td class="num">654</td>
+    <td class="num">101</td><td class="num">2,245</td><td class="num">71</td><td class="num">1,674</td><td class="num">51</td><td class="num">1,196</td>
+  </tr>
+<tr>
+    <td class="num">653</td>
+    <td class="num">105</td><td class="num">2,350</td><td class="num">77</td><td class="num">1,751</td><td class="num">45</td><td class="num">1,241</td>
+  </tr>
+<tr>
+    <td class="num">652</td>
+    <td class="num">97</td><td class="num">2,447</td><td class="num">74</td><td class="num">1,825</td><td class="num">47</td><td class="num">1,288</td>
+  </tr>
+<tr>
+    <td class="num">651</td>
+    <td class="num">103</td><td class="num">2,550</td><td class="num">69</td><td class="num">1,894</td><td class="num">37</td><td class="num">1,325</td>
+  </tr>
+<tr>
+    <td class="num">650</td>
+    <td class="num">79</td><td class="num">2,629</td><td class="num">79</td><td class="num">1,973</td><td class="num">55</td><td class="num">1,380</td>
+  </tr>
+<tr>
+    <td class="num">649</td>
+    <td class="num">108</td><td class="num">2,737</td><td class="num">82</td><td class="num">2,055</td><td class="num">43</td><td class="num">1,423</td>
+  </tr>
+<tr>
+    <td class="num">648</td>
+    <td class="num">92</td><td class="num">2,829</td><td class="num">79</td><td class="num">2,134</td><td class="num">53</td><td class="num">1,476</td>
+  </tr>
+<tr>
+    <td class="num">647</td>
+    <td class="num">116</td><td class="num">2,945</td><td class="num">99</td><td class="num">2,233</td><td class="num">48</td><td class="num">1,524</td>
+  </tr>
+<tr>
+    <td class="num">646</td>
+    <td class="num">102</td><td class="num">3,047</td><td class="num">78</td><td class="num">2,311</td><td class="num">50</td><td class="num">1,574</td>
+  </tr>
+<tr>
+    <td class="num">645</td>
+    <td class="num">114</td><td class="num">3,161</td><td class="num">102</td><td class="num">2,413</td><td class="num">49</td><td class="num">1,623</td>
+  </tr>
+<tr>
+    <td class="num">644</td>
+    <td class="num">130</td><td class="num">3,291</td><td class="num">95</td><td class="num">2,508</td><td class="num">49</td><td class="num">1,672</td>
+  </tr>
+<tr>
+    <td class="num">643</td>
+    <td class="num">126</td><td class="num">3,417</td><td class="num">93</td><td class="num">2,601</td><td class="num">57</td><td class="num">1,729</td>
+  </tr>
+<tr>
+    <td class="num">642</td>
+    <td class="num">120</td><td class="num">3,537</td><td class="num">112</td><td class="num">2,713</td><td class="num">71</td><td class="num">1,800</td>
+  </tr>
+<tr>
+    <td class="num">641</td>
+    <td class="num">134</td><td class="num">3,671</td><td class="num">109</td><td class="num">2,822</td><td class="num">65</td><td class="num">1,865</td>
+  </tr>
+<tr>
+    <td class="num">640</td>
+    <td class="num">117</td><td class="num">3,788</td><td class="num">107</td><td class="num">2,929</td><td class="num">47</td><td class="num">1,912</td>
+  </tr>
+<tr>
+    <td class="num">639</td>
+    <td class="num">100</td><td class="num">3,888</td><td class="num">112</td><td class="num">3,041</td><td class="num">65</td><td class="num">1,977</td>
+  </tr>
+<tr>
+    <td class="num">638</td>
+    <td class="num">130</td><td class="num">4,018</td><td class="num">95</td><td class="num">3,136</td><td class="num">56</td><td class="num">2,033</td>
+  </tr>
+<tr>
+    <td class="num">637</td>
+    <td class="num">128</td><td class="num">4,146</td><td class="num">114</td><td class="num">3,250</td><td class="num">60</td><td class="num">2,093</td>
+  </tr>
+<tr>
+    <td class="num">636</td>
+    <td class="num">146</td><td class="num">4,292</td><td class="num">122</td><td class="num">3,372</td><td class="num">74</td><td class="num">2,167</td>
+  </tr>
+<tr>
+    <td class="num">635</td>
+    <td class="num">149</td><td class="num">4,441</td><td class="num">113</td><td class="num">3,485</td><td class="num">82</td><td class="num">2,249</td>
+  </tr>
+<tr>
+    <td class="num">634</td>
+    <td class="num">155</td><td class="num">4,596</td><td class="num">120</td><td class="num">3,605</td><td class="num">59</td><td class="num">2,308</td>
+  </tr>
+<tr>
+    <td class="num">633</td>
+    <td class="num">143</td><td class="num">4,739</td><td class="num">124</td><td class="num">3,729</td><td class="num">79</td><td class="num">2,387</td>
+  </tr>
+<tr>
+    <td class="num">632</td>
+    <td class="num">172</td><td class="num">4,911</td><td class="num">118</td><td class="num">3,847</td><td class="num">68</td><td class="num">2,455</td>
+  </tr>
+<tr>
+    <td class="num">631</td>
+    <td class="num">137</td><td class="num">5,048</td><td class="num">135</td><td class="num">3,982</td><td class="num">84</td><td class="num">2,539</td>
+  </tr>
+<tr>
+    <td class="num">630</td>
+    <td class="num">173</td><td class="num">5,221</td><td class="num">137</td><td class="num">4,119</td><td class="num">83</td><td class="num">2,622</td>
+  </tr>
+<tr>
+    <td class="num">629</td>
+    <td class="num">147</td><td class="num">5,368</td><td class="num">125</td><td class="num">4,244</td><td class="num">88</td><td class="num">2,710</td>
+  </tr>
+<tr>
+    <td class="num">628</td>
+    <td class="num">167</td><td class="num">5,535</td><td class="num">147</td><td class="num">4,391</td><td class="num">78</td><td class="num">2,788</td>
+  </tr>
+<tr>
+    <td class="num">627</td>
+    <td class="num">158</td><td class="num">5,693</td><td class="num">151</td><td class="num">4,542</td><td class="num">77</td><td class="num">2,865</td>
+  </tr>
+<tr>
+    <td class="num">626</td>
+    <td class="num">191</td><td class="num">5,884</td><td class="num">135</td><td class="num">4,677</td><td class="num">73</td><td class="num">2,938</td>
+  </tr>
+<tr>
+    <td class="num">625</td>
+    <td class="num">177</td><td class="num">6,061</td><td class="num">117</td><td class="num">4,794</td><td class="num">84</td><td class="num">3,022</td>
+  </tr>
+<tr>
+    <td class="num">624</td>
+    <td class="num">170</td><td class="num">6,231</td><td class="num">140</td><td class="num">4,934</td><td class="num">83</td><td class="num">3,105</td>
+  </tr>
+<tr>
+    <td class="num">623</td>
+    <td class="num">170</td><td class="num">6,401</td><td class="num">140</td><td class="num">5,074</td><td class="num">86</td><td class="num">3,191</td>
+  </tr>
+<tr>
+    <td class="num">622</td>
+    <td class="num">197</td><td class="num">6,598</td><td class="num">118</td><td class="num">5,192</td><td class="num">70</td><td class="num">3,261</td>
+  </tr>
+<tr>
+    <td class="num">621</td>
+    <td class="num">191</td><td class="num">6,789</td><td class="num">160</td><td class="num">5,352</td><td class="num">91</td><td class="num">3,352</td>
+  </tr>
+<tr>
+    <td class="num">620</td>
+    <td class="num">190</td><td class="num">6,979</td><td class="num">158</td><td class="num">5,510</td><td class="num">75</td><td class="num">3,427</td>
+  </tr>
+<tr>
+    <td class="num">619</td>
+    <td class="num">190</td><td class="num">7,169</td><td class="num">152</td><td class="num">5,662</td><td class="num">105</td><td class="num">3,532</td>
+  </tr>
+<tr>
+    <td class="num">618</td>
+    <td class="num">195</td><td class="num">7,364</td><td class="num">174</td><td class="num">5,836</td><td class="num">95</td><td class="num">3,627</td>
+  </tr>
+<tr>
+    <td class="num">617</td>
+    <td class="num">197</td><td class="num">7,561</td><td class="num">145</td><td class="num">5,981</td><td class="num">93</td><td class="num">3,720</td>
+  </tr>
+<tr>
+    <td class="num">616</td>
+    <td class="num">213</td><td class="num">7,774</td><td class="num">153</td><td class="num">6,134</td><td class="num">100</td><td class="num">3,820</td>
+  </tr>
+<tr>
+    <td class="num">615</td>
+    <td class="num">216</td><td class="num">7,990</td><td class="num">157</td><td class="num">6,291</td><td class="num">116</td><td class="num">3,936</td>
+  </tr>
+<tr>
+    <td class="num">614</td>
+    <td class="num">182</td><td class="num">8,172</td><td class="num">172</td><td class="num">6,463</td><td class="num">97</td><td class="num">4,033</td>
+  </tr>
+<tr>
+    <td class="num">613</td>
+    <td class="num">218</td><td class="num">8,390</td><td class="num">173</td><td class="num">6,636</td><td class="num">104</td><td class="num">4,137</td>
+  </tr>
+<tr>
+    <td class="num">612</td>
+    <td class="num">192</td><td class="num">8,582</td><td class="num">163</td><td class="num">6,799</td><td class="num">100</td><td class="num">4,237</td>
+  </tr>
+<tr>
+    <td class="num">611</td>
+    <td class="num">226</td><td class="num">8,808</td><td class="num">197</td><td class="num">6,996</td><td class="num">105</td><td class="num">4,342</td>
+  </tr>
+<tr>
+    <td class="num">610</td>
+    <td class="num">224</td><td class="num">9,032</td><td class="num">180</td><td class="num">7,176</td><td class="num">108</td><td class="num">4,450</td>
+  </tr>
+<tr>
+    <td class="num">609</td>
+    <td class="num">205</td><td class="num">9,237</td><td class="num">184</td><td class="num">7,360</td><td class="num">95</td><td class="num">4,545</td>
+  </tr>
+<tr>
+    <td class="num">608</td>
+    <td class="num">256</td><td class="num">9,493</td><td class="num">224</td><td class="num">7,584</td><td class="num">123</td><td class="num">4,668</td>
+  </tr>
+<tr>
+    <td class="num">607</td>
+    <td class="num">223</td><td class="num">9,716</td><td class="num">174</td><td class="num">7,758</td><td class="num">136</td><td class="num">4,804</td>
+  </tr>
+<tr>
+    <td class="num">606</td>
+    <td class="num">235</td><td class="num">9,951</td><td class="num">183</td><td class="num">7,941</td><td class="num">126</td><td class="num">4,930</td>
+  </tr>
+<tr>
+    <td class="num">605</td>
+    <td class="num">230</td><td class="num">10,181</td><td class="num">203</td><td class="num">8,144</td><td class="num">118</td><td class="num">5,048</td>
+  </tr>
+<tr>
+    <td class="num">604</td>
+    <td class="num">234</td><td class="num">10,415</td><td class="num">212</td><td class="num">8,356</td><td class="num">114</td><td class="num">5,162</td>
+  </tr>
+<tr>
+    <td class="num">603</td>
+    <td class="num">227</td><td class="num">10,642</td><td class="num">217</td><td class="num">8,573</td><td class="num">125</td><td class="num">5,287</td>
+  </tr>
+<tr>
+    <td class="num">602</td>
+    <td class="num">269</td><td class="num">10,911</td><td class="num">218</td><td class="num">8,791</td><td class="num">112</td><td class="num">5,399</td>
+  </tr>
+<tr>
+    <td class="num">601</td>
+    <td class="num">231</td><td class="num">11,142</td><td class="num">184</td><td class="num">8,975</td><td class="num">132</td><td class="num">5,531</td>
+  </tr>
+<tr>
+    <td class="num">600</td>
+    <td class="num">232</td><td class="num">11,374</td><td class="num">223</td><td class="num">9,198</td><td class="num">132</td><td class="num">5,663</td>
+  </tr>
+<tr>
+    <td class="num">599</td>
+    <td class="num">271</td><td class="num">11,645</td><td class="num">195</td><td class="num">9,393</td><td class="num">135</td><td class="num">5,798</td>
+  </tr>
+<tr>
+    <td class="num">598</td>
+    <td class="num">240</td><td class="num">11,885</td><td class="num">225</td><td class="num">9,618</td><td class="num">116</td><td class="num">5,914</td>
+  </tr>
+<tr>
+    <td class="num">597</td>
+    <td class="num">257</td><td class="num">12,142</td><td class="num">221</td><td class="num">9,839</td><td class="num">132</td><td class="num">6,046</td>
+  </tr>
+<tr>
+    <td class="num">596</td>
+    <td class="num">255</td><td class="num">12,397</td><td class="num">197</td><td class="num">10,036</td><td class="num">145</td><td class="num">6,191</td>
+  </tr>
+<tr>
+    <td class="num">595</td>
+    <td class="num">261</td><td class="num">12,658</td><td class="num">207</td><td class="num">10,243</td><td class="num">139</td><td class="num">6,330</td>
+  </tr>
+<tr>
+    <td class="num">594</td>
+    <td class="num">252</td><td class="num">12,910</td><td class="num">226</td><td class="num">10,469</td><td class="num">138</td><td class="num">6,468</td>
+  </tr>
+<tr>
+    <td class="num">593</td>
+    <td class="num">261</td><td class="num">13,171</td><td class="num">234</td><td class="num">10,703</td><td class="num">143</td><td class="num">6,611</td>
+  </tr>
+<tr>
+    <td class="num">592</td>
+    <td class="num">268</td><td class="num">13,439</td><td class="num">206</td><td class="num">10,909</td><td class="num">161</td><td class="num">6,772</td>
+  </tr>
+<tr>
+    <td class="num">591</td>
+    <td class="num">291</td><td class="num">13,730</td><td class="num">207</td><td class="num">11,116</td><td class="num">161</td><td class="num">6,933</td>
+  </tr>
+<tr>
+    <td class="num">590</td>
+    <td class="num">289</td><td class="num">14,019</td><td class="num">243</td><td class="num">11,359</td><td class="num">151</td><td class="num">7,084</td>
+  </tr>
+<tr>
+    <td class="num">589</td>
+    <td class="num">301</td><td class="num">14,320</td><td class="num">209</td><td class="num">11,568</td><td class="num">142</td><td class="num">7,226</td>
+  </tr>
+<tr>
+    <td class="num">588</td>
+    <td class="num">306</td><td class="num">14,626</td><td class="num">231</td><td class="num">11,799</td><td class="num">142</td><td class="num">7,368</td>
+  </tr>
+<tr>
+    <td class="num">587</td>
+    <td class="num">276</td><td class="num">14,902</td><td class="num">214</td><td class="num">12,013</td><td class="num">173</td><td class="num">7,541</td>
+  </tr>
+<tr>
+    <td class="num">586</td>
+    <td class="num">322</td><td class="num">15,224</td><td class="num">217</td><td class="num">12,230</td><td class="num">153</td><td class="num">7,694</td>
+  </tr>
+<tr>
+    <td class="num">585</td>
+    <td class="num">331</td><td class="num">15,555</td><td class="num">241</td><td class="num">12,471</td><td class="num">152</td><td class="num">7,846</td>
+  </tr>
+<tr>
+    <td class="num">584</td>
+    <td class="num">298</td><td class="num">15,853</td><td class="num">260</td><td class="num">12,731</td><td class="num">168</td><td class="num">8,014</td>
+  </tr>
+<tr>
+    <td class="num">583</td>
+    <td class="num">330</td><td class="num">16,183</td><td class="num">248</td><td class="num">12,979</td><td class="num">184</td><td class="num">8,198</td>
+  </tr>
+<tr>
+    <td class="num">582</td>
+    <td class="num">311</td><td class="num">16,494</td><td class="num">230</td><td class="num">13,209</td><td class="num">166</td><td class="num">8,364</td>
+  </tr>
+<tr>
+    <td class="num">581</td>
+    <td class="num">318</td><td class="num">16,812</td><td class="num">271</td><td class="num">13,480</td><td class="num">182</td><td class="num">8,546</td>
+  </tr>
+<tr>
+    <td class="num">580</td>
+    <td class="num">317</td><td class="num">17,129</td><td class="num">224</td><td class="num">13,704</td><td class="num">167</td><td class="num">8,713</td>
+  </tr></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

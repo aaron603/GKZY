@@ -1,0 +1,1747 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2025计划与实际录取人数审计</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d8dee8;
+      --blue: #1f5aa6;
+      --green: #147a4a;
+      --amber: #a85b00;
+      --red: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      line-height: 1.55;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1 { margin: 0 0 8px; font-size: 28px; letter-spacing: 0; }
+    h2 { margin: 0 0 12px; font-size: 20px; letter-spacing: 0; }
+    h3 { margin: 16px 0 8px; font-size: 16px; letter-spacing: 0; }
+    p { margin: 0 0 10px; }
+    section {
+      margin: 18px 0;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+    }
+    .subtle { color: var(--muted); }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 12px;
+      min-height: 84px;
+    }
+    .metric strong { display: block; font-size: 24px; }
+    .note {
+      padding: 12px;
+      border-left: 4px solid var(--blue);
+      background: #f1f6ff;
+      border-radius: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      table-layout: fixed;
+    }
+    th, td {
+      padding: 9px 8px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+    th {
+      background: #f8fafc;
+      color: #344054;
+      font-weight: 800;
+    }
+    tr:last-child td { border-bottom: 0; }
+    a { color: var(--blue); }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #344054;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: normal;
+    }
+    .tag.good { background: #e8f5ee; color: var(--green); }
+    .tag.warn { background: #fff4e5; color: var(--amber); }
+    .tag.bad { background: #fee4e2; color: var(--red); }
+    .grid-two {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 980px) {
+      .metrics, .grid-two { grid-template-columns: 1fr; }
+      .wrap { padding: 16px; }
+      table { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>2025计划与实际录取人数审计</h1>
+      <p class="subtle">陕西物理类候选池｜生成时间：2026/6/25 12:22:51</p>
+      <div class="metrics">
+        <div class="metric"><strong>99</strong><span class="subtle">候选专业项</span></div>
+        <div class="metric"><strong>17</strong><span class="subtle">已有2025计划数</span></div>
+        <div class="metric"><strong>82</strong><span class="subtle">计划待核</span></div>
+        <div class="metric"><strong>0</strong><span class="subtle">已有实录人数</span></div>
+        <div class="metric"><strong>99</strong><span class="subtle">实录待核</span></div>
+        <div class="metric"><strong>17</strong><span class="subtle">A源计划数</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>结论口径</h2>
+      <p class="note">计划招生人数通常能从省级招生计划、学校分省分专业计划或学校招生查询系统获取；“最后实际录取人数”不是所有学校都会按省份+科类+专业公开。当前项目不能把计划数当作实录人数，后续必须逐校标记来源和证据。</p>
+      <div class="grid-two">
+        <div>
+          <h3>哪些数据可自动化</h3>
+          <table>
+            <thead><tr><th>字段</th><th>可得性</th><th>用途</th></tr></thead>
+            <tbody>
+              <tr><td>2025分省分专业计划数</td><td><span class="tag good">多数可得</span></td><td>判断大小年风险、小计划波动和2026扩招/缩招。</td></tr>
+              <tr><td>2025最低分/平均分/最高分/最低位次</td><td><span class="tag good">部分可得</span></td><td>最低分建立冲稳保基线，平均分观察真实热度，最高分观察分布上沿。</td></tr>
+              <tr><td>2025实际录取人数</td><td><span class="tag warn">部分可得</span></td><td>用于核计划是否变化、是否存在追加计划或录取异常。</td></tr>
+              <tr><td>专业组代码/专业代码</td><td><span class="tag warn">等2026计划</span></td><td>正式志愿表必需字段。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>为什么不能默认实录=计划</h3>
+          <table>
+            <thead><tr><th>原因</th><th>影响</th></tr></thead>
+            <tbody>
+              <tr><td>学校预留计划、追加计划</td><td>实录可能多于原计划。</td></tr>
+              <tr><td>同分投档、调剂、退档</td><td>专业实录人数可能与计划数有小幅偏差。</td></tr>
+              <tr><td>大类招生和入校分流</td><td>录取专业类人数不等于未来目标专业人数。</td></tr>
+              <tr><td>第三方页面字段不完整</td><td>只给最低分/位次时，不能反推出最高分、平均分或录取人数。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>逐专业审计表</h2>
+      <table>
+        <thead>
+          <tr>
+            <th style="width:48px">序</th>
+            <th style="width:128px">学校</th>
+            <th>专业名称</th>
+            <th style="width:72px">最低分</th>
+            <th style="width:72px">平均分</th>
+            <th style="width:72px">最高分</th>
+            <th style="width:88px">位次</th>
+            <th style="width:80px">计划</th>
+            <th style="width:80px">实录</th>
+            <th style="width:80px">差额</th>
+            <th style="width:130px">状态</th>
+            <th style="width:96px">来源</th>
+            <th>下一步</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>1</td>
+              <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+              <td>软件工程</td>
+              <td>660</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,626</td>
+              <td>32</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>2</td>
+              <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+              <td>工科试验班（医学电子信息）</td>
+              <td>660</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,626</td>
+              <td>5</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>3</td>
+              <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+              <td>工科试验班（智能感知与仪器）</td>
+              <td>660</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,626</td>
+              <td>6</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>4</td>
+              <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+              <td>工科试验班（智能过程与装备国卓班）</td>
+              <td>655</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>5</td>
+              <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+              <td>工科试验班（智慧能源类）</td>
+              <td>653</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,246</td>
+              <td>229</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>6</td>
+              <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+              <td>工科试验班（航天航空类）</td>
+              <td>649</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,630</td>
+              <td>32</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>7</td>
+              <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+              <td>工科试验班（智能制造类）</td>
+              <td>649</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,630</td>
+              <td>151</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>8</td>
+              <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+              <td>电气工程及其自动化（中外合作办学）</td>
+              <td>646</td>
+              <td>650</td>
+              <td>655</td>
+              <td>2,946</td>
+              <td>6</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>9</td>
+              <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+              <td>工业设计（中外合作办学）</td>
+              <td>618</td>
+              <td>627</td>
+              <td>644</td>
+              <td>7,170</td>
+              <td>11</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>10</td>
+              <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+              <td>建筑学（中外合作办学）</td>
+              <td>613</td>
+              <td>615</td>
+              <td>618</td>
+              <td>8,173</td>
+              <td>10</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>11</td>
+              <td><strong><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a></strong></td>
+              <td>工科试验班（未来技术拔尖班）</td>
+              <td>679</td>
+              <td>680.3</td>
+              <td>682</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hit.edu.cn/</td>
+            </tr>
+<tr>
+              <td>12</td>
+              <td><strong><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a></strong></td>
+              <td>工科试验班（卓越优才计划）（国家专项）</td>
+              <td>633</td>
+              <td>636.9</td>
+              <td>645</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hit.edu.cn/</td>
+            </tr>
+<tr>
+              <td>13</td>
+              <td><strong><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a></strong></td>
+              <td>工科试验班（卓越优才计划）（高校专项）</td>
+              <td>629</td>
+              <td>635.6</td>
+              <td>644</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hit.edu.cn/</td>
+            </tr>
+<tr>
+              <td>14</td>
+              <td><strong><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a></strong></td>
+              <td>数学与应用数学（中外合作办学）</td>
+              <td>628</td>
+              <td>630.2</td>
+              <td>633</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hit.edu.cn/</td>
+            </tr>
+<tr>
+              <td>15</td>
+              <td><strong><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a></strong></td>
+              <td>大数据管理与应用（中外合作办学）</td>
+              <td>622</td>
+              <td>626.3</td>
+              <td>630</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hit.edu.cn/</td>
+            </tr>
+<tr>
+              <td>16</td>
+              <td><strong><a href="https://zsb.hitsz.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（深圳）</a></strong></td>
+              <td>工科试验班（卓越优才计划）</td>
+              <td>662</td>
+              <td>665.5</td>
+              <td>672</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hitsz.edu.cn/</td>
+            </tr>
+<tr>
+              <td>17</td>
+              <td><strong><a href="https://zsb.hitsz.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（深圳）</a></strong></td>
+              <td>通信工程（中外合作办学）</td>
+              <td>644</td>
+              <td>649.3</td>
+              <td>653</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hitsz.edu.cn/</td>
+            </tr>
+<tr>
+              <td>18</td>
+              <td><strong><a href="https://admissions.cuhk.edu.cn/" target="_blank" rel="noreferrer">香港中文大学（深圳）</a></strong></td>
+              <td>计算机科学与技术/数据科学/人工智能/电子与计算机工程高费机会线索</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://admissions.cuhk.edu.cn/</td>
+            </tr>
+<tr>
+              <td>19</td>
+              <td><strong><a href="https://admission.cuhk.edu.hk/" target="_blank" rel="noreferrer">香港中文大学</a></strong></td>
+              <td>工程/理学/数据与计算相关港校机会线索</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://admission.cuhk.edu.hk/</td>
+            </tr>
+<tr>
+              <td>20</td>
+              <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+              <td>计算机类（计算机，含智能交互设计）</td>
+              <td>652</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,447</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.nwpu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>21</td>
+              <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+              <td>航空航天类（航空）</td>
+              <td>651</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,550</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.nwpu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>22</td>
+              <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+              <td>民用航空含低空技术与工程</td>
+              <td>648</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,829</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.nwpu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>23</td>
+              <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+              <td>计算机类（网络安全）</td>
+              <td>648</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,829</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.nwpu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>24</td>
+              <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+              <td>电子信息类（电子信息）</td>
+              <td>647</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.nwpu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>25</td>
+              <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+              <td>自动化类</td>
+              <td>646</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.nwpu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>26</td>
+              <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+              <td>软件工程</td>
+              <td>641</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.nwpu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>27</td>
+              <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+              <td>电子信息类（卓越计划实验班）</td>
+              <td>643</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,417</td>
+              <td>25</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>28</td>
+              <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+              <td>计算机科学与技术（国家拔尖基地班）</td>
+              <td>643</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,417</td>
+              <td>6</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>29</td>
+              <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+              <td>电子信息类（创新实验班）</td>
+              <td>640</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,788</td>
+              <td>25</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>30</td>
+              <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+              <td>计算机类（创新实验班）</td>
+              <td>640</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,788</td>
+              <td>15</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>31</td>
+              <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+              <td>电子信息类（通信）</td>
+              <td>634</td>
+              <td>-</td>
+              <td>-</td>
+              <td>4,596</td>
+              <td>150</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>32</td>
+              <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+              <td>电子信息类（集成电路）</td>
+              <td>633</td>
+              <td>-</td>
+              <td>-</td>
+              <td>4,739</td>
+              <td>100</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>33</td>
+              <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+              <td>电子信息类（电子工程）</td>
+              <td>630</td>
+              <td>-</td>
+              <td>-</td>
+              <td>5,221</td>
+              <td>149</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag warn">计划已入库，实录待核</span></td>
+              <td>A<br><span class="subtle">校方/官方查询口径</span></td>
+              <td>优先查该校历年录取查询是否返回“录取人数/实际录取人数”；若无，只把计划数用于稳定性判断。</td>
+            </tr>
+<tr>
+              <td>34</td>
+              <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+              <td>电子信息类（信息与通信）</td>
+              <td>659</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,793</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.uestc.edu.cn/</td>
+            </tr>
+<tr>
+              <td>35</td>
+              <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+              <td>工科试验班（电子工程类）</td>
+              <td>658</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.uestc.edu.cn/</td>
+            </tr>
+<tr>
+              <td>36</td>
+              <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+              <td>集成电路设计与集成系统</td>
+              <td>655</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.uestc.edu.cn/</td>
+            </tr>
+<tr>
+              <td>37</td>
+              <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+              <td>计算机类</td>
+              <td>653</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.uestc.edu.cn/</td>
+            </tr>
+<tr>
+              <td>38</td>
+              <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+              <td>工科试验班（机器人、电气信息、智能制造）</td>
+              <td>651</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.uestc.edu.cn/</td>
+            </tr>
+<tr>
+              <td>39</td>
+              <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+              <td>电子信息类（智能仪器、智能控制）</td>
+              <td>649</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.uestc.edu.cn/</td>
+            </tr>
+<tr>
+              <td>40</td>
+              <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td>
+              <td>工科试验班（机器人与智能装备拔尖班）</td>
+              <td>650</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,629</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hitwh.edu.cn/</td>
+            </tr>
+<tr>
+              <td>41</td>
+              <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td>
+              <td>工科试验班（AI加先进技术领军班）</td>
+              <td>644</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,291</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hitwh.edu.cn/</td>
+            </tr>
+<tr>
+              <td>42</td>
+              <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td>
+              <td>工科试验班（智能制造卓越优才计划）</td>
+              <td>639</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,888</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hitwh.edu.cn/</td>
+            </tr>
+<tr>
+              <td>43</td>
+              <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td>
+              <td>软件工程（卓越优才计划）</td>
+              <td>638</td>
+              <td>-</td>
+              <td>-</td>
+              <td>4,018</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hitwh.edu.cn/</td>
+            </tr>
+<tr>
+              <td>44</td>
+              <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td>
+              <td>计算机类（国家网络安全学院）</td>
+              <td>661</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,625</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://aoff.whu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>45</td>
+              <td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td>
+              <td>光电信息科学与工程</td>
+              <td>660</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,704</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hust.edu.cn/</td>
+            </tr>
+<tr>
+              <td>46</td>
+              <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td>
+              <td>工科试验班（电气类）</td>
+              <td>660</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,704</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://aoff.whu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>47</td>
+              <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td>
+              <td>电子信息类（电子信息学院）</td>
+              <td>658</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,873</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://aoff.whu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>48</td>
+              <td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td>
+              <td>机械类</td>
+              <td>658</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,873</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hust.edu.cn/</td>
+            </tr>
+<tr>
+              <td>49</td>
+              <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td>
+              <td>微电子科学与工程（集成电路学院）</td>
+              <td>658</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,873</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://aoff.whu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>50</td>
+              <td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td>
+              <td>航空航天类</td>
+              <td>655</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,144</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hust.edu.cn/</td>
+            </tr>
+<tr>
+              <td>51</td>
+              <td><strong><a href="https://zsb.seu.edu.cn/" target="_blank" rel="noreferrer">东南大学</a></strong></td>
+              <td>计算机类</td>
+              <td>662</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,543</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.seu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>52</td>
+              <td><strong><a href="https://zsb.seu.edu.cn/" target="_blank" rel="noreferrer">东南大学</a></strong></td>
+              <td>工科试验班（智能制造与智能系统）</td>
+              <td>662</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,543</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.seu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>53</td>
+              <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td>
+              <td>工科试验班（未来技术学院）</td>
+              <td>652</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,447</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.tju.edu.cn/</td>
+            </tr>
+<tr>
+              <td>54</td>
+              <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td>
+              <td>工科试验班（智能与计算类）</td>
+              <td>648</td>
+              <td>-</td>
+              <td>-</td>
+              <td>2,829</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.tju.edu.cn/</td>
+            </tr>
+<tr>
+              <td>55</td>
+              <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td>
+              <td>工科试验班（电气信息类）</td>
+              <td>642</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,537</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.tju.edu.cn/</td>
+            </tr>
+<tr>
+              <td>56</td>
+              <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td>
+              <td>工科试验班（精仪与光电信息类）</td>
+              <td>641</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,671</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.tju.edu.cn/</td>
+            </tr>
+<tr>
+              <td>57</td>
+              <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td>
+              <td>工科试验班（智能制造与建造）</td>
+              <td>638</td>
+              <td>-</td>
+              <td>-</td>
+              <td>4,018</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.tju.edu.cn/</td>
+            </tr>
+<tr>
+              <td>58</td>
+              <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td>
+              <td>工科试验班（卓越人才班）</td>
+              <td>645</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,161</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://admission.scut.edu.cn/</td>
+            </tr>
+<tr>
+              <td>59</td>
+              <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td>
+              <td>工科试验班（AI与低空技术）</td>
+              <td>641</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,671</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://admission.scut.edu.cn/</td>
+            </tr>
+<tr>
+              <td>60</td>
+              <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td>
+              <td>计算机类</td>
+              <td>639</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,888</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://admission.scut.edu.cn/</td>
+            </tr>
+<tr>
+              <td>61</td>
+              <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td>
+              <td>自动化/电气类/信息工程</td>
+              <td>637</td>
+              <td>-</td>
+              <td>-</td>
+              <td>4,146</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://admission.scut.edu.cn/</td>
+            </tr>
+<tr>
+              <td>62</td>
+              <td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td>
+              <td>电子信息类</td>
+              <td>640</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,788</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.xmu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>63</td>
+              <td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td>
+              <td>计算机类</td>
+              <td>639</td>
+              <td>-</td>
+              <td>-</td>
+              <td>3,888</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.xmu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>64</td>
+              <td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td>
+              <td>工科试验班（航空航天）</td>
+              <td>637</td>
+              <td>-</td>
+              <td>-</td>
+              <td>4,146</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.xmu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>65</td>
+              <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td>
+              <td>电子信息类（元班）</td>
+              <td>659</td>
+              <td>-</td>
+              <td>-</td>
+              <td>1,793</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.bupt.edu.cn/</td>
+            </tr>
+<tr>
+              <td>66</td>
+              <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td>
+              <td>计算机类（元班）</td>
+              <td>656</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.bupt.edu.cn/</td>
+            </tr>
+<tr>
+              <td>67</td>
+              <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td>
+              <td>计算机类</td>
+              <td>642</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.bupt.edu.cn/</td>
+            </tr>
+<tr>
+              <td>68</td>
+              <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td>
+              <td>通信工程/电子信息/网安/人工智能等普通强类</td>
+              <td>640</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.bupt.edu.cn/</td>
+            </tr>
+<tr>
+              <td>69</td>
+              <td><strong><a href="https://zs.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学</a></strong></td>
+              <td>人工智能（新工科大师班）</td>
+              <td>648</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.dlut.edu.cn/</td>
+            </tr>
+<tr>
+              <td>70</td>
+              <td><strong><a href="https://zhaosheng.cqu.edu.cn/" target="_blank" rel="noreferrer">重庆大学</a></strong></td>
+              <td>工科试验班（卓越计划）</td>
+              <td>644</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zhaosheng.cqu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>71</td>
+              <td><strong><a href="https://www.bkzs.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学</a></strong></td>
+              <td>计算机类</td>
+              <td>638</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://www.bkzs.sdu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>72</td>
+              <td><strong><a href="https://zs.scu.edu.cn/" target="_blank" rel="noreferrer">四川大学</a></strong></td>
+              <td>电子信息类</td>
+              <td>637</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.scu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>73</td>
+              <td><strong><a href="https://zsw.bjtu.edu.cn/" target="_blank" rel="noreferrer">北京交通大学</a></strong></td>
+              <td>詹天佑信息类</td>
+              <td>637</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsw.bjtu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>74</td>
+              <td><strong><a href="https://admi.hnu.edu.cn/" target="_blank" rel="noreferrer">湖南大学</a></strong></td>
+              <td>计算机科学与技术</td>
+              <td>631</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://admi.hnu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>75</td>
+              <td><strong><a href="https://zhaosheng.csu.edu.cn/" target="_blank" rel="noreferrer">中南大学</a></strong></td>
+              <td>软件工程</td>
+              <td>630</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zhaosheng.csu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>76</td>
+              <td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong></td>
+              <td>航空航天类（长空创新班）</td>
+              <td>638</td>
+              <td>-</td>
+              <td>-</td>
+              <td>4,018</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.nuaa.edu.cn/</td>
+            </tr>
+<tr>
+              <td>77</td>
+              <td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong></td>
+              <td>软件工程/电气工程及其自动化/低空技术与工程</td>
+              <td>625</td>
+              <td>-</td>
+              <td>-</td>
+              <td>6,061</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.nuaa.edu.cn/</td>
+            </tr>
+<tr>
+              <td>78</td>
+              <td><strong><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></strong></td>
+              <td>电子信息类（钱学森学院）</td>
+              <td>626</td>
+              <td>-</td>
+              <td>-</td>
+              <td>5,884</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.njust.edu.cn/</td>
+            </tr>
+<tr>
+              <td>79</td>
+              <td><strong><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></strong></td>
+              <td>计算机类</td>
+              <td>623</td>
+              <td>-</td>
+              <td>-</td>
+              <td>6,401</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.njust.edu.cn/</td>
+            </tr>
+<tr>
+              <td>80</td>
+              <td><strong><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></strong></td>
+              <td>计算机科学与技术/通信工程（兴海领军）</td>
+              <td>626</td>
+              <td>-</td>
+              <td>-</td>
+              <td>5,884</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hrbeu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>81</td>
+              <td><strong><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></strong></td>
+              <td>软件工程（国家特软创新班）/自动化类</td>
+              <td>620</td>
+              <td>-</td>
+              <td>-</td>
+              <td>6,979</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.hrbeu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>82</td>
+              <td><strong><a href="https://goto.ncepu.edu.cn/" target="_blank" rel="noreferrer">华北电力大学（北京）</a></strong></td>
+              <td>通信工程/人工智能/电气工程及其自动化</td>
+              <td>622</td>
+              <td>-</td>
+              <td>-</td>
+              <td>6,598</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://goto.ncepu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>83</td>
+              <td><strong><a href="https://zs.neuq.edu.cn/" target="_blank" rel="noreferrer">东北大学秦皇岛分校</a></strong></td>
+              <td>计算机科学与技术/自动化类</td>
+              <td>620</td>
+              <td>-</td>
+              <td>-</td>
+              <td>6,979</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.neuq.edu.cn/</td>
+            </tr>
+<tr>
+              <td>84</td>
+              <td><strong><a href="https://zs.neu.edu.cn/" target="_blank" rel="noreferrer">东北大学</a></strong></td>
+              <td>自动化类</td>
+              <td>628</td>
+              <td>-</td>
+              <td>-</td>
+              <td>5,535</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.neu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>85</td>
+              <td><strong><a href="https://zsb.nwu.edu.cn/" target="_blank" rel="noreferrer">西北大学</a></strong></td>
+              <td>计算机科学与技术（人工智能实验班）</td>
+              <td>613</td>
+              <td>-</td>
+              <td>-</td>
+              <td>8,173</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.nwu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>86</td>
+              <td><strong><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></strong></td>
+              <td>工科试验班（华为班）</td>
+              <td>617</td>
+              <td>-</td>
+              <td>-</td>
+              <td>7,561</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.chd.edu.cn/</td>
+            </tr>
+<tr>
+              <td>87</td>
+              <td><strong><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></strong></td>
+              <td>计算机长安学堂</td>
+              <td>615</td>
+              <td>-</td>
+              <td>-</td>
+              <td>7,990</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>B<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zsb.chd.edu.cn/</td>
+            </tr>
+<tr>
+              <td>88</td>
+              <td><strong><a href="https://bkzs.tongji.edu.cn/" target="_blank" rel="noreferrer">同济大学</a></strong></td>
+              <td>覆盖审计：工科试验班/信息类方向待核</td>
+              <td>645</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://bkzs.tongji.edu.cn/</td>
+            </tr>
+<tr>
+              <td>89</td>
+              <td><strong><a href="https://www.nankai.edu.cn/239/list.htm" target="_blank" rel="noreferrer">南开大学</a></strong></td>
+              <td>覆盖审计：计算机/电子信息/智能科学方向待核</td>
+              <td>638</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://www.nankai.edu.cn/239/list.htm</td>
+            </tr>
+<tr>
+              <td>90</td>
+              <td><strong><a href="https://admission.sysu.edu.cn/" target="_blank" rel="noreferrer">中山大学</a></strong></td>
+              <td>覆盖审计：计算机/电子信息/人工智能/软件方向待核</td>
+              <td>631</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://admission.sysu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>91</td>
+              <td><strong><a href="https://admission.shanghaitech.edu.cn/" target="_blank" rel="noreferrer">上海科技大学</a></strong></td>
+              <td>覆盖审计：计算机/电子信息/生物科学创新方向待核</td>
+              <td>629</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://admission.shanghaitech.edu.cn/</td>
+            </tr>
+<tr>
+              <td>92</td>
+              <td><strong><a href="https://zs.sustech.edu.cn/" target="_blank" rel="noreferrer">南方科技大学</a></strong></td>
+              <td>覆盖审计：计算机/电子信息/生物医学工程方向待核</td>
+              <td>626</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.sustech.edu.cn/</td>
+            </tr>
+<tr>
+              <td>93</td>
+              <td><strong><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></strong></td>
+              <td>覆盖审计：航空航天/计算机/电子信息/自动化方向待核</td>
+              <td>646</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zs.buaa.edu.cn/</td>
+            </tr>
+<tr>
+              <td>94</td>
+              <td><strong><a href="https://admission.bit.edu.cn/" target="_blank" rel="noreferrer">北京理工大学</a></strong></td>
+              <td>覆盖审计：信息/智能制造/车辆/工科试验班方向待核</td>
+              <td>637</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://admission.bit.edu.cn/</td>
+            </tr>
+<tr>
+              <td>95</td>
+              <td><strong><a href="https://bkzs.nju.edu.cn/" target="_blank" rel="noreferrer">南京大学</a></strong></td>
+              <td>覆盖审计：计算机/电子信息/技术科学方向待核</td>
+              <td>658</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://bkzs.nju.edu.cn/</td>
+            </tr>
+<tr>
+              <td>96</td>
+              <td><strong><a href="https://bkzsw.wh.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学（威海）</a></strong></td>
+              <td>覆盖审计：计算机/电子信息/自动化方向待核</td>
+              <td>605</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://bkzsw.wh.sdu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>97</td>
+              <td><strong><a href="https://pjzsjy.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学（盘锦校区）</a></strong></td>
+              <td>覆盖审计：工科/智能制造/能源化工交叉方向待核</td>
+              <td>602</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://pjzsjy.dlut.edu.cn/</td>
+            </tr>
+<tr>
+              <td>98</td>
+              <td><strong><a href="https://bkzsw.shu.edu.cn/" target="_blank" rel="noreferrer">上海大学</a></strong></td>
+              <td>覆盖审计：计算机/电子信息/通信/自动化方向待核</td>
+              <td>608</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://bkzsw.shu.edu.cn/</td>
+            </tr>
+<tr>
+              <td>99</td>
+              <td><strong><a href="https://zhaosheng.ustb.edu.cn/" target="_blank" rel="noreferrer">北京科技大学</a></strong></td>
+              <td>覆盖审计：计算机/自动化/人工智能/材料智能制造方向待核</td>
+              <td>602</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="tag bad">计划和实录均待核</span></td>
+              <td>C<br><span class="subtle">第三方初筛，待官方替换</span></td>
+              <td>打开学校招生网复核2025陕西物理普通批计划和录取人数：https://zhaosheng.ustb.edu.cn/</td>
+            </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>官方入口和复核链接</h2>
+      <h3>通用入口</h3>
+      <table>
+        <thead><tr><th>入口</th><th>用途</th><th>链接</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://www.sneac.com/" target="_blank" rel="noreferrer">陕西招生考试信息网</a></td><td>最终关注陕西政策、计划汇编、志愿填报、录取查询入口。</td><td><a href="https://www.sneac.com/" target="_blank" rel="noreferrer">https://www.sneac.com/</a></td></tr>
+<tr><td><a href="https://gaokao.chsi.com.cn/zsgs/zhangcheng/" target="_blank" rel="noreferrer">教育部阳光高考招生章程</a></td><td>核招生章程、录取规则、专业安排和体检限制。</td><td><a href="https://gaokao.chsi.com.cn/zsgs/zhangcheng/" target="_blank" rel="noreferrer">https://gaokao.chsi.com.cn/zsgs/zhangcheng/</a></td></tr>
+<tr><td><a href="https://zswxxcx.xjtu.edu.cn/public/zsdata/lqxx/" target="_blank" rel="noreferrer">西安交通大学招生数据查询</a></td><td>本项目已用作A源之一，页面需启用JavaScript。</td><td><a href="https://zswxxcx.xjtu.edu.cn/public/zsdata/lqxx/" target="_blank" rel="noreferrer">https://zswxxcx.xjtu.edu.cn/public/zsdata/lqxx/</a></td></tr>
+<tr><td><a href="https://zsxc.xidian.edu.cn/auth/zsdata/lqxx/" target="_blank" rel="noreferrer">西安电子科技大学招生数据查询</a></td><td>本项目已用作A源之一，页面需启用JavaScript。</td><td><a href="https://zsxc.xidian.edu.cn/auth/zsdata/lqxx/" target="_blank" rel="noreferrer">https://zsxc.xidian.edu.cn/auth/zsdata/lqxx/</a></td></tr>
+        </tbody>
+      </table>
+      <h3>学校入口</h3>
+      <table>
+        <thead><tr><th>学校</th><th>级别</th><th>入口</th><th>备注</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>A</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">https://zs.xjtu.edu.cn/</a></td><td>本地冲刺核心</td></tr>
+<tr><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>B</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">https://zsb.nwpu.edu.cn/</a></td><td>官网自动检索受阻；2025基线暂用EOL，后续必须回校方或省考试院复核。</td></tr>
+<tr><td><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></td><td>A</td><td><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">https://zsb.xidian.edu.cn/</a></td><td>本地强专业稳妥核心</td></tr>
+<tr><td><a href="https://zsb.nwu.edu.cn/" target="_blank" rel="noreferrer">西北大学</a></td><td>A</td><td><a href="https://zsb.nwu.edu.cn/" target="_blank" rel="noreferrer">https://zsb.nwu.edu.cn/</a></td><td>已核到2026招生章程；分省分专业计划待发布。</td></tr>
+<tr><td><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></td><td>A</td><td><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">https://zsb.chd.edu.cn/</a></td><td>本地安全池</td></tr>
+<tr><td><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></td><td>A</td><td><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">https://zs.uestc.edu.cn/</a></td><td>外地电子信息强校冲稳核心</td></tr>
+<tr><td><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a></td><td>A</td><td><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">https://zsb.hit.edu.cn/</a></td><td>哈工大官方录取分数接口显示：2025陕西物理+化学校本部普通物理类最低679，明显高于640-660；国家专项/高校专项和中外合作有低分项，但必须分开看资格、专业、费用和培养出口。</td></tr>
+<tr><td><a href="https://zsb.hitsz.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（深圳）</a></td><td>A</td><td><a href="https://zsb.hitsz.edu.cn/" target="_blank" rel="noreferrer">https://zsb.hitsz.edu.cn/</a></td><td>哈工大官方录取分数接口显示：2025陕西深圳校区普通物理类计算机与电子通信最低675，卓越优才最低662；通信工程中外合作最低644，适合纳入高费机会池重点核验。</td></tr>
+<tr><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>B</td><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">https://zsb.hitwh.edu.cn/</a></td><td>2025陕西物理普通批显示638-650覆盖当前核心区间，适合重点讨论；需复核2026计划数、校区培养安排、转专业规则和卓越优才计划限制。</td></tr>
+<tr><td><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></td><td>B</td><td><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">https://zs.tju.edu.cn/</a></td><td>2025陕西物理普通批智能计算、电气信息、精仪光电、智能制造等在638-652，属于此前遗漏的高价值985工科。</td></tr>
+<tr><td><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></td><td>B</td><td><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">https://admission.scut.edu.cn/</a></td><td>2025陕西物理普通批计算机、AI低空、自动化、电气、信息工程等集中在637-645，和640段高度匹配。</td></tr>
+<tr><td><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></td><td>B</td><td><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">https://zs.xmu.edu.cn/</a></td><td>2025陕西物理电子信息、计算机、能源、航空航天等在637-640；需注意翔安校区和软件后两年学分收费。</td></tr>
+<tr><td><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></td><td>B</td><td><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">https://aoff.whu.edu.cn/</a></td><td>2025陕西物理网安、电气、微电子、电子信息、智能制造等在656-661，适合660段冲刺。</td></tr>
+<tr><td><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></td><td>B</td><td><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">https://zsb.hust.edu.cn/</a></td><td>2025陕西物理人工智能、光电、机械、航空航天等在655-662；临床医学不纳入当前主推。</td></tr>
+<tr><td><a href="https://zsb.seu.edu.cn/" target="_blank" rel="noreferrer">东南大学</a></td><td>B</td><td><a href="https://zsb.seu.edu.cn/" target="_blank" rel="noreferrer">https://zsb.seu.edu.cn/</a></td><td>2025陕西物理计算机和智能制造约662，普通批偏冲；国家专项不和普通批混排。</td></tr>
+<tr><td><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></td><td>B</td><td><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">https://zs.nuaa.edu.cn/</a></td><td>2025陕西物理航空航天长空创新班638，软件、电气、低空、无人机等625-626，适合作为强行业稳保池。</td></tr>
+<tr><td><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></td><td>B</td><td><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">https://zsb.njust.edu.cn/</a></td><td>2025陕西物理电子、自动化、计算机、网安、智能制造约621-626；需注意江阴校区安排。</td></tr>
+<tr><td><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></td><td>B</td><td><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">https://zsb.hrbeu.edu.cn/</a></td><td>2025陕西物理计算机、通信、软件、自动化、海洋机器人等约620-626；城市和行业属性需单独权衡。</td></tr>
+<tr><td><a href="https://goto.ncepu.edu.cn/" target="_blank" rel="noreferrer">华北电力大学（北京）</a></td><td>B</td><td><a href="https://goto.ncepu.edu.cn/" target="_blank" rel="noreferrer">https://goto.ncepu.edu.cn/</a></td><td>2025陕西物理通信、AI、电气、智能电网约620-624；电力行业认可度高，是此前遗漏的强稳保选项。</td></tr>
+<tr><td><a href="https://zs.neuq.edu.cn/" target="_blank" rel="noreferrer">东北大学秦皇岛分校</a></td><td>B</td><td><a href="https://zs.neuq.edu.cn/" target="_blank" rel="noreferrer">https://zs.neuq.edu.cn/</a></td><td>2025陕西物理计算机、自动化约620，作为估分下探时保985标签和可接受工科的安全池。</td></tr>
+<tr><td><a href="https://zs.neu.edu.cn/" target="_blank" rel="noreferrer">东北大学</a></td><td>B</td><td><a href="https://zs.neu.edu.cn/" target="_blank" rel="noreferrer">https://zs.neu.edu.cn/</a></td><td>2025陕西物理自动化类约628，专业强但城市和学校热度低于东部985，可作为下探安全池。</td></tr>
+<tr><td><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></td><td>B</td><td><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">https://zsb.bupt.edu.cn/</a></td><td>官网计划页自动访问返回412；后续人工浏览或省考试院复核。</td></tr>
+<tr><td><a href="https://zs.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学</a></td><td>B</td><td><a href="https://zs.dlut.edu.cn/" target="_blank" rel="noreferrer">https://zs.dlut.edu.cn/</a></td><td>外地985稳池</td></tr>
+<tr><td><a href="https://bkzs.tongji.edu.cn/" target="_blank" rel="noreferrer">同济大学</a></td><td>C</td><td><a href="https://bkzs.tongji.edu.cn/" target="_blank" rel="noreferrer">https://bkzs.tongji.edu.cn/</a></td><td>掌上高考2025陕西物理类院校最低分645，落入640-660区间；目标信息类/工科专业分通常高于院校最低分，必须回官方专业明细复核。</td></tr>
+<tr><td><a href="https://www.nankai.edu.cn/239/list.htm" target="_blank" rel="noreferrer">南开大学</a></td><td>C</td><td><a href="https://www.nankai.edu.cn/239/list.htm" target="_blank" rel="noreferrer">https://www.nankai.edu.cn/239/list.htm</a></td><td>掌上高考2025陕西物理类院校最低分638，落入630-660区间；需重点核计算机、电子信息、智能科学等专业明细。</td></tr>
+<tr><td><a href="https://admission.sysu.edu.cn/" target="_blank" rel="noreferrer">中山大学</a></td><td>C</td><td><a href="https://admission.sysu.edu.cn/" target="_blank" rel="noreferrer">https://admission.sysu.edu.cn/</a></td><td>掌上高考2025陕西物理类院校最低分631，落入630段；校区和专业组差异大，需核深圳/广州/珠海校区及专业分。</td></tr>
+<tr><td><a href="https://admission.shanghaitech.edu.cn/" target="_blank" rel="noreferrer">上海科技大学</a></td><td>C</td><td><a href="https://admission.shanghaitech.edu.cn/" target="_blank" rel="noreferrer">https://admission.shanghaitech.edu.cn/</a></td><td>掌上高考2025陕西物理类院校最低分629，低于630但贴近下探线；非985/211，需结合家庭对学校标签的要求单独权衡。</td></tr>
+<tr><td><a href="https://zs.sustech.edu.cn/" target="_blank" rel="noreferrer">南方科技大学</a></td><td>C</td><td><a href="https://zs.sustech.edu.cn/" target="_blank" rel="noreferrer">https://zs.sustech.edu.cn/</a></td><td>掌上高考2025陕西物理类院校最低分626，工科和生物医工交叉强；非985/211且招生模式需单独核，暂作观察池。</td></tr>
+<tr><td><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></td><td>C</td><td><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">https://zs.buaa.edu.cn/</a></td><td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分646，落入640-660区间。北航强工科和航空航天/计算机/电子信息平台很强，但目标专业通常远高于院校最低分，必须核普通批、中外合作、专项和分专业录取。</td></tr>
+<tr><td><a href="https://admission.bit.edu.cn/" target="_blank" rel="noreferrer">北京理工大学</a></td><td>C</td><td><a href="https://admission.bit.edu.cn/" target="_blank" rel="noreferrer">https://admission.bit.edu.cn/</a></td><td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分637，落入630-660区间。北理强工科、车辆、信息、兵器、智能制造平台强；需核具体专业分、校区、专项和中外合作/高收费项目。</td></tr>
+<tr><td><a href="https://bkzs.nju.edu.cn/" target="_blank" rel="noreferrer">南京大学</a></td><td>C</td><td><a href="https://bkzs.nju.edu.cn/" target="_blank" rel="noreferrer">https://bkzs.nju.edu.cn/</a></td><td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分658，落入660边缘。南大平台极强，但工科口径、专业组和目标专业分需逐项核，不作为稳妥项。</td></tr>
+<tr><td><a href="https://bkzsw.wh.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学（威海）</a></td><td>C</td><td><a href="https://bkzsw.wh.sdu.edu.cn/" target="_blank" rel="noreferrer">https://bkzsw.wh.sdu.edu.cn/</a></td><td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分605。适合作为985标签和下探安全观察，需核计算机、电子信息、自动化、海洋/空间等方向专业分和威海校区培养差异。</td></tr>
+<tr><td><a href="https://pjzsjy.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学（盘锦校区）</a></td><td>C</td><td><a href="https://pjzsjy.dlut.edu.cn/" target="_blank" rel="noreferrer">https://pjzsjy.dlut.edu.cn/</a></td><td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分602。作为985下探安全观察，需核专业是否匹配工科主线、校区培养资源和毕业证/就业差异。</td></tr>
+<tr><td><a href="https://bkzsw.shu.edu.cn/" target="_blank" rel="noreferrer">上海大学</a></td><td>C</td><td><a href="https://bkzsw.shu.edu.cn/" target="_blank" rel="noreferrer">https://bkzsw.shu.edu.cn/</a></td><td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分608。城市和综合平台较好，需核计算机、电子信息、通信、自动化专业分；因非985，优先级低于985安全项。</td></tr>
+<tr><td><a href="https://zhaosheng.ustb.edu.cn/" target="_blank" rel="noreferrer">北京科技大学</a></td><td>C</td><td><a href="https://zhaosheng.ustb.edu.cn/" target="_blank" rel="noreferrer">https://zhaosheng.ustb.edu.cn/</a></td><td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分602。计算机、自动化、人工智能、材料智能制造可关注；非985，主要作为城市/211/工科安全补充。</td></tr>
+<tr><td><a href="https://zhaosheng.cqu.edu.cn/" target="_blank" rel="noreferrer">重庆大学</a></td><td>B</td><td><a href="https://zhaosheng.cqu.edu.cn/" target="_blank" rel="noreferrer">https://zhaosheng.cqu.edu.cn/</a></td><td>外地985稳池</td></tr>
+<tr><td><a href="https://www.bkzs.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学</a></td><td>B</td><td><a href="https://www.bkzs.sdu.edu.cn/" target="_blank" rel="noreferrer">https://www.bkzs.sdu.edu.cn/</a></td><td>外地985稳池</td></tr>
+<tr><td><a href="https://zs.scu.edu.cn/" target="_blank" rel="noreferrer">四川大学</a></td><td>B</td><td><a href="https://zs.scu.edu.cn/" target="_blank" rel="noreferrer">https://zs.scu.edu.cn/</a></td><td>外地985稳池</td></tr>
+<tr><td><a href="https://admi.hnu.edu.cn/" target="_blank" rel="noreferrer">湖南大学</a></td><td>B</td><td><a href="https://admi.hnu.edu.cn/" target="_blank" rel="noreferrer">https://admi.hnu.edu.cn/</a></td><td>外地985稳保池</td></tr>
+<tr><td><a href="https://zhaosheng.csu.edu.cn/" target="_blank" rel="noreferrer">中南大学</a></td><td>B</td><td><a href="https://zhaosheng.csu.edu.cn/" target="_blank" rel="noreferrer">https://zhaosheng.csu.edu.cn/</a></td><td>外地985稳保池</td></tr>
+<tr><td><a href="https://zsw.bjtu.edu.cn/" target="_blank" rel="noreferrer">北京交通大学</a></td><td>B</td><td><a href="https://zsw.bjtu.edu.cn/" target="_blank" rel="noreferrer">https://zsw.bjtu.edu.cn/</a></td><td>外地头部211稳保池</td></tr>
+<tr><td><a href="https://admissions.cuhk.edu.cn/" target="_blank" rel="noreferrer">香港中文大学（深圳）</a></td><td>A</td><td><a href="https://admissions.cuhk.edu.cn/" target="_blank" rel="noreferrer">https://admissions.cuhk.edu.cn/</a></td><td>已核到2026夏季高考招生章程、招生组联系方式、专业与就业质量入口。费用不是主要否决因素，但必须核陕西计划、录取批次、学费住宿费、英文授课、毕业证/学位证、转专业、就业升学和奖学金。</td></tr>
+<tr><td><a href="https://admission.cuhk.edu.hk/" target="_blank" rel="noreferrer">香港中文大学</a></td><td>C</td><td><a href="https://admission.cuhk.edu.hk/" target="_blank" rel="noreferrer">https://admission.cuhk.edu.hk/</a></td><td>纳入高费机会池观察。香港校本部的内地高考招生批次、是否影响内地统招志愿、奖学金、学费、住宿、专业选择和毕业后就业签证路径需单独核验，不与内地普通批直接混算。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>后续落地规则</h2>
+      <ul>
+        <li>对最终志愿候选池，至少要补齐：2025计划数、2026计划数、2025最低分/平均分/最高分/位次、来源链接、招生章程风险。</li>
+        <li>如果学校公开2025实际录取人数，就录入实录人数并计算差额；如果不公开，明确标为“实录待核”，不做猜测。</li>
+        <li>计划数小于5、首次招生、名称变化、大类拆分或合并的专业，风险等级上调。</li>
+        <li>2026计划数相比2025缩招20%以上，上调风险；扩招20%以上只小幅降低风险，仍以真实位次为核心。</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

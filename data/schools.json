@@ -1,0 +1,473 @@
+{
+  "defaultQuery": {
+    "type": "zsjh",
+    "province": "陕西",
+    "year": "2026",
+    "category": "普通类",
+    "branch": "物理类",
+    "campus": ""
+  },
+  "schools": [
+    {
+      "key": "xjtu",
+      "name": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "role": "第二优先重点校/本地C9冲刺核心",
+      "sourceLevel": "A",
+      "manualCheckUrl": "https://zs.xjtu.edu.cn/",
+      "queryApi": {
+        "typeUrl": "https://zswxxcx.xjtu.edu.cn/lqxx/s/api/front/lqxx/getType",
+        "listUrl": "https://zswxxcx.xjtu.edu.cn/lqxx/s/api/front/lqxx/getList"
+      },
+      "consultationApi": {
+        "pageUrl": "https://zswxxcx.xjtu.edu.cn/public/zsxc/xcxcpc/#/",
+        "baseUrl": "https://zswxxcx.xjtu.edu.cn/zsxc/m",
+        "province": "陕西"
+      }
+    },
+    {
+      "key": "nwpu",
+      "name": "西北工业大学",
+      "shortName": "西工大",
+      "city": "西安",
+      "tier": "985/双一流",
+      "role": "本地冲稳核心",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zsb.nwpu.edu.cn/",
+      "notes": "官网自动检索受阻；2025基线暂用EOL，后续必须回校方或省考试院复核。"
+    },
+    {
+      "key": "xdu",
+      "name": "西安电子科技大学",
+      "shortName": "西电",
+      "city": "西安",
+      "tier": "211/双一流",
+      "role": "本地强专业稳妥核心",
+      "sourceLevel": "A",
+      "manualCheckUrl": "https://zsb.xidian.edu.cn/",
+      "queryApi": {
+        "typeUrl": "https://zsxc.xidian.edu.cn/lqxx/s/api/front/lqxx/getType",
+        "listUrl": "https://zsxc.xidian.edu.cn/lqxx/s/api/front/lqxx/getList"
+      }
+    },
+    {
+      "key": "nwu",
+      "name": "西北大学",
+      "shortName": "西大",
+      "city": "西安",
+      "tier": "211/双一流",
+      "role": "本地安全池",
+      "sourceLevel": "A",
+      "manualCheckUrl": "https://zsb.nwu.edu.cn/",
+      "notes": "已核到2026招生章程；分省分专业计划待发布。"
+    },
+    {
+      "key": "chd",
+      "name": "长安大学",
+      "shortName": "长大",
+      "city": "西安",
+      "tier": "211/双一流",
+      "role": "本地安全池",
+      "sourceLevel": "A",
+      "manualCheckUrl": "https://zsb.chd.edu.cn/",
+      "queryApi": {
+        "typeUrl": "https://zsdata.chd.edu.cn/lqxx/s/api/front/lqxx/getType",
+        "listUrl": "https://zsdata.chd.edu.cn/lqxx/s/api/front/lqxx/getList"
+      }
+    },
+    {
+      "key": "uestc",
+      "name": "电子科技大学",
+      "shortName": "成电",
+      "city": "成都",
+      "tier": "985/双一流",
+      "role": "外地电子信息强校冲稳核心",
+      "sourceLevel": "A",
+      "manualCheckUrl": "https://zs.uestc.edu.cn/",
+      "queryApi": {
+        "typeUrl": "https://chaxun.uestc.edu.cn/lqxx/s/api/front/lqxx/getType",
+        "listUrl": "https://chaxun.uestc.edu.cn/lqxx/s/api/front/lqxx/getList"
+      }
+    },
+    {
+      "key": "hit",
+      "name": "哈尔滨工业大学",
+      "shortName": "哈工大本部",
+      "city": "哈尔滨",
+      "tier": "985/C9/211/双一流",
+      "role": "第一优先重点校/C9强工科本部极高冲刺",
+      "sourceLevel": "A",
+      "manualCheckUrl": "https://zsb.hit.edu.cn/",
+      "notes": "本轮家庭最关心学校，需优先深入问询。哈工大官方录取分数接口显示：2025陕西物理+化学校本部普通物理类最低679，明显高于662；当前主方案只按普通批口径判断。"
+    },
+    {
+      "key": "hitsz",
+      "name": "哈尔滨工业大学（深圳）",
+      "shortName": "哈工大深圳",
+      "city": "深圳",
+      "tier": "985/C9/211/双一流",
+      "role": "补充重点观察/深圳校区高风险冲刺",
+      "sourceLevel": "A",
+      "manualCheckUrl": "https://zsb.hitsz.edu.cn/",
+      "notes": "哈工大官方录取分数接口显示：2025陕西深圳校区普通物理类卓越优才计划最低662、平均665.5、最高672；计算机与电子通信相关普通类方向最低约675。当前分数只能作为高风险冲刺，不能当稳项。"
+    },
+    {
+      "key": "hitwh",
+      "name": "哈尔滨工业大学（威海）",
+      "shortName": "哈工大威海",
+      "city": "威海/哈尔滨",
+      "tier": "985/C9/211/双一流",
+      "role": "第三优先重点校/强校异地校区冲稳核心",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zsb.hitwh.edu.cn/",
+      "notes": "2025陕西物理普通批显示638-650覆盖当前核心区间，适合重点讨论；需复核2026计划数、校区培养安排、转专业规则和卓越优才计划限制。"
+    },
+    {
+      "key": "tju",
+      "name": "天津大学",
+      "shortName": "天大",
+      "city": "天津",
+      "tier": "985/双一流",
+      "role": "外地985强工科冲稳核心",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zs.tju.edu.cn/",
+      "notes": "2025陕西物理普通批智能计算、电气信息、精仪光电、智能制造等在638-652，属于此前遗漏的高价值985工科。"
+    },
+    {
+      "key": "scut",
+      "name": "华南理工大学",
+      "shortName": "华工",
+      "city": "广州",
+      "tier": "985/双一流",
+      "role": "华南强工科985稳池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://admission.scut.edu.cn/",
+      "notes": "2025陕西物理普通批计算机、AI低空、自动化、电气、信息工程等集中在637-645，和640段高度匹配。"
+    },
+    {
+      "key": "xmu",
+      "name": "厦门大学",
+      "shortName": "厦大",
+      "city": "厦门",
+      "tier": "985/双一流",
+      "role": "外地综合985稳池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zs.xmu.edu.cn/",
+      "notes": "2025陕西物理电子信息、计算机、能源、航空航天等在637-640；需注意翔安校区和软件后两年学分收费。"
+    },
+    {
+      "key": "whu",
+      "name": "武汉大学",
+      "shortName": "武大",
+      "city": "武汉",
+      "tier": "985/双一流",
+      "role": "660段外地985冲刺池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://aoff.whu.edu.cn/",
+      "notes": "2025陕西物理网安、电气、微电子、电子信息、智能制造等在656-661，适合660段冲刺。"
+    },
+    {
+      "key": "hust",
+      "name": "华中科技大学",
+      "shortName": "华科",
+      "city": "武汉",
+      "tier": "985/双一流",
+      "role": "660段外地强工科冲刺池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zsb.hust.edu.cn/",
+      "notes": "2025陕西物理人工智能、光电、机械、航空航天等在655-662；临床医学不纳入当前主推。"
+    },
+    {
+      "key": "seu",
+      "name": "东南大学",
+      "shortName": "东大",
+      "city": "南京",
+      "tier": "985/双一流",
+      "role": "660段华东强工科冲刺池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zsb.seu.edu.cn/",
+      "notes": "2025陕西物理计算机和智能制造约662，普通批偏冲；当前主方案只按普通批口径判断。"
+    },
+    {
+      "key": "nuaa",
+      "name": "南京航空航天大学",
+      "shortName": "南航",
+      "city": "南京/常州",
+      "tier": "211/双一流",
+      "role": "航空航天/低空强211稳保池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zs.nuaa.edu.cn/",
+      "notes": "2025陕西物理航空航天长空创新班638，软件、电气、低空、无人机等625-626，适合作为强行业稳保池。"
+    },
+    {
+      "key": "njust",
+      "name": "南京理工大学",
+      "shortName": "南理工",
+      "city": "南京/江阴",
+      "tier": "211/双一流",
+      "role": "电子/自动化/计算机强211稳保池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zsb.njust.edu.cn/",
+      "notes": "2025陕西物理电子、自动化、计算机、网安、智能制造约621-626；需注意江阴校区安排。"
+    },
+    {
+      "key": "hrbeu",
+      "name": "哈尔滨工程大学",
+      "shortName": "哈工程",
+      "city": "哈尔滨",
+      "tier": "211/双一流",
+      "role": "国防/船海/自动化/信息强211稳保池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zsb.hrbeu.edu.cn/",
+      "notes": "2025陕西物理计算机、通信、软件、自动化、海洋机器人等约620-626；城市和行业属性需单独权衡。"
+    },
+    {
+      "key": "ncepu",
+      "name": "华北电力大学（北京）",
+      "shortName": "华电北京",
+      "city": "北京",
+      "tier": "211/双一流",
+      "role": "电气能源强211稳保池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://goto.ncepu.edu.cn/",
+      "notes": "2025陕西物理通信、AI、电气、智能电网约620-624；电力行业认可度高，是此前遗漏的强稳保选项。"
+    },
+    {
+      "key": "neuq",
+      "name": "东北大学秦皇岛分校",
+      "shortName": "东秦",
+      "city": "秦皇岛",
+      "tier": "985/211/双一流",
+      "role": "985分校安全池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zs.neuq.edu.cn/",
+      "notes": "2025陕西物理计算机、自动化约620，作为估分下探时保985标签和可接受工科的安全池。"
+    },
+    {
+      "key": "neu",
+      "name": "东北大学",
+      "shortName": "东大沈阳",
+      "city": "沈阳",
+      "tier": "985/211/双一流",
+      "role": "自动化强985安全池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zs.neu.edu.cn/",
+      "notes": "2025陕西物理自动化类约628，专业强但城市和学校热度低于东部985，可作为下探安全池。"
+    },
+    {
+      "key": "bupt",
+      "name": "北京邮电大学",
+      "shortName": "北邮",
+      "city": "北京",
+      "tier": "211/双一流",
+      "role": "外地通信/计算机头部211冲稳核心",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zsb.bupt.edu.cn/",
+      "notes": "官网计划页自动访问返回412；后续人工浏览或省考试院复核。"
+    },
+    {
+      "key": "dlut",
+      "name": "大连理工大学",
+      "shortName": "大工",
+      "city": "大连",
+      "tier": "985/双一流",
+      "role": "外地985稳池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zs.dlut.edu.cn/"
+    },
+    {
+      "key": "tongji",
+      "name": "同济大学",
+      "shortName": "同济",
+      "city": "上海",
+      "tier": "985/双一流",
+      "role": "覆盖审计新增985主观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://bkzs.tongji.edu.cn/",
+      "notes": "掌上高考2025陕西物理类院校最低分645，落入640-660区间；目标信息类/工科专业分通常高于院校最低分，必须回官方专业明细复核。"
+    },
+    {
+      "key": "nankai",
+      "name": "南开大学",
+      "shortName": "南开",
+      "city": "天津",
+      "tier": "985/双一流",
+      "role": "覆盖审计新增985主观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://www.nankai.edu.cn/239/list.htm",
+      "notes": "掌上高考2025陕西物理类院校最低分638，落入630-660区间；需重点核计算机、电子信息、智能科学等专业明细。"
+    },
+    {
+      "key": "sysu",
+      "name": "中山大学",
+      "shortName": "中大",
+      "city": "广州/深圳/珠海",
+      "tier": "985/双一流",
+      "role": "覆盖审计新增985主观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://admission.sysu.edu.cn/",
+      "notes": "掌上高考2025陕西物理类院校最低分631，落入630段；校区和专业组差异大，需核深圳/广州/珠海校区及专业分。"
+    },
+    {
+      "key": "shanghaitech",
+      "name": "上海科技大学",
+      "shortName": "上科大",
+      "city": "上海",
+      "tier": "双一流/强新型高校",
+      "role": "覆盖审计新增强新型安全观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://admission.shanghaitech.edu.cn/",
+      "notes": "掌上高考2025陕西物理类院校最低分629，低于630但贴近下探线；非985/211，需结合家庭对学校标签的要求单独权衡。"
+    },
+    {
+      "key": "sustech",
+      "name": "南方科技大学",
+      "shortName": "南科大",
+      "city": "深圳",
+      "tier": "双一流/强新型高校",
+      "role": "覆盖审计新增强新型安全观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://zs.sustech.edu.cn/",
+      "notes": "掌上高考2025陕西物理类院校最低分626，工科和生物医工交叉强；非985/211且招生模式需单独核，暂作观察池。"
+    },
+    {
+      "key": "buaa",
+      "name": "北京航空航天大学",
+      "shortName": "北航",
+      "city": "北京",
+      "tier": "985/双一流",
+      "role": "全量覆盖审计新增强工科主分段观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://zs.buaa.edu.cn/",
+      "notes": "全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分646，落入640-660区间。北航强工科和航空航天/计算机/电子信息平台很强，但目标专业通常远高于院校最低分，必须核普通批"
+    },
+    {
+      "key": "bit",
+      "name": "北京理工大学",
+      "shortName": "北理",
+      "city": "北京",
+      "tier": "985/双一流",
+      "role": "全量覆盖审计新增强工科主分段观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://admission.bit.edu.cn/",
+      "notes": "全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分637，落入630-660区间。北理强工科、车辆、信息、兵器、智能制造平台强；需核具体专业分、校区和"
+    },
+    {
+      "key": "nju",
+      "name": "南京大学",
+      "shortName": "南大",
+      "city": "南京",
+      "tier": "985/C9/双一流",
+      "role": "全量覆盖审计新增C9冲刺观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://bkzs.nju.edu.cn/",
+      "notes": "全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分658，落入660边缘。南大平台极强，但工科口径、专业组和目标专业分需逐项核，不作为稳妥项。"
+    },
+    {
+      "key": "sduwh",
+      "name": "山东大学（威海）",
+      "shortName": "山威",
+      "city": "威海",
+      "tier": "985/双一流",
+      "role": "全量覆盖审计新增985分校下探安全观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://bkzsw.wh.sdu.edu.cn/",
+      "notes": "全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分605。适合作为985标签和下探安全观察，需核计算机、电子信息、自动化、海洋/空间等方向专业分和威海校区培养差异。"
+    },
+    {
+      "key": "dlutpj",
+      "name": "大连理工大学（盘锦校区）",
+      "shortName": "大工盘锦",
+      "city": "盘锦",
+      "tier": "985/双一流",
+      "role": "全量覆盖审计新增985校区下探安全观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://pjzsjy.dlut.edu.cn/",
+      "notes": "全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分602。作为985下探安全观察，需核专业是否匹配工科主线、校区培养资源和毕业证/就业差异。"
+    },
+    {
+      "key": "shu",
+      "name": "上海大学",
+      "shortName": "上大",
+      "city": "上海",
+      "tier": "211/双一流",
+      "role": "全量覆盖审计新增上海211下探安全观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://bkzsw.shu.edu.cn/",
+      "notes": "全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分608。城市和综合平台较好，需核计算机、电子信息、通信、自动化专业分；因非985，优先级低于985安全项。"
+    },
+    {
+      "key": "ustb",
+      "name": "北京科技大学",
+      "shortName": "北科大",
+      "city": "北京",
+      "tier": "211/双一流",
+      "role": "全量覆盖审计新增北京211下探安全观察池",
+      "sourceLevel": "C",
+      "manualCheckUrl": "https://zhaosheng.ustb.edu.cn/",
+      "notes": "全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分602。计算机、自动化、人工智能、材料智能制造可关注；非985，主要作为城市/211/工科安全补充。"
+    },
+    {
+      "key": "cqu",
+      "name": "重庆大学",
+      "shortName": "重大",
+      "city": "重庆",
+      "tier": "985/双一流",
+      "role": "外地985稳池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zhaosheng.cqu.edu.cn/"
+    },
+    {
+      "key": "sdu",
+      "name": "山东大学",
+      "shortName": "山大",
+      "city": "济南/青岛/威海",
+      "tier": "985/双一流",
+      "role": "外地985稳池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://www.bkzs.sdu.edu.cn/"
+    },
+    {
+      "key": "scu",
+      "name": "四川大学",
+      "shortName": "川大",
+      "city": "成都",
+      "tier": "985/双一流",
+      "role": "外地985稳池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zs.scu.edu.cn/"
+    },
+    {
+      "key": "hnu",
+      "name": "湖南大学",
+      "shortName": "湖大",
+      "city": "长沙",
+      "tier": "985/双一流",
+      "role": "外地985稳保池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://admi.hnu.edu.cn/"
+    },
+    {
+      "key": "csu",
+      "name": "中南大学",
+      "shortName": "中南",
+      "city": "长沙",
+      "tier": "985/双一流",
+      "role": "外地985稳保池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zhaosheng.csu.edu.cn/"
+    },
+    {
+      "key": "bjtu",
+      "name": "北京交通大学",
+      "shortName": "北交大",
+      "city": "北京",
+      "tier": "211/双一流",
+      "role": "外地头部211稳保池",
+      "sourceLevel": "B",
+      "manualCheckUrl": "https://zsw.bjtu.edu.cn/"
+    }
+  ]
+}

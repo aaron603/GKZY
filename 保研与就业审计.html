@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>保研与就业审计</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #667085;
+      --line: #d9dee7;
+      --blue: #2459a6;
+      --teal: #0f766e;
+      --amber: #b45309;
+      --green: #16803c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      line-height: 1.55;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .wrap {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: 0; }
+    h2 { margin: 0 0 14px; font-size: 20px; letter-spacing: 0; }
+    h3 { margin: 18px 0 10px; font-size: 16px; letter-spacing: 0; }
+    p { margin: 0 0 10px; }
+    section {
+      margin: 18px 0;
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 14px;
+      table-layout: fixed;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 9px 8px;
+      vertical-align: top;
+      text-align: left;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      white-space: normal;
+    }
+    th { background: #f8fafc; color: #344054; font-weight: 800; }
+    tr:last-child td { border-bottom: 0; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    .subtle { color: var(--muted); }
+    .note {
+      padding: 12px;
+      border-left: 4px solid var(--blue);
+      background: #f1f6ff;
+      border-radius: 6px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .metric {
+      min-height: 86px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .metric strong { display: block; font-size: 24px; margin-bottom: 4px; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 2px 7px;
+      margin: 1px 3px 1px 0;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #344054;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: normal;
+      max-width: 100%;
+    }
+    .tag.compact {
+      display: inline;
+      line-height: 1.8;
+      border-radius: 6px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+    .tag.good { background: #e8f5ee; color: var(--green); }
+    .tag.warn { background: #fff4e5; color: var(--amber); }
+    .tag.blue { background: #eaf1fb; color: var(--blue); }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .wrap { padding: 16px; }
+      table { font-size: 13px; }
+      th, td { padding: 7px 5px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>保研与就业审计</h1>
+      <p class="subtle">用于补充学校/专业选择中的升学质量、就业质量和未来5-10年趋势。生成时间：2026/6/25 12:24:54</p>
+      <div class="grid">
+        <div class="metric"><strong>10</strong><span class="subtle">重点学校待核</span></div>
+        <div class="metric"><strong>7</strong><span class="subtle">专业方向趋势</span></div>
+        <div class="metric"><strong>A/B/C</strong><span class="subtle">来源等级</span></div>
+        <div class="metric"><strong>保研+就业</strong><span class="subtle">新增评估维度</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>先说结论</h2>
+      <p class="note">保研和就业都能查，但精度不同：规则、名单、就业报告通常能查；具体专业保研比例和专业就业质量很多时候要靠官方名单、本科人数、学院答复和就业报告交叉推算。</p>
+      <ul>
+        <li>保研要求通常可查：学校/学院每年发布推免工作办法、综合成绩计算规则、特殊计划和公示名单。</li>
+<li>保研比例多数需要推算：用拟推免名单人数除以对应年级本科人数，若学校没有按专业公布本科人数，则只能到学院/专业层面做近似。</li>
+<li>就业质量通常可查到学校或学院总报告，但精确到具体专业、具体薪酬、具体岗位的数据经常不公开。</li>
+<li>本模块的未来就业判断是趋势分析，不是就业承诺；最终仍要结合孩子能力、项目经历、读研结果、城市和行业周期。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>官方入口和来源等级</h2>
+      <table>
+        <thead><tr><th style="width:80px">等级</th><th>来源</th><th>用途</th></tr></thead>
+        <tbody>
+          <tr><td><span class="tag">A</span></td><td>学校教务处/本科生院/学院推免办法、推免名单、就业质量报告、就业信息网</td><td>最终确认保研规则、推免名额、升学去向、就业去向和重点单位。</td></tr>
+<tr><td><span class="tag">B</span></td><td>学院年报、专业认证报告、招生办答复、宣讲会和招聘会信息</td><td>补充具体学院和专业方向的升学就业质量。</td></tr>
+<tr><td><span class="tag">C</span></td><td>第三方保研率统计、校友反馈、招聘平台和行业报告</td><td>用于交叉验证，不单独作为最终志愿排序依据。</td></tr>
+        </tbody>
+      </table>
+      <h3>常用入口</h3>
+      <ul>
+        <li><a href="https://yz.chsi.com.cn/tm/" target="_blank" rel="noreferrer">全国推免服务系统</a>：最终推免资格、报考、录取和备案公开的国家级入口。</li>
+<li><a href="https://gaokao.chsi.com.cn/zyk/" target="_blank" rel="noreferrer">阳光高考专业库</a>：查询专业基本介绍、专业类和就业方向，不能替代学校就业质量报告。</li>
+<li><a href="https://www.moe.gov.cn/" target="_blank" rel="noreferrer">教育部官网</a>：查询本科专业目录、学科建设和教育政策。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>重点学校升学就业待核表</h2>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th style="width:84px">保研友好</th><th style="width:84px">就业平台</th><th>当前判断</th><th>重点问题</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td><td><span class="tag good">高</span></td><td><span class="tag good">高</span></td><td>需补学校本科生院/学院推免办法、推免名单和就业质量报告链接；本地985平台和强工科对保研、央国企/研究所/大厂筛选友好。</td><td><ul><li>目标专业近三年推免名额和保研去向</li><li>学院是否按专业或大类排名推免</li><li>软件工程和医学电子信息的保研、学费、校区、就业是否有特殊口径</li></ul></td></tr>
+<tr><td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td><td><span class="tag good">高</span></td><td><span class="tag good">高</span></td><td>需补官方推免和就业报告；航空航天、电子信息、计算机、自动化方向对国防军工、研究所、央国企和读研平台较强。</td><td><ul><li>计算机/电子/自动化/航空航天各学院推免排序口径</li><li>国防军工就业占比和地域</li><li>低空/民航新方向是否有稳定培养和就业出口</li></ul></td></tr>
+<tr><td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td><td><span class="tag blue">中高</span></td><td><span class="tag good">高</span></td><td>需补官方推免办法、学院名额和就业质量报告；通信、电子、集成电路、计算机在行业招聘中识别度高。</td><td><ul><li>电子信息大类内推免是否按学院或专业排名</li><li>通信/集成电路/计算机各方向升学去向</li><li>华为、中兴、研究所、芯片企业招聘情况</li></ul></td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td><span class="tag good">高</span></td><td><span class="tag good">高</span></td><td>电子信息、通信、集成电路、计算机平台强；需核陕西计划、学院推免规则和就业质量报告。</td><td><ul><li>电子/通信/计算机/集成电路保研去向</li><li>医工交叉或信息生物方向是否保研友好</li><li>成都本地与深圳/上海/北京就业分布</li></ul></td></tr>
+<tr><td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td><td><span class="tag good">高</span></td><td><span class="tag good">高</span></td><td>985/C9品牌强，但必须核威海校区、卓越优才计划、转专业、保研和就业是否与本部口径一致。</td><td><ul><li>威海校区推免名额和保研去向</li><li>卓越优才计划是否限制分流/转专业</li><li>毕业证、校区培养和本部资源共享情况</li></ul></td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td><span class="tag good">高</span></td><td><span class="tag good">高</span></td><td>老牌985工科平台强；智能计算、电气信息、精仪光电、未来技术学院需核学院推免和新专业就业成熟度。</td><td><ul><li>未来技术学院具体分流和保研规则</li><li>智能与计算类软件工程学费和保研口径</li><li>精仪光电是否有体检限制和升学去向</li></ul></td></tr>
+<tr><td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td><td><span class="tag good">高</span></td><td><span class="tag good">高</span></td><td>广州/大湾区强工科985，就业城市优势明显；AI低空、计算机、自动化、电气需核学院就业去向。</td><td><ul><li>AI与低空技术归属学院和课程结构</li><li>大湾区就业单位质量</li><li>卓越班保研和分流规则</li></ul></td></tr>
+<tr><td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td><td><span class="tag good">高</span></td><td><span class="tag blue">中高</span></td><td>综合985平台强，计算机/电子信息可考虑；需核翔安校区、软件收费和工科就业平台。</td><td><ul><li>计算机/电子信息类保研去向</li><li>软件工程后两年费用和就业口径</li><li>生命科学与医药健康类是否符合本科工程底座策略</li></ul></td></tr>
+<tr><td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong></td><td><span class="tag blue">中高</span></td><td><span class="tag blue">中高</span></td><td>强行业211，航空航天/低空/软件/电气可做稳保；需核专业保研比例和行业就业地域。</td><td><ul><li>长空创新班推免和本研贯通政策</li><li>低空技术与工程就业成熟度</li><li>天目湖/将军路校区安排</li></ul></td></tr>
+<tr><td><strong><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></strong></td><td><span class="tag blue">中高</span></td><td><span class="tag blue">中高</span></td><td>电子、自动化、计算机、兵器/军工行业资源较强；需核江阴校区和学院推免。</td><td><ul><li>江阴校区对保研和就业是否有影响</li><li>电子信息/计算机/自动化推免去向</li><li>军工研究所就业占比和城市</li></ul></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>未来5-10年就业趋势</h2>
+      <table>
+        <thead><tr><th style="width:150px">方向</th><th>趋势判断</th><th>就业质量</th><th style="width:150px">读研价值</th><th>主要风险</th><th>志愿策略</th></tr></thead>
+        <tbody>
+          <tr><td><strong>计算机/软件/AI/数据/网安</strong></td><td>需求仍会存在，但低端编码岗位会被AI明显压缩；更有价值的是系统工程、AI应用架构、数据工程、安全、平台工程和懂行业的复合型人才。</td><td>上限高、行业广，但竞争最激烈；学校层次、实习项目、算法/系统基本功和英语资料阅读能力会拉开差距。</td><td><span class="tag compact">中高。若走AI算法、AI医疗、计算生物、网络安全研究，读研明显加分；若走工程开发，本科强项目也能就业。</span></td><td>只会调包、只追AI名称、数学和系统课不扎实，未来会被工具替代。</td><td>优先选强计算机底座和项目环境，大学期间建立编程、数据结构、系统、AI工具链和行业场景能力。</td></tr>
+<tr><td><strong>电子信息/通信/集成电路</strong></td><td>国产替代、智能终端、汽车电子、卫星互联网、6G、边缘AI和医疗电子会支撑中长期需求。</td><td>强校强专业就业识别度高，央国企、研究所、设备商、芯片企业和硬科技公司都有需求。</td><td><span class="tag compact">高。集成电路、通信算法、射频、芯片、信号处理、医学影像等方向读研收益明显。</span></td><td>课程硬，电路、信号、电磁场、器件和数学都不能弱；本科就业岗位分化大。</td><td>优先强校电子/通信/集成电路平台，核实验平台、EDA/FPGA/DSP/射频项目和保研去向。</td></tr>
+<tr><td><strong>自动化/机器人/测控/智能制造</strong></td><td>机器人、智能制造、工业AI、实验室自动化、医疗机器人和新能源装备会持续增长。</td><td>就业面宽但岗位质量分化，强校和强项目很重要；比纯计算机更看重系统集成和工程实践。</td><td><span class="tag compact">中高。控制、机器人、机器视觉、医疗机器人、智能装备读研后平台更好。</span></td><td>如果被分流到传统机械/材料/低匹配方向，和家庭偏好可能偏离。</td><td>看清专业归属学院和课程，优先能同时训练控制、嵌入式、视觉、机器人项目的方向。</td></tr>
+<tr><td><strong>航空航天/低空/无人系统</strong></td><td>低空经济、无人系统、商业航天和国防航空有政策热度，但短期可能出现报考过热和专业名称炒作。</td><td>强平台上限高，行业属性强；研究所、央国企、军工和航空航天企业是主要出口。</td><td><span class="tag compact">高。力学、控制、飞行器、导航制导等方向读研收益明显。</span></td><td>数学、力学、物理强度高；地域、行业周期和岗位性质需要家庭提前接受。</td><td>只在西工大、南航、哈工大等平台强、课程和就业清楚时提高优先级；不要只因低空热词上调。</td></tr>
+<tr><td><strong>生物医学工程/AI医疗/医疗器械</strong></td><td>老龄化、医疗设备国产化、AI医疗、医学影像、可穿戴设备、医疗机器人和多组学会带来长期机会。</td><td>方向好但本科就业不如计算机/电子直接，强校、读研、医院/医学院/企业平台决定质量。</td><td><span class="tag compact">高。更适合本科工科底座后研究生切入。</span></td><td>名字好听但课程可能偏生物、医学或管理；如果工程训练不足，就业竞争力会弱。</td><td>本科优先计算机、电子、自动化、测控等可迁移底座；医工交叉作为加分项和读研方向保留。</td></tr>
+<tr><td><strong>电气/能源/储能</strong></td><td>新型电力系统、新能源、储能、智能电网和电力电子需求稳定，但热度也可能推高分数。</td><td>稳定性较好，电网、能源央企、设备制造和新能源企业认可度较高。</td><td><span class="tag compact">中高。电力系统、电力电子、储能方向读研提升明显。</span></td><td>和生物医药交叉较弱，部分能源大类可能分到非优先方向。</td><td>作为稳就业工程方向保留，重点核大类分流是否能进入电气/储能。</td></tr>
+<tr><td><strong>数字媒体/交互/科技艺术</strong></td><td>AI会压缩基础视觉设计和内容生产岗位，但懂计算机、图形学、交互、可视化和产品系统的人仍有空间。</td><td>作为主专业风险偏高，作为计算机/软件能力的辅助项价值更大。</td><td><span class="tag compact">中。人机交互、可视化、计算机图形学、医疗可视化可深造。</span></td><td>如果课程偏艺术表达而不是工程技术，抗AI替代能力弱。</td><td>不作为主线；在计算机类、智能交互、可视化项目中承接画画兴趣。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>招生办问询题库</h2>
+      <ul>
+        <li>请问该专业名称对应的招生单元/大类近三年推免名额分别是多少？推免是按全学院排名、专业排名还是大类排名？</li>
+<li>推免综合成绩中绩点、竞赛、科研、英语、面试分别占比多少？挂科、转专业、校区是否影响推免？</li>
+<li>该专业近三年保研去向有哪些学校和学院？是否有直博、本研贯通、卓越工程师或强基转段等通道？</li>
+<li>就业质量报告中该学院/专业本科毕业生升学率、就业率、重点单位、地域分布能否提供？</li>
+<li>该专业主要就业单位是互联网、通信设备、芯片、研究所、央国企、制造业、医疗器械还是电网能源？</li>
+<li>学校是否开放本科生参加科研项目、实验室、企业联合项目、暑期学校和跨学院选课？</li>
+<li>如果是大类招生，分流到目标专业的比例、规则、最低成绩要求和不接受方向分别是什么？</li>
+<li>如果是分校区、卓越班、软件工程或联合培养，推免、就业、毕业证、学费和校区资源是否与普通专业一致？</li>
+<li>如果是中外合作/高收费项目，分数优惠有多大？毕业证、学位证、培养地点、总费用、保研就业和转专业是否与普通专业不同？</li>
+<li>学校专业录取规则是专业清、分数清、专业级差还是其他方式？入档后是否可能被调到不可接受专业？</li>
+<li>孩子近视约475/500度但矫正视力可接近1.5，目标专业是否有裸眼视力、矫正视力、镜片度数、色觉或不宜就读提示？</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>家长操作流程</h2>
+      <ol>
+        <li>出分前：先把目标学校的本科生院、研究生院、就业信息网、目标学院官网加入收藏夹。</li>
+<li>出分前：优先查推免办法、推免名单、就业质量报告、学院专业介绍、招聘会日历和重点单位宣讲会。</li>
+<li>出分后：按真实位次筛出30-60个候选后，只对前30个重点专业做保研/就业深查。</li>
+<li>联系招生办时不要只问能不能上，要问保研、分流、校区、学费、就业单位、读研去向和课程结构。</li>
+<li>所有答复要记录原文、时间、咨询对象和链接/截图，影响志愿顺序的答复单独标红。</li>
+      </ol>
+    </section>
+  </main>
+</body>
+</html>

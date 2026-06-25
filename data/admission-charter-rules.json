@@ -1,0 +1,54 @@
+{
+  "updatedAt": "2026-06-13",
+  "purpose": "逐校核验招生章程中进档考生专业安排、专业级差、三大主科约束和性别约束。已核到原文的学校写 confirmed；未逐条核完的学校在生成页中按经验默认标为待核。",
+  "commonExperience": {
+    "professionalArrangement": "多数重点高校普通类进档后采用分数优先、遵循志愿或类似分数优先口径。",
+    "majorGradeGap": "多数重点高校普通类不设专业级差；若学校仍采用专业清或级差，通常会在第十二条附近或“录取规则”章节明示。",
+    "mainSubjectConstraints": "三大主科更多用于同分排序，不等同于单科最低分约束；外语语种、英语授课项目、建筑/艺术/医学等可能有额外要求。",
+    "genderConstraints": "普通工科通常无男女比例限制；国防、航海、飞行、护理、特殊类型等需要单独看章程和专业目录。"
+  },
+  "items": [
+    {
+      "schoolKey": "xdu",
+      "school": "西安电子科技大学",
+      "sourceYear": "2026",
+      "sourceTitle": "西安电子科技大学2026年本科招生章程",
+      "sourceUrl": "https://zsb.xidian.edu.cn/info/1009/6683.htm",
+      "auditStatus": "confirmed",
+      "articleHint": "第十三条、第十七条、第十八条、第二十条",
+      "professionalArrangement": "分数优先、遵循志愿",
+      "majorGradeGap": "不设专业级差",
+      "mainSubjectConstraints": "无三大主科最低分约束；同分依次按数学、外语、语文排序。外国语言文学类要求外语为英语；中外合作全英文授课项目建议非英语语种谨慎填报。",
+      "genderConstraints": "各专业招生无男女比例限制",
+      "notes": "体检标准另见学校2026招生专业体检标准附件；中外合作办学按最低优先级单独核验。"
+    },
+    {
+      "schoolKey": "uestc",
+      "school": "电子科技大学",
+      "sourceYear": "2026",
+      "sourceTitle": "电子科技大学2026年全日制普通本科招生章程",
+      "sourceUrl": "https://zs.uestc.edu.cn/view/2122.html",
+      "auditStatus": "confirmed",
+      "articleHint": "第十六条、第十七条、第十八条、第二十四条、第二十五条",
+      "professionalArrangement": "分数优先",
+      "majorGradeGap": "不设级差",
+      "mainSubjectConstraints": "无三大主科最低分约束；同分时历史类依次比较语文、数学、外语，物理类和综合改革考生依次比较数学、语文、外语。学校以英语为第一外语安排教学，非英语语种慎重。",
+      "genderConstraints": "普通类章程未列男女比例限制；需另核医学、护理、特殊类型和体检补充规定。",
+      "notes": "电子科大和沙河校区两个招生代码分别录取；中外合作只录取填报志愿考生，入学后不得转专业。"
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "sourceYear": "2025",
+      "sourceTitle": "西安交通大学2025年本科招生章程",
+      "sourceUrl": "https://zs.xjtu.edu.cn/info/1656/6750.htm",
+      "auditStatus": "confirmed-previous-year",
+      "articleHint": "第十三条、第十四条、第三十一条",
+      "professionalArrangement": "分数优先、遵从专业志愿",
+      "majorGradeGap": "不设专业分数级差",
+      "mainSubjectConstraints": "无三大主科最低分约束；同分按省级规则，省级无规则时物理/理工类按数学、语文、外语排序。学校无外语语种限制，但本科教学以英语为第一外语。",
+      "genderConstraints": "普通类章程未列男女比例限制；需继续核2026章程和专业体检标准。",
+      "notes": "2026普通本科章程在当前官网列表中未见，先用2025章程做规则基线；中外合作学院学生不允许转出本学院，相关专业最低优先级单独评估。"
+    }
+  ]
+}

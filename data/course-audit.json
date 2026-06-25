@@ -1,0 +1,237 @@
+{
+  "updatedAt": "2026-06-10",
+  "purpose": "为候选院校专业补充课程结构画像，用于判断孩子是否适配、是否能承接工科本科和生物医药研究生通道。",
+  "dataBoundary": [
+    "本文件不是录取数据，不改变2025分数基线；它用于解释专业学习内容和风险。",
+    "当前版本以专业类通用培养规律为主，先覆盖候选池中的主要方向；逐校培养方案PDF或教务处页面核实后，再把sourceLevel从C提升到A/B。",
+    "若招生专业是大类或工科试验班，课程画像只代表可能分流方向，必须核2026专业目录、分流规则和所在学院。"
+  ],
+  "sourcePolicy": [
+    {
+      "level": "A",
+      "name": "学校教务处/学院发布的本科培养方案、教学计划、课程体系图",
+      "usage": "最终确认课程、学分、校区、实践环节和分流方向。"
+    },
+    {
+      "level": "B",
+      "name": "学校本科招生网专业介绍、学院专业介绍",
+      "usage": "可确认主干课程和专业定位，但通常不含完整四年课程表。"
+    },
+    {
+      "level": "C",
+      "name": "专业类通用画像、教育部专业目录/阳光高考专业库、同类强校培养规律",
+      "usage": "用于出分前快速筛查课程强度；不能替代最终培养方案。"
+    }
+  ],
+  "sourceLinks": [
+    {
+      "title": "阳光高考专业库",
+      "url": "https://gaokao.chsi.com.cn/zyk/"
+    },
+    {
+      "title": "教育部普通高等学校本科专业目录相关信息",
+      "url": "https://www.moe.gov.cn/"
+    }
+  ],
+  "dimensions": [
+    "数学强度",
+    "编程强度",
+    "电路信号强度",
+    "物理/力学强度",
+    "生化医学强度",
+    "工程实践强度",
+    "生物医药研究生衔接度"
+  ],
+  "items": [
+    {
+      "id": "cs-software-ai-data-security",
+      "label": "计算机/软件/AI/数据/网安",
+      "matchKeywords": ["计算机", "软件", "人工智能", "数据", "网络安全", "网安", "智能与计算", "AI", "大数据"],
+      "sourceLevel": "C",
+      "courseProfile": {
+        "math": 4,
+        "coding": 5,
+        "electronicsSignal": 1,
+        "physicsMechanics": 1,
+        "bioChemMedicine": 1,
+        "engineeringPractice": 4,
+        "biomedBridge": 5
+      },
+      "coreCourses": ["程序设计", "离散数学", "数据结构", "算法设计", "计算机组成", "操作系统", "计算机网络", "数据库系统", "软件工程", "编译原理", "人工智能/机器学习"],
+      "fitJudgement": "与家庭确认的编程训练意愿最匹配，也是未来转AI医疗、计算生物、医学影像AI、AI制药最通用的本科底座。",
+      "risks": ["数学、离散结构和系统课程不能弱化", "AI名称不等于AI实力，需看计算机底座、项目训练和学院平台", "软件工程要核后两年学费、校区和毕业证备注"],
+      "admissionsQuestions": ["是否有完整计算机类核心课程和大项目实践？", "软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？", "本科生是否能参与医学影像AI、生物信息或AI制药项目？"]
+    },
+    {
+      "id": "electronic-communication",
+      "label": "电子信息/通信/电子工程",
+      "matchKeywords": ["电子信息", "通信", "电子工程", "信息与通信", "信息工程", "光电信息"],
+      "sourceLevel": "C",
+      "courseProfile": {
+        "math": 4,
+        "coding": 3,
+        "electronicsSignal": 5,
+        "physicsMechanics": 3,
+        "bioChemMedicine": 1,
+        "engineeringPractice": 4,
+        "biomedBridge": 4
+      },
+      "coreCourses": ["电路分析", "模拟电子技术", "数字电子技术", "信号与系统", "电磁场与电磁波", "通信原理", "数字信号处理", "信息论与编码", "嵌入式系统", "射频/微波/天线方向课程"],
+      "fitJudgement": "适合愿意接受电路、信号和控制的工科孩子；与医疗设备、医学信号、可穿戴设备、脑机接口和医疗芯片有较好衔接。",
+      "risks": ["电路、信号、概率和电磁场课程强度较高", "通信和电子方向就业差异大，需看学院强项和行业资源", "大类分流可能影响进入计算机或集成电路方向的概率"],
+      "admissionsQuestions": ["大类内能否分到通信、电子、集成电路、人工智能等具体方向？", "本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？", "是否有医学信号/医学影像/传感器相关科研机会？"]
+    },
+    {
+      "id": "integrated-circuit",
+      "label": "集成电路/微电子",
+      "matchKeywords": ["集成电路", "微电子", "芯片", "电子科学"],
+      "sourceLevel": "C",
+      "courseProfile": {
+        "math": 4,
+        "coding": 3,
+        "electronicsSignal": 5,
+        "physicsMechanics": 3,
+        "bioChemMedicine": 1,
+        "engineeringPractice": 4,
+        "biomedBridge": 3
+      },
+      "coreCourses": ["电路分析", "模拟电子技术", "数字电子技术", "半导体物理", "微电子器件", "数字集成电路设计", "模拟集成电路设计", "集成电路工艺", "EDA工具", "硬件描述语言"],
+      "fitJudgement": "国家长期投入确定性较强，强校强专业价值高；未来可衔接医疗芯片、传感器芯片和生物检测芯片，但本科课程硬、读研收益明显。",
+      "risks": ["物理、器件、电路和EDA训练都重", "本科直接就业和读研深造路径差异明显", "需核是否偏设计、器件、工艺或封测"],
+      "admissionsQuestions": ["专业偏IC设计还是半导体器件/工艺？", "本科是否有EDA、流片、FPGA和芯片实验平台？", "保研去向和企业合作单位有哪些？"]
+    },
+    {
+      "id": "automation-control-robotics",
+      "label": "自动化/控制/机器人",
+      "matchKeywords": ["自动化", "控制", "机器人", "智能控制", "智能装备", "无人系统"],
+      "sourceLevel": "C",
+      "courseProfile": {
+        "math": 4,
+        "coding": 3,
+        "electronicsSignal": 4,
+        "physicsMechanics": 3,
+        "bioChemMedicine": 1,
+        "engineeringPractice": 5,
+        "biomedBridge": 4
+      },
+      "coreCourses": ["电路与电子技术", "自动控制原理", "现代控制理论", "信号与系统", "传感器与检测技术", "嵌入式系统", "机器人学", "运动控制", "机器视觉", "工业控制网络"],
+      "fitJudgement": "兼顾编程、电路、控制和工程系统，适合未来机器人、智能制造、医疗机器人、实验室自动化和康复设备方向。",
+      "risks": ["控制理论抽象，数学和物理都不能太弱", "机器人名称可能落在机械、电气或控制不同学院，课程差异很大", "就业口径比计算机更依赖学校行业资源和项目经历"],
+      "admissionsQuestions": ["机器人方向归属自动化、机械还是计算机学院？", "本科项目是否有真实机器人、嵌入式、视觉和控制系统训练？", "是否能对接医疗机器人、康复机器人或实验室自动化课题？"]
+    },
+    {
+      "id": "measurement-optics-instrument",
+      "label": "测控/智能仪器/光电",
+      "matchKeywords": ["测控", "智能仪器", "智能感知", "精仪", "光电", "仪器"],
+      "sourceLevel": "C",
+      "courseProfile": {
+        "math": 4,
+        "coding": 3,
+        "electronicsSignal": 4,
+        "physicsMechanics": 3,
+        "bioChemMedicine": 1,
+        "engineeringPractice": 5,
+        "biomedBridge": 4
+      },
+      "coreCourses": ["误差理论与数据处理", "传感器原理", "测控电路", "信号与系统", "数字信号处理", "光学工程基础", "嵌入式系统", "自动检测技术", "智能仪器设计", "图像处理"],
+      "fitJudgement": "与医疗仪器、医学成像、传感器和智能检测衔接好，适合喜欢工程系统和硬件平台的学生。",
+      "risks": ["不像计算机那样就业口径直观，需看学校仪器/光电平台", "近视475/500度但矫正视力接近1.5，测控/智能仪器/光电相关方向仍要逐校核视力、色觉和不宜就读提示", "课程包含较多物理、光学、电子和实验"],
+      "admissionsQuestions": ["该方向强项是光电、仪器、传感器还是检测控制？", "孩子近视约475/500度但矫正视力可接近1.5，是否限制裸眼视力、矫正视力、镜片度数或色觉？", "本科生是否能参与医学成像、可穿戴传感或智能检测项目？"]
+    },
+    {
+      "id": "intelligent-manufacturing-mechanical",
+      "label": "智能制造/机械/装备",
+      "matchKeywords": ["智能制造", "机械", "装备", "制造", "车辆", "焊接"],
+      "sourceLevel": "C",
+      "courseProfile": {
+        "math": 3,
+        "coding": 2,
+        "electronicsSignal": 2,
+        "physicsMechanics": 5,
+        "bioChemMedicine": 1,
+        "engineeringPractice": 5,
+        "biomedBridge": 3
+      },
+      "coreCourses": ["工程制图", "理论力学", "材料力学", "机械原理", "机械设计", "机械制造基础", "控制工程基础", "CAD/CAE", "机电传动", "智能制造系统"],
+      "fitJudgement": "强校机械和智能制造仍有平台价值，适合高端制造、机器人硬件、医疗器械结构和实验设备，但应避免被弱分流拖入不喜欢的传统方向。",
+      "risks": ["力学和机械课程重，和孩子当前数学/物理发挥反馈要谨慎匹配", "就业上限更依赖读研、项目和行业平台", "大类中若含材料、焊接、土木等方向要核分流底线"],
+      "admissionsQuestions": ["大类分流能否保证进入机器人、智能制造、测控或自动化相关方向？", "是否含材料、焊接、土木、车辆等非优先方向？", "本科项目是否有机器人、数字孪生、工业AI或医疗器械结构设计？"]
+    },
+    {
+      "id": "aerospace-low-altitude",
+      "label": "航空航天/低空/飞行器",
+      "matchKeywords": ["航空", "航天", "低空", "飞行器", "民用航空"],
+      "sourceLevel": "C",
+      "courseProfile": {
+        "math": 4,
+        "coding": 2,
+        "electronicsSignal": 2,
+        "physicsMechanics": 5,
+        "bioChemMedicine": 1,
+        "engineeringPractice": 5,
+        "biomedBridge": 2
+      },
+      "coreCourses": ["理论力学", "材料力学", "流体力学", "空气动力学", "飞行器结构", "飞行器设计", "自动控制原理", "导航制导与控制", "飞行动力学", "工程热力学"],
+      "fitJudgement": "学校平台强时很有价值，尤其西工大、南航等；但课程硬、行业属性强，适合作为有兴趣和平台优势时的冲稳选项。",
+      "risks": ["数学、力学、物理强度高", "低空热度可能带来短期报考波动", "若涉及飞行技术、航海或特殊行业方向，即使矫正视力好也必须核裸眼视力、矫正视力和镜片度数要求"],
+      "admissionsQuestions": ["低空方向是否是独立培养还是大类内名称？", "课程偏飞行器、控制、通信导航还是运营管理？", "孩子近视约475/500度但矫正视力可接近1.5，是否影响飞行器、飞行、航海、无人系统相关方向录取或分流？"]
+    },
+    {
+      "id": "electrical-energy",
+      "label": "电气/能源/储能",
+      "matchKeywords": ["电气", "能源", "储能", "智慧能源", "电力"],
+      "sourceLevel": "C",
+      "courseProfile": {
+        "math": 4,
+        "coding": 2,
+        "electronicsSignal": 4,
+        "physicsMechanics": 3,
+        "bioChemMedicine": 1,
+        "engineeringPractice": 4,
+        "biomedBridge": 2
+      },
+      "coreCourses": ["电路", "电机学", "电力电子技术", "电力系统分析", "自动控制原理", "高电压技术", "新能源发电", "储能技术", "智能电网", "嵌入式/工业控制"],
+      "fitJudgement": "行业稳定性较好，强校电气值得关注；与生物医药衔接较弱，但可作为稳就业工程方向。",
+      "risks": ["电气热度和就业稳定预期可能推高分数", "课程电路、电机、电力系统较硬", "部分能源大类可能分到热能、动力、化工或传统能源方向"],
+      "admissionsQuestions": ["大类是否保证电气或储能方向？", "就业去向是电网、能源企业、制造业还是研究所？", "能源大类中是否含非优先方向，分流规则是什么？"]
+    },
+    {
+      "id": "biomedical-engineering",
+      "label": "生物医学工程/医学电子/智能医学",
+      "matchKeywords": ["医学电子", "生物医学", "智能医学", "医工", "医学影像"],
+      "sourceLevel": "C",
+      "courseProfile": {
+        "math": 4,
+        "coding": 3,
+        "electronicsSignal": 4,
+        "physicsMechanics": 2,
+        "bioChemMedicine": 4,
+        "engineeringPractice": 4,
+        "biomedBridge": 5
+      },
+      "coreCourses": ["电路与电子技术", "信号与系统", "数字信号处理", "医学仪器", "医学成像", "生物医学信号处理", "生理学/解剖学基础", "生物材料/传感器", "机器学习", "医学数据分析"],
+      "fitJudgement": "最直接承接生物兴趣和工科底座，但本科出口差异大，必须查清是偏工程、偏医学、偏生命还是偏管理。",
+      "risks": ["不能只看名称，需看课程中工程比例", "本科就业岗位可能不如计算机/电子直观，读研收益明显", "近视475/500度但矫正视力接近1.5，生物医学工程/医学电子仍要逐校核视力、色觉和不宜就读提示"],
+      "admissionsQuestions": ["课程中电子、计算机、信号、医学、生物各占多少？", "孩子近视约475/500度但矫正视力可接近1.5，是否影响生物医学工程、医学电子或医学影像相关培养？", "是否有附属医院、医学院、生命学院或医疗器械企业联合培养？"]
+    },
+    {
+      "id": "digital-media-interaction",
+      "label": "数字媒体技术/交互/科技艺术",
+      "matchKeywords": ["数字媒体", "交互", "智能交互", "科技艺术", "人机交互"],
+      "sourceLevel": "C",
+      "courseProfile": {
+        "math": 3,
+        "coding": 4,
+        "electronicsSignal": 1,
+        "physicsMechanics": 1,
+        "bioChemMedicine": 1,
+        "engineeringPractice": 3,
+        "biomedBridge": 2
+      },
+      "coreCourses": ["程序设计", "数据结构", "计算机图形学", "人机交互", "数字图像处理", "Web/移动开发", "游戏引擎/三维建模", "用户体验设计", "可视化技术", "人工智能应用"],
+      "fitJudgement": "可把画画兴趣转化为交互、可视化和产品审美能力，但不宜替代计算机/电子等主线，只作为同等条件加分项。",
+      "risks": ["艺术表达就业受AI冲击更明显，必须保持计算机工程底座", "不同学校可能偏艺术、传媒或软件，差异很大", "不适合作为只因兴趣而牺牲学校层次和专业硬度的选择"],
+      "admissionsQuestions": ["该专业归属计算机学院、软件学院还是艺术/传媒学院？", "课程是否有扎实编程、图形学、AI和工程项目？", "毕业去向是互联网产品、交互、游戏、可视化还是设计岗位？"]
+    }
+  ]
+}

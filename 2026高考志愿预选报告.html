@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026高考志愿预选报告</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #667085;
+      --line: #d9dee7;
+      --blue: #2459a6;
+      --teal: #0f766e;
+      --amber: #b45309;
+      --red: #b42318;
+      --green: #16803c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      line-height: 1.55;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 18px 0 10px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 10px; }
+    .subtle { color: var(--muted); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .metric, section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    .metric {
+      padding: 14px;
+      min-height: 92px;
+    }
+    .metric strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+    section {
+      margin: 18px 0;
+      padding: 20px;
+    }
+    .two {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 14px;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 10px 9px;
+      vertical-align: top;
+      text-align: left;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      white-space: normal;
+    }
+    th {
+      color: #344054;
+      background: #f8fafc;
+      font-weight: 700;
+    }
+    tr:last-child td { border-bottom: 0; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: normal;
+      max-width: 100%;
+      background: #eef2f7;
+      color: #344054;
+    }
+    .tag.good { background: #e8f5ee; color: var(--green); }
+    .tag.warn { background: #fff4e5; color: var(--amber); }
+    .tag.bad { background: #fee4e2; color: var(--red); }
+    .tag.muted { background: #eef2f7; color: var(--muted); }
+    .track {
+      display: grid;
+      grid-template-columns: 210px 1fr 42px;
+      gap: 10px;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .bar {
+      height: 12px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+    .bar span {
+      display: block;
+      height: 100%;
+      background: var(--teal);
+    }
+    .anchor-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .anchor {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: #fff;
+    }
+    .anchor strong {
+      display: block;
+      font-size: 24px;
+      color: var(--blue);
+    }
+    .cmd {
+      display: block;
+      padding: 10px 12px;
+      margin: 8px 0;
+      border-radius: 6px;
+      background: #111827;
+      color: #f9fafb;
+      font-family: Consolas, "SFMono-Regular", monospace;
+      overflow-x: auto;
+    }
+    .course-mini {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .course-mini div {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 10px;
+    }
+    ul {
+      margin: 8px 0 0;
+      padding-left: 20px;
+    }
+    .note {
+      padding: 12px;
+      border-left: 4px solid var(--blue);
+      background: #f1f6ff;
+      border-radius: 6px;
+    }
+    @media (max-width: 900px) {
+      .grid, .two, .anchor-list, .course-mini { grid-template-columns: 1fr; }
+      .track { grid-template-columns: 1fr; }
+      .wrap { padding: 16px; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 6px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>2026 高考志愿预选报告</h1>
+      <p class="subtle">陕西物理类｜估分 640-660，向下预留至 630｜生成时间：2026/6/25 19:02:18</p>
+      <div class="grid">
+        <div class="metric"><strong>正式出分：662</strong><span class="subtle">当前估分区间</span></div>
+        <div class="metric"><strong>620+</strong><span class="subtle">下探风险控制线</span></div>
+        <div class="metric"><strong>89</strong><span class="subtle">已固化2025专业基线</span></div>
+        <div class="metric"><strong>4</strong><span class="subtle">自动查到2026计划上线数</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>家庭偏好已固化</h2>
+      <div class="two">
+        <div>
+          <h3>已确认的判断</h3>
+          <table>
+            <thead><tr><th>问题</th><th>结论</th><th>对志愿的影响</th></tr></thead>
+            <tbody>
+              <tr><td>编程/计算机</td><td>愿意作为大学四年核心能力训练。家庭判断是AI时代对编程基本功、系统架构、知识面和方案能力要求更高。</td><td>计算机、软件工程、人工智能、数据、网络安全维持高权重。不能只追AI名称，更要看计算机底座、工程训练和项目环境。</td></tr>
+<tr><td>电子/电路/信号/控制</td><td>可以接受，工科类方向整体可考虑。</td><td>电子信息、通信、自动化、测控、集成电路、机器人、智能制造均可进入主池。</td></tr>
+<tr><td>读研与交叉方向</td><td>接受读研。孩子喜欢生物，但本科志愿主方案先按计算机、电子信息、自动化、软件、智能制造等工科底座筛选。</td><td>生物相关兴趣暂不进入本科志愿主方案；医学、医工、医疗、药学、护理等相关方向本轮剔除。</td></tr>
+<tr><td>校区/学费</td><td>非主校区和软件类较高学费可按学校专业优势正常评估；中外合作办学不进入本轮主方案。</td><td>软件工程、沙河校区、威海校区不直接排除；中外合作办学、合作办学、高收费/港校项目从普通类主池删除。</td></tr>
+<tr><td>重点院校顺序</td><td>当前家庭最关心三所学校，优先级为哈工大本部、西安交通大学、哈工大威海。</td><td>报告、评分和草表都要单独列出哈工大本部、西交大、哈工大威海，并补充观察哈工大深圳；排序时给重点校额外优先权，但仍保留真实分差、位次、普通类口径、校区和调剂风险。</td></tr>
+<tr><td>本地资源与外地机会</td><td>更倾向外地更强专业/城市，但和西安本地资源权重接近。</td><td>志愿池应采用双核心：西安985/211资源线 + 外地强专业/强城市线。</td></tr>
+<tr><td>画画兴趣</td><td>主要是个人爱好，不作为艺术类或设计类主线。</td><td>数字媒体、交互、科技与艺术联合培养可作为辅助加分项，不替代计算机/电子/工程主线。</td></tr>
+<tr><td>视力和体检限制</td><td>孩子近视约475度和500度，矫正视力正常，可接近1.5；最终以高考体检表中的裸眼视力、矫正视力和镜片度数为准。</td><td>不直接排除普通计算机、电子信息、自动化等工科；测控/智能仪器、飞行器制造等按“不宜就读/院校要求待核”处理；医学、医工、医疗相关方向本轮从主方案剔除。</td></tr>
+<tr><td>专业清和入校后二次分流</td><td>需要识别学校招生章程中的专业清、专业级差、分数清等专业录取规则，也要识别大类招生入校后的二次分流、专业确认和强制调剂风险。</td><td>凡是大类、试验班、卓越班、拔尖班、未来技术学院等，都不能只看大类名称；必须问清录取规则、分流依据、目标专业名额和是否可能分到不可接受方向。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>专业方向权重</h3>
+          <div class="track"><strong>计算机/软件/AI工程/数据/网安</strong><div><div class="bar"><span style="width:100%"></span></div><div class="subtle">愿意训练编程，AI时代反而强化工程基本功、系统能力和知识迁移能力。</div></div><span class="tag">5/5</span></div>
+<div class="track"><strong>电子信息/通信/集成电路</strong><div><div class="bar"><span style="width:100%"></span></div><div class="subtle">接受电路、信号、控制；陕西本地和外地强校都有高质量供给。</div></div><span class="tag">5/5</span></div>
+<div class="track"><strong>自动化/机器人/智能制造/测控</strong><div><div class="bar"><span style="width:80%"></span></div><div class="subtle">工程应用性强，和制造业升级、机器人、低空、工业AI相关。</div></div><span class="tag">4/5</span></div>
+<div class="track"><strong>生物相关远期兴趣（不进本科主方案）</strong><div><div class="bar"><span style="width:0%"></span></div><div class="subtle">当前本科志愿主方案不纳入医学、医工、医疗、药学、护理等方向；生物兴趣仅作为远期兴趣背景保留。</div></div><span class="tag">0/5</span></div>
+<div class="track"><strong>低空/航空航天/无人系统</strong><div><div class="bar"><span style="width:60%"></span></div><div class="subtle">政策与产业热度高，西工大、成电等有平台；但课程硬、行业周期和名额波动要谨慎。</div></div><span class="tag">3/5</span></div>
+<div class="track"><strong>数字媒体技术/交互/科技艺术交叉</strong><div><div class="bar"><span style="width:40%"></span></div><div class="subtle">与画画兴趣相关，但只作为工科主线的辅助方向。</div></div><span class="tag">2/5</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>重点校区/院校优先分析</h2>
+      <p class="note">本版选择策略已调整为：先深入分析哈工大本部，其次西安交通大学，再次哈工大威海；哈工大深圳作为补充重点观察。偏好会进入评分和排序，但不会覆盖分差、位次、普通批口径、校区和调剂风险；医学类、国家专项、地方专项、强基计划、综合评价和中外合作办学不进入本轮主表。</p>
+      <table>
+        <thead><tr><th>优先级</th><th>学校</th><th>核心判断</th><th>当前普通类候选</th><th>下一步核验</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>第1优先</strong></td>
+            <td><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a><br><span class="subtle">哈工大本部</span></td>
+            <td>最优先深入核验；普通批本部2025陕西物理类最低约679，明显高于662，因此作为极高冲刺和招生办重点咨询对象，只按普通批口径判断。<br><span class="subtle">哈工大本部是本轮最高优先级，但2025陕西物理普通类本部最低约679，较662高约17分。结论是深入问、重点盯、可冲刺，但不把它当稳项，且只按普通批口径判断。</span></td>
+            <td><div><span class="tag">极高冲刺</span>工科试验班（未来技术拔尖班）｜679分｜专家82</div></td>
+            <td>哈工大官方录取分数接口：2025陕西校本部物理+化学普通类，未来技术拔尖班最低679；校本部普通物理类最低679、平均681.5、最高687。640-660按普通批本部基本不匹配，只作高分冲刺和校方咨询参考。</td>
+          </tr>
+<tr>
+            <td><strong>第2优先</strong></td>
+            <td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a><br><span class="subtle">西交大</span></td>
+            <td>第二优先；本地C9和强工科平台价值高，重点比较软件工程、智能感知与仪器、智慧能源、智能制造、自动化和电气信息类等普通类方向的计划数、分流和调剂风险。<br><span class="subtle">西交大是第二优先级，也是662分位次下更现实的C9主战场。软件工程、智能感知与仪器、智慧能源、智能制造、自动化和电气信息类等方向要逐一核2026计划数、大类分流、调剂和体检限制；医学及医工相关方向不进入本轮主表。</span></td>
+            <td><div><span class="tag">高优先</span>软件工程｜660分｜专家118</div><div><span class="tag">高优先</span>工科试验班（智能制造类）｜649分｜专家114</div><div><span class="tag">高优先</span>工科试验班（智慧能源类）｜653分｜专家112</div><div><span class="tag">高优先</span>工科试验班（航天航空类）｜649分｜专家112</div><div><span class="tag">高优先</span>工科试验班（智能过程与装备国卓班）｜655分｜专家111</div><div><span class="tag">高优先</span>工科试验班（智能感知与仪器）｜660分｜专家110</div></td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong>第3优先</strong></td>
+            <td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a><br><span class="subtle">哈工大威海</span></td>
+            <td>第三优先；2025陕西物理普通类638-650覆盖当前核心区间，是强校异地校区冲稳核心，重点核2026计划、卓越优才计划、校区安排、毕业证、保研就业和转专业限制。<br><span class="subtle">哈工大威海是第三优先级，2025普通类638-650覆盖当前核心区间。它承担强校异地校区冲稳功能，重点查卓越优才计划、校区安排、毕业证、转专业、保研就业和学费。</span></td>
+            <td><div><span class="tag">高优先</span>软件工程（卓越优才计划）｜638分｜专家114</div><div><span class="tag">高优先</span>工科试验班（AI加先进技术领军班）｜644分｜专家111</div><div><span class="tag">高优先</span>工科试验班（智能制造卓越优才计划）｜639分｜专家108</div><div><span class="tag">高优先</span>工科试验班（机器人与智能装备拔尖班）｜650分｜专家106</div></td>
+            <td>软件方向适配度高，但需核实学费、校区和卓越优才计划内转专业限制。</td>
+          </tr>
+<tr>
+            <td><strong>第4优先</strong></td>
+            <td><a href="https://zsb.hitsz.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（深圳）</a><br><span class="subtle">哈工大深圳</span></td>
+            <td>补充重点观察；2025陕西物理普通类卓越优才计划最低662、平均665.5、最高672，贴着当前分数线，平台和城市强，但只能作为高风险冲刺，不能当稳项。<br><span class="subtle">哈工大深圳作为补充重点观察。2025陕西物理普通类卓越优才计划最低662、均分665.5，正贴当前分数；平台和深圳城市资源强，但录取安全边际很薄，只能作为高风险冲刺。</span></td>
+            <td><div><span class="tag">高风险冲刺</span>工科试验班（卓越优才计划）｜662分｜专家90</div></td>
+            <td>哈工大官方录取分数接口：2025陕西深圳校区物理+化学普通类卓越优才计划最高672，平均665.5，最低662。略高于660估分上沿，适合作为高分冲刺，不作为稳项。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>2026 招生计划发布状态</h2>
+      <p class="note">当前最关键的数据是“陕西物理类普通批分专业计划数”。章程和专业目录有参考价值，但不能替代名额测算。</p>
+      <table>
+        <thead><tr><th>学校</th><th>官网状态</th><th>自动接口检查</th><th>当前处理</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td><td>已上线<br><span class="subtle">已查到2026陕西物理类普通类分专业计划</span></td><td><span class="tag good">已上线；年份：2026；2026条目：41</span></td><td>继续用2025工科试验班、软件工程、智慧能源等数据作为基线</td></tr>
+<tr><td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td><td>需人工复核<br><span class="subtle">官网自动检索受阻；2025基线暂用EOL，后续必须回校方或省考试院复核。</span></td><td><span class="tag warn">需人工复核；年份：-；2026条目：-</span></td><td>暂用2025 EOL初筛，后续必须替换为校方或省考试院数据</td></tr>
+<tr><td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td><td>已上线<br><span class="subtle">已查到2026陕西物理类普通类分专业计划</span></td><td><span class="tag good">已上线；年份：2026；2026条目：18<br><span class="subtle">招生活动：<a href="https://zsxc.xidian.edu.cn/public/zsxc/xcxcpc/" target="_blank" rel="noreferrer">咨询行程</a> / <a href="https://mp.weixin.qq.com/s?__biz=MjM5NzY1MjQ1Mg==&amp;mid=2650534172&amp;idx=1&amp;sn=69715daf25e09d041c47288ba8ba731b&amp;chksm=bed9e39789ae6a81314d4efbf3b4660fecbed70b668c49caef094dce3a73e462934b8c7ef93d&amp;token=603952382&amp;lang=zh_CN#rd" target="_blank" rel="noreferrer">06-10 西电王牌学院展播第十七期！光电工程学院院长与您面对面</a> / <a href="https://mp.weixin.qq.com/s?__biz=MjM5NzY1MjQ1Mg==&amp;mid=2650534134&amp;idx=1&amp;sn=1271456cabbf4310f27a20b4a9db8a56&amp;chksm=bed9e27d89ae6b6b5cb8ec88c75e6f58063da630b537a90afc596714f885f4d8dd5379b67eaa&amp;token=603952382&amp;lang=zh_CN#rd" target="_blank" rel="noreferrer">06-10 西电王牌学院展播第十六期！计算机科学与技术学院党委书记与您面对面</a></span></span></td><td>西电仍作为640左右最强本地稳妥池；不能因计划接口暂未返回2026就误判学校没有2026招生信息</td></tr>
+<tr><td><strong><a href="https://zsb.nwu.edu.cn/" target="_blank" rel="noreferrer">西北大学</a></strong></td><td>需人工复核<br><span class="subtle">已核到2026招生章程；分省分专业计划待发布。</span></td><td><span class="tag warn">需人工复核；年份：-；2026条目：-</span></td><td>继续作为本地211安全池，不上调主推优先级</td></tr>
+<tr><td><strong><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></strong></td><td>已上线<br><span class="subtle">已查到2026陕西物理类普通类分专业计划</span></td><td><span class="tag good">已上线；年份：2026；2026条目：26<br><span class="subtle">招生活动：<a href="https://mp.weixin.qq.com/s/-we-pWz0ZBtEQCM4v3Jyog" target="_blank" rel="noreferrer">09 2026.04 面对面答疑｜长安大学2026年4月全国招生宣讲会行程</a></span></span></td><td>继续作为本地211安全池</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>已上线<br><span class="subtle">已查到2026陕西物理类普通类分专业计划</span></td><td><span class="tag good">已上线；年份：2026、2025、2024、2023；2026条目：12<br><span class="subtle">招生活动：<a href="https://zs.uestc.edu.cn/view/2171.html" target="_blank" rel="noreferrer">电子科技大学本科2026年全国招生分省咨询行程</a> / <a href="https://zs.uestc.edu.cn/view/2202.html" target="_blank" rel="noreferrer">2026年招生政策解读暨咨询会！6月28日，我们电子科大见~</a> / <a href="https://zs.uestc.edu.cn/view/2201.html" target="_blank" rel="noreferrer">直播预告 | 电子科大2026年本科招生政策解读，一键预约！</a></span></span></td><td>成电不再只按专业目录观察，应按2026陕西计划数、专业名称、选科和2025位次重算冲稳风险</td></tr>
+<tr><td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td><td>需人工复核<br><span class="subtle">官网计划页自动访问返回412；后续人工浏览或省考试院复核。</span></td><td><span class="tag warn">需人工复核；年份：-；2026条目：-</span></td><td>暂按2025计算机、通信、电子、网安位次作为冲稳池</td></tr>
+<tr><td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td><td>需人工复核<br><span class="subtle">2025陕西物理普通批显示638-650覆盖当前核心区间，适合重点讨论；需复核2026计划数、校区培养安排、转专业规则和卓越优才计划限制。</span></td><td><span class="tag warn">需人工复核；年份：-；2026条目：-<br><span class="subtle">招生活动：<a href="https://ai-enroll.360eol.com/teacherenroll/itinerary/index/school_id/3716" target="_blank" rel="noreferrer">行程信息</a> / <a href="https://zsb.hitwh.edu.cn/home/index/enroll_group" target="_blank" rel="noreferrer">联系招生组</a></span></span></td><td>新增为640-650段强校异地校区冲稳核心；当前主方案只按普通批口径判断</td></tr>
+<tr><td><strong>第二批覆盖审计新增候选</strong></td><td>2026计划待逐校复核<br><span class="subtle">尚未逐校核验2026陕西物理普通批分专业计划；当前只按2025专业录取位次入池</span></td><td><span class="tag muted">未自动检查</span></td><td>先避免候选池走偏；出分和2026计划公布后必须逐项核计划数、校区、学费、转专业、大类分流和体检限制</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>2025 分数位次锚点</h2>
+      <div class="anchor-list">
+        <div class="anchor"><strong>660</strong><div>高冲段</div><div class="subtle">约 1,704 位</div><p>本地西交/西工大强专业，外地电子信息强校</p></div>
+<div class="anchor"><strong>650</strong><div>核心竞争段</div><div class="subtle">约 2,629 位</div><p>西工大计算机/电子/航空，电子科大、北邮部分强专业</p></div>
+<div class="anchor"><strong>640</strong><div>稳中选专业段</div><div class="subtle">约 3,788 位</div><p>西电强实验班、北邮普通强专业、部分985强专业</p></div>
+<div class="anchor"><strong>630</strong><div>下探安全段</div><div class="subtle">约 5,221 位</div><p>外地985工科、头部211强专业，本地西电普通强类</p></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>考试难度、个人发挥和大小年</h2>
+      <p class="note">考试难度主要影响裸分，不应直接影响以位次为核心的填报方法。</p>
+      <div class="two">
+        <div>
+          <h3>今年这类考试反馈的影响</h3>
+          <table>
+            <thead><tr><th>因素</th><th>可能影响</th><th>填报处理</th></tr></thead>
+            <tbody>
+              <tr><td>全省试题整体变难</td><td>同一位次对应分数下降，但位次相对稳定。</td><td>不要因裸分低于去年就简单降档，必须等2026一分一段。</td></tr>
+<tr><td>孩子在难题上相对吃亏</td><td>如果同层考生也普遍失分，影响有限；如果孩子比同层少拿关键分，省位次会下移。</td><td>出分前估分池要从640-660下探到630，出分后以真实位次重算。</td></tr>
+<tr><td>化学不难但题量大没做完</td><td>这种情况常导致区分度来自速度和稳定性，而不是知识深度。</td><td>不能仅据此否定工科，但应避免把纯理论理科作为主线。</td></tr>
+<tr><td>数学难度高</td><td>数学强的学生相对收益更高，计算机、电子、强工科热门专业的高分段竞争未必明显降温。</td><td>计算机/电子仍可报，但不能用&#39;大家数学都难所以热门专业会降&#39;作为主要依据。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>大小年和冷热博弈</h3>
+          <table>
+            <thead><tr><th>场景</th><th>经验判断</th><th>动作</th></tr></thead>
+            <tbody>
+              <tr><td>去年专业位次明显冲高，且今年计划稳定或增加</td><td>次年回落概率中等，但强热门专业可能继续高位。</td><td>可列为博弈项，但只放在冲刺层，不作为稳妥项。</td></tr>
+<tr><td>去年专业位次明显走低，且专业口碑仍强</td><td>次年反弹概率较高，因为更多人会看到&#39;去年低&#39;。</td><td>不能按去年低位次当安全，至少提高一个风险等级。</td></tr>
+<tr><td>新专业、首次在陕西投放、专业名称带AI/低空/机器人</td><td>波动大，可能高开，也可能因家长不了解而低开。</td><td>只作冲刺或兴趣项，必须看计划数和学院平台。</td></tr>
+<tr><td>计划数小于5</td><td>最低位次随机性很强，一两个考生即可改变分数线。</td><td>高分也要谨慎，不能作为稳项。</td></tr>
+<tr><td>计划大幅缩招</td><td>位次上移概率显著提高。</td><td>缩招20%以上默认提高风险等级。</td></tr>
+<tr><td>计划大幅扩招</td><td>位次下移概率提高，但热门强专业未必明显下降。</td><td>扩招20%以上可略降风险，但仍看三年位次。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <h3>还要纳入的其他变量</h3>
+      <table>
+        <thead><tr><th>变量</th><th>重要性</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>2026招生计划增减</td><td><span class="tag">极高</span></td><td>比裸分和冷热判断更重要。</td></tr>
+<tr><td>专业组/大类变化</td><td><span class="tag">高</span></td><td>不同专业捆绑会改变调剂风险和报考热度。</td></tr>
+<tr><td>校区变化</td><td><span class="tag">高</span></td><td>沙河、威海、青岛、太仓等校区需要单独看资源和毕业证。</td></tr>
+<tr><td>学费变化</td><td><span class="tag">中高</span></td><td>软件类较高学费要标注；中外合作办学、合作办学、高收费和港校项目不进入当前普通类主方案，不与普通类混排。</td></tr>
+<tr><td>体检和色觉限制</td><td><span class="tag">高</span></td><td>近视475/500度但矫正视力接近1.5，要重点核裸眼视力、矫正视力、镜片度数、色觉和院校补充体检要求；飞行/航海/公安消防等硬限方向尤其要核。</td></tr>
+<tr><td>中外合作/高收费项目</td><td><span class="tag">中高</span></td><td>当前普通类主方案硬排除，不进入候选排序、自动志愿和草表。若家庭后续重新考虑高费/合作项目，必须另建独立比较表，单独核毕业证/学位证、国内外培养安排、总费用、英文要求、保研就业、转专业和是否可调剂。</td></tr>
+<tr><td>港校/内地与港澳台合作办学</td><td><span class="tag">中高</span></td><td>当前普通类主方案硬排除，不进入候选排序、自动志愿和草表。若后续单独讨论港校或内地与港澳台合作办学，必须另建独立比较表，核招生批次、是否占用或影响统招志愿、陕西录取分、计划数、学费住宿、奖学金、英文教学、毕业证/学位证、就业签证和升学出口。</td></tr>
+<tr><td>专业清/专业级差/分数清</td><td><span class="tag">高</span></td><td>招生章程中的专业录取规则会影响是否能进入目标专业；专业清通常更重视专业志愿顺序，专业级差会拉开专业志愿分差，不能只看院校投档线。</td></tr>
+<tr><td>入校后二次分流</td><td><span class="tag">极高</span></td><td>大类、试验班、卓越班、拔尖班、未来技术学院等要问清分流规则、目标专业名额、成绩要求和是否可能被分到不可接受方向。</td></tr>
+<tr><td>就业舆论变化</td><td><span class="tag">中</span></td><td>热门专业可能被追捧，传统专业可能被回避，但舆论常滞后或过度。</td></tr>
+<tr><td>学校宣传力度</td><td><span class="tag">中</span></td><td>新增专业、强基、拔尖班、联合学位宣传会改变报考热度。</td></tr>
+<tr><td>家长群信息扩散</td><td><span class="tag">中</span></td><td>同一个&#39;捡漏&#39;信息被大量传播后往往不再是捡漏。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>家长出分前后工作清单</h2>
+      <div class="two">
+        <div>
+          <h3>成绩出来前</h3>
+          <table>
+            <thead><tr><th>任务</th><th>要点</th></tr></thead>
+            <tbody>
+              <tr><td>建立目标校联络表</td><td>官网、本科招生网、招生办电话、陕西咨询老师、公众号、直播入口、咨询群。</td></tr>
+<tr><td>准备招生办问询清单</td><td>计划数、专业清/分数清/专业级差、大类分流、转专业、校区、学费、体检视力色觉、保研就业、女生比例。</td></tr>
+<tr><td>按630/640/650/660四档准备学校池</td><td>每档都准备冲、稳、保，不押单一估分。</td></tr>
+<tr><td>收集2026招生章程和专业目录</td><td>章程看规则，专业目录看可选范围，但都不能替代陕西分专业计划。</td></tr>
+<tr><td>查就业信息</td><td>学校就业质量报告、就业信息网、学院毕业去向、校招单位。</td></tr>
+<tr><td>明确家庭底线</td><td>不可接受专业、不可接受校区、可接受总费用；当前主方案明确排除医学类、国家专项、地方专项、强基计划、综合评价、中外合作办学、合作办学、高收费和港校项目。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>成绩出来后</h3>
+          <table>
+            <thead><tr><th>任务</th><th>要点</th></tr></thead>
+            <tbody>
+              <tr><td>获取真实分数和省位次</td><td>第一时间用2026一分一段替换所有估分锚点。</td></tr>
+<tr><td>获取陕西2026招生计划目录</td><td>以陕西省教育考试院/招生计划汇编/学校本科招生网为最终口径，逐项补齐院校专业组、专业代码、专业名称、计划数、校区、学费、选科、备注和是否服从调剂风险。</td></tr>
+<tr><td>重算候选池</td><td>按真实位次、2026计划、专业风险重新划分冲稳保。</td></tr>
+<tr><td>逐项电话或官方群核实</td><td>重点问大类分流、校区、学费、转专业、体检、专业备注。</td></tr>
+<tr><td>记录证据</td><td>记录咨询时间、老师、答复、截图，避免口头信息混乱。</td></tr>
+<tr><td>生成最终志愿表</td><td>控制冲稳保比例，逐项检查是否存在不可接受调剂风险。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <h3>招生办问询题库</h3>
+      <ul>
+        <li>该专业2026年在陕西物理类普通批具体计划数是多少？</li>
+<li>大类招生入校后如何分流？按成绩、志愿还是综合？</li>
+<li>转专业政策是什么？热门专业转入比例大概多少？</li>
+<li>四年在哪个校区？是否中途换校区？</li>
+<li>学费是否有后两年变化？软件、联合培养等普通类项目总费用大概多少？</li>
+<li>该院校专业组或专业备注里是否含医学类、国家专项、地方专项、强基计划、综合评价、中外合作办学、合作办学、高收费或港校项目？如有，从主方案剔除。</li>
+<li>是否有色觉、体检、单科成绩、外语语种限制？</li>
+<li>孩子近视约475/500度但矫正视力可接近1.5，该专业是否有裸眼视力、矫正视力、镜片度数、色觉或不宜就读限制？</li>
+<li>学校专业录取规则是专业清、分数清、专业级差，还是其他规则？如果服从调剂，是否可能调到不可接受专业？</li>
+<li>如果是大类/试验班/卓越班，入校后二次分流是按成绩、志愿、面试还是名额？目标专业近年分流比例是多少？</li>
+<li>近年保研率和主要升学去向如何？</li>
+<li>就业质量报告能否看到学院或专业口径？</li>
+<li>女生比例和培养强度大致如何？</li>
+<li>该专业与计算机、电子、医工交叉、AI方向的课程衔接如何？</li>
+      </ul>
+      <h3>出分后24小时内操作步骤</h3>
+      <table>
+        <thead><tr><th>步骤</th><th>动作</th><th>产出</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1. 固定官方口径</strong></td><td>先打开陕西招生考试信息网、陕西教育考试院/志愿填报通知、2026招生计划汇编；学校官网只作交叉复核。</td><td>确认本科批次、院校专业组/专业代码、选科要求和正式填报字段。</td></tr>
+<tr><td><strong>2. 建立2026可填报表</strong></td><td>复制2025基线表结构，新建2026表。每一行只放一个可以填报的院校专业组/专业单元，不把专项、预科、中外合作、普通类混在一起。</td><td>得到一张可以直接讨论排序的2026候选表。</td></tr>
+<tr><td><strong>3. 逐项录入关键字段</strong></td><td>录入学校、城市、层次、院校专业组代码、专业代码、专业名称、2026计划数、2025计划数、2025最低分/平均分/最高分/位次、校区、学费、选科、备注、来源链接。专业名称必须照抄正式目录，若为大类/试验班则保留完整括号内容。</td><td>每个候选项都有“能不能填、填在哪里、风险是什么”的基础字段。</td></tr>
+<tr><td><strong>4. 标注变化和风险</strong></td><td>计算2026计划数相对2025计划数的增减；标记小计划、缩招、大类分流、专业清/级差、体检视力色觉、校区变化；医学类、专项、强基、综合评价、中外合作办学、合作办学、高收费和港校项目直接从主方案剔除。</td><td>缩招20%以上、小计划少于5人、分流不清的候选项不作为稳项。</td></tr>
+<tr><td><strong>5. 用真实位次重算冲稳保</strong></td><td>用孩子2026真实省位次对照2025最低位次和计划变化，重新分为冲、冲稳、稳、保、安全池。</td><td>形成第一版真实位次志愿草表。</td></tr>
+<tr><td><strong>6. 电话/官方群补证据</strong></td><td>对前40个候选项逐校问招生办，重点核实计划数、分流、调剂、校区、学费、体检和中外合作证书。</td><td>把答复时间、老师、原话、截图链接填入证据列。</td></tr>
+        </tbody>
+      </table>
+      <p class="subtle">2026可填报表字段模板见 <code>家长出分前后行动手册.html</code>，正式填报必须以陕西2026招生计划目录中的院校专业组代码、专业代码和计划数为准。</p>
+    </section>
+
+    <section>
+      <h2>本地专家经验规则库</h2>
+      <p class="note">经验库只吸收公开方法论和官方规则，不复制任何付费课程。它用于提示风险和排序候选，不替代官方计划、招生章程和招生办答复。</p>
+      <div class="two">
+        <div>
+          <h3>核心原则</h3>
+          <table>
+            <thead><tr><th>原则</th><th>落地规则</th></tr></thead>
+            <tbody>
+              <tr><td><strong>位次优先，分数辅助</strong></td><td>正式填报以2026陕西物理类真实省位次为核心，历史分数只做换算锚点。<br><span class="subtle">报告和评分都要保留位次差，而不是只看分差。</span></td></tr>
+<tr><td><strong>先守可接受专业底线</strong></td><td>强校冷门或不可接受专业不能只因985/211标签硬报。<br><span class="subtle">对调剂风险、大类分流风险、不可接受专业设置惩罚。</span></td></tr>
+<tr><td><strong>学校平台、专业底座、城市资源三角平衡</strong></td><td>高分段重平台和强专业，中分段重专业底座和可迁移性，低风险段重专业可接受和录取确定性。<br><span class="subtle">当前家庭采用西安资源线和外地强专业线双核心。</span></td></tr>
+<tr><td><strong>警惕行业周期</strong></td><td>公开专家观点中的就业导向值得参考，但土木、房地产、新闻等争议说明行业判断会变化。<br><span class="subtle">不把单一热门/冷门标签写死，优先选择计算机、电子、自动化等迁移性更强的底座。</span></td></tr>
+<tr><td><strong>计划变化是风险变量</strong></td><td>2026计划数相比2025缩招20%以上要提高风险，扩招20%以上也不能直接降为安全。<br><span class="subtle">等计划发布后重算风险。</span></td></tr>
+<tr><td><strong>招生章程必须核验</strong></td><td>校区、学费、体检、色觉、视力、单科、外语语种、调档、专业清/分数清/专业级差等专业录取规则都要查章程或招生办。<br><span class="subtle">每个最终志愿项必须带待核实清单；近视475/500度但矫正视力接近1.5，普通工科不直接排除，视力敏感专业单独标注。</span></td></tr>
+<tr><td><strong>删除中外合作办学主数据</strong></td><td>正式志愿主方案不再保留中外合作办学、合作办学项目；已从候选基线和主排序中删除。<br><span class="subtle">主排序只看普通类。若后续家庭单独要求高收费/合作项目，必须另建独立文档，不得与普通类混排。</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>来源优先级</h3>
+          <table>
+            <thead><tr><th>等级</th><th>来源</th><th>用途</th></tr></thead>
+            <tbody>
+              <tr><td><span class="tag">S</span></td><td>官方政策与招生计划<br><span class="subtle">陕西招生考试信息网、陕西省教育考试院、阳光高考平台、学校本科招生网、学校官方招生查询系统</span></td><td>最终填报依据</td></tr>
+<tr><td><span class="tag">A</span></td><td>学校官方延伸信息<br><span class="subtle">招生章程、专业目录、就业质量报告、学院官网、就业信息网、招生办电话/官方群答复</span></td><td>解释专业、校区、培养、就业和风险</td></tr>
+<tr><td><span class="tag">B</span></td><td>第三方数据和公开专家观点<br><span class="subtle">中国教育在线/EOL、公开讲座、公开视频、公开文章、媒体访谈</span></td><td>初筛和启发，不直接作为最终依据</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>生物兴趣处理口径</h2>
+      <p class="note">生物相关兴趣本轮只作为背景信息保留，不进入本科志愿主方案。医学类、医工、医疗、药学、护理等相关方向已从候选排序、自动志愿和草表中剔除。</p>
+      <p>本科主线继续收敛到计算机、软件、电子信息、通信、集成电路、自动化、智能制造、机器人、测控、低空和航空航天等工科底座。</p>
+    </section>
+
+    <section>
+      <h2>专业课程审计摘要</h2>
+      <p class="note">课程画像来自 <code>data/course-audit.json</code>，当前主要用于出分前快速筛查课程强度。最终填报前要把重点院校专业升级为学校培养方案或学院专业介绍来源。</p>
+      <div class="course-mini">
+        <div><strong>10</strong><br><span class="subtle">已建课程画像方向</span></div>
+        <div><strong>16</strong><br><span class="subtle">报告前列候选已匹配</span></div>
+        <div><strong>C源为主</strong><br><span class="subtle">需逐校培养方案复核</span></div>
+        <div><strong>另见</strong><br><span class="subtle">候选专业课程审计.html 完整版</span></div>
+      </div>
+      <table>
+        <thead><tr><th>学校</th><th>专业名称</th><th>课程画像</th><th>强度提示</th><th>跨学科衔接</th><th>要问招生办</th></tr></thead>
+        <tbody>
+          <tr><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>软件工程</td><td><strong>计算机/软件/AI/数据/网安</strong><br><span class="subtle">与家庭确认的编程训练意愿最匹配，也是未来转AI医疗、计算生物、医学影像AI、AI制药最通用的本科底座。</span></td><td>数学4/5；编程5/5；电路信号1/5；力学/物理1/5</td><td>5/5<br><span class="subtle">程序设计、离散数学、数据结构、算法设计、计算机组成</span></td><td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？</td></tr>
+<tr><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智能制造类）</td><td><strong>智能制造/机械/装备</strong><br><span class="subtle">强校机械和智能制造仍有平台价值，适合高端制造、机器人硬件、医疗器械结构和实验设备，但应避免被弱分流拖入不喜欢的传统方向。</span></td><td>数学3/5；编程2/5；电路信号2/5；力学/物理5/5</td><td>3/5<br><span class="subtle">工程制图、理论力学、材料力学、机械原理、机械设计</span></td><td>大类分流能否保证进入机器人、智能制造、测控或自动化相关方向？；是否含材料、焊接、土木、车辆等非优先方向？</td></tr>
+<tr><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智慧能源类）</td><td><strong>电气/能源/储能</strong><br><span class="subtle">行业稳定性较好，强校电气值得关注；与生物医药衔接较弱，但可作为稳就业工程方向。</span></td><td>数学4/5；编程2/5；电路信号4/5；力学/物理3/5</td><td>2/5<br><span class="subtle">电路、电机学、电力电子技术、电力系统分析、自动控制原理</span></td><td>大类是否保证电气或储能方向？；就业去向是电网、能源企业、制造业还是研究所？</td></tr>
+<tr><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（航天航空类）</td><td><strong>航空航天/低空/飞行器</strong><br><span class="subtle">学校平台强时很有价值，尤其西工大、南航等；但课程硬、行业属性强，适合作为有兴趣和平台优势时的冲稳选项。</span></td><td>数学4/5；编程2/5；电路信号2/5；力学/物理5/5</td><td>2/5<br><span class="subtle">理论力学、材料力学、流体力学、空气动力学、飞行器结构</span></td><td>低空方向是否是独立培养还是大类内名称？；课程偏飞行器、控制、通信导航还是运营管理？</td></tr>
+<tr><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智能过程与装备国卓班）</td><td><strong>智能制造/机械/装备</strong><br><span class="subtle">强校机械和智能制造仍有平台价值，适合高端制造、机器人硬件、医疗器械结构和实验设备，但应避免被弱分流拖入不喜欢的传统方向。</span></td><td>数学3/5；编程2/5；电路信号2/5；力学/物理5/5</td><td>3/5<br><span class="subtle">工程制图、理论力学、材料力学、机械原理、机械设计</span></td><td>大类分流能否保证进入机器人、智能制造、测控或自动化相关方向？；是否含材料、焊接、土木、车辆等非优先方向？</td></tr>
+<tr><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智能感知与仪器）</td><td><strong>测控/智能仪器/光电</strong><br><span class="subtle">与医疗仪器、医学成像、传感器和智能检测衔接好，适合喜欢工程系统和硬件平台的学生。</span></td><td>数学4/5；编程3/5；电路信号4/5；力学/物理3/5</td><td>4/5<br><span class="subtle">误差理论与数据处理、传感器原理、测控电路、信号与系统、数字信号处理</span></td><td>该方向强项是光电、仪器、传感器还是检测控制？；孩子近视约475/500度但矫正视力可接近1.5，是否限制裸眼视力、矫正视力、镜片度数或色觉？</td></tr>
+<tr><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>软件工程（卓越优才计划）</td><td><strong>计算机/软件/AI/数据/网安</strong><br><span class="subtle">与家庭确认的编程训练意愿最匹配，也是未来转AI医疗、计算生物、医学影像AI、AI制药最通用的本科底座。</span></td><td>数学4/5；编程5/5；电路信号1/5；力学/物理1/5</td><td>5/5<br><span class="subtle">程序设计、离散数学、数据结构、算法设计、计算机组成</span></td><td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？</td></tr>
+<tr><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>工科试验班（AI加先进技术领军班）</td><td><strong>计算机/软件/AI/数据/网安</strong><br><span class="subtle">与家庭确认的编程训练意愿最匹配，也是未来转AI医疗、计算生物、医学影像AI、AI制药最通用的本科底座。</span></td><td>数学4/5；编程5/5；电路信号1/5；力学/物理1/5</td><td>5/5<br><span class="subtle">程序设计、离散数学、数据结构、算法设计、计算机组成</span></td><td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？</td></tr>
+<tr><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>工科试验班（智能制造卓越优才计划）</td><td><strong>自动化/控制/机器人</strong><br><span class="subtle">兼顾编程、电路、控制和工程系统，适合未来机器人、智能制造、医疗机器人、实验室自动化和康复设备方向。</span></td><td>数学4/5；编程3/5；电路信号4/5；力学/物理3/5</td><td>4/5<br><span class="subtle">电路与电子技术、自动控制原理、现代控制理论、信号与系统、传感器与检测技术</span></td><td>机器人方向归属自动化、机械还是计算机学院？；本科项目是否有真实机器人、嵌入式、视觉和控制系统训练？</td></tr>
+<tr><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>工科试验班（机器人与智能装备拔尖班）</td><td><strong>自动化/控制/机器人</strong><br><span class="subtle">兼顾编程、电路、控制和工程系统，适合未来机器人、智能制造、医疗机器人、实验室自动化和康复设备方向。</span></td><td>数学4/5；编程3/5；电路信号4/5；力学/物理3/5</td><td>4/5<br><span class="subtle">电路与电子技术、自动控制原理、现代控制理论、信号与系统、传感器与检测技术</span></td><td>机器人方向归属自动化、机械还是计算机学院？；本科项目是否有真实机器人、嵌入式、视觉和控制系统训练？</td></tr>
+<tr><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>软件工程</td><td><strong>计算机/软件/AI/数据/网安</strong><br><span class="subtle">与家庭确认的编程训练意愿最匹配，也是未来转AI医疗、计算生物、医学影像AI、AI制药最通用的本科底座。</span></td><td>数学4/5；编程5/5；电路信号1/5；力学/物理1/5</td><td>5/5<br><span class="subtle">程序设计、离散数学、数据结构、算法设计、计算机组成</span></td><td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？</td></tr>
+<tr><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>电子信息类（电子信息）</td><td><strong>电子信息/通信/电子工程</strong><br><span class="subtle">适合愿意接受电路、信号和控制的工科孩子；与医疗设备、医学信号、可穿戴设备、脑机接口和医疗芯片有较好衔接。</span></td><td>数学4/5；编程3/5；电路信号5/5；力学/物理3/5</td><td>4/5<br><span class="subtle">电路分析、模拟电子技术、数字电子技术、信号与系统、电磁场与电磁波</span></td><td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？</td></tr>
+<tr><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>计算机类（计算机，含智能交互设计）</td><td><strong>计算机/软件/AI/数据/网安</strong><br><span class="subtle">与家庭确认的编程训练意愿最匹配，也是未来转AI医疗、计算生物、医学影像AI、AI制药最通用的本科底座。</span></td><td>数学4/5；编程5/5；电路信号1/5；力学/物理1/5</td><td>5/5<br><span class="subtle">程序设计、离散数学、数据结构、算法设计、计算机组成</span></td><td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？</td></tr>
+<tr><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>计算机类（网络安全）</td><td><strong>计算机/软件/AI/数据/网安</strong><br><span class="subtle">与家庭确认的编程训练意愿最匹配，也是未来转AI医疗、计算生物、医学影像AI、AI制药最通用的本科底座。</span></td><td>数学4/5；编程5/5；电路信号1/5；力学/物理1/5</td><td>5/5<br><span class="subtle">程序设计、离散数学、数据结构、算法设计、计算机组成</span></td><td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？</td></tr>
+<tr><td><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></td><td>覆盖审计：航空航天/计算机/电子信息/自动化方向待核</td><td><strong>计算机/软件/AI/数据/网安</strong><br><span class="subtle">与家庭确认的编程训练意愿最匹配，也是未来转AI医疗、计算生物、医学影像AI、AI制药最通用的本科底座。</span></td><td>数学4/5；编程5/5；电路信号1/5；力学/物理1/5</td><td>5/5<br><span class="subtle">程序设计、离散数学、数据结构、算法设计、计算机组成</span></td><td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？</td></tr>
+<tr><td><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></td><td>工科试验班（卓越人才班）</td><td><strong>计算机/软件/AI/数据/网安</strong><br><span class="subtle">与家庭确认的编程训练意愿最匹配，也是未来转AI医疗、计算生物、医学影像AI、AI制药最通用的本科底座。</span></td><td>数学4/5；编程5/5；电路信号1/5；力学/物理1/5</td><td>5/5<br><span class="subtle">程序设计、离散数学、数据结构、算法设计、计算机组成</span></td><td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>保研与就业审计摘要</h2>
+      <p class="note">保研和就业数据已单独放入 <code>data/outcome-audit.json</code>，完整版见 <code>保研与就业审计.html</code>。当前先采用“可查规则 + 待推算比例 + 趋势判断”的方式，避免把第三方保研率当官方数据。</p>
+      <div class="two">
+        <div>
+          <h3>重点学校待核</h3>
+          <table>
+            <thead><tr><th>学校</th><th>保研友好</th><th>就业平台</th><th>当前处理</th></tr></thead>
+            <tbody>
+              <tr><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td><span class="tag">高</span></td><td><span class="tag">高</span></td><td>需补学校本科生院/学院推免办法、推免名单和就业质量报告链接；本地985平台和强工科对保研、央国企/研究所/大厂筛选友好。</td></tr>
+<tr><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td><span class="tag">高</span></td><td><span class="tag">高</span></td><td>需补官方推免和就业报告；航空航天、电子信息、计算机、自动化方向对国防军工、研究所、央国企和读研平台较强。</td></tr>
+<tr><td><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></td><td><span class="tag">中高</span></td><td><span class="tag">高</span></td><td>需补官方推免办法、学院名额和就业质量报告；通信、电子、集成电路、计算机在行业招聘中识别度高。</td></tr>
+<tr><td><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></td><td><span class="tag">高</span></td><td><span class="tag">高</span></td><td>电子信息、通信、集成电路、计算机平台强；需核陕西计划、学院推免规则和就业质量报告。</td></tr>
+<tr><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td><span class="tag">高</span></td><td><span class="tag">高</span></td><td>985/C9品牌强，但必须核威海校区、卓越优才计划、转专业、保研和就业是否与本部口径一致。</td></tr>
+<tr><td><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></td><td><span class="tag">高</span></td><td><span class="tag">高</span></td><td>老牌985工科平台强；智能计算、电气信息、精仪光电、未来技术学院需核学院推免和新专业就业成熟度。</td></tr>
+<tr><td><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></td><td><span class="tag">高</span></td><td><span class="tag">高</span></td><td>广州/大湾区强工科985，就业城市优势明显；AI低空、计算机、自动化、电气需核学院就业去向。</td></tr>
+<tr><td><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></td><td><span class="tag">高</span></td><td><span class="tag">中高</span></td><td>综合985平台强，计算机/电子信息可考虑；需核翔安校区、软件收费和工科就业平台。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>专业方向就业趋势</h3>
+          <table>
+            <thead><tr><th>方向</th><th>未来5-10年判断</th><th>读研价值</th></tr></thead>
+            <tbody>
+              <tr><td>计算机/软件/AI/数据/网安</td><td>需求仍会存在，但低端编码岗位会被AI明显压缩；更有价值的是系统工程、AI应用架构、数据工程、安全、平台工程和懂行业的复合型人才。</td><td><span class="tag">中高。若走AI算法、AI医疗、计算生物、网络安全研究，读研明显加分；若走工程开发，本科强项目也能就业。</span></td></tr>
+<tr><td>电子信息/通信/集成电路</td><td>国产替代、智能终端、汽车电子、卫星互联网、6G、边缘AI和医疗电子会支撑中长期需求。</td><td><span class="tag">高。集成电路、通信算法、射频、芯片、信号处理、医学影像等方向读研收益明显。</span></td></tr>
+<tr><td>自动化/机器人/测控/智能制造</td><td>机器人、智能制造、工业AI、实验室自动化、医疗机器人和新能源装备会持续增长。</td><td><span class="tag">中高。控制、机器人、机器视觉、医疗机器人、智能装备读研后平台更好。</span></td></tr>
+<tr><td>航空航天/低空/无人系统</td><td>低空经济、无人系统、商业航天和国防航空有政策热度，但短期可能出现报考过热和专业名称炒作。</td><td><span class="tag">高。力学、控制、飞行器、导航制导等方向读研收益明显。</span></td></tr>
+<tr><td>生物医学工程/AI医疗/医疗器械</td><td>老龄化、医疗设备国产化、AI医疗、医学影像、可穿戴设备、医疗机器人和多组学会带来长期机会。</td><td><span class="tag">高。更适合本科工科底座后研究生切入。</span></td></tr>
+<tr><td>电气/能源/储能</td><td>新型电力系统、新能源、储能、智能电网和电力电子需求稳定，但热度也可能推高分数。</td><td><span class="tag">中高。电力系统、电力电子、储能方向读研提升明显。</span></td></tr>
+<tr><td>数字媒体/交互/科技艺术</td><td>AI会压缩基础视觉设计和内容生产岗位，但懂计算机、图形学、交互、可视化和产品系统的人仍有空间。</td><td><span class="tag">中。人机交互、可视化、计算机图形学、医疗可视化可深造。</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>专家规则初评分</h2>
+      <p class="subtle">当前按估分中位数 650 做临时评分。出分后要换成真实省位次，并加入 2026 计划增减后重算。</p>
+      <table>
+        <thead><tr><th>排序</th><th>录取年</th><th>省份</th><th>科类</th><th>类别</th><th>学校</th><th>专业名称</th><th>最低分</th><th>平均分</th><th>最高分</th><th>专家分</th><th>结论</th><th>匹配方向</th><th>风险标签</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a></td><td>工科试验班（未来技术拔尖班）</td><td>679</td><td>680.3</td><td>682</td><td><strong>82</strong></td><td><span class="tag">极高冲刺</span></td><td>未来技术/强工科/哈工大本部</td><td>大类分流/专业清待核</td></tr>
+<tr><td>2</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>软件工程</td><td>660</td><td>-</td><td>-</td><td><strong>118</strong></td><td><span class="tag">高优先</span></td><td>计算机/软件/AI/数据/网安</td><td>-</td></tr>
+<tr><td>3</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智能制造类）</td><td>649</td><td>-</td><td>-</td><td><strong>114</strong></td><td><span class="tag">高优先</span></td><td>自动化/机器人/智能制造/测控</td><td>大类分流/专业清待核</td></tr>
+<tr><td>4</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智慧能源类）</td><td>653</td><td>-</td><td>-</td><td><strong>112</strong></td><td><span class="tag">高优先</span></td><td>能源/电气</td><td>大类分流/专业清待核</td></tr>
+<tr><td>5</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（航天航空类）</td><td>649</td><td>-</td><td>-</td><td><strong>112</strong></td><td><span class="tag">高优先</span></td><td>低空/航空航天/无人系统</td><td>大类分流/专业清待核</td></tr>
+<tr><td>6</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智能过程与装备国卓班）</td><td>655</td><td>-</td><td>-</td><td><strong>111</strong></td><td><span class="tag">高优先</span></td><td>自动化/机器人/智能制造/测控</td><td>大类分流/专业清待核</td></tr>
+<tr><td>7</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智能感知与仪器）</td><td>660</td><td>-</td><td>-</td><td><strong>110</strong></td><td><span class="tag">高优先</span></td><td>自动化/机器人/智能制造/测控</td><td>大类分流/专业清待核、近视度数不宜就读待核</td></tr>
+<tr><td>8</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>软件工程（卓越优才计划）</td><td>638</td><td>-</td><td>-</td><td><strong>114</strong></td><td><span class="tag">高优先</span></td><td>计算机/软件/AI/数据/网安</td><td>-</td></tr>
+<tr><td>9</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>工科试验班（AI加先进技术领军班）</td><td>644</td><td>-</td><td>-</td><td><strong>111</strong></td><td><span class="tag">高优先</span></td><td>计算机/软件/AI/数据/网安</td><td>大类分流/专业清待核</td></tr>
+<tr><td>10</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>工科试验班（智能制造卓越优才计划）</td><td>639</td><td>-</td><td>-</td><td><strong>108</strong></td><td><span class="tag">高优先</span></td><td>自动化/机器人/智能制造/测控</td><td>大类分流/专业清待核</td></tr>
+<tr><td>11</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>工科试验班（机器人与智能装备拔尖班）</td><td>650</td><td>-</td><td>-</td><td><strong>106</strong></td><td><span class="tag">高优先</span></td><td>自动化/机器人/智能制造/测控</td><td>大类分流/专业清待核</td></tr>
+<tr><td>12</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hitsz.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（深圳）</a></td><td>工科试验班（卓越优才计划）</td><td>662</td><td>665.5</td><td>672</td><td><strong>90</strong></td><td><span class="tag">高风险冲刺</span></td><td>强工科/哈工大深圳</td><td>大类分流/专业清待核</td></tr>
+<tr><td>13</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>软件工程</td><td>641</td><td>-</td><td>-</td><td><strong>101</strong></td><td><span class="tag">高优先</span></td><td>计算机/软件/AI/数据/网安</td><td>-</td></tr>
+<tr><td>14</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>电子信息类（电子信息）</td><td>647</td><td>-</td><td>-</td><td><strong>97</strong></td><td><span class="tag">高优先</span></td><td>电子信息/通信/集成电路</td><td>大类分流/专业清待核</td></tr>
+<tr><td>15</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>计算机类（计算机，含智能交互设计）</td><td>652</td><td>-</td><td>-</td><td><strong>96</strong></td><td><span class="tag">高优先</span></td><td>计算机/软件/AI/数据/网安</td><td>大类分流/专业清待核</td></tr>
+<tr><td>16</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>计算机类（网络安全）</td><td>648</td><td>-</td><td>-</td><td><strong>96</strong></td><td><span class="tag">高优先</span></td><td>计算机/软件/AI/数据/网安</td><td>大类分流/专业清待核</td></tr>
+<tr><td>17</td><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></td><td>覆盖审计：航空航天/计算机/电子信息/自动化方向待核</td><td>646</td><td>-</td><td>-</td><td><strong>96</strong></td><td><span class="tag">高优先</span></td><td>计算机/软件/AI/数据/网安</td><td>院校最低分待核</td></tr>
+<tr><td>18</td><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></td><td>工科试验班（卓越人才班）</td><td>645</td><td>-</td><td>-</td><td><strong>96</strong></td><td><span class="tag">高优先</span></td><td>计算机/软件/AI/数据/网安</td><td>大类分流/专业清待核</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>2025 计划数与实际录取人数口径</h2>
+      <p class="note">计划招生人数和最后实际录取人数不能混用。计划数多数可从分省分专业计划或学校查询系统获得；实际录取人数只有部分学校会按省份、科类、专业公开，本项目不把计划数默认当作实录人数。</p>
+      <div class="grid">
+        <div class="metric"><strong>99</strong><span class="subtle">审计候选项</span></div>
+        <div class="metric"><strong>17</strong><span class="subtle">已有2025计划数</span></div>
+        <div class="metric"><strong>0</strong><span class="subtle">已有2025实录人数</span></div>
+        <div class="metric"><strong>99</strong><span class="subtle">实录待核</span></div>
+      </div>
+      <p class="subtle">详表见 <code>2025计划与实际录取人数审计.html</code> 和 <code>data/generated/plan-admit-reconciliation-2025.json</code>。后续若学校公开“录取人数/实际录取人数”，再录入并计算与计划数的差额。</p>
+    </section>
+
+    <section>
+      <h2>2025 专业录取基线</h2>
+      <h3>660分位段：高冲</h3>
+        <table>
+          <thead><tr><th>录取年</th><th>省份</th><th>科类</th><th>类别</th><th>学校</th><th>专业名称</th><th>最低分</th><th>平均分</th><th>最高分</th><th>位次</th><th>计划</th><th>方向</th><th>建议</th><th>源</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hitsz.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（深圳）</a></td><td>工科试验班（卓越优才计划）</td><td>662</td><td>665.5</td><td>672</td><td>-</td><td>-</td><td>强工科/哈工大深圳</td><td><span class="tag">冲刺</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.seu.edu.cn/" target="_blank" rel="noreferrer">东南大学</a></td><td>计算机类</td><td>662</td><td>-</td><td>-</td><td>1,543</td><td>-</td><td>计算机/AI/软件/网安</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.seu.edu.cn/" target="_blank" rel="noreferrer">东南大学</a></td><td>工科试验班（智能制造与智能系统）</td><td>662</td><td>-</td><td>-</td><td>1,543</td><td>-</td><td>机器人/自动化/智能制造</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></td><td>计算机类（国家网络安全学院）</td><td>661</td><td>-</td><td>-</td><td>1,625</td><td>-</td><td>网安/计算机</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>软件工程</td><td>660</td><td>-</td><td>-</td><td>1,626</td><td>32</td><td>软件/计算机</td><td><span class="tag">冲</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智能感知与仪器）</td><td>660</td><td>-</td><td>-</td><td>1,626</td><td>6</td><td>测控/智能仪器</td><td><span class="tag">冲</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></td><td>光电信息科学与工程</td><td>660</td><td>-</td><td>-</td><td>1,704</td><td>-</td><td>光电/电子信息</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></td><td>工科试验班（电气类）</td><td>660</td><td>-</td><td>-</td><td>1,704</td><td>-</td><td>电气/储能</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></td><td>电子信息类（信息与通信）</td><td>659</td><td>-</td><td>-</td><td>1,793</td><td>-</td><td>通信/电子信息</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></td><td>电子信息类（元班）</td><td>659</td><td>-</td><td>-</td><td>1,793</td><td>-</td><td>电子信息/通信</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></td><td>工科试验班（电子工程类）</td><td>658</td><td>-</td><td>-</td><td>-</td><td>-</td><td>电子工程</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></td><td>电子信息类（电子信息学院）</td><td>658</td><td>-</td><td>-</td><td>1,873</td><td>-</td><td>电子信息/通信</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></td><td>机械类</td><td>658</td><td>-</td><td>-</td><td>1,873</td><td>-</td><td>机械/测控/工业工程</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></td><td>微电子科学与工程（集成电路学院）</td><td>658</td><td>-</td><td>-</td><td>1,873</td><td>-</td><td>集成电路</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://bkzs.nju.edu.cn/" target="_blank" rel="noreferrer">南京大学</a></td><td>覆盖审计：计算机/电子信息/技术科学方向待核</td><td>658</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机/电子信息/技术科学</td><td><span class="tag">冲刺观察</span></td><td>C</td></tr>
+          </tbody>
+        </table>
+<h3>650分位段：核心冲稳</h3>
+        <table>
+          <thead><tr><th>录取年</th><th>省份</th><th>科类</th><th>类别</th><th>学校</th><th>专业名称</th><th>最低分</th><th>平均分</th><th>最高分</th><th>位次</th><th>计划</th><th>方向</th><th>建议</th><th>源</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></td><td>计算机类（元班）</td><td>656</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智能过程与装备国卓班）</td><td>655</td><td>-</td><td>-</td><td>-</td><td>3</td><td>智能制造/装备</td><td><span class="tag">冲</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></td><td>集成电路设计与集成系统</td><td>655</td><td>-</td><td>-</td><td>-</td><td>-</td><td>集成电路</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></td><td>航空航天类</td><td>655</td><td>-</td><td>-</td><td>2,144</td><td>-</td><td>航空航天</td><td><span class="tag">冲</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智慧能源类）</td><td>653</td><td>-</td><td>-</td><td>2,246</td><td>229</td><td>能源/电气/工程</td><td><span class="tag">冲稳</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></td><td>计算机类</td><td>653</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>计算机类（计算机，含智能交互设计）</td><td>652</td><td>-</td><td>-</td><td>2,447</td><td>-</td><td>计算机/交互</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></td><td>工科试验班（未来技术学院）</td><td>652</td><td>-</td><td>-</td><td>2,447</td><td>-</td><td>AI/储能/智能制造</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>航空航天类（航空）</td><td>651</td><td>-</td><td>-</td><td>2,550</td><td>-</td><td>航空航天</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></td><td>工科试验班（机器人、电气信息、智能制造）</td><td>651</td><td>-</td><td>-</td><td>-</td><td>-</td><td>机器人/智能制造</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>工科试验班（机器人与智能装备拔尖班）</td><td>650</td><td>-</td><td>-</td><td>2,629</td><td>-</td><td>机器人/智能制造</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（航天航空类）</td><td>649</td><td>-</td><td>-</td><td>2,630</td><td>32</td><td>航空航天</td><td><span class="tag">冲稳</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></td><td>工科试验班（智能制造类）</td><td>649</td><td>-</td><td>-</td><td>2,630</td><td>151</td><td>智能制造</td><td><span class="tag">冲稳</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></td><td>电子信息类（智能仪器、智能控制）</td><td>649</td><td>-</td><td>-</td><td>-</td><td>-</td><td>测控/自动化</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>民用航空含低空技术与工程</td><td>648</td><td>-</td><td>-</td><td>2,829</td><td>-</td><td>低空/航空</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>计算机类（网络安全）</td><td>648</td><td>-</td><td>-</td><td>2,829</td><td>-</td><td>网安</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></td><td>工科试验班（智能与计算类）</td><td>648</td><td>-</td><td>-</td><td>2,829</td><td>-</td><td>计算机/AI/软件/网安</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学</a></td><td>人工智能（新工科大师班）</td><td>648</td><td>-</td><td>-</td><td>-</td><td>-</td><td>AI/计算机</td><td><span class="tag">冲稳</span></td><td>B</td></tr>
+          </tbody>
+        </table>
+<h3>640分位段：稳中选强专业</h3>
+        <table>
+          <thead><tr><th>录取年</th><th>省份</th><th>科类</th><th>类别</th><th>学校</th><th>专业名称</th><th>最低分</th><th>平均分</th><th>最高分</th><th>位次</th><th>计划</th><th>方向</th><th>建议</th><th>源</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>电子信息类（电子信息）</td><td>647</td><td>-</td><td>-</td><td>-</td><td>-</td><td>电子信息</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>自动化类</td><td>646</td><td>-</td><td>-</td><td>-</td><td>-</td><td>自动化</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></td><td>覆盖审计：航空航天/计算机/电子信息/自动化方向待核</td><td>646</td><td>-</td><td>-</td><td>-</td><td>-</td><td>航空航天/计算机/电子信息/自动化</td><td><span class="tag">国防七子冲刺观察</span></td><td>C</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></td><td>工科试验班（卓越人才班）</td><td>645</td><td>-</td><td>-</td><td>3,161</td><td>-</td><td>电气/软件/电子/能源</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://bkzs.tongji.edu.cn/" target="_blank" rel="noreferrer">同济大学</a></td><td>覆盖审计：工科试验班/信息类方向待核</td><td>645</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机/电子信息/工科试验班</td><td><span class="tag">补充观察</span></td><td>C</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>工科试验班（AI加先进技术领军班）</td><td>644</td><td>-</td><td>-</td><td>3,291</td><td>-</td><td>计算机/电子/AI</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zhaosheng.cqu.edu.cn/" target="_blank" rel="noreferrer">重庆大学</a></td><td>工科试验班（卓越计划）</td><td>644</td><td>-</td><td>-</td><td>-</td><td>-</td><td>综合工科</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></td><td>电子信息类（卓越计划实验班）</td><td>643</td><td>-</td><td>-</td><td>3,417</td><td>25</td><td>电子信息</td><td><span class="tag">稳</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></td><td>计算机科学与技术（国家拔尖基地班）</td><td>643</td><td>-</td><td>-</td><td>3,417</td><td>6</td><td>计算机</td><td><span class="tag">稳</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></td><td>工科试验班（电气信息类）</td><td>642</td><td>-</td><td>-</td><td>3,537</td><td>-</td><td>电气/电子/通信/自动化/机器人</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></td><td>计算机类</td><td>642</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></td><td>软件工程</td><td>641</td><td>-</td><td>-</td><td>-</td><td>-</td><td>软件/计算机</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></td><td>工科试验班（精仪与光电信息类）</td><td>641</td><td>-</td><td>-</td><td>3,671</td><td>-</td><td>光电/测控/智能感知</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></td><td>工科试验班（AI与低空技术）</td><td>641</td><td>-</td><td>-</td><td>3,671</td><td>-</td><td>AI/低空</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></td><td>电子信息类（创新实验班）</td><td>640</td><td>-</td><td>-</td><td>3,788</td><td>25</td><td>电子信息</td><td><span class="tag">稳</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></td><td>计算机类（创新实验班）</td><td>640</td><td>-</td><td>-</td><td>3,788</td><td>15</td><td>计算机</td><td><span class="tag">稳</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></td><td>电子信息类</td><td>640</td><td>-</td><td>-</td><td>3,788</td><td>-</td><td>电子信息/通信/集成电路</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></td><td>通信工程/电子信息/网安/人工智能等普通强类</td><td>640</td><td>-</td><td>-</td><td>-</td><td>-</td><td>通信/网安/AI</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>工科试验班（智能制造卓越优才计划）</td><td>639</td><td>-</td><td>-</td><td>3,888</td><td>-</td><td>智能制造/机器人</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></td><td>计算机类</td><td>639</td><td>-</td><td>-</td><td>3,888</td><td>-</td><td>计算机/网安</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></td><td>计算机类</td><td>639</td><td>-</td><td>-</td><td>3,888</td><td>-</td><td>计算机/AI/软件/网安</td><td><span class="tag">稳</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></td><td>软件工程（卓越优才计划）</td><td>638</td><td>-</td><td>-</td><td>4,018</td><td>-</td><td>软件/计算机</td><td><span class="tag">稳</span></td><td>B</td></tr>
+          </tbody>
+        </table>
+<h3>630分位段：稳保</h3>
+        <table>
+          <thead><tr><th>录取年</th><th>省份</th><th>科类</th><th>类别</th><th>学校</th><th>专业名称</th><th>最低分</th><th>平均分</th><th>最高分</th><th>位次</th><th>计划</th><th>方向</th><th>建议</th><th>源</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></td><td>工科试验班（智能制造与建造）</td><td>638</td><td>-</td><td>-</td><td>4,018</td><td>-</td><td>智能制造/机械/能源</td><td><span class="tag">稳保</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://www.bkzs.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学</a></td><td>计算机类</td><td>638</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机</td><td><span class="tag">稳保</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></td><td>航空航天类（长空创新班）</td><td>638</td><td>-</td><td>-</td><td>4,018</td><td>-</td><td>航空航天</td><td><span class="tag">稳保</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://www.nankai.edu.cn/239/list.htm" target="_blank" rel="noreferrer">南开大学</a></td><td>覆盖审计：计算机/电子信息/智能科学方向待核</td><td>638</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机/电子信息/智能科学</td><td><span class="tag">补充观察</span></td><td>C</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></td><td>自动化/电气类/信息工程</td><td>637</td><td>-</td><td>-</td><td>4,146</td><td>-</td><td>自动化/电气/电子信息</td><td><span class="tag">稳保</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></td><td>工科试验班（航空航天）</td><td>637</td><td>-</td><td>-</td><td>4,146</td><td>-</td><td>航空航天/自动化/测控</td><td><span class="tag">稳保</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.scu.edu.cn/" target="_blank" rel="noreferrer">四川大学</a></td><td>电子信息类</td><td>637</td><td>-</td><td>-</td><td>-</td><td>-</td><td>电子信息</td><td><span class="tag">稳保</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsw.bjtu.edu.cn/" target="_blank" rel="noreferrer">北京交通大学</a></td><td>詹天佑信息类</td><td>637</td><td>-</td><td>-</td><td>-</td><td>-</td><td>信息/交通智能</td><td><span class="tag">稳保</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://admission.bit.edu.cn/" target="_blank" rel="noreferrer">北京理工大学</a></td><td>覆盖审计：信息/智能制造/车辆/工科试验班方向待核</td><td>637</td><td>-</td><td>-</td><td>-</td><td>-</td><td>信息类/智能制造/车辆/工科试验班</td><td><span class="tag">国防七子/中坚九校稳保观察</span></td><td>C</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></td><td>电子信息类（通信）</td><td>634</td><td>-</td><td>-</td><td>4,596</td><td>150</td><td>通信</td><td><span class="tag">稳保</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></td><td>电子信息类（集成电路）</td><td>633</td><td>-</td><td>-</td><td>4,739</td><td>100</td><td>集成电路</td><td><span class="tag">稳保</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://admi.hnu.edu.cn/" target="_blank" rel="noreferrer">湖南大学</a></td><td>计算机科学与技术</td><td>631</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机</td><td><span class="tag">保</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://admission.sysu.edu.cn/" target="_blank" rel="noreferrer">中山大学</a></td><td>覆盖审计：计算机/电子信息/人工智能/软件方向待核</td><td>631</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机/电子信息/AI/软件</td><td><span class="tag">补充观察</span></td><td>C</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></td><td>电子信息类（电子工程）</td><td>630</td><td>-</td><td>-</td><td>5,221</td><td>149</td><td>电子信息</td><td><span class="tag">保</span></td><td>A</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zhaosheng.csu.edu.cn/" target="_blank" rel="noreferrer">中南大学</a></td><td>软件工程</td><td>630</td><td>-</td><td>-</td><td>-</td><td>-</td><td>软件/计算机</td><td><span class="tag">保</span></td><td>B</td></tr>
+          </tbody>
+        </table>
+<h3>下探安全池</h3>
+        <table>
+          <thead><tr><th>录取年</th><th>省份</th><th>科类</th><th>类别</th><th>学校</th><th>专业名称</th><th>最低分</th><th>平均分</th><th>最高分</th><th>位次</th><th>计划</th><th>方向</th><th>建议</th><th>源</th></tr></thead>
+          <tbody>
+            <tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.neu.edu.cn/" target="_blank" rel="noreferrer">东北大学</a></td><td>自动化类</td><td>628</td><td>-</td><td>-</td><td>5,535</td><td>-</td><td>自动化/电气/测控/工业智能</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></td><td>电子信息类（钱学森学院）</td><td>626</td><td>-</td><td>-</td><td>5,884</td><td>-</td><td>电子信息/通信/光电</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></td><td>计算机科学与技术/通信工程（兴海领军）</td><td>626</td><td>-</td><td>-</td><td>5,884</td><td>-</td><td>计算机/通信</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></td><td>软件工程/电气工程及其自动化/低空技术与工程</td><td>625</td><td>-</td><td>-</td><td>6,061</td><td>-</td><td>软件/电气/低空</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></td><td>计算机类</td><td>623</td><td>-</td><td>-</td><td>6,401</td><td>-</td><td>计算机/软件/智能科学</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://goto.ncepu.edu.cn/" target="_blank" rel="noreferrer">华北电力大学（北京）</a></td><td>通信工程/人工智能/电气工程及其自动化</td><td>622</td><td>-</td><td>-</td><td>6,598</td><td>-</td><td>电气/通信/AI</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></td><td>软件工程（国家特软创新班）/自动化类</td><td>620</td><td>-</td><td>-</td><td>6,979</td><td>-</td><td>软件/自动化/机器人/AI</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zs.neuq.edu.cn/" target="_blank" rel="noreferrer">东北大学秦皇岛分校</a></td><td>计算机科学与技术/自动化类</td><td>620</td><td>-</td><td>-</td><td>6,979</td><td>-</td><td>计算机/自动化/电气</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></td><td>工科试验班（华为班）</td><td>617</td><td>-</td><td>-</td><td>7,561</td><td>-</td><td>计算机/工程</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></td><td>计算机长安学堂</td><td>615</td><td>-</td><td>-</td><td>7,990</td><td>-</td><td>计算机</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>普通类</td><td><a href="https://zsb.nwu.edu.cn/" target="_blank" rel="noreferrer">西北大学</a></td><td>计算机科学与技术（人工智能实验班）</td><td>613</td><td>-</td><td>-</td><td>8,173</td><td>-</td><td>AI/计算机</td><td><span class="tag">安全池</span></td><td>B</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://bkzsw.shu.edu.cn/" target="_blank" rel="noreferrer">上海大学</a></td><td>覆盖审计：计算机/电子信息/通信/自动化方向待核</td><td>608</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机/电子信息/通信/自动化</td><td><span class="tag">安全观察</span></td><td>C</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://bkzsw.wh.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学（威海）</a></td><td>覆盖审计：计算机/电子信息/自动化方向待核</td><td>605</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机/电子信息/自动化</td><td><span class="tag">安全观察</span></td><td>C</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://pjzsjy.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学（盘锦校区）</a></td><td>覆盖审计：工科/智能制造/能源化工交叉方向待核</td><td>602</td><td>-</td><td>-</td><td>-</td><td>-</td><td>工科/智能制造/能源化工交叉</td><td><span class="tag">安全观察</span></td><td>C</td></tr>
+<tr><td>2025</td><td>陕西</td><td>物理类</td><td>院校最低分覆盖审计</td><td><a href="https://zhaosheng.ustb.edu.cn/" target="_blank" rel="noreferrer">北京科技大学</a></td><td>覆盖审计：计算机/自动化/人工智能/材料智能制造方向待核</td><td>602</td><td>-</td><td>-</td><td>-</td><td>-</td><td>计算机/自动化/人工智能/材料智能制造</td><td><span class="tag">安全观察</span></td><td>C</td></tr>
+          </tbody>
+        </table>
+    </section>
+
+    <section>
+      <h2><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a> 2026 专业目录关注点</h2>
+      <table>
+        <thead><tr><th>专业名称</th><th>初步判断</th></tr></thead>
+        <tbody>
+          <tr><td>电子信息类（信息与通信）</td><td>若陕西有计划，仍是高优先级方向，但竞争大概率偏高</td></tr>
+<tr><td>工科试验班（电子工程类）</td><td>电子科学、电磁场等硬核方向，课程偏硬但平台强</td></tr>
+<tr><td>集成电路设计与集成系统、微电子科学与工程</td><td>国家长期投入方向，建议以读研视角看待</td></tr>
+<tr><td>工科试验班（机器人、电气信息、智能制造）</td><td>工程应用属性强，适合作为成电稳妥方向之一</td></tr>
+<tr><td>低空技术与工程、航空航天工程（智能无人机拔尖人才实验班）</td><td>方向有前景，但需看陕西是否投放计划和名额</td></tr>
+<tr><td>电子信息工程（科技与艺术联合学位实验班）</td><td>契合画画兴趣和工科交叉；需确认陕西是否招生，并注意色盲限制</td></tr>
+<tr><td>生物医学工程类（医工交叉、信息生物与基因工程）</td><td>契合生物兴趣，适合读研路线，不等同于临床医学主线</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>当前建议</h2>
+      <ul>
+        <li>第一优先：哈工大本部。普通批本部2025最低约679，当前662分按极高冲刺处理；主要任务是问清2026陕西普通类计划、是否有可接受专业组、是否存在新增/扩招机会。</li>
+        <li>第二优先：西交大。662分位次下重点冲软件工程、智能感知与仪器；智慧能源、航天航空、智能制造、自动化和电气信息类可作为冲稳比较池；医学及医工相关方向剔除。</li>
+        <li>第三优先：哈工大威海。638-650分段与当前位次更匹配，优先比较机器人与智能装备、AI加先进技术、智能制造、软件工程等普通类方向。</li>
+        <li>补充观察：哈工大深圳。2025卓越优才计划最低662，正好贴线；若2026陕西计划数不小、专业组可接受，可作为高风险冲刺项，但不能替代西交大和哈工大威海的更现实方案。</li>
+        <li>三校之外：西工大、电子科大、北邮、西电和其它985工科作为对照组，作用是检验三校方案是否牺牲了过多专业质量或录取安全。</li>
+        <li>630 左右：外地985中段专业、头部211强专业、本地西电普通强类承担稳保功能。</li>
+        <li>画画兴趣作为科技艺术、交互、产品审美、可视化能力的辅助项，不单独作为本科主线。</li>
+        <li>生物兴趣本轮只作为背景保留，不进入本科志愿主方案；本科主线收敛到计算机、电子信息、自动化、软件、智能制造等工科底座。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>以后如何更新</h2>
+      <p>联网检查目标学校 2026 陕西物理普通类计划是否上线：</p>
+      <code class="cmd">node scripts/update-data.mjs</code>
+      <p>重新生成本 HTML 报告：</p>
+      <code class="cmd">node scripts/generate-report.mjs</code>
+      <p>两步一起执行：</p>
+      <code class="cmd">npm run build</code>
+      <p class="subtle">如果某些官网有反爬或只在省考试院计划汇编发布，脚本会标记为需人工复核；这类数据不应自动覆盖最终判断。</p>
+    </section>
+  </main>
+</body>
+</html>

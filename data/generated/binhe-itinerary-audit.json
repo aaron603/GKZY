@@ -1,0 +1,676 @@
+{
+  "generatedAt": "2026-06-25T04:23:23.239Z",
+  "targetSchool": "西安铁一中滨河高级中学",
+  "targetKeywords": [
+    "西安铁一中滨河高级中学",
+    "西安铁一中滨河学校",
+    "铁一中滨河高级中学",
+    "铁一中滨河学校",
+    "铁一中滨河",
+    "铁一滨河",
+    "滨河高级中学",
+    "滨河学校"
+  ],
+  "notes": [
+    "明确行程匹配来自可结构化抓取的高校咨询行程接口。",
+    "招生组线索不等同于已发布到校行程，需等高校更新具体行程后再确认时间地点。",
+    "无结构化接口的学校目前做招办首页关键词扫描，并保留官网入口以便人工复核。"
+  ],
+  "structuredChecks": [
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "sourceType": "structured-xcxc",
+      "sourceUrl": "https://zswxxcx.xjtu.edu.cn/public/zsxc/xcxcpc/#/",
+      "apiUrl": "https://zswxxcx.xjtu.edu.cn/zsxc/m/api/common/xcxc/getCityXcxcListBySf?sf=%E9%99%95%E8%A5%BF",
+      "status": "checked",
+      "message": "获取成功",
+      "totalEvents": 13,
+      "eventMatches": [],
+      "groupMatches": [
+        {
+          "groupName": "陕西招生组（人智铁一滨河）",
+          "area": "陕西",
+          "qqOrQr": "/commonZsxcUserfiles/1/attachment/sys/user/qrImages/146121_qrcode_3_xczdm=10230000.png",
+          "descriptions": [],
+          "matchedKeywords": [
+            "铁一滨河"
+          ]
+        }
+      ],
+      "checkedAt": "2026-06-25T04:22:52.514Z"
+    },
+    {
+      "schoolKey": "xdu",
+      "school": "西安电子科技大学",
+      "shortName": "西电",
+      "sourceType": "structured-xcxc",
+      "sourceUrl": "https://zsxc.xidian.edu.cn/public/zsxc/xcxcpc/#/",
+      "apiUrl": "https://zsxc.xidian.edu.cn/zsxc/t/api/common/xcxc/getCityXcxcListBySf?sf=%E9%99%95%E8%A5%BF",
+      "status": "checked",
+      "message": "获取成功",
+      "totalEvents": 81,
+      "eventMatches": [],
+      "groupMatches": [],
+      "checkedAt": "2026-06-25T04:22:55.046Z"
+    },
+    {
+      "schoolKey": "uestc",
+      "school": "电子科技大学",
+      "shortName": "成电",
+      "sourceType": "structured-xcxc",
+      "sourceUrl": "https://chaxun.uestc.edu.cn/public/zsxc/xcxcpc/#/",
+      "apiUrl": "https://chaxun.uestc.edu.cn/zsxc/t/api/common/xcxc/getCityXcxcListBySf?sf=%E9%99%95%E8%A5%BF",
+      "status": "checked",
+      "message": "获取成功",
+      "totalEvents": 10,
+      "eventMatches": [],
+      "groupMatches": [],
+      "checkedAt": "2026-06-25T04:22:57.559Z"
+    },
+    {
+      "schoolKey": "hitwh",
+      "school": "哈尔滨工业大学（威海）",
+      "shortName": "哈工大威海",
+      "sourceType": "structured-360eol",
+      "sourceUrl": "https://ai-enroll.360eol.com/teacherenroll/itinerary/index/school_id/3716",
+      "apiUrl": "https://ai-enroll.360eol.com/teacherenroll/Itinerary/getSchoolItineraryList",
+      "status": "checked",
+      "message": "已按 陕西/西安市 过滤",
+      "totalEvents": 13,
+      "eventMatches": [
+        {
+          "statusBucket": "eolList",
+          "city": "西安市",
+          "area": "",
+          "title": "铁一中滨河校区2026.06.24",
+          "place": "西安铁一中滨河高级中学",
+          "schoolName": "西安铁一中滨河高级中学",
+          "mode": "招生咨询会",
+          "startDate": "2026-06-24",
+          "endDate": "2026-06-24",
+          "startTime": "11:00",
+          "endTime": "15:00",
+          "groupName": "",
+          "contacts": [
+            "马老师 13290171794"
+          ],
+          "rawId": "20066",
+          "matchedKeywords": [
+            "西安铁一中滨河高级中学",
+            "铁一中滨河高级中学",
+            "铁一中滨河",
+            "滨河高级中学"
+          ]
+        },
+        {
+          "statusBucket": "eolList",
+          "city": "西安市",
+          "area": "",
+          "title": "招生",
+          "place": "西安铁一中滨河高级中学",
+          "schoolName": "西安铁一中滨河高级中学",
+          "mode": "招生咨询会",
+          "startDate": "2025-06-24",
+          "endDate": "2025-06-24",
+          "startTime": "11:00",
+          "endTime": "15:00",
+          "groupName": "",
+          "contacts": [
+            "徐老师 18606310202",
+            "王老师 13561805036"
+          ],
+          "rawId": "8200",
+          "matchedKeywords": [
+            "西安铁一中滨河高级中学",
+            "铁一中滨河高级中学",
+            "铁一中滨河",
+            "滨河高级中学"
+          ]
+        }
+      ],
+      "groupMatches": [],
+      "checkedAt": "2026-06-25T04:23:00.984Z"
+    }
+  ],
+  "schoolChecks": [
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "sourceType": "structured-xcxc",
+      "sourceUrl": "https://zswxxcx.xjtu.edu.cn/public/zsxc/xcxcpc/#/",
+      "status": "checked",
+      "keywordMatches": [
+        "铁一滨河"
+      ],
+      "checkedAt": "2026-06-25T04:22:52.514Z"
+    },
+    {
+      "schoolKey": "xdu",
+      "school": "西安电子科技大学",
+      "sourceType": "structured-xcxc",
+      "sourceUrl": "https://zsxc.xidian.edu.cn/public/zsxc/xcxcpc/#/",
+      "status": "checked",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:22:55.046Z"
+    },
+    {
+      "schoolKey": "uestc",
+      "school": "电子科技大学",
+      "sourceType": "structured-xcxc",
+      "sourceUrl": "https://chaxun.uestc.edu.cn/public/zsxc/xcxcpc/#/",
+      "status": "checked",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:22:57.559Z"
+    },
+    {
+      "schoolKey": "hitwh",
+      "school": "哈尔滨工业大学（威海）",
+      "sourceType": "structured-360eol",
+      "sourceUrl": "https://ai-enroll.360eol.com/teacherenroll/itinerary/index/school_id/3716",
+      "status": "checked",
+      "keywordMatches": [
+        "西安铁一中滨河高级中学",
+        "铁一中滨河高级中学",
+        "铁一中滨河",
+        "滨河高级中学"
+      ],
+      "checkedAt": "2026-06-25T04:23:00.984Z"
+    },
+    {
+      "schoolKey": "nwpu",
+      "school": "西北工业大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsb.nwpu.edu.cn/",
+      "status": "fetch-error",
+      "error": "HTTP 412 Precondition Failed",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:23:02.336Z"
+    },
+    {
+      "schoolKey": "nwu",
+      "school": "西北大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsb.nwu.edu.cn/",
+      "status": "fetch-error",
+      "error": "HTTP 502 Bad Gateway",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:23:05.850Z"
+    },
+    {
+      "schoolKey": "chd",
+      "school": "长安大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsb.chd.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:02.719Z"
+    },
+    {
+      "schoolKey": "hit",
+      "school": "哈尔滨工业大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsb.hit.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:03.787Z"
+    },
+    {
+      "schoolKey": "hitsz",
+      "school": "哈尔滨工业大学（深圳）",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsb.hitsz.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:05.534Z"
+    },
+    {
+      "schoolKey": "tju",
+      "school": "天津大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zs.tju.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:02.919Z"
+    },
+    {
+      "schoolKey": "scut",
+      "school": "华南理工大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://admission.scut.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:04.102Z"
+    },
+    {
+      "schoolKey": "xmu",
+      "school": "厦门大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zs.xmu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:04.327Z"
+    },
+    {
+      "schoolKey": "whu",
+      "school": "武汉大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://aoff.whu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:04.562Z"
+    },
+    {
+      "schoolKey": "hust",
+      "school": "华中科技大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsb.hust.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:05.668Z"
+    },
+    {
+      "schoolKey": "seu",
+      "school": "东南大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsb.seu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:05.646Z"
+    },
+    {
+      "schoolKey": "nuaa",
+      "school": "南京航空航天大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zs.nuaa.edu.cn/",
+      "status": "fetch-error",
+      "error": "fetch failed",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:23:14.636Z"
+    },
+    {
+      "schoolKey": "njust",
+      "school": "南京理工大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsb.njust.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:06.538Z"
+    },
+    {
+      "schoolKey": "hrbeu",
+      "school": "哈尔滨工程大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsb.hrbeu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:07.395Z"
+    },
+    {
+      "schoolKey": "ncepu",
+      "school": "华北电力大学（北京）",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://goto.ncepu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:07.155Z"
+    },
+    {
+      "schoolKey": "neuq",
+      "school": "东北大学秦皇岛分校",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zs.neuq.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:07.280Z"
+    },
+    {
+      "schoolKey": "neu",
+      "school": "东北大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zs.neu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:07.209Z"
+    },
+    {
+      "schoolKey": "bupt",
+      "school": "北京邮电大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsb.bupt.edu.cn/",
+      "status": "fetch-error",
+      "error": "HTTP 412 Precondition Failed",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:23:07.876Z"
+    },
+    {
+      "schoolKey": "dlut",
+      "school": "大连理工大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zs.dlut.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:08.824Z"
+    },
+    {
+      "schoolKey": "tongji",
+      "school": "同济大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://bkzs.tongji.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:09.795Z"
+    },
+    {
+      "schoolKey": "nankai",
+      "school": "南开大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://www.nankai.edu.cn/239/list.htm",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:08.914Z"
+    },
+    {
+      "schoolKey": "sysu",
+      "school": "中山大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://admission.sysu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:09.226Z"
+    },
+    {
+      "schoolKey": "shanghaitech",
+      "school": "上海科技大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://admission.shanghaitech.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:09.352Z"
+    },
+    {
+      "schoolKey": "sustech",
+      "school": "南方科技大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zs.sustech.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:10.158Z"
+    },
+    {
+      "schoolKey": "buaa",
+      "school": "北京航空航天大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zs.buaa.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:10.483Z"
+    },
+    {
+      "schoolKey": "bit",
+      "school": "北京理工大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://admission.bit.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:11.221Z"
+    },
+    {
+      "schoolKey": "nju",
+      "school": "南京大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://bkzs.nju.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:10.684Z"
+    },
+    {
+      "schoolKey": "sduwh",
+      "school": "山东大学（威海）",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://bkzsw.wh.sdu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:11.830Z"
+    },
+    {
+      "schoolKey": "dlutpj",
+      "school": "大连理工大学（盘锦校区）",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://pjzsjy.dlut.edu.cn/",
+      "status": "fetch-error",
+      "error": "fetch failed",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:23:10.903Z"
+    },
+    {
+      "schoolKey": "shu",
+      "school": "上海大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://bkzsw.shu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:11.779Z"
+    },
+    {
+      "schoolKey": "ustb",
+      "school": "北京科技大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zhaosheng.ustb.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:12.290Z"
+    },
+    {
+      "schoolKey": "cqu",
+      "school": "重庆大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zhaosheng.cqu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:12.695Z"
+    },
+    {
+      "schoolKey": "sdu",
+      "school": "山东大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://www.bkzs.sdu.edu.cn/",
+      "status": "fetch-error",
+      "error": "fetch failed",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:23:12.604Z"
+    },
+    {
+      "schoolKey": "scu",
+      "school": "四川大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zs.scu.edu.cn/",
+      "status": "fetch-error",
+      "error": "HTTP 412 Precondition Failed",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:23:13.565Z"
+    },
+    {
+      "schoolKey": "hnu",
+      "school": "湖南大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://admi.hnu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:13.796Z"
+    },
+    {
+      "schoolKey": "csu",
+      "school": "中南大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zhaosheng.csu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:14.046Z"
+    },
+    {
+      "schoolKey": "bjtu",
+      "school": "北京交通大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://zsw.bjtu.edu.cn/",
+      "status": "checked",
+      "keywordMatches": [],
+      "discoveredItinerarySources": [],
+      "snippet": "",
+      "checkedAt": "2026-06-25T04:23:14.458Z"
+    },
+    {
+      "schoolKey": "cuhksz",
+      "school": "香港中文大学（深圳）",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://admissions.cuhk.edu.cn/",
+      "status": "fetch-error",
+      "error": "fetch failed",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:23:23.227Z"
+    },
+    {
+      "schoolKey": "cuhk",
+      "school": "香港中文大学",
+      "sourceType": "homepage-scan",
+      "sourceUrl": "https://admission.cuhk.edu.hk/",
+      "status": "fetch-error",
+      "error": "fetch failed",
+      "keywordMatches": [],
+      "checkedAt": "2026-06-25T04:23:14.416Z"
+    }
+  ],
+  "explicitMatches": [
+    {
+      "statusBucket": "eolList",
+      "city": "西安市",
+      "area": "",
+      "title": "招生",
+      "place": "西安铁一中滨河高级中学",
+      "schoolName": "西安铁一中滨河高级中学",
+      "mode": "招生咨询会",
+      "startDate": "2025-06-24",
+      "endDate": "2025-06-24",
+      "startTime": "11:00",
+      "endTime": "15:00",
+      "groupName": "",
+      "contacts": [
+        "徐老师 18606310202",
+        "王老师 13561805036"
+      ],
+      "rawId": "8200",
+      "matchedKeywords": [
+        "西安铁一中滨河高级中学",
+        "铁一中滨河高级中学",
+        "铁一中滨河",
+        "滨河高级中学"
+      ],
+      "schoolKey": "hitwh",
+      "school": "哈尔滨工业大学（威海）",
+      "shortName": "哈工大威海",
+      "sourceUrl": "https://ai-enroll.360eol.com/teacherenroll/itinerary/index/school_id/3716"
+    },
+    {
+      "statusBucket": "eolList",
+      "city": "西安市",
+      "area": "",
+      "title": "铁一中滨河校区2026.06.24",
+      "place": "西安铁一中滨河高级中学",
+      "schoolName": "西安铁一中滨河高级中学",
+      "mode": "招生咨询会",
+      "startDate": "2026-06-24",
+      "endDate": "2026-06-24",
+      "startTime": "11:00",
+      "endTime": "15:00",
+      "groupName": "",
+      "contacts": [
+        "马老师 13290171794"
+      ],
+      "rawId": "20066",
+      "matchedKeywords": [
+        "西安铁一中滨河高级中学",
+        "铁一中滨河高级中学",
+        "铁一中滨河",
+        "滨河高级中学"
+      ],
+      "schoolKey": "hitwh",
+      "school": "哈尔滨工业大学（威海）",
+      "shortName": "哈工大威海",
+      "sourceUrl": "https://ai-enroll.360eol.com/teacherenroll/itinerary/index/school_id/3716"
+    }
+  ],
+  "groupMatches": [
+    {
+      "groupName": "陕西招生组（人智铁一滨河）",
+      "area": "陕西",
+      "qqOrQr": "/commonZsxcUserfiles/1/attachment/sys/user/qrImages/146121_qrcode_3_xczdm=10230000.png",
+      "descriptions": [],
+      "matchedKeywords": [
+        "铁一滨河"
+      ],
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "sourceUrl": "https://zswxxcx.xjtu.edu.cn/public/zsxc/xcxcpc/#/"
+    }
+  ]
+}

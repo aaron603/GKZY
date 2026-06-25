@@ -1,0 +1,1462 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>候选专业课程审计</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --ink: #18202a;
+      --muted: #667085;
+      --line: #d9dee7;
+      --blue: #2459a6;
+      --teal: #0f766e;
+      --amber: #b45309;
+      --red: #b42318;
+      --green: #16803c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif;
+      line-height: 1.55;
+    }
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+    .wrap {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+    h3 {
+      margin: 18px 0 10px;
+      font-size: 16px;
+      letter-spacing: 0;
+    }
+    p { margin: 0 0 10px; }
+    section {
+      margin: 18px 0;
+      padding: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      font-size: 14px;
+      table-layout: fixed;
+    }
+    th, td {
+      border-bottom: 1px solid var(--line);
+      padding: 9px 8px;
+      vertical-align: top;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+    th {
+      background: #f8fafc;
+      color: #344054;
+      font-weight: 800;
+    }
+    tr:last-child td { border-bottom: 0; }
+    ul { margin: 8px 0 0; padding-left: 20px; }
+    .subtle { color: var(--muted); }
+    .note {
+      padding: 12px;
+      border-left: 4px solid var(--blue);
+      background: #f1f6ff;
+      border-radius: 6px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .metric {
+      min-height: 86px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .metric strong {
+      display: block;
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 2px 7px;
+      margin: 1px 3px 1px 0;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #344054;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .tag.good { background: #e8f5ee; color: var(--green); }
+    .tag.warn { background: #fff4e5; color: var(--amber); }
+    .tag.blue { background: #eaf1fb; color: var(--blue); }
+    .meter {
+      display: inline-flex;
+      width: 72px;
+      height: 9px;
+      margin-right: 6px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+      vertical-align: middle;
+    }
+    .meter span {
+      display: block;
+      height: 100%;
+      background: var(--teal);
+    }
+    .course-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .wrap { padding: 16px; }
+      table { font-size: 13px; }
+      th, td { padding: 7px 5px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>候选专业课程审计</h1>
+      <p class="subtle">按正式出分 662 分、1558 位次筛出的普通类候选专业，逐项审计课程强度、专业课列表和2026计划匹配。生成时间：2026/6/25 13:58:16</p>
+      <div class="grid">
+        <div class="metric"><strong>10</strong><span class="subtle">课程画像方向</span></div>
+        <div class="metric"><strong>84</strong><span class="subtle">已匹配候选专业</span></div>
+        <div class="metric"><strong>4</strong><span class="subtle">暂未匹配项</span></div>
+        <div class="metric"><strong>C</strong><span class="subtle">当前主要来源等级</span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>使用边界</h2>
+      <p class="note">本文件不是录取数据，不改变2025分数基线；它用于解释专业学习内容和风险。</p>
+      <ul>
+        <li>当前版本以专业类通用培养规律为主，先覆盖候选池中的主要方向；逐校培养方案PDF或教务处页面核实后，再把sourceLevel从C提升到A/B。</li>
+<li>若招生专业是大类或工科试验班，课程画像只代表可能分流方向，必须核2026专业目录、分流规则和所在学院。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>候选学校/专业逐项课程清单</h2>
+      <p class="note">以下为主填报池普通类候选项。若“专业组/2026计划”为空，表示当前自动接口未能稳定返回该校陕西物理普通类分专业计划，应以陕西省招生计划目录和院校招生网为最终依据。专业课先按方向画像列出，待取得学校培养方案后再替换为官方课程表。</p>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业/专业类</th><th style="width:110px">专业组/选科</th><th style="width:90px">2026计划</th><th style="width:90px">2025最低分</th><th>专业课列表</th><th>课程待核</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+            <td>软件工程<div class="subtle">冲｜软件/计算机</div></td>
+            <td>物理+化学</td>
+            <td>27</td>
+            <td>660</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+            <td>软件工程<div class="subtle">稳｜软件/计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>641</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td>
+            <td>软件工程（卓越优才计划）<div class="subtle">稳｜软件/计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>638</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+            <td>工科试验班（智能制造类）<div class="subtle">冲稳｜智能制造</div></td>
+            <td>物理+化学</td>
+            <td>104</td>
+            <td>649</td>
+            <td><span class="tag">工程制图</span><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">机械原理</span><span class="tag">机械设计</span><span class="tag">机械制造基础</span><span class="tag">控制工程基础</span><span class="tag">CAD/CAE</span><span class="tag">机电传动</span><span class="tag">智能制造系统</span></td>
+            <td>大类分流能否保证进入机器人、智能制造、测控或自动化相关方向？；是否含材料、焊接、土木、车辆等非优先方向？；本科项目是否有机器人、数字孪生、工业AI或医疗器械结构设计？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+            <td>电子信息类（电子信息）<div class="subtle">稳｜电子信息</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>647</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td>
+            <td>工科试验班（AI加先进技术领军班）<div class="subtle">稳｜计算机/电子/AI</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>644</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+            <td>工科试验班（医学电子信息）<div class="subtle">冲｜医工交叉/电子信息</div></td>
+            <td>物理+化学</td>
+            <td>5</td>
+            <td>660</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+            <td>工科试验班（智慧能源类）<div class="subtle">冲稳｜能源/电气/工程</div></td>
+            <td>物理+化学</td>
+            <td>195</td>
+            <td>653</td>
+            <td><span class="tag">电路</span><span class="tag">电机学</span><span class="tag">电力电子技术</span><span class="tag">电力系统分析</span><span class="tag">自动控制原理</span><span class="tag">高电压技术</span><span class="tag">新能源发电</span><span class="tag">储能技术</span><span class="tag">智能电网</span><span class="tag">嵌入式/工业控制</span></td>
+            <td>大类是否保证电气或储能方向？；就业去向是电网、能源企业、制造业还是研究所？；能源大类中是否含非优先方向，分流规则是什么？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+            <td>计算机类（计算机，含智能交互设计）<div class="subtle">冲稳｜计算机/交互</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>652</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+            <td>工科试验班（航天航空类）<div class="subtle">冲稳｜航空航天</div></td>
+            <td>物理+化学</td>
+            <td>27</td>
+            <td>649</td>
+            <td><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">流体力学</span><span class="tag">空气动力学</span><span class="tag">飞行器结构</span><span class="tag">飞行器设计</span><span class="tag">自动控制原理</span><span class="tag">导航制导与控制</span><span class="tag">飞行动力学</span><span class="tag">工程热力学</span></td>
+            <td>低空方向是否是独立培养还是大类内名称？；课程偏飞行器、控制、通信导航还是运营管理？；孩子近视约475/500度但矫正视力可接近1.5，是否影响飞行器、飞行、航海、无人系统相关方向录取或分流？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+            <td>计算机类（网络安全）<div class="subtle">冲稳｜网安</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>648</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></strong></td>
+            <td>覆盖审计：航空航天/计算机/电子信息/自动化方向待核<div class="subtle">国防七子冲刺观察｜航空航天/计算机/电子信息/自动化</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>646</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td>
+            <td>工科试验班（卓越人才班）<div class="subtle">稳｜电气/软件/电子/能源</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>645</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+            <td>计算机科学与技术（国家拔尖基地班）<div class="subtle">稳｜计算机</div></td>
+            <td>物理+化学</td>
+            <td>6</td>
+            <td>643</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td>
+            <td>计算机类<div class="subtle">稳｜计算机/网安</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>639</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong></td>
+            <td>软件工程/电气工程及其自动化/低空技术与工程<div class="subtle">安全池｜软件/电气/低空</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>625</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+            <td>工科试验班（智能过程与装备国卓班）<div class="subtle">冲｜智能制造/装备</div></td>
+            <td>物理+化学</td>
+            <td>4</td>
+            <td>655</td>
+            <td><span class="tag">工程制图</span><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">机械原理</span><span class="tag">机械设计</span><span class="tag">机械制造基础</span><span class="tag">控制工程基础</span><span class="tag">CAD/CAE</span><span class="tag">机电传动</span><span class="tag">智能制造系统</span></td>
+            <td>大类分流能否保证进入机器人、智能制造、测控或自动化相关方向？；是否含材料、焊接、土木、车辆等非优先方向？；本科项目是否有机器人、数字孪生、工业AI或医疗器械结构设计？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+            <td>自动化类<div class="subtle">稳｜自动化</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>646</td>
+            <td><span class="tag">电路与电子技术</span><span class="tag">自动控制原理</span><span class="tag">现代控制理论</span><span class="tag">信号与系统</span><span class="tag">传感器与检测技术</span><span class="tag">嵌入式系统</span><span class="tag">机器人学</span><span class="tag">运动控制</span><span class="tag">机器视觉</span><span class="tag">工业控制网络</span></td>
+            <td>机器人方向归属自动化、机械还是计算机学院？；本科项目是否有真实机器人、嵌入式、视觉和控制系统训练？；是否能对接医疗机器人、康复机器人或实验室自动化课题？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td>
+            <td>自动化/电气类/信息工程<div class="subtle">稳保｜自动化/电气/电子信息</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>637</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.scu.edu.cn/" target="_blank" rel="noreferrer">四川大学</a></strong></td>
+            <td>电子信息类<div class="subtle">稳保｜电子信息</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>637</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admi.hnu.edu.cn/" target="_blank" rel="noreferrer">湖南大学</a></strong></td>
+            <td>计算机科学与技术<div class="subtle">保｜计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>631</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.sysu.edu.cn/" target="_blank" rel="noreferrer">中山大学</a></strong></td>
+            <td>覆盖审计：计算机/电子信息/人工智能/软件方向待核<div class="subtle">补充观察｜计算机/电子信息/AI/软件</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>631</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zhaosheng.csu.edu.cn/" target="_blank" rel="noreferrer">中南大学</a></strong></td>
+            <td>软件工程<div class="subtle">保｜软件/计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>630</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+            <td>工科试验班（智能感知与仪器）<div class="subtle">冲｜测控/智能仪器</div></td>
+            <td>物理+化学</td>
+            <td>6</td>
+            <td>660</td>
+            <td><span class="tag">误差理论与数据处理</span><span class="tag">传感器原理</span><span class="tag">测控电路</span><span class="tag">信号与系统</span><span class="tag">数字信号处理</span><span class="tag">光学工程基础</span><span class="tag">嵌入式系统</span><span class="tag">自动检测技术</span><span class="tag">智能仪器设计</span><span class="tag">图像处理</span></td>
+            <td>该方向强项是光电、仪器、传感器还是检测控制？；孩子近视约475/500度但矫正视力可接近1.5，是否限制裸眼视力、矫正视力、镜片度数或色觉？；本科生是否能参与医学成像、可穿戴传感或智能检测项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td>
+            <td>工科试验班（智能制造卓越优才计划）<div class="subtle">稳｜智能制造/机器人</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>639</td>
+            <td><span class="tag">电路与电子技术</span><span class="tag">自动控制原理</span><span class="tag">现代控制理论</span><span class="tag">信号与系统</span><span class="tag">传感器与检测技术</span><span class="tag">嵌入式系统</span><span class="tag">机器人学</span><span class="tag">运动控制</span><span class="tag">机器视觉</span><span class="tag">工业控制网络</span></td>
+            <td>机器人方向归属自动化、机械还是计算机学院？；本科项目是否有真实机器人、嵌入式、视觉和控制系统训练？；是否能对接医疗机器人、康复机器人或实验室自动化课题？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学</a></strong></td>
+            <td>人工智能（新工科大师班）<div class="subtle">冲稳｜AI/计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>648</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+            <td>计算机类（创新实验班）<div class="subtle">稳｜计算机</div></td>
+            <td>物理+化学</td>
+            <td>135</td>
+            <td>640</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td>
+            <td>计算机类<div class="subtle">稳｜计算机/AI/软件/网安</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>639</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></strong></td>
+            <td>计算机科学与技术/通信工程（兴海领军）<div class="subtle">安全池｜计算机/通信</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>626</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></strong></td>
+            <td>计算机类<div class="subtle">安全池｜计算机/软件/智能科学</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>623</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://bkzs.nju.edu.cn/" target="_blank" rel="noreferrer">南京大学</a></strong></td>
+            <td>覆盖审计：计算机/电子信息/技术科学方向待核<div class="subtle">冲刺观察｜计算机/电子信息/技术科学</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>658</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td>
+            <td>工科试验班（机器人与智能装备拔尖班）<div class="subtle">冲稳｜机器人/智能制造</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>650</td>
+            <td><span class="tag">电路与电子技术</span><span class="tag">自动控制原理</span><span class="tag">现代控制理论</span><span class="tag">信号与系统</span><span class="tag">传感器与检测技术</span><span class="tag">嵌入式系统</span><span class="tag">机器人学</span><span class="tag">运动控制</span><span class="tag">机器视觉</span><span class="tag">工业控制网络</span></td>
+            <td>机器人方向归属自动化、机械还是计算机学院？；本科项目是否有真实机器人、嵌入式、视觉和控制系统训练？；是否能对接医疗机器人、康复机器人或实验室自动化课题？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+            <td>电子信息类（卓越计划实验班）<div class="subtle">稳｜电子信息</div></td>
+            <td>待核</td>
+            <td>25</td>
+            <td>643</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td>
+            <td>工科试验班（电气信息类）<div class="subtle">稳｜电气/电子/通信/自动化/机器人</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>642</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+            <td>电子信息类（创新实验班）<div class="subtle">稳｜电子信息</div></td>
+            <td>待核</td>
+            <td>25</td>
+            <td>640</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td>
+            <td>电子信息类<div class="subtle">稳｜电子信息/通信/集成电路</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>640</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://www.bkzs.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学</a></strong></td>
+            <td>计算机类<div class="subtle">稳保｜计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>638</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+            <td>电子信息类（通信）<div class="subtle">稳保｜通信</div></td>
+            <td>物理+化学</td>
+            <td>155</td>
+            <td>634</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+            <td>电子信息类（集成电路）<div class="subtle">稳保｜集成电路</div></td>
+            <td>物理+化学</td>
+            <td>100</td>
+            <td>633</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td>
+            <td>电子信息类（电子工程）<div class="subtle">保｜电子信息</div></td>
+            <td>物理+化学</td>
+            <td>155</td>
+            <td>630</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></strong></td>
+            <td>电子信息类（钱学森学院）<div class="subtle">安全池｜电子信息/通信/光电</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>626</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+            <td>计算机类<div class="subtle">冲稳｜计算机</div></td>
+            <td>待核</td>
+            <td>6</td>
+            <td>653</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td>
+            <td>工科试验班（智能与计算类）<div class="subtle">冲稳｜计算机/AI/软件/网安</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>648</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://bkzsw.wh.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学（威海）</a></strong></td>
+            <td>覆盖审计：计算机/电子信息/自动化方向待核<div class="subtle">安全观察｜计算机/电子信息/自动化</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>605</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td>
+            <td>光电信息科学与工程<div class="subtle">冲｜光电/电子信息</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>660</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td>
+            <td>微电子科学与工程（集成电路学院）<div class="subtle">冲｜集成电路</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>658</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">半导体物理</span><span class="tag">微电子器件</span><span class="tag">数字集成电路设计</span><span class="tag">模拟集成电路设计</span><span class="tag">集成电路工艺</span><span class="tag">EDA工具</span><span class="tag">硬件描述语言</span></td>
+            <td>专业偏IC设计还是半导体器件/工艺？；本科是否有EDA、流片、FPGA和芯片实验平台？；保研去向和企业合作单位有哪些？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+            <td>集成电路设计与集成系统<div class="subtle">冲稳｜集成电路</div></td>
+            <td>待核</td>
+            <td>13</td>
+            <td>655</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">半导体物理</span><span class="tag">微电子器件</span><span class="tag">数字集成电路设计</span><span class="tag">模拟集成电路设计</span><span class="tag">集成电路工艺</span><span class="tag">EDA工具</span><span class="tag">硬件描述语言</span></td>
+            <td>专业偏IC设计还是半导体器件/工艺？；本科是否有EDA、流片、FPGA和芯片实验平台？；保研去向和企业合作单位有哪些？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+            <td>工科试验班（机器人、电气信息、智能制造）<div class="subtle">冲稳｜机器人/智能制造</div></td>
+            <td>待核</td>
+            <td>3</td>
+            <td>651</td>
+            <td><span class="tag">电路与电子技术</span><span class="tag">自动控制原理</span><span class="tag">现代控制理论</span><span class="tag">信号与系统</span><span class="tag">传感器与检测技术</span><span class="tag">嵌入式系统</span><span class="tag">机器人学</span><span class="tag">运动控制</span><span class="tag">机器视觉</span><span class="tag">工业控制网络</span></td>
+            <td>机器人方向归属自动化、机械还是计算机学院？；本科项目是否有真实机器人、嵌入式、视觉和控制系统训练？；是否能对接医疗机器人、康复机器人或实验室自动化课题？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+            <td>民用航空含低空技术与工程<div class="subtle">冲稳｜低空/航空</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>648</td>
+            <td><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">流体力学</span><span class="tag">空气动力学</span><span class="tag">飞行器结构</span><span class="tag">飞行器设计</span><span class="tag">自动控制原理</span><span class="tag">导航制导与控制</span><span class="tag">飞行动力学</span><span class="tag">工程热力学</span></td>
+            <td>低空方向是否是独立培养还是大类内名称？；课程偏飞行器、控制、通信导航还是运营管理？；孩子近视约475/500度但矫正视力可接近1.5，是否影响飞行器、飞行、航海、无人系统相关方向录取或分流？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td>
+            <td>工科试验班（精仪与光电信息类）<div class="subtle">稳｜光电/测控/智能感知</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>641</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></strong></td>
+            <td>软件工程（国家特软创新班）/自动化类<div class="subtle">安全池｜软件/自动化/机器人/AI</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>620</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.neuq.edu.cn/" target="_blank" rel="noreferrer">东北大学秦皇岛分校</a></strong></td>
+            <td>计算机科学与技术/自动化类<div class="subtle">安全池｜计算机/自动化/电气</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>620</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://bkzs.tongji.edu.cn/" target="_blank" rel="noreferrer">同济大学</a></strong></td>
+            <td>覆盖审计：工科试验班/信息类方向待核<div class="subtle">补充观察｜计算机/电子信息/工科试验班</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>645</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://www.nankai.edu.cn/239/list.htm" target="_blank" rel="noreferrer">南开大学</a></strong></td>
+            <td>覆盖审计：计算机/电子信息/智能科学方向待核<div class="subtle">补充观察｜计算机/电子信息/智能科学</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>638</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.seu.edu.cn/" target="_blank" rel="noreferrer">东南大学</a></strong></td>
+            <td>计算机类<div class="subtle">冲｜计算机/AI/软件/网安</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>662</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+            <td>电子信息类（智能仪器、智能控制）<div class="subtle">冲稳｜测控/自动化</div></td>
+            <td>待核</td>
+            <td>4</td>
+            <td>649</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td>
+            <td>工科试验班（智能制造与建造）<div class="subtle">稳保｜智能制造/机械/能源</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>638</td>
+            <td><span class="tag">工程制图</span><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">机械原理</span><span class="tag">机械设计</span><span class="tag">机械制造基础</span><span class="tag">控制工程基础</span><span class="tag">CAD/CAE</span><span class="tag">机电传动</span><span class="tag">智能制造系统</span></td>
+            <td>大类分流能否保证进入机器人、智能制造、测控或自动化相关方向？；是否含材料、焊接、土木、车辆等非优先方向？；本科项目是否有机器人、数字孪生、工业AI或医疗器械结构设计？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td>
+            <td>工科试验班（航空航天）<div class="subtle">稳保｜航空航天/自动化/测控</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>637</td>
+            <td><span class="tag">电路与电子技术</span><span class="tag">自动控制原理</span><span class="tag">现代控制理论</span><span class="tag">信号与系统</span><span class="tag">传感器与检测技术</span><span class="tag">嵌入式系统</span><span class="tag">机器人学</span><span class="tag">运动控制</span><span class="tag">机器视觉</span><span class="tag">工业控制网络</span></td>
+            <td>机器人方向归属自动化、机械还是计算机学院？；本科项目是否有真实机器人、嵌入式、视觉和控制系统训练？；是否能对接医疗机器人、康复机器人或实验室自动化课题？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.bit.edu.cn/" target="_blank" rel="noreferrer">北京理工大学</a></strong></td>
+            <td>覆盖审计：信息/智能制造/车辆/工科试验班方向待核<div class="subtle">国防七子/中坚九校稳保观察｜信息类/智能制造/车辆/工科试验班</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>637</td>
+            <td><span class="tag">工程制图</span><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">机械原理</span><span class="tag">机械设计</span><span class="tag">机械制造基础</span><span class="tag">控制工程基础</span><span class="tag">CAD/CAE</span><span class="tag">机电传动</span><span class="tag">智能制造系统</span></td>
+            <td>大类分流能否保证进入机器人、智能制造、测控或自动化相关方向？；是否含材料、焊接、土木、车辆等非优先方向？；本科项目是否有机器人、数字孪生、工业AI或医疗器械结构设计？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></strong></td>
+            <td>计算机长安学堂<div class="subtle">安全池｜计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>615</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwu.edu.cn/" target="_blank" rel="noreferrer">西北大学</a></strong></td>
+            <td>计算机科学与技术（人工智能实验班）<div class="subtle">安全池｜AI/计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>613</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+            <td>电子信息类（信息与通信）<div class="subtle">冲｜通信/电子信息</div></td>
+            <td>待核</td>
+            <td>11</td>
+            <td>659</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td>
+            <td>工科试验班（电子工程类）<div class="subtle">冲｜电子工程</div></td>
+            <td>待核</td>
+            <td>8</td>
+            <td>658</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td>
+            <td>电子信息类（电子信息学院）<div class="subtle">冲｜电子信息/通信</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>658</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td>
+            <td>航空航天类（航空）<div class="subtle">冲稳｜航空航天</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>651</td>
+            <td><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">流体力学</span><span class="tag">空气动力学</span><span class="tag">飞行器结构</span><span class="tag">飞行器设计</span><span class="tag">自动控制原理</span><span class="tag">导航制导与控制</span><span class="tag">飞行动力学</span><span class="tag">工程热力学</span></td>
+            <td>低空方向是否是独立培养还是大类内名称？；课程偏飞行器、控制、通信导航还是运营管理？；孩子近视约475/500度但矫正视力可接近1.5，是否影响飞行器、飞行、航海、无人系统相关方向录取或分流？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td>
+            <td>工科试验班（AI与低空技术）<div class="subtle">稳｜AI/低空</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>641</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://goto.ncepu.edu.cn/" target="_blank" rel="noreferrer">华北电力大学（北京）</a></strong></td>
+            <td>通信工程/人工智能/电气工程及其自动化<div class="subtle">安全池｜电气/通信/AI</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>622</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td>
+            <td>机械类<div class="subtle">冲｜机械/测控/工业工程</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>658</td>
+            <td><span class="tag">误差理论与数据处理</span><span class="tag">传感器原理</span><span class="tag">测控电路</span><span class="tag">信号与系统</span><span class="tag">数字信号处理</span><span class="tag">光学工程基础</span><span class="tag">嵌入式系统</span><span class="tag">自动检测技术</span><span class="tag">智能仪器设计</span><span class="tag">图像处理</span></td>
+            <td>该方向强项是光电、仪器、传感器还是检测控制？；孩子近视约475/500度但矫正视力可接近1.5，是否限制裸眼视力、矫正视力、镜片度数或色觉？；本科生是否能参与医学成像、可穿戴传感或智能检测项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td>
+            <td>计算机类（国家网络安全学院）<div class="subtle">冲｜网安/计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>661</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.neu.edu.cn/" target="_blank" rel="noreferrer">东北大学</a></strong></td>
+            <td>自动化类<div class="subtle">安全池｜自动化/电气/测控/工业智能</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>628</td>
+            <td><span class="tag">电路与电子技术</span><span class="tag">自动控制原理</span><span class="tag">现代控制理论</span><span class="tag">信号与系统</span><span class="tag">传感器与检测技术</span><span class="tag">嵌入式系统</span><span class="tag">机器人学</span><span class="tag">运动控制</span><span class="tag">机器视觉</span><span class="tag">工业控制网络</span></td>
+            <td>机器人方向归属自动化、机械还是计算机学院？；本科项目是否有真实机器人、嵌入式、视觉和控制系统训练？；是否能对接医疗机器人、康复机器人或实验室自动化课题？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></strong></td>
+            <td>工科试验班（华为班）<div class="subtle">安全池｜计算机/工程</div></td>
+            <td>104</td>
+            <td>12</td>
+            <td>617</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td>
+            <td>工科试验班（未来技术学院）<div class="subtle">冲稳｜AI/储能/智能制造</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>652</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td>
+            <td>计算机类<div class="subtle">稳｜计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>642</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td>
+            <td>通信工程/电子信息/网安/人工智能等普通强类<div class="subtle">稳｜通信/网安/AI</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>640</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong></td>
+            <td>航空航天类（长空创新班）<div class="subtle">稳保｜航空航天</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>638</td>
+            <td><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">流体力学</span><span class="tag">空气动力学</span><span class="tag">飞行器结构</span><span class="tag">飞行器设计</span><span class="tag">自动控制原理</span><span class="tag">导航制导与控制</span><span class="tag">飞行动力学</span><span class="tag">工程热力学</span></td>
+            <td>低空方向是否是独立培养还是大类内名称？；课程偏飞行器、控制、通信导航还是运营管理？；孩子近视约475/500度但矫正视力可接近1.5，是否影响飞行器、飞行、航海、无人系统相关方向录取或分流？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://pjzsjy.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学（盘锦校区）</a></strong></td>
+            <td>覆盖审计：工科/智能制造/能源化工交叉方向待核<div class="subtle">安全观察｜工科/智能制造/能源化工交叉</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>602</td>
+            <td><span class="tag">工程制图</span><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">机械原理</span><span class="tag">机械设计</span><span class="tag">机械制造基础</span><span class="tag">控制工程基础</span><span class="tag">CAD/CAE</span><span class="tag">机电传动</span><span class="tag">智能制造系统</span></td>
+            <td>大类分流能否保证进入机器人、智能制造、测控或自动化相关方向？；是否含材料、焊接、土木、车辆等非优先方向？；本科项目是否有机器人、数字孪生、工业AI或医疗器械结构设计？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://bkzsw.shu.edu.cn/" target="_blank" rel="noreferrer">上海大学</a></strong></td>
+            <td>覆盖审计：计算机/电子信息/通信/自动化方向待核<div class="subtle">安全观察｜计算机/电子信息/通信/自动化</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>608</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zhaosheng.ustb.edu.cn/" target="_blank" rel="noreferrer">北京科技大学</a></strong></td>
+            <td>覆盖审计：计算机/自动化/人工智能/材料智能制造方向待核<div class="subtle">安全观察｜计算机/自动化/人工智能/材料智能制造</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>602</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td>
+            <td>航空航天类<div class="subtle">冲｜航空航天</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>655</td>
+            <td><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">流体力学</span><span class="tag">空气动力学</span><span class="tag">飞行器结构</span><span class="tag">飞行器设计</span><span class="tag">自动控制原理</span><span class="tag">导航制导与控制</span><span class="tag">飞行动力学</span><span class="tag">工程热力学</span></td>
+            <td>低空方向是否是独立培养还是大类内名称？；课程偏飞行器、控制、通信导航还是运营管理？；孩子近视约475/500度但矫正视力可接近1.5，是否影响飞行器、飞行、航海、无人系统相关方向录取或分流？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td>
+            <td>计算机类（元班）<div class="subtle">冲｜计算机</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>656</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsw.bjtu.edu.cn/" target="_blank" rel="noreferrer">北京交通大学</a></strong></td>
+            <td>詹天佑信息类<div class="subtle">稳保｜信息/交通智能</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>637</td>
+            <td>待补充</td>
+            <td>补学校培养方案、主干课程和学院归属</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.sustech.edu.cn/" target="_blank" rel="noreferrer">南方科技大学</a></strong></td>
+            <td>覆盖审计：计算机/电子信息/生物医学工程方向待核<div class="subtle">安全观察｜计算机/电子信息/生物医学工程</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>626</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hitsz.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（深圳）</a></strong></td>
+            <td>工科试验班（卓越优才计划）<div class="subtle">冲刺｜强工科/哈工大深圳</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>662</td>
+            <td>待补充</td>
+            <td>补学校培养方案、主干课程和学院归属</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td>
+            <td>电子信息类（元班）<div class="subtle">冲｜电子信息/通信</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>659</td>
+            <td><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></td>
+            <td>大类内能否分到通信、电子、集成电路、人工智能等具体方向？；本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？；是否有医学信号/医学影像/传感器相关科研机会？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.shanghaitech.edu.cn/" target="_blank" rel="noreferrer">上海科技大学</a></strong></td>
+            <td>覆盖审计：计算机/电子信息/生物科学创新方向待核<div class="subtle">安全观察｜计算机/电子信息/生物医工交叉</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>629</td>
+            <td><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></td>
+            <td>是否有完整计算机类核心课程和大项目实践？；软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？；本科生是否能参与医学影像AI、生物信息或AI制药项目？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td>
+            <td>工科试验班（电气类）<div class="subtle">冲｜电气/储能</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>660</td>
+            <td><span class="tag">电路</span><span class="tag">电机学</span><span class="tag">电力电子技术</span><span class="tag">电力系统分析</span><span class="tag">自动控制原理</span><span class="tag">高电压技术</span><span class="tag">新能源发电</span><span class="tag">储能技术</span><span class="tag">智能电网</span><span class="tag">嵌入式/工业控制</span></td>
+            <td>大类是否保证电气或储能方向？；就业去向是电网、能源企业、制造业还是研究所？；能源大类中是否含非优先方向，分流规则是什么？</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zhaosheng.cqu.edu.cn/" target="_blank" rel="noreferrer">重庆大学</a></strong></td>
+            <td>工科试验班（卓越计划）<div class="subtle">稳｜综合工科</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>644</td>
+            <td>待补充</td>
+            <td>补学校培养方案、主干课程和学院归属</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a></strong></td>
+            <td>工科试验班（未来技术拔尖班）<div class="subtle">超分冲刺｜未来技术/强工科/哈工大本部</div></td>
+            <td>待核</td>
+            <td>待核</td>
+            <td>679</td>
+            <td>待补充</td>
+            <td>补学校培养方案、主干课程和学院归属</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>来源等级</h2>
+      <table>
+        <thead><tr><th style="width:80px">等级</th><th>来源</th><th>用途</th></tr></thead>
+        <tbody><tr><td><span class="tag good">A</span></td><td>学校教务处/学院发布的本科培养方案、教学计划、课程体系图</td><td>最终确认课程、学分、校区、实践环节和分流方向。</td></tr>
+<tr><td><span class="tag blue">B</span></td><td>学校本科招生网专业介绍、学院专业介绍</td><td>可确认主干课程和专业定位，但通常不含完整四年课程表。</td></tr>
+<tr><td><span class="tag warn">C</span></td><td>专业类通用画像、教育部专业目录/阳光高考专业库、同类强校培养规律</td><td>用于出分前快速筛查课程强度；不能替代最终培养方案。</td></tr></tbody>
+      </table>
+      <h3>常用入口</h3>
+      <ul>
+        <li><a href="https://gaokao.chsi.com.cn/zyk/" target="_blank" rel="noreferrer">阳光高考专业库</a></li>
+<li><a href="https://www.moe.gov.cn/" target="_blank" rel="noreferrer">教育部普通高等学校本科专业目录相关信息</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>计算机/软件/AI/数据/网安 <span class="tag warn">C源</span></h2>
+      <p class="note">与家庭确认的编程训练意愿最匹配，也是未来转AI医疗、计算生物、医学影像AI、AI制药最通用的本科底座。</p>
+      <h3>课程强度</h3>
+      <table>
+        <thead><tr><th>数学</th><th>编程</th><th>电路信号</th><th>物理/力学</th><th>生化医学</th><th>工程实践</th><th>生物医药衔接</th></tr></thead>
+        <tbody><tr>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+        </tr></tbody>
+      </table>
+      <h3>典型核心课程</h3>
+      <div class="course-list"><span class="tag">程序设计</span><span class="tag">离散数学</span><span class="tag">数据结构</span><span class="tag">算法设计</span><span class="tag">计算机组成</span><span class="tag">操作系统</span><span class="tag">计算机网络</span><span class="tag">数据库系统</span><span class="tag">软件工程</span><span class="tag">编译原理</span><span class="tag">人工智能/机器学习</span></div>
+      <h3>主要风险</h3>
+      <ul><li>数学、离散结构和系统课程不能弱化</li>
+<li>AI名称不等于AI实力，需看计算机底座、项目训练和学院平台</li>
+<li>软件工程要核后两年学费、校区和毕业证备注</li></ul>
+      <h3>招生办/学院要问</h3>
+      <ul><li>是否有完整计算机类核心课程和大项目实践？</li>
+<li>软件工程后两年学费、校区、保研和就业是否与普通计算机类有差异？</li>
+<li>本科生是否能参与医学影像AI、生物信息或AI制药项目？</li></ul>
+      <h3>候选池匹配项</h3>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业名称</th><th style="width:80px">2025分</th><th style="width:90px">位次</th><th style="width:80px">分段</th><th style="width:80px">来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td><td>软件工程</td><td>660</td><td>1,626</td><td>660</td><td>A</td></tr>
+<tr><td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td><td>软件工程</td><td>641</td><td>-</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td><td>软件工程（卓越优才计划）</td><td>638</td><td>4,018</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td><td>工科试验班（AI加先进技术领军班）</td><td>644</td><td>3,291</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td><td>计算机类（计算机，含智能交互设计）</td><td>652</td><td>2,447</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td><td>计算机类（网络安全）</td><td>648</td><td>2,829</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></strong></td><td>覆盖审计：航空航天/计算机/电子信息/自动化方向待核</td><td>646</td><td>-</td><td>640</td><td>C</td></tr>
+<tr><td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td><td>工科试验班（卓越人才班）</td><td>645</td><td>3,161</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td><td>计算机科学与技术（国家拔尖基地班）</td><td>643</td><td>3,417</td><td>640</td><td>A</td></tr>
+<tr><td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td><td>计算机类</td><td>639</td><td>3,888</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong></td><td>软件工程/电气工程及其自动化/低空技术与工程</td><td>625</td><td>6,061</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://admi.hnu.edu.cn/" target="_blank" rel="noreferrer">湖南大学</a></strong></td><td>计算机科学与技术</td><td>631</td><td>-</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://admission.sysu.edu.cn/" target="_blank" rel="noreferrer">中山大学</a></strong></td><td>覆盖审计：计算机/电子信息/人工智能/软件方向待核</td><td>631</td><td>-</td><td>630</td><td>C</td></tr>
+<tr><td><strong><a href="https://zhaosheng.csu.edu.cn/" target="_blank" rel="noreferrer">中南大学</a></strong></td><td>软件工程</td><td>630</td><td>-</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学</a></strong></td><td>人工智能（新工科大师班）</td><td>648</td><td>-</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td><td>计算机类（创新实验班）</td><td>640</td><td>3,788</td><td>640</td><td>A</td></tr>
+<tr><td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td><td>计算机类</td><td>639</td><td>3,888</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></strong></td><td>计算机科学与技术/通信工程（兴海领军）</td><td>626</td><td>5,884</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></strong></td><td>计算机类</td><td>623</td><td>6,401</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://bkzs.nju.edu.cn/" target="_blank" rel="noreferrer">南京大学</a></strong></td><td>覆盖审计：计算机/电子信息/技术科学方向待核</td><td>658</td><td>-</td><td>660</td><td>C</td></tr>
+<tr><td><strong><a href="https://www.bkzs.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学</a></strong></td><td>计算机类</td><td>638</td><td>-</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>计算机类</td><td>653</td><td>-</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（智能与计算类）</td><td>648</td><td>2,829</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://bkzsw.wh.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学（威海）</a></strong></td><td>覆盖审计：计算机/电子信息/自动化方向待核</td><td>605</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></strong></td><td>软件工程（国家特软创新班）/自动化类</td><td>620</td><td>6,979</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.neuq.edu.cn/" target="_blank" rel="noreferrer">东北大学秦皇岛分校</a></strong></td><td>计算机科学与技术/自动化类</td><td>620</td><td>6,979</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://bkzs.tongji.edu.cn/" target="_blank" rel="noreferrer">同济大学</a></strong></td><td>覆盖审计：工科试验班/信息类方向待核</td><td>645</td><td>-</td><td>640</td><td>C</td></tr>
+<tr><td><strong><a href="https://www.nankai.edu.cn/239/list.htm" target="_blank" rel="noreferrer">南开大学</a></strong></td><td>覆盖审计：计算机/电子信息/智能科学方向待核</td><td>638</td><td>-</td><td>630</td><td>C</td></tr>
+<tr><td><strong><a href="https://zsb.seu.edu.cn/" target="_blank" rel="noreferrer">东南大学</a></strong></td><td>计算机类</td><td>662</td><td>1,543</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></strong></td><td>计算机长安学堂</td><td>615</td><td>7,990</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.nwu.edu.cn/" target="_blank" rel="noreferrer">西北大学</a></strong></td><td>计算机科学与技术（人工智能实验班）</td><td>613</td><td>8,173</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td><td>工科试验班（AI与低空技术）</td><td>641</td><td>3,671</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://goto.ncepu.edu.cn/" target="_blank" rel="noreferrer">华北电力大学（北京）</a></strong></td><td>通信工程/人工智能/电气工程及其自动化</td><td>622</td><td>6,598</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td><td>计算机类（国家网络安全学院）</td><td>661</td><td>1,625</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></strong></td><td>工科试验班（华为班）</td><td>617</td><td>7,561</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（未来技术学院）</td><td>652</td><td>2,447</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td><td>计算机类</td><td>642</td><td>-</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td><td>通信工程/电子信息/网安/人工智能等普通强类</td><td>640</td><td>-</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://bkzsw.shu.edu.cn/" target="_blank" rel="noreferrer">上海大学</a></strong></td><td>覆盖审计：计算机/电子信息/通信/自动化方向待核</td><td>608</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://zhaosheng.ustb.edu.cn/" target="_blank" rel="noreferrer">北京科技大学</a></strong></td><td>覆盖审计：计算机/自动化/人工智能/材料智能制造方向待核</td><td>602</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td><td>计算机类（元班）</td><td>656</td><td>-</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.sustech.edu.cn/" target="_blank" rel="noreferrer">南方科技大学</a></strong></td><td>覆盖审计：计算机/电子信息/生物医学工程方向待核</td><td>626</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://admission.shanghaitech.edu.cn/" target="_blank" rel="noreferrer">上海科技大学</a></strong></td><td>覆盖审计：计算机/电子信息/生物科学创新方向待核</td><td>629</td><td>-</td><td>safety</td><td>C</td></tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>电子信息/通信/电子工程 <span class="tag warn">C源</span></h2>
+      <p class="note">适合愿意接受电路、信号和控制的工科孩子；与医疗设备、医学信号、可穿戴设备、脑机接口和医疗芯片有较好衔接。</p>
+      <h3>课程强度</h3>
+      <table>
+        <thead><tr><th>数学</th><th>编程</th><th>电路信号</th><th>物理/力学</th><th>生化医学</th><th>工程实践</th><th>生物医药衔接</th></tr></thead>
+        <tbody><tr>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+        </tr></tbody>
+      </table>
+      <h3>典型核心课程</h3>
+      <div class="course-list"><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">信号与系统</span><span class="tag">电磁场与电磁波</span><span class="tag">通信原理</span><span class="tag">数字信号处理</span><span class="tag">信息论与编码</span><span class="tag">嵌入式系统</span><span class="tag">射频/微波/天线方向课程</span></div>
+      <h3>主要风险</h3>
+      <ul><li>电路、信号、概率和电磁场课程强度较高</li>
+<li>通信和电子方向就业差异大，需看学院强项和行业资源</li>
+<li>大类分流可能影响进入计算机或集成电路方向的概率</li></ul>
+      <h3>招生办/学院要问</h3>
+      <ul><li>大类内能否分到通信、电子、集成电路、人工智能等具体方向？</li>
+<li>本科实验平台是否包含嵌入式、DSP、FPGA、射频或通信系统项目？</li>
+<li>是否有医学信号/医学影像/传感器相关科研机会？</li></ul>
+      <h3>候选池匹配项</h3>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业名称</th><th style="width:80px">2025分</th><th style="width:90px">位次</th><th style="width:80px">分段</th><th style="width:80px">来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td><td>电子信息类（电子信息）</td><td>647</td><td>-</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td><td>工科试验班（医学电子信息）</td><td>660</td><td>1,626</td><td>660</td><td>A</td></tr>
+<tr><td><strong><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></strong></td><td>覆盖审计：航空航天/计算机/电子信息/自动化方向待核</td><td>646</td><td>-</td><td>640</td><td>C</td></tr>
+<tr><td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td><td>自动化/电气类/信息工程</td><td>637</td><td>4,146</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.scu.edu.cn/" target="_blank" rel="noreferrer">四川大学</a></strong></td><td>电子信息类</td><td>637</td><td>-</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://admission.sysu.edu.cn/" target="_blank" rel="noreferrer">中山大学</a></strong></td><td>覆盖审计：计算机/电子信息/人工智能/软件方向待核</td><td>631</td><td>-</td><td>630</td><td>C</td></tr>
+<tr><td><strong><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></strong></td><td>计算机科学与技术/通信工程（兴海领军）</td><td>626</td><td>5,884</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://bkzs.nju.edu.cn/" target="_blank" rel="noreferrer">南京大学</a></strong></td><td>覆盖审计：计算机/电子信息/技术科学方向待核</td><td>658</td><td>-</td><td>660</td><td>C</td></tr>
+<tr><td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td><td>电子信息类（卓越计划实验班）</td><td>643</td><td>3,417</td><td>640</td><td>A</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（电气信息类）</td><td>642</td><td>3,537</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td><td>电子信息类（创新实验班）</td><td>640</td><td>3,788</td><td>640</td><td>A</td></tr>
+<tr><td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td><td>电子信息类</td><td>640</td><td>3,788</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td><td>电子信息类（通信）</td><td>634</td><td>4,596</td><td>630</td><td>A</td></tr>
+<tr><td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td><td>电子信息类（集成电路）</td><td>633</td><td>4,739</td><td>630</td><td>A</td></tr>
+<tr><td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td><td>电子信息类（电子工程）</td><td>630</td><td>5,221</td><td>630</td><td>A</td></tr>
+<tr><td><strong><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></strong></td><td>电子信息类（钱学森学院）</td><td>626</td><td>5,884</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://bkzsw.wh.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学（威海）</a></strong></td><td>覆盖审计：计算机/电子信息/自动化方向待核</td><td>605</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td><td>光电信息科学与工程</td><td>660</td><td>1,704</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（精仪与光电信息类）</td><td>641</td><td>3,671</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://bkzs.tongji.edu.cn/" target="_blank" rel="noreferrer">同济大学</a></strong></td><td>覆盖审计：工科试验班/信息类方向待核</td><td>645</td><td>-</td><td>640</td><td>C</td></tr>
+<tr><td><strong><a href="https://www.nankai.edu.cn/239/list.htm" target="_blank" rel="noreferrer">南开大学</a></strong></td><td>覆盖审计：计算机/电子信息/智能科学方向待核</td><td>638</td><td>-</td><td>630</td><td>C</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>电子信息类（智能仪器、智能控制）</td><td>649</td><td>-</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>电子信息类（信息与通信）</td><td>659</td><td>1,793</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>工科试验班（电子工程类）</td><td>658</td><td>-</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td><td>电子信息类（电子信息学院）</td><td>658</td><td>1,873</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://goto.ncepu.edu.cn/" target="_blank" rel="noreferrer">华北电力大学（北京）</a></strong></td><td>通信工程/人工智能/电气工程及其自动化</td><td>622</td><td>6,598</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td><td>通信工程/电子信息/网安/人工智能等普通强类</td><td>640</td><td>-</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://bkzsw.shu.edu.cn/" target="_blank" rel="noreferrer">上海大学</a></strong></td><td>覆盖审计：计算机/电子信息/通信/自动化方向待核</td><td>608</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://zs.sustech.edu.cn/" target="_blank" rel="noreferrer">南方科技大学</a></strong></td><td>覆盖审计：计算机/电子信息/生物医学工程方向待核</td><td>626</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong></td><td>电子信息类（元班）</td><td>659</td><td>1,793</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://admission.shanghaitech.edu.cn/" target="_blank" rel="noreferrer">上海科技大学</a></strong></td><td>覆盖审计：计算机/电子信息/生物科学创新方向待核</td><td>629</td><td>-</td><td>safety</td><td>C</td></tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>集成电路/微电子 <span class="tag warn">C源</span></h2>
+      <p class="note">国家长期投入确定性较强，强校强专业价值高；未来可衔接医疗芯片、传感器芯片和生物检测芯片，但本科课程硬、读研收益明显。</p>
+      <h3>课程强度</h3>
+      <table>
+        <thead><tr><th>数学</th><th>编程</th><th>电路信号</th><th>物理/力学</th><th>生化医学</th><th>工程实践</th><th>生物医药衔接</th></tr></thead>
+        <tbody><tr>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+        </tr></tbody>
+      </table>
+      <h3>典型核心课程</h3>
+      <div class="course-list"><span class="tag">电路分析</span><span class="tag">模拟电子技术</span><span class="tag">数字电子技术</span><span class="tag">半导体物理</span><span class="tag">微电子器件</span><span class="tag">数字集成电路设计</span><span class="tag">模拟集成电路设计</span><span class="tag">集成电路工艺</span><span class="tag">EDA工具</span><span class="tag">硬件描述语言</span></div>
+      <h3>主要风险</h3>
+      <ul><li>物理、器件、电路和EDA训练都重</li>
+<li>本科直接就业和读研深造路径差异明显</li>
+<li>需核是否偏设计、器件、工艺或封测</li></ul>
+      <h3>招生办/学院要问</h3>
+      <ul><li>专业偏IC设计还是半导体器件/工艺？</li>
+<li>本科是否有EDA、流片、FPGA和芯片实验平台？</li>
+<li>保研去向和企业合作单位有哪些？</li></ul>
+      <h3>候选池匹配项</h3>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业名称</th><th style="width:80px">2025分</th><th style="width:90px">位次</th><th style="width:80px">分段</th><th style="width:80px">来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td><td>电子信息类</td><td>640</td><td>3,788</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong></td><td>电子信息类（集成电路）</td><td>633</td><td>4,739</td><td>630</td><td>A</td></tr>
+<tr><td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td><td>微电子科学与工程（集成电路学院）</td><td>658</td><td>1,873</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>集成电路设计与集成系统</td><td>655</td><td>-</td><td>650</td><td>B</td></tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>自动化/控制/机器人 <span class="tag warn">C源</span></h2>
+      <p class="note">兼顾编程、电路、控制和工程系统，适合未来机器人、智能制造、医疗机器人、实验室自动化和康复设备方向。</p>
+      <h3>课程强度</h3>
+      <table>
+        <thead><tr><th>数学</th><th>编程</th><th>电路信号</th><th>物理/力学</th><th>生化医学</th><th>工程实践</th><th>生物医药衔接</th></tr></thead>
+        <tbody><tr>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+        </tr></tbody>
+      </table>
+      <h3>典型核心课程</h3>
+      <div class="course-list"><span class="tag">电路与电子技术</span><span class="tag">自动控制原理</span><span class="tag">现代控制理论</span><span class="tag">信号与系统</span><span class="tag">传感器与检测技术</span><span class="tag">嵌入式系统</span><span class="tag">机器人学</span><span class="tag">运动控制</span><span class="tag">机器视觉</span><span class="tag">工业控制网络</span></div>
+      <h3>主要风险</h3>
+      <ul><li>控制理论抽象，数学和物理都不能太弱</li>
+<li>机器人名称可能落在机械、电气或控制不同学院，课程差异很大</li>
+<li>就业口径比计算机更依赖学校行业资源和项目经历</li></ul>
+      <h3>招生办/学院要问</h3>
+      <ul><li>机器人方向归属自动化、机械还是计算机学院？</li>
+<li>本科项目是否有真实机器人、嵌入式、视觉和控制系统训练？</li>
+<li>是否能对接医疗机器人、康复机器人或实验室自动化课题？</li></ul>
+      <h3>候选池匹配项</h3>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业名称</th><th style="width:80px">2025分</th><th style="width:90px">位次</th><th style="width:80px">分段</th><th style="width:80px">来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></strong></td><td>覆盖审计：航空航天/计算机/电子信息/自动化方向待核</td><td>646</td><td>-</td><td>640</td><td>C</td></tr>
+<tr><td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong></td><td>软件工程/电气工程及其自动化/低空技术与工程</td><td>625</td><td>6,061</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td><td>自动化类</td><td>646</td><td>-</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td><td>自动化/电气类/信息工程</td><td>637</td><td>4,146</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td><td>工科试验班（智能制造卓越优才计划）</td><td>639</td><td>3,888</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td><td>工科试验班（机器人与智能装备拔尖班）</td><td>650</td><td>2,629</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（电气信息类）</td><td>642</td><td>3,537</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://bkzsw.wh.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学（威海）</a></strong></td><td>覆盖审计：计算机/电子信息/自动化方向待核</td><td>605</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>工科试验班（机器人、电气信息、智能制造）</td><td>651</td><td>-</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></strong></td><td>软件工程（国家特软创新班）/自动化类</td><td>620</td><td>6,979</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.neuq.edu.cn/" target="_blank" rel="noreferrer">东北大学秦皇岛分校</a></strong></td><td>计算机科学与技术/自动化类</td><td>620</td><td>6,979</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>电子信息类（智能仪器、智能控制）</td><td>649</td><td>-</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td><td>工科试验班（航空航天）</td><td>637</td><td>4,146</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://goto.ncepu.edu.cn/" target="_blank" rel="noreferrer">华北电力大学（北京）</a></strong></td><td>通信工程/人工智能/电气工程及其自动化</td><td>622</td><td>6,598</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.neu.edu.cn/" target="_blank" rel="noreferrer">东北大学</a></strong></td><td>自动化类</td><td>628</td><td>5,535</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://bkzsw.shu.edu.cn/" target="_blank" rel="noreferrer">上海大学</a></strong></td><td>覆盖审计：计算机/电子信息/通信/自动化方向待核</td><td>608</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://zhaosheng.ustb.edu.cn/" target="_blank" rel="noreferrer">北京科技大学</a></strong></td><td>覆盖审计：计算机/自动化/人工智能/材料智能制造方向待核</td><td>602</td><td>-</td><td>safety</td><td>C</td></tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>测控/智能仪器/光电 <span class="tag warn">C源</span></h2>
+      <p class="note">与医疗仪器、医学成像、传感器和智能检测衔接好，适合喜欢工程系统和硬件平台的学生。</p>
+      <h3>课程强度</h3>
+      <table>
+        <thead><tr><th>数学</th><th>编程</th><th>电路信号</th><th>物理/力学</th><th>生化医学</th><th>工程实践</th><th>生物医药衔接</th></tr></thead>
+        <tbody><tr>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+        </tr></tbody>
+      </table>
+      <h3>典型核心课程</h3>
+      <div class="course-list"><span class="tag">误差理论与数据处理</span><span class="tag">传感器原理</span><span class="tag">测控电路</span><span class="tag">信号与系统</span><span class="tag">数字信号处理</span><span class="tag">光学工程基础</span><span class="tag">嵌入式系统</span><span class="tag">自动检测技术</span><span class="tag">智能仪器设计</span><span class="tag">图像处理</span></div>
+      <h3>主要风险</h3>
+      <ul><li>不像计算机那样就业口径直观，需看学校仪器/光电平台</li>
+<li>近视475/500度但矫正视力接近1.5，测控/智能仪器/光电相关方向仍要逐校核视力、色觉和不宜就读提示</li>
+<li>课程包含较多物理、光学、电子和实验</li></ul>
+      <h3>招生办/学院要问</h3>
+      <ul><li>该方向强项是光电、仪器、传感器还是检测控制？</li>
+<li>孩子近视约475/500度但矫正视力可接近1.5，是否限制裸眼视力、矫正视力、镜片度数或色觉？</li>
+<li>本科生是否能参与医学成像、可穿戴传感或智能检测项目？</li></ul>
+      <h3>候选池匹配项</h3>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业名称</th><th style="width:80px">2025分</th><th style="width:90px">位次</th><th style="width:80px">分段</th><th style="width:80px">来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td><td>工科试验班（智能感知与仪器）</td><td>660</td><td>1,626</td><td>660</td><td>A</td></tr>
+<tr><td><strong><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></strong></td><td>电子信息类（钱学森学院）</td><td>626</td><td>5,884</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td><td>光电信息科学与工程</td><td>660</td><td>1,704</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（精仪与光电信息类）</td><td>641</td><td>3,671</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>电子信息类（智能仪器、智能控制）</td><td>649</td><td>-</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td><td>工科试验班（航空航天）</td><td>637</td><td>4,146</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td><td>机械类</td><td>658</td><td>1,873</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.neu.edu.cn/" target="_blank" rel="noreferrer">东北大学</a></strong></td><td>自动化类</td><td>628</td><td>5,535</td><td>safety</td><td>B</td></tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>智能制造/机械/装备 <span class="tag warn">C源</span></h2>
+      <p class="note">强校机械和智能制造仍有平台价值，适合高端制造、机器人硬件、医疗器械结构和实验设备，但应避免被弱分流拖入不喜欢的传统方向。</p>
+      <h3>课程强度</h3>
+      <table>
+        <thead><tr><th>数学</th><th>编程</th><th>电路信号</th><th>物理/力学</th><th>生化医学</th><th>工程实践</th><th>生物医药衔接</th></tr></thead>
+        <tbody><tr>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="2/5"><span style="width:40%"></span></span><strong>2</strong></td>
+          <td><span class="meter" title="2/5"><span style="width:40%"></span></span><strong>2</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+        </tr></tbody>
+      </table>
+      <h3>典型核心课程</h3>
+      <div class="course-list"><span class="tag">工程制图</span><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">机械原理</span><span class="tag">机械设计</span><span class="tag">机械制造基础</span><span class="tag">控制工程基础</span><span class="tag">CAD/CAE</span><span class="tag">机电传动</span><span class="tag">智能制造系统</span></div>
+      <h3>主要风险</h3>
+      <ul><li>力学和机械课程重，和孩子当前数学/物理发挥反馈要谨慎匹配</li>
+<li>就业上限更依赖读研、项目和行业平台</li>
+<li>大类中若含材料、焊接、土木等方向要核分流底线</li></ul>
+      <h3>招生办/学院要问</h3>
+      <ul><li>大类分流能否保证进入机器人、智能制造、测控或自动化相关方向？</li>
+<li>是否含材料、焊接、土木、车辆等非优先方向？</li>
+<li>本科项目是否有机器人、数字孪生、工业AI或医疗器械结构设计？</li></ul>
+      <h3>候选池匹配项</h3>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业名称</th><th style="width:80px">2025分</th><th style="width:90px">位次</th><th style="width:80px">分段</th><th style="width:80px">来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td><td>工科试验班（智能制造类）</td><td>649</td><td>2,630</td><td>650</td><td>A</td></tr>
+<tr><td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td><td>工科试验班（智能过程与装备国卓班）</td><td>655</td><td>-</td><td>650</td><td>A</td></tr>
+<tr><td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td><td>工科试验班（智能制造卓越优才计划）</td><td>639</td><td>3,888</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td><td>工科试验班（机器人与智能装备拔尖班）</td><td>650</td><td>2,629</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>工科试验班（机器人、电气信息、智能制造）</td><td>651</td><td>-</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（智能制造与建造）</td><td>638</td><td>4,018</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://admission.bit.edu.cn/" target="_blank" rel="noreferrer">北京理工大学</a></strong></td><td>覆盖审计：信息/智能制造/车辆/工科试验班方向待核</td><td>637</td><td>-</td><td>630</td><td>C</td></tr>
+<tr><td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td><td>机械类</td><td>658</td><td>1,873</td><td>660</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（未来技术学院）</td><td>652</td><td>2,447</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://pjzsjy.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学（盘锦校区）</a></strong></td><td>覆盖审计：工科/智能制造/能源化工交叉方向待核</td><td>602</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://zhaosheng.ustb.edu.cn/" target="_blank" rel="noreferrer">北京科技大学</a></strong></td><td>覆盖审计：计算机/自动化/人工智能/材料智能制造方向待核</td><td>602</td><td>-</td><td>safety</td><td>C</td></tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>航空航天/低空/飞行器 <span class="tag warn">C源</span></h2>
+      <p class="note">学校平台强时很有价值，尤其西工大、南航等；但课程硬、行业属性强，适合作为有兴趣和平台优势时的冲稳选项。</p>
+      <h3>课程强度</h3>
+      <table>
+        <thead><tr><th>数学</th><th>编程</th><th>电路信号</th><th>物理/力学</th><th>生化医学</th><th>工程实践</th><th>生物医药衔接</th></tr></thead>
+        <tbody><tr>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="2/5"><span style="width:40%"></span></span><strong>2</strong></td>
+          <td><span class="meter" title="2/5"><span style="width:40%"></span></span><strong>2</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+          <td><span class="meter" title="2/5"><span style="width:40%"></span></span><strong>2</strong></td>
+        </tr></tbody>
+      </table>
+      <h3>典型核心课程</h3>
+      <div class="course-list"><span class="tag">理论力学</span><span class="tag">材料力学</span><span class="tag">流体力学</span><span class="tag">空气动力学</span><span class="tag">飞行器结构</span><span class="tag">飞行器设计</span><span class="tag">自动控制原理</span><span class="tag">导航制导与控制</span><span class="tag">飞行动力学</span><span class="tag">工程热力学</span></div>
+      <h3>主要风险</h3>
+      <ul><li>数学、力学、物理强度高</li>
+<li>低空热度可能带来短期报考波动</li>
+<li>若涉及飞行技术、航海或特殊行业方向，即使矫正视力好也必须核裸眼视力、矫正视力和镜片度数要求</li></ul>
+      <h3>招生办/学院要问</h3>
+      <ul><li>低空方向是否是独立培养还是大类内名称？</li>
+<li>课程偏飞行器、控制、通信导航还是运营管理？</li>
+<li>孩子近视约475/500度但矫正视力可接近1.5，是否影响飞行器、飞行、航海、无人系统相关方向录取或分流？</li></ul>
+      <h3>候选池匹配项</h3>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业名称</th><th style="width:80px">2025分</th><th style="width:90px">位次</th><th style="width:80px">分段</th><th style="width:80px">来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td><td>工科试验班（航天航空类）</td><td>649</td><td>2,630</td><td>650</td><td>A</td></tr>
+<tr><td><strong><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></strong></td><td>覆盖审计：航空航天/计算机/电子信息/自动化方向待核</td><td>646</td><td>-</td><td>640</td><td>C</td></tr>
+<tr><td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong></td><td>软件工程/电气工程及其自动化/低空技术与工程</td><td>625</td><td>6,061</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td><td>民用航空含低空技术与工程</td><td>648</td><td>2,829</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong></td><td>工科试验班（航空航天）</td><td>637</td><td>4,146</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td><td>航空航天类（航空）</td><td>651</td><td>2,550</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td><td>工科试验班（AI与低空技术）</td><td>641</td><td>3,671</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong></td><td>航空航天类（长空创新班）</td><td>638</td><td>4,018</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong></td><td>航空航天类</td><td>655</td><td>2,144</td><td>650</td><td>B</td></tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>电气/能源/储能 <span class="tag warn">C源</span></h2>
+      <p class="note">行业稳定性较好，强校电气值得关注；与生物医药衔接较弱，但可作为稳就业工程方向。</p>
+      <h3>课程强度</h3>
+      <table>
+        <thead><tr><th>数学</th><th>编程</th><th>电路信号</th><th>物理/力学</th><th>生化医学</th><th>工程实践</th><th>生物医药衔接</th></tr></thead>
+        <tbody><tr>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="2/5"><span style="width:40%"></span></span><strong>2</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="2/5"><span style="width:40%"></span></span><strong>2</strong></td>
+        </tr></tbody>
+      </table>
+      <h3>典型核心课程</h3>
+      <div class="course-list"><span class="tag">电路</span><span class="tag">电机学</span><span class="tag">电力电子技术</span><span class="tag">电力系统分析</span><span class="tag">自动控制原理</span><span class="tag">高电压技术</span><span class="tag">新能源发电</span><span class="tag">储能技术</span><span class="tag">智能电网</span><span class="tag">嵌入式/工业控制</span></div>
+      <h3>主要风险</h3>
+      <ul><li>电气热度和就业稳定预期可能推高分数</li>
+<li>课程电路、电机、电力系统较硬</li>
+<li>部分能源大类可能分到热能、动力、化工或传统能源方向</li></ul>
+      <h3>招生办/学院要问</h3>
+      <ul><li>大类是否保证电气或储能方向？</li>
+<li>就业去向是电网、能源企业、制造业还是研究所？</li>
+<li>能源大类中是否含非优先方向，分流规则是什么？</li></ul>
+      <h3>候选池匹配项</h3>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业名称</th><th style="width:80px">2025分</th><th style="width:90px">位次</th><th style="width:80px">分段</th><th style="width:80px">来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td><td>工科试验班（智慧能源类）</td><td>653</td><td>2,246</td><td>650</td><td>A</td></tr>
+<tr><td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td><td>工科试验班（卓越人才班）</td><td>645</td><td>3,161</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong></td><td>软件工程/电气工程及其自动化/低空技术与工程</td><td>625</td><td>6,061</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong></td><td>自动化/电气类/信息工程</td><td>637</td><td>4,146</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（电气信息类）</td><td>642</td><td>3,537</td><td>640</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong></td><td>工科试验班（机器人、电气信息、智能制造）</td><td>651</td><td>-</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.neuq.edu.cn/" target="_blank" rel="noreferrer">东北大学秦皇岛分校</a></strong></td><td>计算机科学与技术/自动化类</td><td>620</td><td>6,979</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（智能制造与建造）</td><td>638</td><td>4,018</td><td>630</td><td>B</td></tr>
+<tr><td><strong><a href="https://goto.ncepu.edu.cn/" target="_blank" rel="noreferrer">华北电力大学（北京）</a></strong></td><td>通信工程/人工智能/电气工程及其自动化</td><td>622</td><td>6,598</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.neu.edu.cn/" target="_blank" rel="noreferrer">东北大学</a></strong></td><td>自动化类</td><td>628</td><td>5,535</td><td>safety</td><td>B</td></tr>
+<tr><td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong></td><td>工科试验班（未来技术学院）</td><td>652</td><td>2,447</td><td>650</td><td>B</td></tr>
+<tr><td><strong><a href="https://pjzsjy.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学（盘锦校区）</a></strong></td><td>覆盖审计：工科/智能制造/能源化工交叉方向待核</td><td>602</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong></td><td>工科试验班（电气类）</td><td>660</td><td>1,704</td><td>660</td><td>B</td></tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>生物医学工程/医学电子/智能医学 <span class="tag warn">C源</span></h2>
+      <p class="note">最直接承接生物兴趣和工科底座，但本科出口差异大，必须查清是偏工程、偏医学、偏生命还是偏管理。</p>
+      <h3>课程强度</h3>
+      <table>
+        <thead><tr><th>数学</th><th>编程</th><th>电路信号</th><th>物理/力学</th><th>生化医学</th><th>工程实践</th><th>生物医药衔接</th></tr></thead>
+        <tbody><tr>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="2/5"><span style="width:40%"></span></span><strong>2</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="5/5"><span style="width:100%"></span></span><strong>5</strong></td>
+        </tr></tbody>
+      </table>
+      <h3>典型核心课程</h3>
+      <div class="course-list"><span class="tag">电路与电子技术</span><span class="tag">信号与系统</span><span class="tag">数字信号处理</span><span class="tag">医学仪器</span><span class="tag">医学成像</span><span class="tag">生物医学信号处理</span><span class="tag">生理学/解剖学基础</span><span class="tag">生物材料/传感器</span><span class="tag">机器学习</span><span class="tag">医学数据分析</span></div>
+      <h3>主要风险</h3>
+      <ul><li>不能只看名称，需看课程中工程比例</li>
+<li>本科就业岗位可能不如计算机/电子直观，读研收益明显</li>
+<li>近视475/500度但矫正视力接近1.5，生物医学工程/医学电子仍要逐校核视力、色觉和不宜就读提示</li></ul>
+      <h3>招生办/学院要问</h3>
+      <ul><li>课程中电子、计算机、信号、医学、生物各占多少？</li>
+<li>孩子近视约475/500度但矫正视力可接近1.5，是否影响生物医学工程、医学电子或医学影像相关培养？</li>
+<li>是否有附属医院、医学院、生命学院或医疗器械企业联合培养？</li></ul>
+      <h3>候选池匹配项</h3>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业名称</th><th style="width:80px">2025分</th><th style="width:90px">位次</th><th style="width:80px">分段</th><th style="width:80px">来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td><td>工科试验班（医学电子信息）</td><td>660</td><td>1,626</td><td>660</td><td>A</td></tr>
+<tr><td><strong><a href="https://zs.sustech.edu.cn/" target="_blank" rel="noreferrer">南方科技大学</a></strong></td><td>覆盖审计：计算机/电子信息/生物医学工程方向待核</td><td>626</td><td>-</td><td>safety</td><td>C</td></tr>
+<tr><td><strong><a href="https://admission.shanghaitech.edu.cn/" target="_blank" rel="noreferrer">上海科技大学</a></strong></td><td>覆盖审计：计算机/电子信息/生物科学创新方向待核</td><td>629</td><td>-</td><td>safety</td><td>C</td></tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>数字媒体技术/交互/科技艺术 <span class="tag warn">C源</span></h2>
+      <p class="note">可把画画兴趣转化为交互、可视化和产品审美能力，但不宜替代计算机/电子等主线，只作为同等条件加分项。</p>
+      <h3>课程强度</h3>
+      <table>
+        <thead><tr><th>数学</th><th>编程</th><th>电路信号</th><th>物理/力学</th><th>生化医学</th><th>工程实践</th><th>生物医药衔接</th></tr></thead>
+        <tbody><tr>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="4/5"><span style="width:80%"></span></span><strong>4</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="1/5"><span style="width:20%"></span></span><strong>1</strong></td>
+          <td><span class="meter" title="3/5"><span style="width:60%"></span></span><strong>3</strong></td>
+          <td><span class="meter" title="2/5"><span style="width:40%"></span></span><strong>2</strong></td>
+        </tr></tbody>
+      </table>
+      <h3>典型核心课程</h3>
+      <div class="course-list"><span class="tag">程序设计</span><span class="tag">数据结构</span><span class="tag">计算机图形学</span><span class="tag">人机交互</span><span class="tag">数字图像处理</span><span class="tag">Web/移动开发</span><span class="tag">游戏引擎/三维建模</span><span class="tag">用户体验设计</span><span class="tag">可视化技术</span><span class="tag">人工智能应用</span></div>
+      <h3>主要风险</h3>
+      <ul><li>艺术表达就业受AI冲击更明显，必须保持计算机工程底座</li>
+<li>不同学校可能偏艺术、传媒或软件，差异很大</li>
+<li>不适合作为只因兴趣而牺牲学校层次和专业硬度的选择</li></ul>
+      <h3>招生办/学院要问</h3>
+      <ul><li>该专业归属计算机学院、软件学院还是艺术/传媒学院？</li>
+<li>课程是否有扎实编程、图形学、AI和工程项目？</li>
+<li>毕业去向是互联网产品、交互、游戏、可视化还是设计岗位？</li></ul>
+      <h3>候选池匹配项</h3>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>专业名称</th><th style="width:80px">2025分</th><th style="width:90px">位次</th><th style="width:80px">分段</th><th style="width:80px">来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong></td><td>计算机类（计算机，含智能交互设计）</td><td>652</td><td>2,447</td><td>650</td><td>B</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

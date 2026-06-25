@@ -1,0 +1,973 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>普通类志愿草表与梯度方案</title>
+  <style>
+    :root { --bg:#f6f7f9; --panel:#fff; --ink:#18202a; --muted:#667085; --line:#d9dee7; --blue:#2459a6; --green:#147a4a; --amber:#a85b00; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.55; }
+    header { background:#fff; border-bottom:1px solid var(--line); }
+    .wrap { max-width:1280px; margin:0 auto; padding:22px; }
+    h1 { margin:0 0 8px; font-size:28px; letter-spacing:0; }
+    h2 { margin:0 0 12px; font-size:20px; letter-spacing:0; }
+    h3 { margin:18px 0 8px; font-size:16px; letter-spacing:0; }
+    section { margin:18px 0; padding:18px; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
+    table { width:100%; border-collapse:collapse; font-size:14px; background:#fff; }
+    th, td { padding:9px 8px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+    th { background:#f8fafc; color:#344054; }
+    a { color:var(--blue); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .tag { display:inline-flex; align-items:center; min-height:24px; margin:0 4px 4px 0; padding:2px 7px; border:1px solid var(--line); border-radius:6px; background:#fff; font-size:12px; font-weight:800; }
+    .note { padding:12px; border-left:4px solid var(--blue); background:#f1f6ff; border-radius:6px; }
+    .muted { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; }
+    .metric { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; }
+    .metric strong { display:block; font-size:22px; color:var(--blue); }
+    @media (max-width:900px){ .wrap{padding:14px;} .grid{grid-template-columns:1fr 1fr;} table{font-size:13px;} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>普通类志愿草表与梯度方案</h1>
+      <p class="muted">陕西物理类｜662 分｜1558 位｜只看普通类主方案，剔除医学类、国家专项、地方专项、强基计划、综合评价、中外合作办学、高收费和港校项目</p>
+      <div class="grid">
+        <div class="metric"><strong>85</strong><span>普通类候选专业</span></div>
+        <div class="metric"><strong>9</strong><span>冲/冲稳</span></div>
+        <div class="metric"><strong>15</strong><span>稳</span></div>
+        <div class="metric"><strong>61</strong><span>保/安全</span></div>
+      </div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section>
+      <h2>排序口径</h2>
+      <p class="note">本草表按 2025 专业最低分与 2026 已核计划线索做梯度初排：高于 662 为“冲”，低 0-2 分为“冲稳”，低 3-10 分为“稳”，低 11-25 分为“保”，再下探为“安全”。本版选择策略已改为先重点研究哈工大本部，再研究西交大，再研究哈工大威海；哈工大深圳作为补充重点观察。正式填报仍必须结合院校专业组内全部专业、招生计划数变化、调剂规则和体检限制重排。</p>
+    </section>
+    <section>
+      <h2>重点校区/院校优先分析</h2>
+      <table>
+        <thead><tr><th style="width:150px">优先级</th><th style="width:170px">学校</th><th>核心判断</th><th>当前可讨论普通类方向</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>第1优先</strong></td>
+            <td><strong><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a></strong></td>
+            <td>最优先深入核验；普通批本部2025陕西物理类最低约679，明显高于662，因此作为极高冲刺和招生办重点咨询对象，只按普通批口径判断。<div class="muted">本部普通批平台最强，但2025陕西物理普通类最低约679，高于662约17分；只作极高冲刺和招生办重点咨询，本轮只按普通批口径判断。</div></td>
+            <td><div><span class="tag">冲</span>工科试验班（未来技术拔尖班）｜679分｜专家82</div></td>
+          </tr>
+<tr>
+            <td><strong>第2优先</strong></td>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong></td>
+            <td>第二优先；本地C9和强工科平台价值高，重点比较软件工程、智能感知与仪器、智慧能源、智能制造、自动化和电气信息类等普通类方向的计划数、分流和调剂风险。<div class="muted">本地C9强工科，662分段最现实的重点冲刺对象；优先核软件工程、智能感知与仪器、智慧能源、智能制造、自动化和电气信息类的计划数、分流、调剂。</div></td>
+            <td><div><span class="tag">冲稳</span>软件工程｜660分｜专家118</div><div><span class="tag">冲稳</span>工科试验班（智能感知与仪器）｜660分｜专家110</div><div><span class="tag">稳</span>工科试验班（智慧能源类）｜653分｜专家112</div><div><span class="tag">稳</span>工科试验班（智能过程与装备国卓班）｜655分｜专家111</div><div><span class="tag">保</span>工科试验班（智能制造类）｜649分｜专家114</div><div><span class="tag">保</span>工科试验班（航天航空类）｜649分｜专家112</div></td>
+          </tr>
+<tr>
+            <td><strong>第3优先</strong></td>
+            <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong></td>
+            <td>第三优先；2025陕西物理普通类638-650覆盖当前核心区间，是强校异地校区冲稳核心，重点核2026计划、卓越优才计划、校区安排、毕业证、保研就业和转专业限制。<div class="muted">638-650覆盖当前核心区间，是强校异地校区冲稳核心；优先核卓越优才计划、校区安排、毕业证、转专业、保研就业。</div></td>
+            <td><div><span class="tag">保</span>软件工程（卓越优才计划）｜638分｜专家114</div><div><span class="tag">保</span>工科试验班（AI加先进技术领军班）｜644分｜专家111</div><div><span class="tag">保</span>工科试验班（智能制造卓越优才计划）｜639分｜专家108</div><div><span class="tag">保</span>工科试验班（机器人与智能装备拔尖班）｜650分｜专家106</div></td>
+          </tr>
+<tr>
+            <td><strong>第4优先</strong></td>
+            <td><strong><a href="https://zsb.hitsz.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（深圳）</a></strong></td>
+            <td>补充重点观察；2025陕西物理普通类卓越优才计划最低662、平均665.5、最高672，贴着当前分数线，平台和城市强，但只能作为高风险冲刺，不能当稳项。<div class="muted">深圳校区平台和城市资源强，2025卓越优才计划最低662、均分665.5，贴着当前分数；只作高风险冲刺，不能当稳项。</div></td>
+            <td><div><span class="tag">冲稳</span>工科试验班（卓越优才计划）｜662分｜专家90</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>冲梯度</h2>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>重点院校族群</th><th>专业/专业类</th><th style="width:90px">2025最低</th><th style="width:90px">位次</th><th style="width:140px">2026计划</th><th style="width:130px">方向</th><th>填报判断</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong><a href="https://zsb.hit.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学</a></strong><div class="muted">重点1｜985/C9/211/双一流</div></td>
+            <td><span class="tag">C9</span><span class="tag">国防七子</span></td>
+            <td>工科试验班（未来技术拔尖班）<div><span class="tag">极高冲刺</span><span class="tag">A源</span></div></td>
+            <td>679</td>
+            <td>-</td>
+            <td>哈工大官方录取分数接口显示：2025陕西物理+化学校本部普通物理类最低679，明显高于640-660；当前主方案只按普通批口径判断</td>
+            <td>未来技术/强工科/哈工大本部</td>
+            <td>哈工大官方录取分数接口：2025陕西校本部物理+化学普通类，未来技术拔尖班最低679；校本部普通物理类最低679、平均681.5、最高687。640-660按普通批本部基本不匹配，只作高分冲刺和校方咨询参考。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>冲稳梯度</h2>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>重点院校族群</th><th>专业/专业类</th><th style="width:90px">2025最低</th><th style="width:90px">位次</th><th style="width:140px">2026计划</th><th style="width:130px">方向</th><th>填报判断</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong><div class="muted">重点2｜985/C9/双一流</div></td>
+            <td><span class="tag">C9</span></td>
+            <td>软件工程<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>660</td>
+            <td>1626</td>
+            <td>27人｜物理+化学</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong><div class="muted">重点2｜985/C9/双一流</div></td>
+            <td><span class="tag">C9</span></td>
+            <td>工科试验班（智能感知与仪器）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>660</td>
+            <td>1626</td>
+            <td>6人｜物理+化学</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>工程应用强，和制造业升级、机器人、工业AI相关。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hitsz.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（深圳）</a></strong><div class="muted">重点4｜985/C9/211/双一流</div></td>
+            <td><span class="tag">C9</span><span class="tag">国防七子</span></td>
+            <td>工科试验班（卓越优才计划）<div><span class="tag">高风险冲刺</span><span class="tag">A源</span></div></td>
+            <td>662</td>
+            <td>-</td>
+            <td>哈工大官方录取分数接口显示：2025陕西深圳校区普通物理类计算机与电子通信最低675，卓越优才最低662；通信工程</td>
+            <td>强工科/哈工大深圳</td>
+            <td>哈工大官方录取分数接口：2025陕西深圳校区物理+化学普通类卓越优才计划最高672，平均665.5，最低662。略高于660估分上沿，适合作为高分冲刺，不作为稳项。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>光电信息科学与工程<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>660</td>
+            <td>1704</td>
+            <td>2025陕西物理人工智能、光电、机械、航空航天等在655-662；临床医学不纳入当前主推。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>2025陕西物理普通批；华科强工科冲刺项。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.seu.edu.cn/" target="_blank" rel="noreferrer">东南大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>计算机类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>662</td>
+            <td>1543</td>
+            <td>2025陕西物理计算机和智能制造约662，普通批偏冲；当前主方案只按普通批口径判断。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；660段以上可讨论，650段不作为主稳。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.seu.edu.cn/" target="_blank" rel="noreferrer">东南大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>工科试验班（智能制造与智能系统）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>662</td>
+            <td>1543</td>
+            <td>2025陕西物理计算机和智能制造约662，普通批偏冲；当前主方案只按普通批口径判断。</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>2025陕西物理普通批；普通批偏高，当前只按普通批口径判断。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>计算机类（国家网络安全学院）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>661</td>
+            <td>1625</td>
+            <td>2025陕西物理网安、电气、微电子、电子信息、智能制造等在656-661，适合660段冲刺。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；660段可冲，650段风险较高。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>工科试验班（电气类）<div><span class="tag">优先</span><span class="tag">B源</span></div></td>
+            <td>660</td>
+            <td>1704</td>
+            <td>2025陕西物理网安、电气、微电子、电子信息、智能制造等在656-661，适合660段冲刺。</td>
+            <td>能源/电气</td>
+            <td>2025陕西物理普通批；电气和储能方向强，但650段不宜当稳项。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>稳梯度</h2>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>重点院校族群</th><th>专业/专业类</th><th style="width:90px">2025最低</th><th style="width:90px">位次</th><th style="width:140px">2026计划</th><th style="width:130px">方向</th><th>填报判断</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong><div class="muted">重点2｜985/C9/双一流</div></td>
+            <td><span class="tag">C9</span></td>
+            <td>工科试验班（智慧能源类）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>653</td>
+            <td>2246</td>
+            <td>195人｜物理+化学</td>
+            <td>能源/电气</td>
+            <td>稳定性较好，适合央国企和工程系统路线，但课程不轻。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong><div class="muted">重点2｜985/C9/双一流</div></td>
+            <td><span class="tag">C9</span></td>
+            <td>工科试验班（智能过程与装备国卓班）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>655</td>
+            <td>-</td>
+            <td>4人｜物理+化学</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>工程应用强，和制造业升级、机器人、工业AI相关。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">国防七子</span><span class="tag">中坚九校</span></td>
+            <td>计算机类（计算机，含智能交互设计）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>652</td>
+            <td>2447</td>
+            <td>官网自动检索受阻；2025基线暂用EOL，后续必须回校方或省考试院复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://bkzs.nju.edu.cn/" target="_blank" rel="noreferrer">南京大学</a></strong><div class="muted">985/C9/双一流</div></td>
+            <td><span class="tag">C9</span><span class="tag">华东五校</span></td>
+            <td>覆盖审计：计算机/电子信息/技术科学方向待核<div><span class="tag">高优先</span><span class="tag">C源</span></div></td>
+            <td>658</td>
+            <td>-</td>
+            <td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分658，落入660边缘。南大平台极强，但工科口径、专业组和目标专业分需逐项核，不作为稳妥项。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>全量高层次院校覆盖审计：掌上高考2025陕西物理类院校最低分658；此处不是专业最低分。南大平台强但目标专业和专业组风险需重点核，当前只作冲刺观察。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>计算机类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>653</td>
+            <td>-</td>
+            <td>6人</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>微电子科学与工程（集成电路学院）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>658</td>
+            <td>1873</td>
+            <td>2025陕西物理网安、电气、微电子、电子信息、智能制造等在656-661，适合660段冲刺。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>2025陕西物理普通批；读研收益明显。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>集成电路设计与集成系统<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>655</td>
+            <td>-</td>
+            <td>13人</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>电子信息类（信息与通信）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>659</td>
+            <td>1793</td>
+            <td>11人</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>工科试验班（电子工程类）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>658</td>
+            <td>-</td>
+            <td>8人</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://aoff.whu.edu.cn/" target="_blank" rel="noreferrer">武汉大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>电子信息类（电子信息学院）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>658</td>
+            <td>1873</td>
+            <td>2025陕西物理网安、电气、微电子、电子信息、智能制造等在656-661，适合660段冲刺。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>2025陕西物理普通批；含电子信息、通信及人工智能试验班相关方向。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>机械类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>658</td>
+            <td>1873</td>
+            <td>2025陕西物理人工智能、光电、机械、航空航天等在655-662；临床医学不纳入当前主推。</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>2025陕西物理普通批；强工科平台，但与计算机/电子相比职业弹性略低。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>工科试验班（未来技术学院）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>652</td>
+            <td>2447</td>
+            <td>2025陕西物理普通批智能计算、电气信息、精仪光电、智能制造等在638-652，属于此前遗漏的高价值985工科。</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>2025陕西物理普通批；面向人工智能、新型储能、智能制造、具身智能等，属于高价值遗漏项。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hust.edu.cn/" target="_blank" rel="noreferrer">华中科技大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>航空航天类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>655</td>
+            <td>2144</td>
+            <td>2025陕西物理人工智能、光电、机械、航空航天等在655-662；临床医学不纳入当前主推。</td>
+            <td>低空/航空航天/无人系统</td>
+            <td>2025陕西物理普通批；课程硬，适合作为高分冲刺而非稳保。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>计算机类（元班）<div><span class="tag">优先</span><span class="tag">B源</span></div></td>
+            <td>656</td>
+            <td>-</td>
+            <td>官网计划页自动访问返回412；后续人工浏览或省考试院复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>电子信息类（元班）<div><span class="tag">优先</span><span class="tag">B源</span></div></td>
+            <td>659</td>
+            <td>1793</td>
+            <td>官网计划页自动访问返回412；后续人工浏览或省考试院复核。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>保梯度</h2>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>重点院校族群</th><th>专业/专业类</th><th style="width:90px">2025最低</th><th style="width:90px">位次</th><th style="width:140px">2026计划</th><th style="width:130px">方向</th><th>填报判断</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong><div class="muted">重点2｜985/C9/双一流</div></td>
+            <td><span class="tag">C9</span></td>
+            <td>工科试验班（智能制造类）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>649</td>
+            <td>2630</td>
+            <td>104人｜物理+化学</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>工程应用强，和制造业升级、机器人、工业AI相关。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xjtu.edu.cn/" target="_blank" rel="noreferrer">西安交通大学</a></strong><div class="muted">重点2｜985/C9/双一流</div></td>
+            <td><span class="tag">C9</span></td>
+            <td>工科试验班（航天航空类）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>649</td>
+            <td>2630</td>
+            <td>27人｜物理+化学</td>
+            <td>低空/航空航天/无人系统</td>
+            <td>方向有前景但课程硬、行业周期和名额波动要谨慎。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong><div class="muted">重点3｜985/C9/211/双一流</div></td>
+            <td><span class="tag">C9</span><span class="tag">国防七子</span></td>
+            <td>软件工程（卓越优才计划）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>638</td>
+            <td>4018</td>
+            <td>2025陕西物理普通批显示638-650覆盖当前核心区间，适合重点讨论；需复核2026计划数、校区培养安排、转专业规则和卓越优才计划限制。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>软件方向适配度高，但需核实学费、校区和卓越优才计划内转专业限制。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong><div class="muted">重点3｜985/C9/211/双一流</div></td>
+            <td><span class="tag">C9</span><span class="tag">国防七子</span></td>
+            <td>工科试验班（AI加先进技术领军班）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>644</td>
+            <td>3291</td>
+            <td>2025陕西物理普通批显示638-650覆盖当前核心区间，适合重点讨论；需复核2026计划数、校区培养安排、转专业规则和卓越优才计划限制。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>含计算机、人工智能、网安、自动化、通信、电子、集成电路、电气等；可申请除拔尖班外全校范围转专业，需通过考核。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong><div class="muted">重点3｜985/C9/211/双一流</div></td>
+            <td><span class="tag">C9</span><span class="tag">国防七子</span></td>
+            <td>工科试验班（智能制造卓越优才计划）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>639</td>
+            <td>3888</td>
+            <td>2025陕西物理普通批显示638-650覆盖当前核心区间，适合重点讨论；需复核2026计划数、校区培养安排、转专业规则和卓越优才计划限制。</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>含机器人、机械、材料、焊接、车辆、测控、储能等；卓越优才计划内转专业限制需重点核实。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hitwh.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工业大学（威海）</a></strong><div class="muted">重点3｜985/C9/211/双一流</div></td>
+            <td><span class="tag">C9</span><span class="tag">国防七子</span></td>
+            <td>工科试验班（机器人与智能装备拔尖班）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>650</td>
+            <td>2629</td>
+            <td>2025陕西物理普通批显示638-650覆盖当前核心区间，适合重点讨论；需复核2026计划数、校区培养安排、转专业规则和卓越优才计划限制。</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>本专业类内任选专业；EOL备注为前2年威海校区、后2年校本部，需以2026章程和招生办答复复核。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">国防七子</span><span class="tag">中坚九校</span></td>
+            <td>软件工程<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>641</td>
+            <td>-</td>
+            <td>官网自动检索受阻；2025基线暂用EOL，后续必须回校方或省考试院复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">国防七子</span><span class="tag">中坚九校</span></td>
+            <td>电子信息类（电子信息）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>647</td>
+            <td>-</td>
+            <td>官网自动检索受阻；2025基线暂用EOL，后续必须回校方或省考试院复核。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">国防七子</span><span class="tag">中坚九校</span></td>
+            <td>计算机类（网络安全）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>648</td>
+            <td>2829</td>
+            <td>官网自动检索受阻；2025基线暂用EOL，后续必须回校方或省考试院复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.buaa.edu.cn/" target="_blank" rel="noreferrer">北京航空航天大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">国防七子</span></td>
+            <td>覆盖审计：航空航天/计算机/电子信息/自动化方向待核<div><span class="tag">高优先</span><span class="tag">C源</span></div></td>
+            <td>646</td>
+            <td>-</td>
+            <td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分646，落入640-660区间。北航强工科和航空航天/计算机/电子信息平台很强，但目标专业通常远高于院校最低分，必须核普通批</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>全量985覆盖审计：掌上高考2025陕西物理类院校最低分646；此处不是专业最低分。北航强工科和航空航天/计算机/电子信息平台很强，必须核普通批分专业录取和2026普通类计划。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>工科试验班（卓越人才班）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>645</td>
+            <td>3161</td>
+            <td>2025陕西物理普通批计算机、AI低空、自动化、电气、信息工程等集中在637-645，和640段高度匹配。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；华南强工科平台，640-650段重点补充。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>计算机科学与技术（国家拔尖基地班）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>643</td>
+            <td>3417</td>
+            <td>6人｜物理+化学</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>计算机类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>639</td>
+            <td>3888</td>
+            <td>2025陕西物理普通批计算机、AI低空、自动化、电气、信息工程等集中在637-645，和640段高度匹配。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；强985+计算机，属于重大遗漏补充。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">国防七子</span><span class="tag">中坚九校</span></td>
+            <td>自动化类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>646</td>
+            <td>-</td>
+            <td>官网自动检索受阻；2025基线暂用EOL，后续必须回校方或省考试院复核。</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>工程应用强，和制造业升级、机器人、工业AI相关。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>自动化/电气类/信息工程<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>637</td>
+            <td>4146</td>
+            <td>2025陕西物理普通批计算机、AI低空、自动化、电气、信息工程等集中在637-645，和640段高度匹配。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>2025陕西物理普通批多个方向同为637，可作为640下探时高质量985稳保。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.scu.edu.cn/" target="_blank" rel="noreferrer">四川大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>电子信息类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>637</td>
+            <td>-</td>
+            <td>暂无可自动调用的官方接口，需要人工复核。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>人工智能（新工科大师班）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>648</td>
+            <td>-</td>
+            <td>暂无可自动调用的官方接口，需要人工复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>计算机类（创新实验班）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>640</td>
+            <td>3788</td>
+            <td>135人｜物理+化学</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>计算机类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>639</td>
+            <td>3888</td>
+            <td>2025陕西物理电子信息、计算机、能源、航空航天等在637-640；需注意翔安校区和软件后两年学分收费。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；翔安校区，软件工程后两年学分收费需复核。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>电子信息类（卓越计划实验班）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>643</td>
+            <td>3417</td>
+            <td>已取18条，专业待匹配</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>工科试验班（电气信息类）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>642</td>
+            <td>3537</td>
+            <td>2025陕西物理普通批智能计算、电气信息、精仪光电、智能制造等在638-652，属于此前遗漏的高价值985工科。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>2025陕西物理普通批；和孩子工科接受度匹配，是640段重点补充项。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>电子信息类（创新实验班）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>640</td>
+            <td>3788</td>
+            <td>已取18条，专业待匹配</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>电子信息类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>640</td>
+            <td>3788</td>
+            <td>2025陕西物理电子信息、计算机、能源、航空航天等在637-640；需注意翔安校区和软件后两年学分收费。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>2025陕西物理普通批；翔安校区，集成电路后两年学分收费需复核。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://www.bkzs.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>计算机类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>638</td>
+            <td>-</td>
+            <td>暂无可自动调用的官方接口，需要人工复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>工科试验班（智能与计算类）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>648</td>
+            <td>2829</td>
+            <td>2025陕西物理普通批智能计算、电气信息、精仪光电、智能制造等在638-652，属于此前遗漏的高价值985工科。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；软件工程后两年收费需复核。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>工科试验班（机器人、电气信息、智能制造）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>651</td>
+            <td>-</td>
+            <td>3人</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">国防七子</span><span class="tag">中坚九校</span></td>
+            <td>民用航空含低空技术与工程<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>648</td>
+            <td>2829</td>
+            <td>官网自动检索受阻；2025基线暂用EOL，后续必须回校方或省考试院复核。</td>
+            <td>低空/航空航天/无人系统</td>
+            <td>方向有前景但课程硬、行业周期和名额波动要谨慎。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>工科试验班（精仪与光电信息类）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>641</td>
+            <td>3671</td>
+            <td>2025陕西物理普通批智能计算、电气信息、精仪光电、智能制造等在638-652，属于此前遗漏的高价值985工科。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>2025陕西物理普通批；不招色盲色弱，体检限制需核。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://bkzs.tongji.edu.cn/" target="_blank" rel="noreferrer">同济大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>覆盖审计：工科试验班/信息类方向待核<div><span class="tag">高优先</span><span class="tag">C源</span></div></td>
+            <td>645</td>
+            <td>-</td>
+            <td>掌上高考2025陕西物理类院校最低分645，落入640-660区间；目标信息类/工科专业分通常高于院校最低分，必须回官方专业明细复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>掌上高考2025陕西物理类院校最低分645；此处不是专业最低分，需继续核同济2025陕西物理类分专业录取和2026计划。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://www.nankai.edu.cn/239/list.htm" target="_blank" rel="noreferrer">南开大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>覆盖审计：计算机/电子信息/智能科学方向待核<div><span class="tag">高优先</span><span class="tag">C源</span></div></td>
+            <td>638</td>
+            <td>-</td>
+            <td>掌上高考2025陕西物理类院校最低分638，落入630-660区间；需重点核计算机、电子信息、智能科学等专业明细。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>掌上高考2025陕西物理类院校最低分638；南开信息类目标专业分需回官方专业明细复核。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.uestc.edu.cn/" target="_blank" rel="noreferrer">电子科技大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>电子信息类（智能仪器、智能控制）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>649</td>
+            <td>-</td>
+            <td>4人</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.tju.edu.cn/" target="_blank" rel="noreferrer">天津大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>工科试验班（智能制造与建造）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>638</td>
+            <td>4018</td>
+            <td>2025陕西物理普通批智能计算、电气信息、精仪光电、智能制造等在638-652，属于此前遗漏的高价值985工科。</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>2025陕西物理普通批；含土木水利相关方向，需确认大类分流底线。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.xmu.edu.cn/" target="_blank" rel="noreferrer">厦门大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>工科试验班（航空航天）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>637</td>
+            <td>4146</td>
+            <td>2025陕西物理电子信息、计算机、能源、航空航天等在637-640；需注意翔安校区和软件后两年学分收费。</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>2025陕西物理普通批；含机械、测控、自动化、飞行器方向，需查分流规则。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.bit.edu.cn/" target="_blank" rel="noreferrer">北京理工大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">国防七子</span><span class="tag">中坚九校</span></td>
+            <td>覆盖审计：信息/智能制造/车辆/工科试验班方向待核<div><span class="tag">高优先</span><span class="tag">C源</span></div></td>
+            <td>637</td>
+            <td>-</td>
+            <td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分637，落入630-660区间。北理强工科、车辆、信息、兵器、智能制造平台强；需核具体专业分、校区、专项和</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>全量985覆盖审计：掌上高考2025陕西物理类院校最低分637；此处不是专业最低分。北理工强工科、车辆、信息、兵器、智能制造平台强，需核2025陕西普通批分专业录取和2026普通类计划。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwpu.edu.cn/" target="_blank" rel="noreferrer">西北工业大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">国防七子</span><span class="tag">中坚九校</span></td>
+            <td>航空航天类（航空）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>651</td>
+            <td>2550</td>
+            <td>官网自动检索受阻；2025基线暂用EOL，后续必须回校方或省考试院复核。</td>
+            <td>低空/航空航天/无人系统</td>
+            <td>方向有前景但课程硬、行业周期和名额波动要谨慎。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.scut.edu.cn/" target="_blank" rel="noreferrer">华南理工大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>工科试验班（AI与低空技术）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>641</td>
+            <td>3671</td>
+            <td>2025陕西物理普通批计算机、AI低空、自动化、电气、信息工程等集中在637-645，和640段高度匹配。</td>
+            <td>低空/航空航天/无人系统</td>
+            <td>2025陕西物理普通批；名称很契合，但需查课程和学院归属，避免只追热词。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>计算机类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>642</td>
+            <td>-</td>
+            <td>官网计划页自动访问返回412；后续人工浏览或省考试院复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.bupt.edu.cn/" target="_blank" rel="noreferrer">北京邮电大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>通信工程/电子信息/网安/人工智能等普通强类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>640</td>
+            <td>-</td>
+            <td>官网计划页自动访问返回412；后续人工浏览或省考试院复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong><div class="muted">211/双一流</div></td>
+            <td><span class="tag">国防七子</span></td>
+            <td>航空航天类（长空创新班）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>638</td>
+            <td>4018</td>
+            <td>2025陕西物理航空航天长空创新班638，软件、电气、低空、无人机等625-626，适合作为强行业稳保池。</td>
+            <td>低空/航空航天/无人系统</td>
+            <td>2025陕西物理普通批；强行业211，适合640下探时关注。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsw.bjtu.edu.cn/" target="_blank" rel="noreferrer">北京交通大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>詹天佑信息类<div><span class="tag">优先</span><span class="tag">B源</span></div></td>
+            <td>637</td>
+            <td>-</td>
+            <td>暂无可自动调用的官方接口，需要人工复核。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+<section>
+      <h2>安全梯度</h2>
+      <table>
+        <thead><tr><th style="width:140px">学校</th><th>重点院校族群</th><th>专业/专业类</th><th style="width:90px">2025最低</th><th style="width:90px">位次</th><th style="width:140px">2026计划</th><th style="width:130px">方向</th><th>填报判断</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong><a href="https://zs.nuaa.edu.cn/" target="_blank" rel="noreferrer">南京航空航天大学</a></strong><div class="muted">211/双一流</div></td>
+            <td><span class="tag">国防七子</span></td>
+            <td>软件工程/电气工程及其自动化/低空技术与工程<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>625</td>
+            <td>6061</td>
+            <td>2025陕西物理航空航天长空创新班638，软件、电气、低空、无人机等625-626，适合作为强行业稳保池。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批多个强方向约625-626；天目湖/将军路校区安排需核。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admi.hnu.edu.cn/" target="_blank" rel="noreferrer">湖南大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>计算机科学与技术<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>631</td>
+            <td>-</td>
+            <td>暂无可自动调用的官方接口，需要人工复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://admission.sysu.edu.cn/" target="_blank" rel="noreferrer">中山大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">中坚九校</span></td>
+            <td>覆盖审计：计算机/电子信息/人工智能/软件方向待核<div><span class="tag">高优先</span><span class="tag">C源</span></div></td>
+            <td>631</td>
+            <td>-</td>
+            <td>掌上高考2025陕西物理类院校最低分631，落入630段；校区和专业组差异大，需核深圳/广州/珠海校区及专业分。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>掌上高考2025陕西物理类院校最低分631；中山大学校区和专业组差异大，需核具体专业、校区和分流规则。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zhaosheng.csu.edu.cn/" target="_blank" rel="noreferrer">中南大学</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>软件工程<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>630</td>
+            <td>-</td>
+            <td>暂无可自动调用的官方接口，需要人工复核。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></strong><div class="muted">211/双一流</div></td>
+            <td><span class="tag">国防七子</span></td>
+            <td>计算机科学与技术/通信工程（兴海领军）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>626</td>
+            <td>5884</td>
+            <td>2025陕西物理计算机、通信、软件、自动化、海洋机器人等约620-626；城市和行业属性需单独权衡。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；不招单色异常考生的专业需核体检。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></strong><div class="muted">211/双一流</div></td>
+            <td><span class="tag">国防七子</span></td>
+            <td>计算机类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>623</td>
+            <td>6401</td>
+            <td>2025陕西物理电子、自动化、计算机、网安、智能制造约621-626；需注意江阴校区安排。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；第一学年江阴，后续南京，需核校区。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>电子信息类（通信）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>634</td>
+            <td>4596</td>
+            <td>155人｜物理+化学</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>电子信息类（集成电路）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>633</td>
+            <td>4739</td>
+            <td>100人｜物理+化学</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.xidian.edu.cn/" target="_blank" rel="noreferrer">西安电子科技大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>电子信息类（电子工程）<div><span class="tag">高优先</span><span class="tag">A源</span></div></td>
+            <td>630</td>
+            <td>5221</td>
+            <td>155人｜物理+化学</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>接受电路信号控制，且西电、成电、北邮、西工大等平台强。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.njust.edu.cn/" target="_blank" rel="noreferrer">南京理工大学</a></strong><div class="muted">211/双一流</div></td>
+            <td><span class="tag">国防七子</span></td>
+            <td>电子信息类（钱学森学院）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>626</td>
+            <td>5884</td>
+            <td>2025陕西物理电子、自动化、计算机、网安、智能制造约621-626；需注意江阴校区安排。</td>
+            <td>电子信息/通信/集成电路</td>
+            <td>2025陕西物理普通批；强211电子信息安全池。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://bkzsw.wh.sdu.edu.cn/" target="_blank" rel="noreferrer">山东大学（威海）</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>覆盖审计：计算机/电子信息/自动化方向待核<div><span class="tag">高优先</span><span class="tag">C源</span></div></td>
+            <td>605</td>
+            <td>-</td>
+            <td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分605。适合作为985标签和下探安全观察，需核计算机、电子信息、自动化、海洋/空间等方向专业分和威海校区培养差异。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>全量高层次院校覆盖审计：掌上高考2025陕西物理类院校最低分605；适合作为985分校下探安全观察，需核威海校区具体专业分、培养资源和就业差异。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.hrbeu.edu.cn/" target="_blank" rel="noreferrer">哈尔滨工程大学</a></strong><div class="muted">211/双一流</div></td>
+            <td><span class="tag">国防七子</span></td>
+            <td>软件工程（国家特软创新班）/自动化类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>620</td>
+            <td>6979</td>
+            <td>2025陕西物理计算机、通信、软件、自动化、海洋机器人等约620-626；城市和行业属性需单独权衡。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；软件后两年学费较高，需核。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.neuq.edu.cn/" target="_blank" rel="noreferrer">东北大学秦皇岛分校</a></strong><div class="muted">985/211/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>计算机科学与技术/自动化类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>620</td>
+            <td>6979</td>
+            <td>2025陕西物理计算机、自动化约620，作为估分下探时保985标签和可接受工科的安全池。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；985分校安全池，适合估分明显下探时保平台。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>计算机长安学堂<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>615</td>
+            <td>7990</td>
+            <td>已取26条，专业待匹配</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.nwu.edu.cn/" target="_blank" rel="noreferrer">西北大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>计算机科学与技术（人工智能实验班）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>613</td>
+            <td>8173</td>
+            <td>已核到2026招生章程；分省分专业计划待发布。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://goto.ncepu.edu.cn/" target="_blank" rel="noreferrer">华北电力大学（北京）</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>通信工程/人工智能/电气工程及其自动化<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>622</td>
+            <td>6598</td>
+            <td>2025陕西物理通信、AI、电气、智能电网约620-624；电力行业认可度高，是此前遗漏的强稳保选项。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>2025陕西物理普通批；电气最低622但均分632，不能只按最低分低估热度。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zs.neu.edu.cn/" target="_blank" rel="noreferrer">东北大学</a></strong><div class="muted">985/211/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>自动化类<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>628</td>
+            <td>5535</td>
+            <td>2025陕西物理自动化类约628，专业强但城市和学校热度低于东部985，可作为下探安全池。</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>2025陕西物理普通批；自动化强，城市和气候需家庭权衡。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zsb.chd.edu.cn/" target="_blank" rel="noreferrer">长安大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>工科试验班（华为班）<div><span class="tag">高优先</span><span class="tag">B源</span></div></td>
+            <td>617</td>
+            <td>7561</td>
+            <td>12人｜物理+化学</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>愿意训练编程，未来AI时代需要系统能力和工程基本功。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://pjzsjy.dlut.edu.cn/" target="_blank" rel="noreferrer">大连理工大学（盘锦校区）</a></strong><div class="muted">985/双一流</div></td>
+            <td><span class="tag">985重点</span></td>
+            <td>覆盖审计：工科/智能制造/能源化工交叉方向待核<div><span class="tag">高优先</span><span class="tag">C源</span></div></td>
+            <td>602</td>
+            <td>-</td>
+            <td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分602。作为985下探安全观察，需核专业是否匹配工科主线、校区培养资源和毕业证/就业差异。</td>
+            <td>自动化/机器人/智能制造/测控</td>
+            <td>全量高层次院校覆盖审计：掌上高考2025陕西物理类院校最低分602；作为985校区下探安全观察，需核专业匹配度、校区资源和毕业证/就业差异。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://bkzsw.shu.edu.cn/" target="_blank" rel="noreferrer">上海大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>覆盖审计：计算机/电子信息/通信/自动化方向待核<div><span class="tag">高优先</span><span class="tag">C源</span></div></td>
+            <td>608</td>
+            <td>-</td>
+            <td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分608。城市和综合平台较好，需核计算机、电子信息、通信、自动化专业分；因非985，优先级低于985安全项。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>全量高层次院校覆盖审计：掌上高考2025陕西物理类院校最低分608；上海城市优势明显，但非985，需核目标专业分并作为211安全补充。</td>
+          </tr>
+<tr>
+            <td><strong><a href="https://zhaosheng.ustb.edu.cn/" target="_blank" rel="noreferrer">北京科技大学</a></strong><div class="muted">211/双一流</div></td>
+            <td>-</td>
+            <td>覆盖审计：计算机/自动化/人工智能/材料智能制造方向待核<div><span class="tag">高优先</span><span class="tag">C源</span></div></td>
+            <td>602</td>
+            <td>-</td>
+            <td>全量高层次院校覆盖审计显示：掌上高考2025陕西物理类院校最低分602。计算机、自动化、人工智能、材料智能制造可关注；非985，主要作为城市/211/工科安全补充。</td>
+            <td>计算机/软件/AI/数据/网安</td>
+            <td>全量高层次院校覆盖审计：掌上高考2025陕西物理类院校最低分602；北京211工科安全补充，需核计算机、自动化、人工智能等目标专业分。</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
