@@ -12,6 +12,7 @@ const targetRank = 1558;
 const nonOrdinaryPattern = /中外合作|中外合作办学|合作办学|国家专项|地方专项|高校专项|专项|强基|强基计划|卓越优才|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
 const medicalCategoryPattern = /医学|医工|医疗|临床|口腔|基础医学|预防医学|法医学|护理学?|药学|中药学|临床药学|医学影像学|医学影像技术|医学检验技术|麻醉学|儿科学|精神医学|眼视光医学|放射医学|公共卫生|卫生检验|中医学|针灸推拿|中西医临床|康复治疗|助产/;
 const focusPattern = /计算机|软件|人工智能|智能|电子|通信|信息|集成电路|微电子|自动化|电气|机器人|仪器|低空|航空|航天|无人|网安|网络安全|数据|智能制造|光电|测控|具身|未来技术|强工科/;
+const strictMainExcludedSchoolKeys = new Set(["chd", "nwu"]);
 
 async function readJson(relativePath, fallback = null) {
   try {
@@ -45,6 +46,9 @@ function number(value) {
 
 function isOrdinary(item) {
   const text = [item.school, item.major, item.track, item.admissionCategory, item.notes].filter(Boolean).join(" ");
+  if (strictMainExcludedSchoolKeys.has(item.schoolKey)) return false;
+  if (item.admissionCategory === "院校最低分覆盖审计") return false;
+  if (item.schoolKey === "nwpu" && item.major === "软件工程") return false;
   return !nonOrdinaryPattern.test(text) && !medicalCategoryPattern.test(text);
 }
 
@@ -98,6 +102,10 @@ function planStatus(latestCheck, item) {
 function planLabel(item) {
   if (!item.plan) return "-";
   return item.plan;
+}
+
+function scoreValue(value, missingLabel = "-") {
+  return value === null || value === undefined || value === "" ? missingLabel : value;
 }
 
 function schoolLink(item, school) {
@@ -184,7 +192,7 @@ function buildDraftHtml({ profile, selection }) {
     section { margin:18px 0; padding:18px; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
     table { width:100%; border-collapse:collapse; font-size:13px; background:#fff; }
     th, td { padding:7px 6px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
-    th { background:#f8fafc; color:#344054; }
+    th { position:sticky; top:0; z-index:5; background:#f8fafc; color:#344054; box-shadow:0 1px 0 var(--line), 0 3px 8px rgba(15,23,42,.08); }
     a { color:var(--blue); text-decoration:none; }
     a:hover { text-decoration:underline; }
     .tag { display:inline-flex; align-items:center; min-height:24px; margin:0 4px 4px 0; padding:2px 7px; border:1px solid var(--line); border-radius:6px; background:#fff; font-size:12px; font-weight:800; }
@@ -213,6 +221,7 @@ function buildDraftHtml({ profile, selection }) {
     <section>
       <h2>排序口径</h2>
       <p class="note">本草表按 2025 专业最低分与 2026 已核计划线索做梯度初排：高于 662 为“冲”，低 0-2 分为“冲稳”，低 3-10 分为“稳”，低 11-25 分为“保”，再下探为“安全”。本版选择策略已改为先重点研究哈工大本部，再研究西交大，再研究哈工大威海；哈工大深圳作为补充重点观察。正式填报仍必须结合院校专业组内全部专业、招生计划数变化、调剂规则和体检限制重排。</p>
+      <p class="note">本版主表执行严格口径：剔除长安大学、西北大学；院校最低分覆盖审计只做防漏提醒，不进入草表；西工大软件工程因当前未核到2026同名计划，不进入主草表。视力按当前眼镜矫正4.8保守处理，4.8约等于小数视力0.63，医学可矫正能力1.5约等于5分视力5.2。</p>
     </section>
     <section>
       <h2>重点校区/院校优先分析</h2>
@@ -237,7 +246,7 @@ function buildDraftHtml({ profile, selection }) {
             <td><strong>${schoolLink(item, item.schoolInfo)}</strong><div class="muted">${escapeHtml([item.focusLabel, item.schoolInfo?.tier].filter(Boolean).join("｜"))}</div></td>
             <td>${(item.priorityGroups || []).length ? item.priorityGroups.map((group) => `<span class="tag">${escapeHtml(group)}</span>`).join("") : "-"}</td>
             <td>${escapeHtml(item.major)}<div><span class="tag">${escapeHtml(item.recommendation || item.suggestion || "")}</span><span class="tag">${escapeHtml(item.sourceLevel || "")}源</span></div></td>
-            <td>${escapeHtml(item.minScore ?? item.score ?? "-")}</td>
+            <td>${escapeHtml(scoreValue(item.minScore ?? item.score))}</td>
             <td>${escapeHtml(item.rank ?? "-")}</td>
             <td>${escapeHtml(item.plan ? planLabel(item) : ordinaryOnlyText(item.plan2026))}</td>
             <td>${escapeHtml(item.matchedTrack || item.track || "-")}</td>

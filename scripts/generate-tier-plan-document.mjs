@@ -13,7 +13,7 @@ const target985Keys = new Set([
 ]);
 
 const target211Keys = new Set([
-  "bupt", "xdu", "nuaa", "njust", "hrbeu", "ncepu", "bjtu", "shu", "ustb", "chd", "nwu"
+  "bupt", "xdu", "nuaa", "njust", "hrbeu", "ncepu", "bjtu", "shu", "ustb"
 ]);
 
 const focusMajorPattern = /计算机|软件|人工智能|智能|电子|通信|信息|集成电路|微电子|自动化|电气|机器人|仪器|低空|航空|航天|无人|网安|网络安全|数据|生物医学|生物信息|智能制造|光电|测控|具身/;
@@ -578,7 +578,6 @@ function buildHtml({ profile, schools, latestCheck, evaluation, baseline, covera
     ["西安交通大学", normalizeOfficialRows(rowsForPlanSchool(latestCheck, "xjtu"), "西安交通大学", urlByKey.get("xjtu"))],
     ["西安电子科技大学", normalizeOfficialRows(rowsForPlanSchool(latestCheck, "xdu"), "西安电子科技大学", urlByKey.get("xdu"))],
     ["电子科技大学", normalizeOfficialRows(rowsForPlanSchool(latestCheck, "uestc"), "电子科技大学", urlByKey.get("uestc"))],
-    ["长安大学", normalizeOfficialRows(rowsForPlanSchool(latestCheck, "chd"), "长安大学", urlByKey.get("chd"))],
     ["大连理工大学", dlutPlan]
   ].filter(([, rows]) => rows.length);
 
@@ -651,7 +650,7 @@ function buildHtml({ profile, schools, latestCheck, evaluation, baseline, covera
 
     <section>
       <h2>2026 相关学校陕西物理普通类分专业计划/专业投放</h2>
-      <p class="note">已能自动拉取完整行的学校：西安交大、西电、成电、长安大学、大连理工。大工官网目前专业人数为空，文档保留“官网人数空”；其它学校如哈工大威海、北邮、天大、华南理工等虽应已陆续发布，但本仓库还没有稳定自动接口，建议以陕西省 2026 招生计划汇编做最终人数核验。</p>
+      <p class="note">已能自动拉取完整行的学校：西安交大、西电、成电、大连理工。大工官网目前专业人数为空，文档保留“官网人数空”；长安大学已按本轮 662 分/1558 位匹配度从主参照剔除；其它学校如哈工大威海、北邮、天大、华南理工等虽应已陆续发布，但本仓库还没有稳定自动接口，建议以陕西省 2026 招生计划汇编做最终人数核验。</p>
       ${planGroups.map(([title, rows]) => planBlock(title, rows)).join("\n")}
     </section>
 

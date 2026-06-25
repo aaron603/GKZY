@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-25T15:28:32.453Z",
+  "generatedAt": "2026-06-25T16:27:15.964Z",
   "summary": {
     "localTotal": 15,
     "localOk": 15,
@@ -126,7 +126,7 @@
       "type": "school",
       "ok": false,
       "status": "ERROR",
-      "error": "fetch failed"
+      "error": "This operation was aborted"
     },
     {
       "label": "西安电子科技大学 招生网",
@@ -1070,7 +1070,7 @@
       "type": "general",
       "ok": false,
       "status": "ERROR",
-      "error": "This operation was aborted"
+      "error": "fetch failed"
     }
   ]
 }

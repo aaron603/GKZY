@@ -170,6 +170,7 @@ function planReliability(item) {
 
 const nonOrdinaryAdmissionPattern = /中外合作|中外合作办学|合作办学|国家专项|地方专项|高校专项|专项|强基|强基计划|卓越优才|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
 const medicalCategoryPattern = /医学|医工|医疗|临床|口腔|基础医学|预防医学|法医学|护理学?|药学|中药学|临床药学|医学影像学|医学影像技术|医学检验技术|麻醉学|儿科学|精神医学|眼视光医学|放射医学|公共卫生|卫生检验|中医学|针灸推拿|中西医临床|康复治疗|助产/;
+const excludedMainSchoolKeys = new Set(["chd", "nwu"]);
 
 function isOrdinaryAdmission(item) {
   const text = [
@@ -180,6 +181,9 @@ function isOrdinaryAdmission(item) {
     item.suggestion,
     item.notes
   ].filter(Boolean).join(" ");
+  if (excludedMainSchoolKeys.has(item.schoolKey)) return false;
+  if (item.admissionCategory === "院校最低分覆盖审计") return false;
+  if (item.schoolKey === "nwpu" && item.major === "软件工程") return false;
   return !nonOrdinaryAdmissionPattern.test(text) && !medicalCategoryPattern.test(text);
 }
 

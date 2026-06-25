@@ -19,6 +19,7 @@ const focusOrder = new Map([
 const nonOrdinaryPattern = /中外合作|中外合作办学|合作办学|国家专项|地方专项|高校专项|专项|强基|强基计划|卓越优才|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
 const medicalCategoryPattern = /医学|医工|医疗|临床|口腔|基础医学|预防医学|法医学|护理学?|药学|中药学|临床药学|医学影像学|医学影像技术|医学检验技术|麻醉学|儿科学|精神医学|眼视光医学|放射医学|公共卫生|卫生检验|中医学|针灸推拿|中西医临床|康复治疗|助产/;
 const goodMajorPattern = /计算机|软件|人工智能|智能|电子|通信|信息|集成电路|微电子|自动化|电气|机器人|仪器|低空|航空|航天|无人|网安|网络安全|数据|智能制造|光电|测控|具身|未来技术|强工科|智慧能源|精仪/;
+const strictMainExcludedSchoolKeys = new Set(["chd", "nwu"]);
 
 async function readJson(relativePath) {
   return JSON.parse(await readFile(path.join(rootDir, relativePath), "utf8"));
@@ -46,6 +47,9 @@ function joinedText(item) {
 
 function isMainPlanAllowed(item) {
   const text = joinedText(item);
+  if (strictMainExcludedSchoolKeys.has(item.schoolKey)) return false;
+  if (item.admissionCategory === "院校最低分覆盖审计") return false;
+  if (item.schoolKey === "nwpu" && item.major === "软件工程") return false;
   return !nonOrdinaryPattern.test(text) && !medicalCategoryPattern.test(text);
 }
 
@@ -302,6 +306,7 @@ function buildRows(evaluation, schools, latestCheck, historical) {
     })
     .map((item) => decorateItem(item, schoolByKey.get(item.schoolKey)));
   return [...planBasedRows, ...fallbackRows]
+    .filter((row) => isMainPlanAllowed(row))
     .filter((row) => row.minScore === null || (row.minScore >= 630 && row.minScore <= 679))
     .sort((a, b) =>
       a.focusOrder - b.focusOrder ||
@@ -360,14 +365,18 @@ function planText(row) {
   return row.plan ?? "-";
 }
 
+function scoreValue(value, missingLabel = "-") {
+  return value === null || value === undefined || value === "" ? missingLabel : value;
+}
+
 function renderRows(rows, options = {}) {
   const limit = options.limit || rows.length;
   return rows.slice(0, limit).map((row) => `<tr>
     <td><strong>${escapeHtml(row.school)}</strong><div class="muted">${escapeHtml([row.shortName, row.city, row.tier].filter(Boolean).join("｜"))}</div></td>
     <td>${escapeHtml(row.major)}<div>${renderTags([row.recommendation, row.sourceLevel ? `${row.sourceLevel}源` : "", row.isCoverageAudit ? "待核线索" : "普通类专业"])}</div></td>
-    <td class="num">${escapeHtml(row.minScore)}</td>
-    <td class="num">${escapeHtml(row.avgScore ?? "-")}</td>
-    <td class="num">${escapeHtml(row.maxScore ?? "-")}</td>
+    <td class="num">${escapeHtml(scoreValue(row.minScore))}</td>
+    <td class="num">${escapeHtml(scoreValue(row.avgScore))}</td>
+    <td class="num">${escapeHtml(scoreValue(row.maxScore, "缺失"))}</td>
     <td class="num">${escapeHtml(scoreGapText(row))}</td>
     <td class="num">${escapeHtml(row.rank ?? "-")}<div class="muted">${escapeHtml(rankGapText(row))}</div></td>
     <td class="num">${escapeHtml(planText(row))}</td>
@@ -400,7 +409,7 @@ function buildHtml(output) {
     section { margin:18px 0; padding:18px; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
     table { width:100%; min-width:1120px; border-collapse:collapse; font-size:13px; background:#fff; }
     th, td { padding:7px 6px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
-    th { background:#f8fafc; color:#344054; }
+    th { position:sticky; top:0; z-index:5; background:#f8fafc; color:#344054; box-shadow:0 1px 0 var(--line), 0 3px 8px rgba(15,23,42,.08); }
     .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:#fff; }
     .grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:10px; }
     .metric { padding:12px; border:1px solid var(--line); border-radius:8px; background:#fff; min-height:78px; }
@@ -440,6 +449,7 @@ function buildHtml(output) {
       <h2>硬规则</h2>
       <p class="note">本页只纳入 2025 分数在 630-679 区间、且方向匹配计算机/软件/AI/电子信息/通信/自动化/电气/集成电路/智能制造/航空航天等工科主线的 985/C9 条目。已硬剔除医学类、医工/医疗、国家专项、地方专项、高校专项、强基计划、综合评价、中外合作办学、合作办学、卓越优才、高收费、预科和港校/港澳台合作项目。</p>
       <p class="note">专家分是综合优先级，不是录取概率。它用于排序“是否值得优先研究”，不代表分越高越容易录取；录取风险仍以最低分、平均分、最高分、位次、2026计划和专业组规则为准。本页对已抓到2026计划的学校，先按2026计划专业建表，再反查2025同名或近似专业录取数据。</p>
+      <p class="note">视力按保守口径处理：当前配戴眼镜矫正到4.8，约等于小数视力0.63；医学可矫正能力1.5约等于5分视力5.2。普通计算机/软件/电子信息/自动化不因近视直接排除，测控/智能仪器/智能感知、飞行器、航海轮机、消防公安等方向必须核体检限制。</p>
     </section>
 
     <section>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-25T15:30:25.913Z",
+  "generatedAt": "2026-06-25T16:26:26.572Z",
   "target": {
     "province": "陕西",
     "subject": "物理类",
@@ -13,13 +13,13 @@
     "matching": "优先以2026招生计划专业为主键反查2025同名专业；无同名时标注近似专业；仍无匹配则提示2025待核。"
   },
   "summary": {
-    "total": 71,
+    "total": 64,
     "focusItems": 21,
-    "ordinaryMajorItems": 65,
-    "coverageAuditItems": 6,
-    "closeItems": 25,
+    "ordinaryMajorItems": 64,
+    "coverageAuditItems": 0,
+    "closeItems": 24,
     "sprintItems": 12,
-    "stableItems": 34
+    "stableItems": 28
   },
   "focus": [
     {
@@ -689,7 +689,7 @@
           "sourceLevel": "B",
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
-          "notes": "本专业类内任选专业；EOL备注为前2年威海校区、后2年校本部，需以2026章程和招生办答复复核。",
+          "notes": "当前库仅有2025最低分，平均分/最高分缺失，需补哈工大威海官方或省考试院分专业录取明细；本专业类内任选专业；EOL备注为前2年威海校区、后2年校本部，需以2026章程和招生办答复复核。",
           "planMatchType": "2025候选基线",
           "matched2025Major": "工科试验班（机器人与智能装备拔尖班）",
           "riskTags": [
@@ -724,7 +724,7 @@
           "sourceLevel": "B",
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
-          "notes": "含计算机、人工智能、网安、自动化、通信、电子、集成电路、电气等；可申请除拔尖班外全校范围转专业，需通过考核。",
+          "notes": "当前库仅有2025最低分，平均分/最高分缺失，需补哈工大威海官方或省考试院分专业录取明细；含计算机、人工智能、网安、自动化、通信、电子、集成电路、电气等；可申请除拔尖班外全校范围转专业，需通过考核。",
           "planMatchType": "2025候选基线",
           "matched2025Major": "工科试验班（AI加先进技术领军班）",
           "riskTags": [
@@ -1393,7 +1393,7 @@
       "sourceLevel": "B",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "本专业类内任选专业；EOL备注为前2年威海校区、后2年校本部，需以2026章程和招生办答复复核。",
+      "notes": "当前库仅有2025最低分，平均分/最高分缺失，需补哈工大威海官方或省考试院分专业录取明细；本专业类内任选专业；EOL备注为前2年威海校区、后2年校本部，需以2026章程和招生办答复复核。",
       "planMatchType": "2025候选基线",
       "matched2025Major": "工科试验班（机器人与智能装备拔尖班）",
       "riskTags": [
@@ -1428,7 +1428,7 @@
       "sourceLevel": "B",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "含计算机、人工智能、网安、自动化、通信、电子、集成电路、电气等；可申请除拔尖班外全校范围转专业，需通过考核。",
+      "notes": "当前库仅有2025最低分，平均分/最高分缺失，需补哈工大威海官方或省考试院分专业录取明细；含计算机、人工智能、网安、自动化、通信、电子、集成电路、电气等；可申请除拔尖班外全校范围转专业，需通过考核。",
       "planMatchType": "2025候选基线",
       "matched2025Major": "工科试验班（AI加先进技术领军班）",
       "riskTags": [
@@ -1527,7 +1527,7 @@
       "sourceLevel": "B",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "2025陕西物理普通批；660段以上可讨论，650段不作为主稳。",
+      "notes": "2025陕西物理普通批候选基线；当前仓库未接入东南大学官方分专业接口，需回东南招生网或陕西省考试院复核专业线。660段以上可讨论，650段不作为主稳。",
       "planMatchType": "2025候选基线",
       "matched2025Major": "计算机类",
       "riskTags": [
@@ -1561,7 +1561,7 @@
       "sourceLevel": "B",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "2025陕西物理普通批；普通批偏高，当前只按普通批口径判断。",
+      "notes": "2025陕西物理普通批候选基线；当前仓库未接入东南大学官方分专业接口，需回东南招生网或陕西省考试院复核专业线。普通批偏高，当前只按普通批口径判断。",
       "planMatchType": "2025候选基线",
       "matched2025Major": "工科试验班（智能制造与智能系统）",
       "riskTags": [
@@ -1704,41 +1704,6 @@
         "985重点"
       ],
       "focusOrder": 99
-    },
-    {
-      "schoolKey": "nju",
-      "school": "南京大学",
-      "shortName": "南大",
-      "city": "南京",
-      "tier": "985/C9/双一流",
-      "major": "覆盖审计：计算机/电子信息/技术科学方向待核",
-      "minScore": 658,
-      "maxScore": 0,
-      "avgScore": 0,
-      "rank": 0,
-      "plan": 0,
-      "planYear": 2026,
-      "scoreGap": -4,
-      "rankGap": -1558,
-      "band": "冲稳",
-      "track": "计算机/软件/AI/数据/网安",
-      "recommendation": "高优先",
-      "expertScore": 92,
-      "sourceLevel": "C",
-      "admissionCategory": "院校最低分覆盖审计",
-      "isCoverageAudit": true,
-      "notes": "全量高层次院校覆盖审计：掌上高考2025陕西物理类院校最低分658；此处不是专业最低分。南大平台强但目标专业和专业组风险需重点核，当前只作冲刺观察。",
-      "planMatchType": "2025候选基线",
-      "matched2025Major": "覆盖审计：计算机/电子信息/技术科学方向待核",
-      "riskTags": [
-        "院校最低分待核"
-      ],
-      "priorityGroups": [
-        "C9",
-        "华东五校"
-      ],
-      "focusOrder": 99,
-      "action": "仅作院校/方向待核线索，必须补官方分专业普通类录取线。"
     },
     {
       "schoolKey": "whu",
@@ -2375,40 +2340,6 @@
       "action": "作为985好专业横向比较项，防止只盯重点校漏掉强专业。"
     },
     {
-      "schoolKey": "buaa",
-      "school": "北京航空航天大学",
-      "shortName": "北航",
-      "city": "北京",
-      "tier": "985/双一流",
-      "major": "覆盖审计：航空航天/计算机/电子信息/自动化方向待核",
-      "minScore": 646,
-      "maxScore": 0,
-      "avgScore": 0,
-      "rank": 0,
-      "plan": 0,
-      "planYear": 2026,
-      "scoreGap": -16,
-      "rankGap": -1558,
-      "band": "稳妥",
-      "track": "计算机/软件/AI/数据/网安",
-      "recommendation": "高优先",
-      "expertScore": 96,
-      "sourceLevel": "C",
-      "admissionCategory": "院校最低分覆盖审计",
-      "isCoverageAudit": true,
-      "notes": "全量985覆盖审计：掌上高考2025陕西物理类院校最低分646；此处不是专业最低分。北航强工科和航空航天/计算机/电子信息平台很强，必须核普通批分专业录取和2026普通类计划。",
-      "planMatchType": "2025候选基线",
-      "matched2025Major": "覆盖审计：航空航天/计算机/电子信息/自动化方向待核",
-      "riskTags": [
-        "院校最低分待核"
-      ],
-      "priorityGroups": [
-        "国防七子"
-      ],
-      "focusOrder": 99,
-      "action": "仅作院校/方向待核线索，必须补官方分专业普通类录取线。"
-    },
-    {
       "schoolKey": "nwpu",
       "school": "西北工业大学",
       "shortName": "西工大",
@@ -2478,41 +2409,6 @@
       "action": "作为985好专业横向比较项，防止只盯重点校漏掉强专业。"
     },
     {
-      "schoolKey": "tongji",
-      "school": "同济大学",
-      "shortName": "同济",
-      "city": "上海",
-      "tier": "985/双一流",
-      "major": "覆盖审计：工科试验班/信息类方向待核",
-      "minScore": 645,
-      "maxScore": 0,
-      "avgScore": 0,
-      "rank": 0,
-      "plan": 0,
-      "planYear": 2026,
-      "scoreGap": -17,
-      "rankGap": -1558,
-      "band": "稳妥",
-      "track": "计算机/软件/AI/数据/网安",
-      "recommendation": "高优先",
-      "expertScore": 89,
-      "sourceLevel": "C",
-      "admissionCategory": "院校最低分覆盖审计",
-      "isCoverageAudit": true,
-      "notes": "掌上高考2025陕西物理类院校最低分645；此处不是专业最低分，需继续核同济2025陕西物理类分专业录取和2026计划。",
-      "planMatchType": "2025候选基线",
-      "matched2025Major": "覆盖审计：工科试验班/信息类方向待核",
-      "riskTags": [
-        "院校最低分待核",
-        "大类分流/专业清待核"
-      ],
-      "priorityGroups": [
-        "985重点"
-      ],
-      "focusOrder": 99,
-      "action": "仅作院校/方向待核线索，必须补官方分专业普通类录取线。"
-    },
-    {
       "schoolKey": "tju",
       "school": "天津大学",
       "shortName": "天大",
@@ -2541,39 +2437,6 @@
         "大类分流/专业清待核"
       ],
       "priorityGroups": [
-        "中坚九校"
-      ],
-      "focusOrder": 99,
-      "action": "作为985好专业横向比较项，防止只盯重点校漏掉强专业。"
-    },
-    {
-      "schoolKey": "nwpu",
-      "school": "西北工业大学",
-      "shortName": "西工大",
-      "city": "西安",
-      "tier": "985/双一流",
-      "major": "软件工程",
-      "minScore": 641,
-      "maxScore": 0,
-      "avgScore": 0,
-      "rank": 0,
-      "plan": 0,
-      "planYear": 2026,
-      "scoreGap": -21,
-      "rankGap": -1558,
-      "band": "稳妥",
-      "track": "计算机/软件/AI/数据/网安",
-      "recommendation": "高优先",
-      "expertScore": 101,
-      "sourceLevel": "B",
-      "admissionCategory": "普通类",
-      "isCoverageAudit": false,
-      "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
-      "planMatchType": "2025候选基线",
-      "matched2025Major": "软件工程",
-      "riskTags": [],
-      "priorityGroups": [
-        "国防七子",
         "中坚九校"
       ],
       "focusOrder": 99,
@@ -2785,40 +2648,6 @@
       "action": "作为985好专业横向比较项，防止只盯重点校漏掉强专业。"
     },
     {
-      "schoolKey": "nankai",
-      "school": "南开大学",
-      "shortName": "南开",
-      "city": "天津",
-      "tier": "985/双一流",
-      "major": "覆盖审计：计算机/电子信息/智能科学方向待核",
-      "minScore": 638,
-      "maxScore": 0,
-      "avgScore": 0,
-      "rank": 0,
-      "plan": 0,
-      "planYear": 2026,
-      "scoreGap": -24,
-      "rankGap": -1558,
-      "band": "稳妥",
-      "track": "计算机/软件/AI/数据/网安",
-      "recommendation": "高优先",
-      "expertScore": 89,
-      "sourceLevel": "C",
-      "admissionCategory": "院校最低分覆盖审计",
-      "isCoverageAudit": true,
-      "notes": "掌上高考2025陕西物理类院校最低分638；南开信息类目标专业分需回官方专业明细复核。",
-      "planMatchType": "2025候选基线",
-      "matched2025Major": "覆盖审计：计算机/电子信息/智能科学方向待核",
-      "riskTags": [
-        "院校最低分待核"
-      ],
-      "priorityGroups": [
-        "985重点"
-      ],
-      "focusOrder": 99,
-      "action": "仅作院校/方向待核线索，必须补官方分专业普通类录取线。"
-    },
-    {
       "schoolKey": "tju",
       "school": "天津大学",
       "shortName": "天大",
@@ -2956,42 +2785,6 @@
       "action": "作为985好专业横向比较项，防止只盯重点校漏掉强专业。"
     },
     {
-      "schoolKey": "bit",
-      "school": "北京理工大学",
-      "shortName": "北理",
-      "city": "北京",
-      "tier": "985/双一流",
-      "major": "覆盖审计：信息/智能制造/车辆/工科试验班方向待核",
-      "minScore": 637,
-      "maxScore": 0,
-      "avgScore": 0,
-      "rank": 0,
-      "plan": 0,
-      "planYear": 2026,
-      "scoreGap": -25,
-      "rankGap": -1558,
-      "band": "985下探",
-      "track": "电子信息/通信/集成电路",
-      "recommendation": "高优先",
-      "expertScore": 88,
-      "sourceLevel": "C",
-      "admissionCategory": "院校最低分覆盖审计",
-      "isCoverageAudit": true,
-      "notes": "全量985覆盖审计：掌上高考2025陕西物理类院校最低分637；此处不是专业最低分。北理工强工科、车辆、信息、兵器、智能制造平台强，需核2025陕西普通批分专业录取和2026普通类计划。",
-      "planMatchType": "2025候选基线",
-      "matched2025Major": "覆盖审计：信息/智能制造/车辆/工科试验班方向待核",
-      "riskTags": [
-        "院校最低分待核",
-        "大类分流/专业清待核"
-      ],
-      "priorityGroups": [
-        "国防七子",
-        "中坚九校"
-      ],
-      "focusOrder": 99,
-      "action": "仅作院校/方向待核线索，必须补官方分专业普通类录取线。"
-    },
-    {
       "schoolKey": "hnu",
       "school": "湖南大学",
       "shortName": "湖大",
@@ -3022,40 +2815,6 @@
       ],
       "focusOrder": 99,
       "action": "作为985好专业横向比较项，防止只盯重点校漏掉强专业。"
-    },
-    {
-      "schoolKey": "sysu",
-      "school": "中山大学",
-      "shortName": "中大",
-      "city": "广州/深圳/珠海",
-      "tier": "985/双一流",
-      "major": "覆盖审计：计算机/电子信息/人工智能/软件方向待核",
-      "minScore": 631,
-      "maxScore": 0,
-      "avgScore": 0,
-      "rank": 0,
-      "plan": 0,
-      "planYear": 2026,
-      "scoreGap": -31,
-      "rankGap": -1558,
-      "band": "985下探",
-      "track": "计算机/软件/AI/数据/网安",
-      "recommendation": "高优先",
-      "expertScore": 95,
-      "sourceLevel": "C",
-      "admissionCategory": "院校最低分覆盖审计",
-      "isCoverageAudit": true,
-      "notes": "掌上高考2025陕西物理类院校最低分631；中山大学校区和专业组差异大，需核具体专业、校区和分流规则。",
-      "planMatchType": "2025候选基线",
-      "matched2025Major": "覆盖审计：计算机/电子信息/人工智能/软件方向待核",
-      "riskTags": [
-        "院校最低分待核"
-      ],
-      "priorityGroups": [
-        "中坚九校"
-      ],
-      "focusOrder": 99,
-      "action": "仅作院校/方向待核线索，必须补官方分专业普通类录取线。"
     },
     {
       "schoolKey": "csu",

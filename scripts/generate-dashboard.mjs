@@ -267,7 +267,7 @@ function dashboardHtml(data) {
     .table-scroll {
       width: 100%;
       overflow-x: auto;
-      overflow-y: hidden;
+      overflow-y: visible;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #fff;
@@ -389,11 +389,13 @@ function dashboardHtml(data) {
       left: 380px;
     }
     th {
-      position: static;
+      position: sticky;
+      top: var(--table-scroll-top);
+      z-index: 30;
       background: #f8fafc;
       color: #344054;
       font-weight: 800;
-      box-shadow: 0 1px 0 var(--line);
+      box-shadow: 0 1px 0 var(--line), 0 3px 8px rgba(15, 23, 42, .08);
     }
     .category-cell {
       white-space: normal;
@@ -582,7 +584,7 @@ function dashboardHtml(data) {
       .volunteer-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .status-grid { grid-template-columns: 1fr; }
       .sync-panel { grid-template-columns: 1fr; }
-      th { position: static; }
+      th { top: 0; }
     }
     @media (max-width: 720px) {
       :root { --table-scroll-top: 142px; }
@@ -680,6 +682,12 @@ function dashboardHtml(data) {
         <div class="metric"><strong id="metricPlan">0</strong><span class="subtle">已有计划数</span></div>
         <div class="metric"><strong id="metricNeedVerify">0</strong><span class="subtle">含待核风险</span></div>
       </div>
+
+      <section>
+        <h2>视力与体检口径</h2>
+        <p class="small">孩子近视约475/500度。本版按当前配戴眼镜矫正到4.8作保守风险提示；常用换算为 5分视力 = 5 + log10(小数视力)，所以4.8约等于小数视力0.63，医学可矫正能力1.5约等于5分视力5.2。最终录取判断以高考体检表的裸眼视力、矫正视力、镜片度数和色觉结果为准。</p>
+        <p class="small">普通计算机、软件、电子信息、自动化不因近视直接排除；测控/智能仪器/智能感知、飞行器制造、飞行技术、航海、轮机、消防、公安类等视力敏感方向统一标记为体检视力待核。</p>
+      </section>
 
       <section>
         <div class="section-title">
@@ -837,6 +845,10 @@ function dashboardHtml(data) {
       return Number(rank).toLocaleString('zh-CN');
     }
 
+    function scoreCell(value, missingLabel = '-') {
+      return value === null || value === undefined || value === '' ? missingLabel : value;
+    }
+
     function shortCategory(value) {
       const text = String(value || '-');
       if (text === '院校最低分覆盖审计') return '覆盖审计';
@@ -968,9 +980,18 @@ function dashboardHtml(data) {
 
     const nonOrdinaryAdmissionPattern = /中外合作|中外合作办学|合作办学|国家专项|地方专项|高校专项|专项|强基|强基计划|卓越优才|预科|高收费|港校|香港中文|港中深|内地与港澳台|综合评价/;
     const medicalCategoryPattern = /医学|医工|医疗|临床|口腔|基础医学|预防医学|法医学|护理学?|药学|中药学|临床药学|医学影像学|医学影像技术|医学检验技术|麻醉学|儿科学|精神医学|眼视光医学|放射医学|公共卫生|卫生检验|中医学|针灸推拿|中西医临床|康复治疗|助产/;
+    const strictMainExcludedSchoolKeys = new Set(['chd', 'nwu']);
+
+    function isStrictMainExcluded(item) {
+      if (strictMainExcludedSchoolKeys.has(item.schoolKey)) return true;
+      if ((item.admissionCategory || inferAdmissionCategory(item)) === '院校最低分覆盖审计') return true;
+      if (item.schoolKey === 'nwpu' && item.major === '软件工程') return true;
+      return false;
+    }
 
     function isMainPlanExcluded(item) {
       const text = [item.school, item.major, item.track, item.admissionCategory, item.suggestion, item.notes, item.matchedTrack].filter(Boolean).join(' ');
+      if (isStrictMainExcluded(item)) return true;
       return nonOrdinaryAdmissionPattern.test(text) || medicalCategoryPattern.test(text);
     }
 
@@ -1052,6 +1073,7 @@ function dashboardHtml(data) {
       return DATA.baseline.items
         .map(evaluate)
         .filter((item) => {
+          if (isStrictMainExcluded(item)) return false;
           if (!state.showSafety && item.band === 'safety') return false;
           if (state.track && item.matchedTrack !== state.track) return false;
           if (state.band && item.band !== state.band) return false;
@@ -1311,7 +1333,7 @@ function dashboardHtml(data) {
             '待核实：' + buildQuestions(item).join('；')
           ].join('<br>');
           const planText = item.plan ?? '-';
-          return '<tr data-row="' + index + '"><td>' + schoolNameLink(item) + '</td><td>' + escapeHtml(item.major) + '<div class="detail">' + detail + '</div></td><td class="num">' + escapeHtml(item.minScore ?? '-') + '</td><td class="num">' + escapeHtml(item.avgScore ?? '-') + '</td><td class="num">' + escapeHtml(item.maxScore ?? '-') + '</td><td class="num">' + formatRank(item.rank) + '</td><td class="num">' + escapeHtml(planText) + '</td><td class="num score">' + item.expertScore + '</td><td><span class="tag ' + tagClass(item.recommendation) + '">' + escapeHtml(item.recommendation) + '</span></td><td>' + tags + '</td><td>' + escapeHtml(item.city) + '<div class="small">' + escapeHtml(item.tier || '') + '</div></td></tr>';
+          return '<tr data-row="' + index + '"><td>' + schoolNameLink(item) + '</td><td>' + escapeHtml(item.major) + '<div class="detail">' + detail + '</div></td><td class="num">' + escapeHtml(scoreCell(item.minScore)) + '</td><td class="num">' + escapeHtml(scoreCell(item.avgScore)) + '</td><td class="num">' + escapeHtml(scoreCell(item.maxScore, '缺失')) + '</td><td class="num">' + formatRank(item.rank) + '</td><td class="num">' + escapeHtml(planText) + '</td><td class="num score">' + item.expertScore + '</td><td><span class="tag ' + tagClass(item.recommendation) + '">' + escapeHtml(item.recommendation) + '</span></td><td>' + tags + '</td><td>' + escapeHtml(item.city) + '<div class="small">' + escapeHtml(item.tier || '') + '</div></td></tr>';
         }).join('') +
         '</tbody></table></div></div>';
       syncTableScrollbars('candidateTableWrap');
@@ -1340,7 +1362,7 @@ function dashboardHtml(data) {
           const questions = buildQuestions(item);
           const courseProfile = matchCourseProfile(item);
           const bucketClass = bucket === '保' ? 'good' : bucket === '稳' ? 'blue' : 'warn';
-          return '<tr><td><span class="tag ' + bucketClass + '">' + bucket + '</span></td><td>' + schoolNameLink(item) + '<div class="small">' + escapeHtml(item.city || '') + '</div></td><td>' + escapeHtml(item.major) + '<div class="small">' + escapeHtml(item.matchedTrack) + '</div></td><td>' + escapeHtml(courseProfile?.label || '待补') + '<div class="small">' + escapeHtml(courseProfile ? courseStrengthSummary(courseProfile) : '') + '</div></td><td class="num">' + escapeHtml(item.minScore ?? '-') + '</td><td class="num">' + escapeHtml(item.avgScore ?? '-') + '</td><td class="num">' + escapeHtml(item.maxScore ?? '-') + '</td><td class="num">' + formatRank(item.rank) + '</td><td class="nowrap">' + escapeHtml(item.sourceLevel) + '</td><td>' + questions.map((q) => '<div class="small">' + escapeHtml(q) + '</div>').join('') + '</td><td>' + escapeHtml(item.notes || item.matchReason || '') + '</td></tr>';
+          return '<tr><td><span class="tag ' + bucketClass + '">' + bucket + '</span></td><td>' + schoolNameLink(item) + '<div class="small">' + escapeHtml(item.city || '') + '</div></td><td>' + escapeHtml(item.major) + '<div class="small">' + escapeHtml(item.matchedTrack) + '</div></td><td>' + escapeHtml(courseProfile?.label || '待补') + '<div class="small">' + escapeHtml(courseProfile ? courseStrengthSummary(courseProfile) : '') + '</div></td><td class="num">' + escapeHtml(scoreCell(item.minScore)) + '</td><td class="num">' + escapeHtml(scoreCell(item.avgScore)) + '</td><td class="num">' + escapeHtml(scoreCell(item.maxScore, '缺失')) + '</td><td class="num">' + formatRank(item.rank) + '</td><td class="nowrap">' + escapeHtml(item.sourceLevel) + '</td><td>' + questions.map((q) => '<div class="small">' + escapeHtml(q) + '</div>').join('') + '</td><td>' + escapeHtml(item.notes || item.matchReason || '') + '</td></tr>';
         }).join('') +
         '</tbody></table></div></div>';
       syncTableScrollbars('volunteerTableWrap');
@@ -1378,6 +1400,7 @@ function dashboardHtml(data) {
       const candidates = DATA.baseline.items
         .filter((item) => item.schoolKey === school.key)
         .map(evaluate)
+        .filter((item) => !isMainPlanExcluded(item))
         .sort((a, b) => b.expertScore - a.expertScore || (b.minScore || 0) - (a.minScore || 0));
       const topScore = candidates[0]?.expertScore || 0;
       const topMinScore = candidates[0]?.minScore || 0;
@@ -1570,6 +1593,7 @@ function dashboardHtml(data) {
       const latestByKey = new Map((DATA.latestCheck?.schools || []).map((item) => [item.key, item]));
       const manualByKey = new Map(DATA.planStatus.statuses.map((item) => [item.schoolKey, item]));
       const rows = DATA.schools.schools
+        .filter((school) => !strictMainExcludedSchoolKeys.has(school.key))
         .map((school) => schoolPlanPriority(school, manualByKey.get(school.key), latestByKey.get(school.key)))
         .sort((a, b) => b.priorityScore - a.priorityScore || a.school.name.localeCompare(b.school.name, 'zh-CN'));
       const groupOrder = ['核心候选', '重点备选', '扩展了解', '信息跟踪'];
@@ -1698,7 +1722,7 @@ function dashboardHtml(data) {
         questions.push('确认入校后二次分流规则、目标专业名额和不可接受方向');
       }
       if (/测控|智能仪器|智能感知|生物医学|医学电子|飞行器制造|飞行技术|航海|轮机|消防|刑事|侦查/.test(text)) {
-        questions.push('孩子近视约475/500度但矫正视力可接近1.5，核裸眼/矫正视力、镜片度数、色觉和不宜就读提示');
+        questions.push('按当前眼镜矫正约4.8保守处理，核裸眼/矫正视力、镜片度数、色觉和不宜就读提示');
       }
       if (/中外合作|合作办学|高收费/.test(text)) {
         questions.push('中外合作/高收费：核分数优惠、总费用、毕业证/学位证、培养地点、保研就业和转专业限制');
@@ -1732,7 +1756,7 @@ function dashboardHtml(data) {
     }
 
     function setupTrackOptions() {
-      const tracks = Array.from(new Set(DATA.baseline.items.map(evaluate).map((item) => item.matchedTrack))).sort();
+      const tracks = Array.from(new Set(DATA.baseline.items.map(evaluate).filter((item) => !isMainPlanExcluded(item)).map((item) => item.matchedTrack))).sort();
       $('trackFilter').innerHTML = '<option value="">全部方向</option>' + tracks.map((track) => '<option value="' + escapeHtml(track) + '">' + escapeHtml(track) + '</option>').join('');
     }
 

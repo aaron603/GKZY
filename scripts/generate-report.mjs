@@ -145,7 +145,8 @@ function renderHomepageSignals(signals) {
 function buildReport({ profile, anchors, schools, baseline, planStatus, latestCheck, expertRules, candidateEvaluation, riskFactors, parentActionPlan, biomedTransition, courseAudit, outcomeAudit, planAdmit }) {
   const schoolLink = createSchoolLinker(schools);
   const checkByKey = new Map((latestCheck?.schools || []).map((item) => [item.key, item]));
-  const statusRows = planStatus.statuses.map((item) => {
+  const strictMainExcludedSchoolKeys = new Set(["chd", "nwu"]);
+  const statusRows = planStatus.statuses.filter((item) => !strictMainExcludedSchoolKeys.has(item.schoolKey)).map((item) => {
     const auto = checkByKey.get(item.schoolKey);
     const autoStatus = auto
       ? `${statusText(auto.status)}；年份：${(auto.years || []).slice(0, 4).join("、") || "-"}；2026条目：${auto.planRows ?? "-"}`
@@ -160,6 +161,9 @@ function buildReport({ profile, anchors, schools, baseline, planStatus, latestCh
   const medicalCategoryPattern = /医学|医工|医疗|临床|口腔|基础医学|预防医学|法医学|护理学?|药学|中药学|临床药学|医学影像学|医学影像技术|医学检验技术|麻醉学|儿科学|精神医学|眼视光医学|放射医学|公共卫生|卫生检验|中医学|针灸推拿|中西医临床|康复治疗|助产/;
   const isMainPlanExcluded = (item) => {
     const text = [item.school, item.major, item.track, item.admissionCategory, item.suggestion, item.notes, item.matchedTrack].filter(Boolean).join(" ");
+    if (strictMainExcludedSchoolKeys.has(item.schoolKey)) return true;
+    if ((item.admissionCategory || inferAdmissionCategory(item)) === "院校最低分覆盖审计") return true;
+    if (item.schoolKey === "nwpu" && item.major === "软件工程") return true;
     return nonOrdinaryAdmissionPattern.test(text) || medicalCategoryPattern.test(text);
   };
 
@@ -426,6 +430,12 @@ function buildReport({ profile, anchors, schools, baseline, planStatus, latestCh
     </section>
 
     <section>
+      <h2>视力与体检口径</h2>
+      <p class="note">孩子近视约475/500度。本版按当前配戴眼镜矫正到4.8作保守风险提示；常用换算为 5分视力 = 5 + log10(小数视力)，所以4.8约等于小数视力0.63，医学可矫正能力1.5约等于5分视力5.2。最终录取判断以高考体检表的裸眼视力、矫正视力、镜片度数和色觉结果为准。</p>
+      <p class="note">普通计算机、软件、电子信息、自动化不因近视直接排除；测控/智能仪器/智能感知、飞行器制造、飞行技术、航海、轮机、消防、公安类等视力敏感方向统一标记为体检视力待核。</p>
+    </section>
+
+    <section>
       <h2>重点校区/院校优先分析</h2>
       <p class="note">本版选择策略已调整为：先深入分析哈工大本部，其次西安交通大学，再次哈工大威海；哈工大深圳作为补充重点观察。偏好会进入评分和排序，但不会覆盖分差、位次、普通批口径、校区和调剂风险；医学类、国家专项、地方专项、强基计划、综合评价和中外合作办学不进入本轮主表。</p>
       <table>
@@ -607,7 +617,7 @@ function buildReport({ profile, anchors, schools, baseline, planStatus, latestCh
       <table>
         <thead><tr><th>排序</th><th>录取年</th><th>省份</th><th>科类</th><th>类别</th><th>学校</th><th>专业名称</th><th>最低分</th><th>平均分</th><th>最高分</th><th>专家分</th><th>结论</th><th>匹配方向</th><th>风险标签</th></tr></thead>
         <tbody>
-          ${renderRows(evaluatedItems.slice(0, 18), (item, index) => `<tr><td>${index + 1}</td><td>${escapeHtml(item.admissionYear || baseline.year)}</td><td>${escapeHtml(item.admissionProvince || baseline.province)}</td><td>${escapeHtml(item.admissionSubject || baseline.subject)}</td><td>${escapeHtml(item.admissionCategory || inferAdmissionCategory(item))}</td><td>${schoolLink(item.schoolKey, item.school)}</td><td>${escapeHtml(item.major)}</td><td>${escapeHtml(minScoreOf(item))}</td><td>${escapeHtml(item.avgScore ?? "-")}</td><td>${escapeHtml(item.maxScore ?? "-")}</td><td><strong>${escapeHtml(item.expertScore)}</strong></td><td><span class="tag">${escapeHtml(item.recommendation)}</span></td><td>${escapeHtml(item.matchedTrack)}</td><td>${escapeHtml((item.riskTags || []).join("、") || "-")}</td></tr>`)}
+          ${renderRows(evaluatedItems.slice(0, 18), (item, index) => `<tr><td>${index + 1}</td><td>${escapeHtml(item.admissionYear || baseline.year)}</td><td>${escapeHtml(item.admissionProvince || baseline.province)}</td><td>${escapeHtml(item.admissionSubject || baseline.subject)}</td><td>${escapeHtml(item.admissionCategory || inferAdmissionCategory(item))}</td><td>${schoolLink(item.schoolKey, item.school)}</td><td>${escapeHtml(item.major)}</td><td>${escapeHtml(minScoreOf(item))}</td><td>${escapeHtml(item.avgScore ?? "-")}</td><td>${escapeHtml(item.maxScore ?? "缺失")}</td><td><strong>${escapeHtml(item.expertScore)}</strong></td><td><span class="tag">${escapeHtml(item.recommendation)}</span></td><td>${escapeHtml(item.matchedTrack)}</td><td>${escapeHtml((item.riskTags || []).join("、") || "-")}</td></tr>`)}
         </tbody>
       </table>
     </section>
