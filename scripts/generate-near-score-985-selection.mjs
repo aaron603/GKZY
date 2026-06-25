@@ -58,6 +58,7 @@ function hasGoodMajor(item) {
 }
 
 function scoreBand(minScore) {
+  if (minScore === null) return "2025待核";
   const gap = minScore - targetScore;
   if (gap > 12) return "极高冲刺";
   if (gap > 0) return "冲刺";
@@ -76,6 +77,7 @@ function bandOrder(band) {
     冲稳: 4,
     稳妥: 5,
     "985下探": 6,
+    "2025待核": 7,
     低于本轮近分池: 9
   }[band] || 9;
 }
@@ -138,6 +140,8 @@ function decorateItem(item, school) {
     admissionCategory: item.admissionCategory || "",
     isCoverageAudit,
     notes: item.notes || item.matchReason || "",
+    planMatchType: item.planMatchType || "2025候选基线",
+    matched2025Major: item.matched2025Major || item.major,
     riskTags: item.riskTags || [],
     priorityGroups: item.priorityGroups || [],
     focusOrder: focusOrder.get(item.schoolKey) || 99
@@ -145,16 +149,160 @@ function decorateItem(item, school) {
   return { ...row, action: actionFor(row) };
 }
 
-function buildRows(evaluation, schools) {
+function normalizeMajor(value) {
+  return String(value || "")
+    .replace(/[（）()【】\[\]\s·,，、/\\-]/g, "")
+    .replace(/专业预选|领军班|国卓班|钱学森班|国家拔尖计划|新工科卓越计划|卓越计划|英才领军班|类/g, "")
+    .toLowerCase();
+}
+
+function planMajor(row) {
+  return row.zymc || row.recruitmentMajorName || row.major || "";
+}
+
+function planCount(row) {
+  return number(row.jhrs ?? row.recruitmentStudentsNumber ?? row.plan);
+}
+
+function historyRowsFor(historical, schoolKey) {
+  return (historical?.rows || [])
+    .filter((row) => row.schoolKey === schoolKey)
+    .filter((row) => String(row.admissionYear) === "2025")
+    .filter((row) => row.admissionProvince === "陕西")
+    .filter((row) => /物理/.test(row.admissionSubject || ""))
+    .filter((row) => row.admissionCategory === "普通类")
+    .filter(isMainPlanAllowed);
+}
+
+function manualNearCandidates(schoolKey, major) {
+  if (schoolKey !== "xjtu") return [];
+  const rules = [
+    [/^具身智能$/, ["人工智能（新工科卓越计划）", "自动化", "工科试验班（智能制造类）"]],
+    [/智慧能源领军班|智慧能源国卓班|新能源英才领军班/, ["工科试验班（智慧能源类）", "储能科学与工程（新工科卓越计划）"]],
+    [/智能制造领军班|智造重器国卓班/, ["工科试验班（智能制造类）", "智能制造工程（钱学森班）"]],
+    [/航天航空领军班/, ["工科试验班（航天航空类）", "工科试验班（空天科技国卓班）"]],
+    [/越杰电类领军班/, ["工科试验班（越杰计划电类专业预选）", "工科试验班（电气类）"]],
+    [/越杰机类领军班/, ["工科试验班（越杰计划机类专业预选）", "工科试验班（智能制造类）"]],
+    [/数智电网国卓班|智能电气领军班/, ["工科试验班（电气类）", "电气工程及其自动化（钱学森班）"]],
+    [/网络空间安全/, ["工科试验班（计算机科学技术类）"]]
+  ];
+  return rules.find(([pattern]) => pattern.test(major))?.[1] || [];
+}
+
+function tokenScore(a, b) {
+  const tokens = ["计算机", "软件", "人工智能", "智能", "电子", "信息", "通信", "微电子", "电气", "自动化", "制造", "感知", "仪器", "能源", "储能", "航空", "航天", "空天", "材料", "网", "安全", "力学"];
+  const textA = String(a || "");
+  const textB = String(b || "");
+  return tokens.reduce((score, token) => score + (textA.includes(token) && textB.includes(token) ? 1 : 0), 0);
+}
+
+function matchHistory({ schoolKey, major, historyRows }) {
+  const literal = historyRows.find((row) => row.major === major);
+  if (literal) return { type: "同名匹配", row: literal };
+
+  for (const name of manualNearCandidates(schoolKey, major)) {
+    const matched = historyRows.find((row) => row.major === name);
+    if (matched) return { type: "近似匹配", row: matched };
+  }
+
+  const normalized = historyRows.find((row) => normalizeMajor(row.major) === normalizeMajor(major));
+  if (normalized) return { type: "近似匹配", row: normalized };
+
+  const scored = historyRows
+    .map((row) => ({ row, score: tokenScore(major, row.major) }))
+    .filter((item) => item.score >= 2)
+    .sort((a, b) => b.score - a.score || Math.abs((a.row.minScore ?? targetScore) - targetScore) - Math.abs((b.row.minScore ?? targetScore) - targetScore));
+  if (scored[0]) return { type: "近似匹配", row: scored[0].row };
+
+  return { type: "2025无同名或近似专业", row: null };
+}
+
+function majorTrackOf(major) {
+  if (/计算机|软件|人工智能|具身|网络空间|网安|数据/.test(major)) return "计算机/软件/AI/数据/网安";
+  if (/电子|通信|信息|微电子|电气|电网/.test(major)) return "电子信息/通信/集成电路/电气";
+  if (/自动化|机器人|智能制造|智造|仪器|感知|测控/.test(major)) return "自动化/机器人/智能制造/测控";
+  if (/能源|储能|新能源/.test(major)) return "能源/电气";
+  if (/航空|航天|空天|飞行器/.test(major)) return "低空/航空航天/无人系统";
+  return "工科方向待核";
+}
+
+function recommendationByBand(band, matchType) {
+  if (matchType === "2025无同名或近似专业") return "待核";
+  if (band === "极高冲刺") return "极高冲刺";
+  if (band === "冲刺") return "冲刺";
+  if (["贴线核心", "冲稳", "稳妥"].includes(band)) return "高优先";
+  return "优先";
+}
+
+function buildPlanBasedRows({ latestCheck, historical, schools, evaluation }) {
   const schoolByKey = new Map((schools.schools || []).map((school) => [school.key, school]));
-  return (evaluation.items || [])
+  const expertBySchoolMajor = new Map((evaluation.items || []).map((item) => [`${item.schoolKey}\u0001${item.major}`, item]));
+  const rows = [];
+  for (const latest of latestCheck?.schools || []) {
+    const school = schoolByKey.get(latest.key);
+    if (!school || !/985|C9/.test(school.tier || "")) continue;
+    if (latest.status !== "available" || !Array.isArray(latest.rows) || !latest.rows.length) continue;
+    const histRows = historyRowsFor(historical, latest.key);
+    for (const plan of latest.rows) {
+      const major = planMajor(plan);
+      const text = [latest.school, major, plan.zslb, plan.klmc, plan.xkkm].filter(Boolean).join(" ");
+      if (!major || nonOrdinaryPattern.test(text) || medicalCategoryPattern.test(text) || !goodMajorPattern.test(major)) continue;
+      const matched = matchHistory({ schoolKey: latest.key, major, historyRows: histRows });
+      const hist = matched.row;
+      const minScore = number(hist?.minScore);
+      const band = scoreBand(minScore);
+      const expertSource = expertBySchoolMajor.get(`${latest.key}\u0001${hist?.major || major}`);
+      rows.push({
+        schoolKey: latest.key,
+        school: latest.school,
+        shortName: school.shortName || latest.school,
+        city: school.city || "",
+        tier: school.tier || "",
+        major,
+        minScore,
+        avgScore: number(hist?.avgScore),
+        maxScore: number(hist?.maxScore),
+        rank: number(hist?.minRank),
+        maxRank: number(hist?.maxRank),
+        plan: planCount(plan),
+        planYear: number(plan.nf) || 2026,
+        scoreGap: minScore === null ? null : minScore - targetScore,
+        rankGap: hist?.minRank === null || hist?.minRank === undefined ? null : number(hist.minRank) - targetRank,
+        band,
+        track: majorTrackOf(major),
+        recommendation: recommendationByBand(band, matched.type),
+        expertScore: number(expertSource?.expertScore) ?? 0,
+        sourceLevel: hist?.sourceLevel || latest.sourceLevel || school.sourceLevel || "",
+        admissionCategory: plan.zslb || "普通类",
+        isCoverageAudit: false,
+        notes: hist
+          ? `2026计划专业；2025${matched.type}：${hist.major}，最低${hist.minScore ?? "-"}、平均${hist.avgScore ?? "-"}、最高${hist.maxScore ?? "-"}。`
+          : "2026计划专业；2025未找到同名或足够近似的普通类专业录取数据，需向招生办确认参考口径。",
+        planMatchType: matched.type,
+        matched2025Major: hist?.major || "",
+        riskTags: matched.type === "近似匹配" ? ["2025近似专业"] : matched.type === "2025无同名或近似专业" ? ["2025无匹配"] : [],
+        priorityGroups: /C9/.test(school.tier || "") ? ["C9"] : /985/.test(school.tier || "") ? ["985重点"] : [],
+        focusOrder: focusOrder.get(latest.key) || 99
+      });
+    }
+  }
+  return rows;
+}
+
+function buildRows(evaluation, schools, latestCheck, historical) {
+  const schoolByKey = new Map((schools.schools || []).map((school) => [school.key, school]));
+  const planBasedRows = buildPlanBasedRows({ latestCheck, historical, schools, evaluation });
+  const planAvailableKeys = new Set(planBasedRows.map((row) => row.schoolKey));
+  const fallbackRows = (evaluation.items || [])
     .filter(isMainPlanAllowed)
+    .filter((item) => !planAvailableKeys.has(item.schoolKey))
     .filter((item) => {
       const school = schoolByKey.get(item.schoolKey);
       return is985(item, school) && hasGoodMajor(item);
     })
-    .map((item) => decorateItem(item, schoolByKey.get(item.schoolKey)))
-    .filter((row) => row.minScore !== null && row.minScore >= 630 && row.minScore <= 679)
+    .map((item) => decorateItem(item, schoolByKey.get(item.schoolKey)));
+  return [...planBasedRows, ...fallbackRows]
+    .filter((row) => row.minScore === null || (row.minScore >= 630 && row.minScore <= 679))
     .sort((a, b) =>
       a.focusOrder - b.focusOrder ||
       bandOrder(a.band) - bandOrder(b.band) ||
@@ -209,7 +357,7 @@ function rankGapText(row) {
 }
 
 function planText(row) {
-  return row.plan ? `${row.planYear || 2026}计划 ${row.plan}` : "-";
+  return row.plan ?? "-";
 }
 
 function renderRows(rows, options = {}) {
@@ -224,7 +372,7 @@ function renderRows(rows, options = {}) {
     <td class="num">${escapeHtml(row.rank ?? "-")}<div class="muted">${escapeHtml(rankGapText(row))}</div></td>
     <td class="num">${escapeHtml(planText(row))}</td>
     <td>${escapeHtml(row.track || "-")}</td>
-    <td><strong>${escapeHtml(row.band)}</strong><div class="muted">${escapeHtml(row.action)}</div></td>
+    <td><strong>${escapeHtml(row.band)}</strong><div class="muted">${escapeHtml(row.planMatchType || row.action)}</div></td>
     <td>${escapeHtml(row.notes || "核2026计划、专业组和录取规则。")}</td>
   </tr>`).join("\n");
 }
@@ -291,7 +439,7 @@ function buildHtml(output) {
     <section>
       <h2>硬规则</h2>
       <p class="note">本页只纳入 2025 分数在 630-679 区间、且方向匹配计算机/软件/AI/电子信息/通信/自动化/电气/集成电路/智能制造/航空航天等工科主线的 985/C9 条目。已硬剔除医学类、医工/医疗、国家专项、地方专项、高校专项、强基计划、综合评价、中外合作办学、合作办学、卓越优才、高收费、预科和港校/港澳台合作项目。</p>
-      <p class="note">专家分是综合优先级，不是录取概率。它用于排序“是否值得优先研究”，不代表分越高越容易录取；录取风险仍以最低分、平均分、最高分、位次、2026计划和专业组规则为准。</p>
+      <p class="note">专家分是综合优先级，不是录取概率。它用于排序“是否值得优先研究”，不代表分越高越容易录取；录取风险仍以最低分、平均分、最高分、位次、2026计划和专业组规则为准。本页对已抓到2026计划的学校，先按2026计划专业建表，再反查2025同名或近似专业录取数据。</p>
     </section>
 
     <section>
@@ -311,7 +459,7 @@ function buildHtml(output) {
       <h2>主推近分 985 好专业横向表</h2>
       <div class="table-wrap">
         <table>
-          <thead><tr><th style="width:132px">学校</th><th style="width:220px">专业/专业类</th><th style="width:60px">最低</th><th style="width:60px">平均</th><th style="width:60px">最高</th><th style="width:56px">分差</th><th style="width:96px">位次</th><th style="width:84px">计划</th><th style="width:126px">方向</th><th style="width:144px">梯度/动作</th><th>备注</th></tr></thead>
+          <thead><tr><th style="width:132px">学校</th><th style="width:220px">2026专业/专业类</th><th style="width:60px">最低</th><th style="width:60px">平均</th><th style="width:60px">最高</th><th style="width:56px">分差</th><th style="width:96px">位次</th><th style="width:84px">2026计划</th><th style="width:126px">方向</th><th style="width:144px">匹配/梯度</th><th>2025反查备注</th></tr></thead>
           <tbody>${renderRows(output.rows.filter((row) => !row.isCoverageAudit), { limit: 70 })}</tbody>
         </table>
       </div>
@@ -321,7 +469,7 @@ function buildHtml(output) {
       <h2>${escapeHtml(group.band)} <span class="tag">${group.rows.length}条</span></h2>
       <div class="table-wrap">
         <table>
-          <thead><tr><th style="width:132px">学校</th><th style="width:220px">专业/专业类</th><th style="width:60px">最低</th><th style="width:60px">平均</th><th style="width:60px">最高</th><th style="width:56px">分差</th><th style="width:96px">位次</th><th style="width:84px">计划</th><th style="width:126px">方向</th><th style="width:144px">梯度/动作</th><th>备注</th></tr></thead>
+          <thead><tr><th style="width:132px">学校</th><th style="width:220px">2026专业/专业类</th><th style="width:60px">最低</th><th style="width:60px">平均</th><th style="width:60px">最高</th><th style="width:56px">分差</th><th style="width:96px">位次</th><th style="width:84px">2026计划</th><th style="width:126px">方向</th><th style="width:144px">匹配/梯度</th><th>2025反查备注</th></tr></thead>
           <tbody>${renderRows(group.rows)}</tbody>
         </table>
       </div>
@@ -337,11 +485,13 @@ function buildHtml(output) {
 }
 
 async function main() {
-  const [evaluation, schools] = await Promise.all([
+  const [evaluation, schools, latestCheck, historical] = await Promise.all([
     readJson("data/generated/candidate-evaluation.json"),
-    readJson("data/schools.json")
+    readJson("data/schools.json"),
+    readJson("data/generated/latest-plan-check.json"),
+    readJson("data/generated/historical-admissions.json")
   ]);
-  const rows = buildRows(evaluation, schools);
+  const rows = buildRows(evaluation, schools, latestCheck, historical);
   const output = {
     generatedAt: new Date().toISOString(),
     target: {
@@ -353,7 +503,8 @@ async function main() {
     rules: {
       scoreRange: "630-679",
       include: "985/C9 且匹配计算机、软件、AI、电子信息、通信、自动化、电气、集成电路、智能制造、航空航天等工科主线",
-      exclude: "医学/医工/医疗、专项、强基、综评、中外合作/合作办学、卓越优才、高收费、预科、港校/港澳台合作"
+      exclude: "医学/医工/医疗、专项、强基、综评、中外合作/合作办学、卓越优才、高收费、预科、港校/港澳台合作",
+      matching: "优先以2026招生计划专业为主键反查2025同名专业；无同名时标注近似专业；仍无匹配则提示2025待核。"
     },
     summary: summaryOf(rows),
     focus: focusRows(rows),

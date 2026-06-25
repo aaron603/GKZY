@@ -97,7 +97,7 @@ function planStatus(latestCheck, item) {
 
 function planLabel(item) {
   if (!item.plan) return "-";
-  return `${item.planYear || 2026}计划 ${item.plan}`;
+  return item.plan;
 }
 
 function schoolLink(item, school) {

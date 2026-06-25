@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-25T15:02:48.281Z",
+  "generatedAt": "2026-06-25T15:30:25.913Z",
   "target": {
     "province": "陕西",
     "subject": "物理类",
@@ -9,16 +9,17 @@
   "rules": {
     "scoreRange": "630-679",
     "include": "985/C9 且匹配计算机、软件、AI、电子信息、通信、自动化、电气、集成电路、智能制造、航空航天等工科主线",
-    "exclude": "医学/医工/医疗、专项、强基、综评、中外合作/合作办学、卓越优才、高收费、预科、港校/港澳台合作"
+    "exclude": "医学/医工/医疗、专项、强基、综评、中外合作/合作办学、卓越优才、高收费、预科、港校/港澳台合作",
+    "matching": "优先以2026招生计划专业为主键反查2025同名专业；无同名时标注近似专业；仍无匹配则提示2025待核。"
   },
   "summary": {
-    "total": 54,
-    "focusItems": 9,
-    "ordinaryMajorItems": 48,
+    "total": 71,
+    "focusItems": 21,
+    "ordinaryMajorItems": 65,
     "coverageAuditItems": 6,
-    "closeItems": 20,
-    "sprintItems": 1,
-    "stableItems": 33
+    "closeItems": 25,
+    "sprintItems": 12,
+    "stableItems": 34
   },
   "focus": [
     {
@@ -50,6 +51,8 @@
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
           "notes": "哈工大官方录取分数接口：2025陕西校本部物理+化学普通类，未来技术拔尖班最低679；校本部普通物理类最低679、平均681.5、最高687。640-660按普通批本部基本不匹配，只作高分冲刺和校方咨询参考。",
+          "planMatchType": "2025候选基线",
+          "matched2025Major": "工科试验班（未来技术拔尖班）",
           "riskTags": [
             "大类分流/专业清待核"
           ],
@@ -74,12 +77,337 @@
           "shortName": "西交大",
           "city": "西安",
           "tier": "985/C9/双一流",
+          "major": "具身智能",
+          "minScore": 678,
+          "avgScore": 680,
+          "maxScore": 682,
+          "rank": 536,
+          "maxRank": 392,
+          "plan": 9,
+          "planYear": 2026,
+          "scoreGap": 16,
+          "rankGap": -1022,
+          "band": "极高冲刺",
+          "track": "计算机/软件/AI/数据/网安",
+          "recommendation": "极高冲刺",
+          "expertScore": 107,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025近似匹配：人工智能（新工科卓越计划），最低678、平均680、最高682。",
+          "planMatchType": "近似匹配",
+          "matched2025Major": "人工智能（新工科卓越计划）",
+          "riskTags": [
+            "2025近似专业"
+          ],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "人工智能（新工科卓越计划）",
+          "minScore": 678,
+          "avgScore": 680,
+          "maxScore": 682,
+          "rank": 536,
+          "maxRank": 392,
+          "plan": 4,
+          "planYear": 2026,
+          "scoreGap": 16,
+          "rankGap": -1022,
+          "band": "极高冲刺",
+          "track": "计算机/软件/AI/数据/网安",
+          "recommendation": "极高冲刺",
+          "expertScore": 107,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025同名匹配：人工智能（新工科卓越计划），最低678、平均680、最高682。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "人工智能（新工科卓越计划）",
+          "riskTags": [],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "电子科学与技术",
+          "minScore": 663,
+          "avgScore": 665,
+          "maxScore": 669,
+          "rank": 1379,
+          "maxRank": 993,
+          "plan": 36,
+          "planYear": 2026,
+          "scoreGap": 1,
+          "rankGap": -179,
+          "band": "冲刺",
+          "track": "电子信息/通信/集成电路/电气",
+          "recommendation": "冲刺",
+          "expertScore": 0,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025同名匹配：电子科学与技术，最低663、平均665、最高669。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "电子科学与技术",
+          "riskTags": [],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "微电子科学与工程",
+          "minScore": 665,
+          "avgScore": 666,
+          "maxScore": 673,
+          "rank": 1240,
+          "maxRank": 771,
+          "plan": 48,
+          "planYear": 2026,
+          "scoreGap": 3,
+          "rankGap": -318,
+          "band": "冲刺",
+          "track": "电子信息/通信/集成电路/电气",
+          "recommendation": "冲刺",
+          "expertScore": 113,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025同名匹配：微电子科学与工程，最低665、平均666、最高673。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "微电子科学与工程",
+          "riskTags": [],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "工科试验班（计算机科学技术类）",
+          "minScore": 666,
+          "avgScore": 668,
+          "maxScore": 673,
+          "rank": 1165,
+          "maxRank": 771,
+          "plan": 27,
+          "planYear": 2026,
+          "scoreGap": 4,
+          "rankGap": -393,
+          "band": "冲刺",
+          "track": "计算机/软件/AI/数据/网安",
+          "recommendation": "冲刺",
+          "expertScore": 111,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025同名匹配：工科试验班（计算机科学技术类），最低666、平均668、最高673。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "工科试验班（计算机科学技术类）",
+          "riskTags": [],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "工科试验班（材料创新设计与智能制备国卓班）",
+          "minScore": 666,
+          "avgScore": 668,
+          "maxScore": 674,
+          "rank": 1165,
+          "maxRank": 708,
+          "plan": 4,
+          "planYear": 2026,
+          "scoreGap": 4,
+          "rankGap": -393,
+          "band": "冲刺",
+          "track": "工科方向待核",
+          "recommendation": "冲刺",
+          "expertScore": 0,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025同名匹配：工科试验班（材料创新设计与智能制备国卓班），最低666、平均668、最高674。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "工科试验班（材料创新设计与智能制备国卓班）",
+          "riskTags": [],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "自动化",
+          "minScore": 667,
+          "avgScore": 669,
+          "maxScore": 678,
+          "rank": 1103,
+          "maxRank": 536,
+          "plan": 44,
+          "planYear": 2026,
+          "scoreGap": 5,
+          "rankGap": -455,
+          "band": "冲刺",
+          "track": "自动化/机器人/智能制造/测控",
+          "recommendation": "冲刺",
+          "expertScore": 111,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025同名匹配：自动化，最低667、平均669、最高678。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "自动化",
+          "riskTags": [],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "电气工程及其自动化（智能电气领军班）",
+          "minScore": 670,
+          "avgScore": 673,
+          "maxScore": 676,
+          "rank": 932,
+          "maxRank": 619,
+          "plan": 81,
+          "planYear": 2026,
+          "scoreGap": 8,
+          "rankGap": -626,
+          "band": "冲刺",
+          "track": "电子信息/通信/集成电路/电气",
+          "recommendation": "冲刺",
+          "expertScore": 0,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025近似匹配：工科试验班（电气类），最低670、平均673、最高676。",
+          "planMatchType": "近似匹配",
+          "matched2025Major": "工科试验班（电气类）",
+          "riskTags": [
+            "2025近似专业"
+          ],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "工科试验班（智能感知与仪器国卓班）",
+          "minScore": 671,
+          "avgScore": 674,
+          "maxScore": 680,
+          "rank": 882,
+          "maxRank": 460,
+          "plan": 5,
+          "planYear": 2026,
+          "scoreGap": 9,
+          "rankGap": -676,
+          "band": "冲刺",
+          "track": "自动化/机器人/智能制造/测控",
+          "recommendation": "冲刺",
+          "expertScore": 0,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025同名匹配：工科试验班（智能感知与仪器国卓班），最低671、平均674、最高680。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "工科试验班（智能感知与仪器国卓班）",
+          "riskTags": [],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "信息工程",
+          "minScore": 662,
+          "avgScore": 663,
+          "maxScore": 667,
+          "rank": 1456,
+          "maxRank": 1103,
+          "plan": 44,
+          "planYear": 2026,
+          "scoreGap": 0,
+          "rankGap": -102,
+          "band": "贴线核心",
+          "track": "电子信息/通信/集成电路/电气",
+          "recommendation": "高优先",
+          "expertScore": 117,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025同名匹配：信息工程，最低662、平均663、最高667。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "信息工程",
+          "riskTags": [],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
           "major": "软件工程",
           "minScore": 660,
-          "maxScore": 666,
           "avgScore": 662,
+          "maxScore": 666,
           "rank": 1626,
-          "plan": 32,
+          "maxRank": 1165,
+          "plan": 27,
           "planYear": 2026,
           "scoreGap": -2,
           "rankGap": 68,
@@ -90,13 +418,14 @@
           "sourceLevel": "A",
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
-          "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
+          "notes": "2026计划专业；2025同名匹配：软件工程，最低660、平均662、最高666。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "软件工程",
           "riskTags": [],
           "priorityGroups": [
             "C9"
           ],
-          "focusOrder": 2,
-          "action": "重点主攻，需确认专业组、软件学费、分流和调剂边界。"
+          "focusOrder": 2
         },
         {
           "schoolKey": "xjtu",
@@ -106,9 +435,10 @@
           "tier": "985/C9/双一流",
           "major": "工科试验班（智能感知与仪器）",
           "minScore": 660,
-          "maxScore": 663,
           "avgScore": 661,
+          "maxScore": 663,
           "rank": 1626,
+          "maxRank": 1379,
           "plan": 6,
           "planYear": 2026,
           "scoreGap": -2,
@@ -120,16 +450,46 @@
           "sourceLevel": "A",
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
-          "notes": "工程应用强，和制造业升级、机器人、工业AI相关。",
-          "riskTags": [
-            "大类分流/专业清待核",
-            "近视度数不宜就读待核"
-          ],
+          "notes": "2026计划专业；2025同名匹配：工科试验班（智能感知与仪器），最低660、平均661、最高663。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "工科试验班（智能感知与仪器）",
+          "riskTags": [],
           "priorityGroups": [
             "C9"
           ],
-          "focusOrder": 2,
-          "action": "重点主攻，需确认专业组、软件学费、分流和调剂边界。"
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "工科试验班（材料创新设计与智能制备）",
+          "minScore": 658,
+          "avgScore": 660,
+          "maxScore": 663,
+          "rank": 1794,
+          "maxRank": 1379,
+          "plan": 6,
+          "planYear": 2026,
+          "scoreGap": -4,
+          "rankGap": 236,
+          "band": "冲稳",
+          "track": "工科方向待核",
+          "recommendation": "高优先",
+          "expertScore": 0,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025同名匹配：工科试验班（材料创新设计与智能制备），最低658、平均660、最高663。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "工科试验班（材料创新设计与智能制备）",
+          "riskTags": [],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
         },
         {
           "schoolKey": "xjtu",
@@ -139,29 +499,29 @@
           "tier": "985/C9/双一流",
           "major": "工科试验班（智能过程与装备国卓班）",
           "minScore": 655,
-          "maxScore": 660,
           "avgScore": 657,
-          "rank": 0,
-          "plan": 3,
+          "maxScore": 660,
+          "rank": 2051,
+          "maxRank": 1626,
+          "plan": 4,
           "planYear": 2026,
           "scoreGap": -7,
-          "rankGap": -1558,
+          "rankGap": 493,
           "band": "冲稳",
-          "track": "自动化/机器人/智能制造/测控",
+          "track": "工科方向待核",
           "recommendation": "高优先",
           "expertScore": 111,
           "sourceLevel": "A",
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
-          "notes": "工程应用强，和制造业升级、机器人、工业AI相关。",
-          "riskTags": [
-            "大类分流/专业清待核"
-          ],
+          "notes": "2026计划专业；2025同名匹配：工科试验班（智能过程与装备国卓班），最低655、平均657、最高660。",
+          "planMatchType": "同名匹配",
+          "matched2025Major": "工科试验班（智能过程与装备国卓班）",
+          "riskTags": [],
           "priorityGroups": [
             "C9"
           ],
-          "focusOrder": 2,
-          "action": "作为本地C9核心备选，优先问大类二次分流与目标专业名额。"
+          "focusOrder": 2
         },
         {
           "schoolKey": "xjtu",
@@ -169,31 +529,33 @@
           "shortName": "西交大",
           "city": "西安",
           "tier": "985/C9/双一流",
-          "major": "工科试验班（智慧能源类）",
+          "major": "工科试验班（智慧能源领军班）",
           "minScore": 653,
-          "maxScore": 673,
           "avgScore": 658,
+          "maxScore": 673,
           "rank": 2246,
-          "plan": 229,
+          "maxRank": 771,
+          "plan": 195,
           "planYear": 2026,
           "scoreGap": -9,
           "rankGap": 688,
           "band": "冲稳",
           "track": "能源/电气",
           "recommendation": "高优先",
-          "expertScore": 112,
+          "expertScore": 0,
           "sourceLevel": "A",
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
-          "notes": "稳定性较好，适合央国企和工程系统路线，但课程不轻。",
+          "notes": "2026计划专业；2025近似匹配：工科试验班（智慧能源类），最低653、平均658、最高673。",
+          "planMatchType": "近似匹配",
+          "matched2025Major": "工科试验班（智慧能源类）",
           "riskTags": [
-            "大类分流/专业清待核"
+            "2025近似专业"
           ],
           "priorityGroups": [
             "C9"
           ],
-          "focusOrder": 2,
-          "action": "作为本地C9核心备选，优先问大类二次分流与目标专业名额。"
+          "focusOrder": 2
         },
         {
           "schoolKey": "xjtu",
@@ -201,31 +563,33 @@
           "shortName": "西交大",
           "city": "西安",
           "tier": "985/C9/双一流",
-          "major": "工科试验班（智能制造类）",
-          "minScore": 649,
-          "maxScore": 668,
-          "avgScore": 655,
-          "rank": 2630,
-          "plan": 151,
+          "major": "工科试验班（智慧能源国卓班）",
+          "minScore": 653,
+          "avgScore": 658,
+          "maxScore": 673,
+          "rank": 2246,
+          "maxRank": 771,
+          "plan": 7,
           "planYear": 2026,
-          "scoreGap": -13,
-          "rankGap": 1072,
-          "band": "稳妥",
-          "track": "自动化/机器人/智能制造/测控",
+          "scoreGap": -9,
+          "rankGap": 688,
+          "band": "冲稳",
+          "track": "能源/电气",
           "recommendation": "高优先",
-          "expertScore": 114,
+          "expertScore": 0,
           "sourceLevel": "A",
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
-          "notes": "工程应用强，和制造业升级、机器人、工业AI相关。",
+          "notes": "2026计划专业；2025近似匹配：工科试验班（智慧能源类），最低653、平均658、最高673。",
+          "planMatchType": "近似匹配",
+          "matched2025Major": "工科试验班（智慧能源类）",
           "riskTags": [
-            "大类分流/专业清待核"
+            "2025近似专业"
           ],
           "priorityGroups": [
             "C9"
           ],
-          "focusOrder": 2,
-          "action": "作为本地C9核心备选，优先问大类二次分流与目标专业名额。"
+          "focusOrder": 2
         },
         {
           "schoolKey": "xjtu",
@@ -233,31 +597,67 @@
           "shortName": "西交大",
           "city": "西安",
           "tier": "985/C9/双一流",
-          "major": "工科试验班（航天航空类）",
+          "major": "工科试验班（航天航空领军班）",
           "minScore": 649,
-          "maxScore": 661,
           "avgScore": 654,
+          "maxScore": 661,
           "rank": 2630,
-          "plan": 32,
+          "maxRank": 1544,
+          "plan": 27,
           "planYear": 2026,
           "scoreGap": -13,
           "rankGap": 1072,
           "band": "稳妥",
           "track": "低空/航空航天/无人系统",
           "recommendation": "高优先",
-          "expertScore": 112,
+          "expertScore": 0,
           "sourceLevel": "A",
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
-          "notes": "方向有前景但课程硬、行业周期和名额波动要谨慎。",
+          "notes": "2026计划专业；2025近似匹配：工科试验班（航天航空类），最低649、平均654、最高661。",
+          "planMatchType": "近似匹配",
+          "matched2025Major": "工科试验班（航天航空类）",
           "riskTags": [
-            "大类分流/专业清待核"
+            "2025近似专业"
           ],
           "priorityGroups": [
             "C9"
           ],
-          "focusOrder": 2,
-          "action": "作为本地C9核心备选，优先问大类二次分流与目标专业名额。"
+          "focusOrder": 2
+        },
+        {
+          "schoolKey": "xjtu",
+          "school": "西安交通大学",
+          "shortName": "西交大",
+          "city": "西安",
+          "tier": "985/C9/双一流",
+          "major": "工科试验班（智能制造领军班）",
+          "minScore": 649,
+          "avgScore": 655,
+          "maxScore": 668,
+          "rank": 2630,
+          "maxRank": 1043,
+          "plan": 104,
+          "planYear": 2026,
+          "scoreGap": -13,
+          "rankGap": 1072,
+          "band": "稳妥",
+          "track": "自动化/机器人/智能制造/测控",
+          "recommendation": "高优先",
+          "expertScore": 0,
+          "sourceLevel": "A",
+          "admissionCategory": "普通类",
+          "isCoverageAudit": false,
+          "notes": "2026计划专业；2025近似匹配：工科试验班（智能制造类），最低649、平均655、最高668。",
+          "planMatchType": "近似匹配",
+          "matched2025Major": "工科试验班（智能制造类）",
+          "riskTags": [
+            "2025近似专业"
+          ],
+          "priorityGroups": [
+            "C9"
+          ],
+          "focusOrder": 2
         }
       ]
     },
@@ -290,6 +690,8 @@
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
           "notes": "本专业类内任选专业；EOL备注为前2年威海校区、后2年校本部，需以2026章程和招生办答复复核。",
+          "planMatchType": "2025候选基线",
+          "matched2025Major": "工科试验班（机器人与智能装备拔尖班）",
           "riskTags": [
             "大类分流/专业清待核"
           ],
@@ -323,6 +725,8 @@
           "admissionCategory": "普通类",
           "isCoverageAudit": false,
           "notes": "含计算机、人工智能、网安、自动化、通信、电子、集成电路、电气等；可申请除拔尖班外全校范围转专业，需通过考核。",
+          "planMatchType": "2025候选基线",
+          "matched2025Major": "工科试验班（AI加先进技术领军班）",
           "riskTags": [
             "大类分流/专业清待核"
           ],
@@ -367,6 +771,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "哈工大官方录取分数接口：2025陕西校本部物理+化学普通类，未来技术拔尖班最低679；校本部普通物理类最低679、平均681.5、最高687。640-660按普通批本部基本不匹配，只作高分冲刺和校方咨询参考。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（未来技术拔尖班）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -383,12 +789,337 @@
       "shortName": "西交大",
       "city": "西安",
       "tier": "985/C9/双一流",
+      "major": "具身智能",
+      "minScore": 678,
+      "avgScore": 680,
+      "maxScore": 682,
+      "rank": 536,
+      "maxRank": 392,
+      "plan": 9,
+      "planYear": 2026,
+      "scoreGap": 16,
+      "rankGap": -1022,
+      "band": "极高冲刺",
+      "track": "计算机/软件/AI/数据/网安",
+      "recommendation": "极高冲刺",
+      "expertScore": 107,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025近似匹配：人工智能（新工科卓越计划），最低678、平均680、最高682。",
+      "planMatchType": "近似匹配",
+      "matched2025Major": "人工智能（新工科卓越计划）",
+      "riskTags": [
+        "2025近似专业"
+      ],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "人工智能（新工科卓越计划）",
+      "minScore": 678,
+      "avgScore": 680,
+      "maxScore": 682,
+      "rank": 536,
+      "maxRank": 392,
+      "plan": 4,
+      "planYear": 2026,
+      "scoreGap": 16,
+      "rankGap": -1022,
+      "band": "极高冲刺",
+      "track": "计算机/软件/AI/数据/网安",
+      "recommendation": "极高冲刺",
+      "expertScore": 107,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：人工智能（新工科卓越计划），最低678、平均680、最高682。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "人工智能（新工科卓越计划）",
+      "riskTags": [],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "电子科学与技术",
+      "minScore": 663,
+      "avgScore": 665,
+      "maxScore": 669,
+      "rank": 1379,
+      "maxRank": 993,
+      "plan": 36,
+      "planYear": 2026,
+      "scoreGap": 1,
+      "rankGap": -179,
+      "band": "冲刺",
+      "track": "电子信息/通信/集成电路/电气",
+      "recommendation": "冲刺",
+      "expertScore": 0,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：电子科学与技术，最低663、平均665、最高669。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "电子科学与技术",
+      "riskTags": [],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "微电子科学与工程",
+      "minScore": 665,
+      "avgScore": 666,
+      "maxScore": 673,
+      "rank": 1240,
+      "maxRank": 771,
+      "plan": 48,
+      "planYear": 2026,
+      "scoreGap": 3,
+      "rankGap": -318,
+      "band": "冲刺",
+      "track": "电子信息/通信/集成电路/电气",
+      "recommendation": "冲刺",
+      "expertScore": 113,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：微电子科学与工程，最低665、平均666、最高673。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "微电子科学与工程",
+      "riskTags": [],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "工科试验班（计算机科学技术类）",
+      "minScore": 666,
+      "avgScore": 668,
+      "maxScore": 673,
+      "rank": 1165,
+      "maxRank": 771,
+      "plan": 27,
+      "planYear": 2026,
+      "scoreGap": 4,
+      "rankGap": -393,
+      "band": "冲刺",
+      "track": "计算机/软件/AI/数据/网安",
+      "recommendation": "冲刺",
+      "expertScore": 111,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：工科试验班（计算机科学技术类），最低666、平均668、最高673。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "工科试验班（计算机科学技术类）",
+      "riskTags": [],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "工科试验班（材料创新设计与智能制备国卓班）",
+      "minScore": 666,
+      "avgScore": 668,
+      "maxScore": 674,
+      "rank": 1165,
+      "maxRank": 708,
+      "plan": 4,
+      "planYear": 2026,
+      "scoreGap": 4,
+      "rankGap": -393,
+      "band": "冲刺",
+      "track": "工科方向待核",
+      "recommendation": "冲刺",
+      "expertScore": 0,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：工科试验班（材料创新设计与智能制备国卓班），最低666、平均668、最高674。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "工科试验班（材料创新设计与智能制备国卓班）",
+      "riskTags": [],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "自动化",
+      "minScore": 667,
+      "avgScore": 669,
+      "maxScore": 678,
+      "rank": 1103,
+      "maxRank": 536,
+      "plan": 44,
+      "planYear": 2026,
+      "scoreGap": 5,
+      "rankGap": -455,
+      "band": "冲刺",
+      "track": "自动化/机器人/智能制造/测控",
+      "recommendation": "冲刺",
+      "expertScore": 111,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：自动化，最低667、平均669、最高678。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "自动化",
+      "riskTags": [],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "电气工程及其自动化（智能电气领军班）",
+      "minScore": 670,
+      "avgScore": 673,
+      "maxScore": 676,
+      "rank": 932,
+      "maxRank": 619,
+      "plan": 81,
+      "planYear": 2026,
+      "scoreGap": 8,
+      "rankGap": -626,
+      "band": "冲刺",
+      "track": "电子信息/通信/集成电路/电气",
+      "recommendation": "冲刺",
+      "expertScore": 0,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025近似匹配：工科试验班（电气类），最低670、平均673、最高676。",
+      "planMatchType": "近似匹配",
+      "matched2025Major": "工科试验班（电气类）",
+      "riskTags": [
+        "2025近似专业"
+      ],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "工科试验班（智能感知与仪器国卓班）",
+      "minScore": 671,
+      "avgScore": 674,
+      "maxScore": 680,
+      "rank": 882,
+      "maxRank": 460,
+      "plan": 5,
+      "planYear": 2026,
+      "scoreGap": 9,
+      "rankGap": -676,
+      "band": "冲刺",
+      "track": "自动化/机器人/智能制造/测控",
+      "recommendation": "冲刺",
+      "expertScore": 0,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：工科试验班（智能感知与仪器国卓班），最低671、平均674、最高680。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "工科试验班（智能感知与仪器国卓班）",
+      "riskTags": [],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "信息工程",
+      "minScore": 662,
+      "avgScore": 663,
+      "maxScore": 667,
+      "rank": 1456,
+      "maxRank": 1103,
+      "plan": 44,
+      "planYear": 2026,
+      "scoreGap": 0,
+      "rankGap": -102,
+      "band": "贴线核心",
+      "track": "电子信息/通信/集成电路/电气",
+      "recommendation": "高优先",
+      "expertScore": 117,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：信息工程，最低662、平均663、最高667。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "信息工程",
+      "riskTags": [],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
       "major": "软件工程",
       "minScore": 660,
-      "maxScore": 666,
       "avgScore": 662,
+      "maxScore": 666,
       "rank": 1626,
-      "plan": 32,
+      "maxRank": 1165,
+      "plan": 27,
       "planYear": 2026,
       "scoreGap": -2,
       "rankGap": 68,
@@ -399,13 +1130,14 @@
       "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
+      "notes": "2026计划专业；2025同名匹配：软件工程，最低660、平均662、最高666。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "软件工程",
       "riskTags": [],
       "priorityGroups": [
         "C9"
       ],
-      "focusOrder": 2,
-      "action": "重点主攻，需确认专业组、软件学费、分流和调剂边界。"
+      "focusOrder": 2
     },
     {
       "schoolKey": "xjtu",
@@ -415,9 +1147,10 @@
       "tier": "985/C9/双一流",
       "major": "工科试验班（智能感知与仪器）",
       "minScore": 660,
-      "maxScore": 663,
       "avgScore": 661,
+      "maxScore": 663,
       "rank": 1626,
+      "maxRank": 1379,
       "plan": 6,
       "planYear": 2026,
       "scoreGap": -2,
@@ -429,16 +1162,46 @@
       "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "工程应用强，和制造业升级、机器人、工业AI相关。",
-      "riskTags": [
-        "大类分流/专业清待核",
-        "近视度数不宜就读待核"
-      ],
+      "notes": "2026计划专业；2025同名匹配：工科试验班（智能感知与仪器），最低660、平均661、最高663。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "工科试验班（智能感知与仪器）",
+      "riskTags": [],
       "priorityGroups": [
         "C9"
       ],
-      "focusOrder": 2,
-      "action": "重点主攻，需确认专业组、软件学费、分流和调剂边界。"
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "工科试验班（材料创新设计与智能制备）",
+      "minScore": 658,
+      "avgScore": 660,
+      "maxScore": 663,
+      "rank": 1794,
+      "maxRank": 1379,
+      "plan": 6,
+      "planYear": 2026,
+      "scoreGap": -4,
+      "rankGap": 236,
+      "band": "冲稳",
+      "track": "工科方向待核",
+      "recommendation": "高优先",
+      "expertScore": 0,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：工科试验班（材料创新设计与智能制备），最低658、平均660、最高663。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "工科试验班（材料创新设计与智能制备）",
+      "riskTags": [],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
     },
     {
       "schoolKey": "xjtu",
@@ -448,29 +1211,29 @@
       "tier": "985/C9/双一流",
       "major": "工科试验班（智能过程与装备国卓班）",
       "minScore": 655,
-      "maxScore": 660,
       "avgScore": 657,
-      "rank": 0,
-      "plan": 3,
+      "maxScore": 660,
+      "rank": 2051,
+      "maxRank": 1626,
+      "plan": 4,
       "planYear": 2026,
       "scoreGap": -7,
-      "rankGap": -1558,
+      "rankGap": 493,
       "band": "冲稳",
-      "track": "自动化/机器人/智能制造/测控",
+      "track": "工科方向待核",
       "recommendation": "高优先",
       "expertScore": 111,
       "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "工程应用强，和制造业升级、机器人、工业AI相关。",
-      "riskTags": [
-        "大类分流/专业清待核"
-      ],
+      "notes": "2026计划专业；2025同名匹配：工科试验班（智能过程与装备国卓班），最低655、平均657、最高660。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "工科试验班（智能过程与装备国卓班）",
+      "riskTags": [],
       "priorityGroups": [
         "C9"
       ],
-      "focusOrder": 2,
-      "action": "作为本地C9核心备选，优先问大类二次分流与目标专业名额。"
+      "focusOrder": 2
     },
     {
       "schoolKey": "xjtu",
@@ -478,31 +1241,33 @@
       "shortName": "西交大",
       "city": "西安",
       "tier": "985/C9/双一流",
-      "major": "工科试验班（智慧能源类）",
+      "major": "工科试验班（智慧能源领军班）",
       "minScore": 653,
-      "maxScore": 673,
       "avgScore": 658,
+      "maxScore": 673,
       "rank": 2246,
-      "plan": 229,
+      "maxRank": 771,
+      "plan": 195,
       "planYear": 2026,
       "scoreGap": -9,
       "rankGap": 688,
       "band": "冲稳",
       "track": "能源/电气",
       "recommendation": "高优先",
-      "expertScore": 112,
+      "expertScore": 0,
       "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "稳定性较好，适合央国企和工程系统路线，但课程不轻。",
+      "notes": "2026计划专业；2025近似匹配：工科试验班（智慧能源类），最低653、平均658、最高673。",
+      "planMatchType": "近似匹配",
+      "matched2025Major": "工科试验班（智慧能源类）",
       "riskTags": [
-        "大类分流/专业清待核"
+        "2025近似专业"
       ],
       "priorityGroups": [
         "C9"
       ],
-      "focusOrder": 2,
-      "action": "作为本地C9核心备选，优先问大类二次分流与目标专业名额。"
+      "focusOrder": 2
     },
     {
       "schoolKey": "xjtu",
@@ -510,31 +1275,33 @@
       "shortName": "西交大",
       "city": "西安",
       "tier": "985/C9/双一流",
-      "major": "工科试验班（智能制造类）",
-      "minScore": 649,
-      "maxScore": 668,
-      "avgScore": 655,
-      "rank": 2630,
-      "plan": 151,
+      "major": "工科试验班（智慧能源国卓班）",
+      "minScore": 653,
+      "avgScore": 658,
+      "maxScore": 673,
+      "rank": 2246,
+      "maxRank": 771,
+      "plan": 7,
       "planYear": 2026,
-      "scoreGap": -13,
-      "rankGap": 1072,
-      "band": "稳妥",
-      "track": "自动化/机器人/智能制造/测控",
+      "scoreGap": -9,
+      "rankGap": 688,
+      "band": "冲稳",
+      "track": "能源/电气",
       "recommendation": "高优先",
-      "expertScore": 114,
+      "expertScore": 0,
       "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "工程应用强，和制造业升级、机器人、工业AI相关。",
+      "notes": "2026计划专业；2025近似匹配：工科试验班（智慧能源类），最低653、平均658、最高673。",
+      "planMatchType": "近似匹配",
+      "matched2025Major": "工科试验班（智慧能源类）",
       "riskTags": [
-        "大类分流/专业清待核"
+        "2025近似专业"
       ],
       "priorityGroups": [
         "C9"
       ],
-      "focusOrder": 2,
-      "action": "作为本地C9核心备选，优先问大类二次分流与目标专业名额。"
+      "focusOrder": 2
     },
     {
       "schoolKey": "xjtu",
@@ -542,31 +1309,67 @@
       "shortName": "西交大",
       "city": "西安",
       "tier": "985/C9/双一流",
-      "major": "工科试验班（航天航空类）",
+      "major": "工科试验班（航天航空领军班）",
       "minScore": 649,
-      "maxScore": 661,
       "avgScore": 654,
+      "maxScore": 661,
       "rank": 2630,
-      "plan": 32,
+      "maxRank": 1544,
+      "plan": 27,
       "planYear": 2026,
       "scoreGap": -13,
       "rankGap": 1072,
       "band": "稳妥",
       "track": "低空/航空航天/无人系统",
       "recommendation": "高优先",
-      "expertScore": 112,
+      "expertScore": 0,
       "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "方向有前景但课程硬、行业周期和名额波动要谨慎。",
+      "notes": "2026计划专业；2025近似匹配：工科试验班（航天航空类），最低649、平均654、最高661。",
+      "planMatchType": "近似匹配",
+      "matched2025Major": "工科试验班（航天航空类）",
       "riskTags": [
-        "大类分流/专业清待核"
+        "2025近似专业"
       ],
       "priorityGroups": [
         "C9"
       ],
-      "focusOrder": 2,
-      "action": "作为本地C9核心备选，优先问大类二次分流与目标专业名额。"
+      "focusOrder": 2
+    },
+    {
+      "schoolKey": "xjtu",
+      "school": "西安交通大学",
+      "shortName": "西交大",
+      "city": "西安",
+      "tier": "985/C9/双一流",
+      "major": "工科试验班（智能制造领军班）",
+      "minScore": 649,
+      "avgScore": 655,
+      "maxScore": 668,
+      "rank": 2630,
+      "maxRank": 1043,
+      "plan": 104,
+      "planYear": 2026,
+      "scoreGap": -13,
+      "rankGap": 1072,
+      "band": "稳妥",
+      "track": "自动化/机器人/智能制造/测控",
+      "recommendation": "高优先",
+      "expertScore": 0,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025近似匹配：工科试验班（智能制造类），最低649、平均655、最高668。",
+      "planMatchType": "近似匹配",
+      "matched2025Major": "工科试验班（智能制造类）",
+      "riskTags": [
+        "2025近似专业"
+      ],
+      "priorityGroups": [
+        "C9"
+      ],
+      "focusOrder": 2
     },
     {
       "schoolKey": "hitwh",
@@ -591,6 +1394,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "本专业类内任选专业；EOL备注为前2年威海校区、后2年校本部，需以2026章程和招生办答复复核。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（机器人与智能装备拔尖班）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -624,6 +1429,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "含计算机、人工智能、网安、自动化、通信、电子、集成电路、电气等；可申请除拔尖班外全校范围转专业，需通过考核。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（AI加先进技术领军班）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -633,6 +1440,70 @@
       ],
       "focusOrder": 3,
       "action": "强校异地校区重点关注，先核普通批可报专业、校区安排、毕业证和转专业。"
+    },
+    {
+      "schoolKey": "uestc",
+      "school": "电子科技大学",
+      "shortName": "成电",
+      "city": "成都",
+      "tier": "985/双一流",
+      "major": "电子信息类（“成电英才”电子与计算机科技创新领军人才计划）",
+      "minScore": 675,
+      "avgScore": 676.5,
+      "maxScore": 678,
+      "rank": 0,
+      "maxRank": 0,
+      "plan": 2,
+      "planYear": 2026,
+      "scoreGap": 13,
+      "rankGap": null,
+      "band": "极高冲刺",
+      "track": "计算机/软件/AI/数据/网安",
+      "recommendation": "极高冲刺",
+      "expertScore": 0,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：电子信息类（“成电英才”电子与计算机科技创新领军人才计划），最低675、平均676.5、最高678。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "电子信息类（“成电英才”电子与计算机科技创新领军人才计划）",
+      "riskTags": [],
+      "priorityGroups": [
+        "985重点"
+      ],
+      "focusOrder": 99
+    },
+    {
+      "schoolKey": "uestc",
+      "school": "电子科技大学",
+      "shortName": "成电",
+      "city": "成都",
+      "tier": "985/双一流",
+      "major": "计算机科学与技术（智能金融与区块链金融“双A”联合学位实验班）",
+      "minScore": 668,
+      "avgScore": 668,
+      "maxScore": 668,
+      "rank": 0,
+      "maxRank": 0,
+      "plan": 2,
+      "planYear": 2026,
+      "scoreGap": 6,
+      "rankGap": null,
+      "band": "冲刺",
+      "track": "计算机/软件/AI/数据/网安",
+      "recommendation": "冲刺",
+      "expertScore": 0,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：计算机科学与技术（智能金融与区块链金融“双A”联合学位实验班），最低668、平均668、最高668。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "计算机科学与技术（智能金融与区块链金融“双A”联合学位实验班）",
+      "riskTags": [],
+      "priorityGroups": [
+        "985重点"
+      ],
+      "focusOrder": 99
     },
     {
       "schoolKey": "seu",
@@ -657,6 +1528,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；660段以上可讨论，650段不作为主稳。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "计算机类",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -689,6 +1562,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；普通批偏高，当前只按普通批口径判断。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（智能制造与智能系统）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -721,6 +1596,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；660段可冲，650段风险较高。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "计算机类（国家网络安全学院）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -753,6 +1630,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；华科强工科冲刺项。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "光电信息科学与工程",
       "riskTags": [],
       "priorityGroups": [
         "中坚九校"
@@ -783,6 +1662,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；电气和储能方向强，但650段不宜当稳项。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（电气类）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -800,29 +1681,29 @@
       "tier": "985/双一流",
       "major": "电子信息类（信息与通信）",
       "minScore": 659,
-      "maxScore": 0,
-      "avgScore": 0,
-      "rank": 1793,
-      "plan": 0,
+      "avgScore": 660.6,
+      "maxScore": 669,
+      "rank": 0,
+      "maxRank": 0,
+      "plan": 11,
       "planYear": 2026,
       "scoreGap": -3,
-      "rankGap": 235,
+      "rankGap": null,
       "band": "冲稳",
-      "track": "电子信息/通信/集成电路",
+      "track": "电子信息/通信/集成电路/电气",
       "recommendation": "高优先",
       "expertScore": 87,
-      "sourceLevel": "B",
+      "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "接受电路信号控制，且西电、成电、北邮、西工大等平台强。",
-      "riskTags": [
-        "大类分流/专业清待核"
-      ],
+      "notes": "2026计划专业；2025同名匹配：电子信息类（信息与通信），最低659、平均660.6、最高669。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "电子信息类（信息与通信）",
+      "riskTags": [],
       "priorityGroups": [
         "985重点"
       ],
-      "focusOrder": 99,
-      "action": "分数接近，可作冲稳比较项。"
+      "focusOrder": 99
     },
     {
       "schoolKey": "nju",
@@ -847,6 +1728,8 @@
       "admissionCategory": "院校最低分覆盖审计",
       "isCoverageAudit": true,
       "notes": "全量高层次院校覆盖审计：掌上高考2025陕西物理类院校最低分658；此处不是专业最低分。南大平台强但目标专业和专业组风险需重点核，当前只作冲刺观察。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "覆盖审计：计算机/电子信息/技术科学方向待核",
       "riskTags": [
         "院校最低分待核"
       ],
@@ -880,6 +1763,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；读研收益明显。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "微电子科学与工程（集成电路学院）",
       "riskTags": [],
       "priorityGroups": [
         "985重点"
@@ -895,29 +1780,29 @@
       "tier": "985/双一流",
       "major": "工科试验班（电子工程类）",
       "minScore": 658,
-      "maxScore": 0,
-      "avgScore": 0,
+      "avgScore": 660.6,
+      "maxScore": 666,
       "rank": 0,
-      "plan": 0,
+      "maxRank": 0,
+      "plan": 8,
       "planYear": 2026,
       "scoreGap": -4,
-      "rankGap": -1558,
+      "rankGap": null,
       "band": "冲稳",
-      "track": "电子信息/通信/集成电路",
+      "track": "电子信息/通信/集成电路/电气",
       "recommendation": "高优先",
       "expertScore": 87,
-      "sourceLevel": "B",
+      "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "接受电路信号控制，且西电、成电、北邮、西工大等平台强。",
-      "riskTags": [
-        "大类分流/专业清待核"
-      ],
+      "notes": "2026计划专业；2025同名匹配：工科试验班（电子工程类），最低658、平均660.6、最高666。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "工科试验班（电子工程类）",
+      "riskTags": [],
       "priorityGroups": [
         "985重点"
       ],
-      "focusOrder": 99,
-      "action": "分数接近，可作冲稳比较项。"
+      "focusOrder": 99
     },
     {
       "schoolKey": "whu",
@@ -942,6 +1827,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；含电子信息、通信及人工智能试验班相关方向。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "电子信息类（电子信息学院）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -974,42 +1861,14 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；强工科平台，但与计算机/电子相比职业弹性略低。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "机械类",
       "riskTags": [
         "大类分流/专业清待核",
         "近视度数不宜就读待核"
       ],
       "priorityGroups": [
         "中坚九校"
-      ],
-      "focusOrder": 99,
-      "action": "分数接近，可作冲稳比较项。"
-    },
-    {
-      "schoolKey": "uestc",
-      "school": "电子科技大学",
-      "shortName": "成电",
-      "city": "成都",
-      "tier": "985/双一流",
-      "major": "集成电路设计与集成系统",
-      "minScore": 655,
-      "maxScore": 0,
-      "avgScore": 0,
-      "rank": 0,
-      "plan": 0,
-      "planYear": 2026,
-      "scoreGap": -7,
-      "rankGap": -1558,
-      "band": "冲稳",
-      "track": "电子信息/通信/集成电路",
-      "recommendation": "高优先",
-      "expertScore": 90,
-      "sourceLevel": "B",
-      "admissionCategory": "普通类",
-      "isCoverageAudit": false,
-      "notes": "接受电路信号控制，且西电、成电、北邮、西工大等平台强。",
-      "riskTags": [],
-      "priorityGroups": [
-        "985重点"
       ],
       "focusOrder": 99,
       "action": "分数接近，可作冲稳比较项。"
@@ -1037,6 +1896,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；课程硬，适合作为高分冲刺而非稳保。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "航空航天类",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1052,31 +1913,97 @@
       "shortName": "成电",
       "city": "成都",
       "tier": "985/双一流",
-      "major": "计算机类",
-      "minScore": 653,
-      "maxScore": 0,
-      "avgScore": 0,
+      "major": "集成电路设计与集成系统（国家示范性微电子学院）",
+      "minScore": 655,
+      "avgScore": 656.6,
+      "maxScore": 663,
       "rank": 0,
-      "plan": 0,
+      "maxRank": 0,
+      "plan": 13,
       "planYear": 2026,
-      "scoreGap": -9,
-      "rankGap": -1558,
+      "scoreGap": -7,
+      "rankGap": null,
       "band": "冲稳",
-      "track": "计算机/软件/AI/数据/网安",
+      "track": "电子信息/通信/集成电路/电气",
       "recommendation": "高优先",
-      "expertScore": 91,
-      "sourceLevel": "B",
+      "expertScore": 0,
+      "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
+      "notes": "2026计划专业；2025同名匹配：集成电路设计与集成系统（国家示范性微电子学院），最低655、平均656.6、最高663。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "集成电路设计与集成系统（国家示范性微电子学院）",
+      "riskTags": [],
+      "priorityGroups": [
+        "985重点"
+      ],
+      "focusOrder": 99
+    },
+    {
+      "schoolKey": "uestc",
+      "school": "电子科技大学",
+      "shortName": "成电",
+      "city": "成都",
+      "tier": "985/双一流",
+      "major": "微电子科学与工程",
+      "minScore": 655,
+      "avgScore": 656.6,
+      "maxScore": 663,
+      "rank": 0,
+      "maxRank": 0,
+      "plan": 3,
+      "planYear": 2026,
+      "scoreGap": -7,
+      "rankGap": null,
+      "band": "冲稳",
+      "track": "电子信息/通信/集成电路/电气",
+      "recommendation": "高优先",
+      "expertScore": 0,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025近似匹配：集成电路设计与集成系统（国家示范性微电子学院），最低655、平均656.6、最高663。",
+      "planMatchType": "近似匹配",
+      "matched2025Major": "集成电路设计与集成系统（国家示范性微电子学院）",
       "riskTags": [
-        "大类分流/专业清待核"
+        "2025近似专业"
       ],
       "priorityGroups": [
         "985重点"
       ],
-      "focusOrder": 99,
-      "action": "分数接近，可作冲稳比较项。"
+      "focusOrder": 99
+    },
+    {
+      "schoolKey": "uestc",
+      "school": "电子科技大学",
+      "shortName": "成电",
+      "city": "成都",
+      "tier": "985/双一流",
+      "major": "计算机类",
+      "minScore": 653,
+      "avgScore": 656.2,
+      "maxScore": 661,
+      "rank": 0,
+      "maxRank": 0,
+      "plan": 6,
+      "planYear": 2026,
+      "scoreGap": -9,
+      "rankGap": null,
+      "band": "冲稳",
+      "track": "计算机/软件/AI/数据/网安",
+      "recommendation": "高优先",
+      "expertScore": 91,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：计算机类，最低653、平均656.2、最高661。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "计算机类",
+      "riskTags": [],
+      "priorityGroups": [
+        "985重点"
+      ],
+      "focusOrder": 99
     },
     {
       "schoolKey": "nwpu",
@@ -1101,6 +2028,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "计算机类（计算机，含智能交互设计）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1134,6 +2063,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；面向人工智能、新型储能、智能制造、具身智能等，属于高价值遗漏项。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（未来技术学院）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1151,29 +2082,29 @@
       "tier": "985/双一流",
       "major": "工科试验班（机器人、电气信息、智能制造）",
       "minScore": 651,
-      "maxScore": 0,
-      "avgScore": 0,
+      "avgScore": 652,
+      "maxScore": 653,
       "rank": 0,
-      "plan": 0,
+      "maxRank": 0,
+      "plan": 3,
       "planYear": 2026,
       "scoreGap": -11,
-      "rankGap": -1558,
+      "rankGap": null,
       "band": "稳妥",
-      "track": "电子信息/通信/集成电路",
+      "track": "电子信息/通信/集成电路/电气",
       "recommendation": "高优先",
       "expertScore": 90,
-      "sourceLevel": "B",
+      "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "接受电路信号控制，且西电、成电、北邮、西工大等平台强。",
-      "riskTags": [
-        "大类分流/专业清待核"
-      ],
+      "notes": "2026计划专业；2025同名匹配：工科试验班（机器人、电气信息、智能制造），最低651、平均652、最高653。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "工科试验班（机器人、电气信息、智能制造）",
+      "riskTags": [],
       "priorityGroups": [
         "985重点"
       ],
-      "focusOrder": 99,
-      "action": "作为985好专业横向比较项，防止只盯重点校漏掉强专业。"
+      "focusOrder": 99
     },
     {
       "schoolKey": "nwpu",
@@ -1198,6 +2129,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "方向有前景但课程硬、行业周期和名额波动要谨慎。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "航空航天类（航空）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1214,32 +2147,63 @@
       "shortName": "成电",
       "city": "成都",
       "tier": "985/双一流",
-      "major": "电子信息类（智能仪器、智能控制）",
-      "minScore": 649,
-      "maxScore": 0,
-      "avgScore": 0,
+      "major": "电子信息类（光电集成与光网络）",
+      "minScore": 650,
+      "avgScore": 651.5,
+      "maxScore": 653,
       "rank": 0,
-      "plan": 0,
+      "maxRank": 0,
+      "plan": 2,
       "planYear": 2026,
-      "scoreGap": -13,
-      "rankGap": -1558,
+      "scoreGap": -12,
+      "rankGap": null,
       "band": "稳妥",
-      "track": "电子信息/通信/集成电路",
+      "track": "电子信息/通信/集成电路/电气",
       "recommendation": "高优先",
-      "expertScore": 88,
-      "sourceLevel": "B",
+      "expertScore": 0,
+      "sourceLevel": "A",
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
-      "notes": "接受电路信号控制，且西电、成电、北邮、西工大等平台强。",
-      "riskTags": [
-        "大类分流/专业清待核",
-        "近视度数不宜就读待核"
-      ],
+      "notes": "2026计划专业；2025同名匹配：电子信息类（光电集成与光网络），最低650、平均651.5、最高653。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "电子信息类（光电集成与光网络）",
+      "riskTags": [],
       "priorityGroups": [
         "985重点"
       ],
-      "focusOrder": 99,
-      "action": "作为985好专业横向比较项，防止只盯重点校漏掉强专业。"
+      "focusOrder": 99
+    },
+    {
+      "schoolKey": "uestc",
+      "school": "电子科技大学",
+      "shortName": "成电",
+      "city": "成都",
+      "tier": "985/双一流",
+      "major": "电子信息类（智能仪器、智能控制）",
+      "minScore": 649,
+      "avgScore": 650,
+      "maxScore": 652,
+      "rank": 0,
+      "maxRank": 0,
+      "plan": 4,
+      "planYear": 2026,
+      "scoreGap": -13,
+      "rankGap": null,
+      "band": "稳妥",
+      "track": "电子信息/通信/集成电路/电气",
+      "recommendation": "高优先",
+      "expertScore": 88,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025同名匹配：电子信息类（智能仪器、智能控制），最低649、平均650、最高652。",
+      "planMatchType": "同名匹配",
+      "matched2025Major": "电子信息类（智能仪器、智能控制）",
+      "riskTags": [],
+      "priorityGroups": [
+        "985重点"
+      ],
+      "focusOrder": 99
     },
     {
       "schoolKey": "nwpu",
@@ -1264,6 +2228,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "计算机类（网络安全）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1297,6 +2263,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "人工智能（新工科大师班）",
       "riskTags": [],
       "priorityGroups": [
         "985重点"
@@ -1327,6 +2295,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；软件工程后两年收费需复核。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（智能与计算类）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1359,6 +2329,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "方向有前景但课程硬、行业周期和名额波动要谨慎。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "民用航空含低空技术与工程",
       "riskTags": [],
       "priorityGroups": [
         "国防七子",
@@ -1390,6 +2362,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "接受电路信号控制，且西电、成电、北邮、西工大等平台强。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "电子信息类（电子信息）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1423,6 +2397,8 @@
       "admissionCategory": "院校最低分覆盖审计",
       "isCoverageAudit": true,
       "notes": "全量985覆盖审计：掌上高考2025陕西物理类院校最低分646；此处不是专业最低分。北航强工科和航空航天/计算机/电子信息平台很强，必须核普通批分专业录取和2026普通类计划。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "覆盖审计：航空航天/计算机/电子信息/自动化方向待核",
       "riskTags": [
         "院校最低分待核"
       ],
@@ -1455,6 +2431,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "工程应用强，和制造业升级、机器人、工业AI相关。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "自动化类",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1488,6 +2466,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；华南强工科平台，640-650段重点补充。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（卓越人才班）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1520,6 +2500,8 @@
       "admissionCategory": "院校最低分覆盖审计",
       "isCoverageAudit": true,
       "notes": "掌上高考2025陕西物理类院校最低分645；此处不是专业最低分，需继续核同济2025陕西物理类分专业录取和2026计划。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "覆盖审计：工科试验班/信息类方向待核",
       "riskTags": [
         "院校最低分待核",
         "大类分流/专业清待核"
@@ -1553,6 +2535,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；和孩子工科接受度匹配，是640段重点补充项。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（电气信息类）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1585,6 +2569,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "软件工程",
       "riskTags": [],
       "priorityGroups": [
         "国防七子",
@@ -1616,6 +2602,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；不招色盲色弱，体检限制需核。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（精仪与光电信息类）",
       "riskTags": [
         "大类分流/专业清待核",
         "近视度数不宜就读待核"
@@ -1649,6 +2637,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；名称很契合，但需查课程和学院归属，避免只追热词。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（AI与低空技术）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1681,6 +2671,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；翔安校区，集成电路后两年学分收费需复核。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "电子信息类",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1713,6 +2705,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；强985+计算机，属于重大遗漏补充。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "计算机类",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1745,6 +2739,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；翔安校区，软件工程后两年学分收费需复核。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "计算机类",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1777,6 +2773,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "计算机类",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1809,6 +2807,8 @@
       "admissionCategory": "院校最低分覆盖审计",
       "isCoverageAudit": true,
       "notes": "掌上高考2025陕西物理类院校最低分638；南开信息类目标专业分需回官方专业明细复核。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "覆盖审计：计算机/电子信息/智能科学方向待核",
       "riskTags": [
         "院校最低分待核"
       ],
@@ -1841,6 +2841,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；含土木水利相关方向，需确认大类分流底线。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（智能制造与建造）",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1873,6 +2875,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批多个方向同为637，可作为640下探时高质量985稳保。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "自动化/电气类/信息工程",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1905,6 +2909,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "接受电路信号控制，且西电、成电、北邮、西工大等平台强。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "电子信息类",
       "riskTags": [
         "大类分流/专业清待核"
       ],
@@ -1937,6 +2943,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "2025陕西物理普通批；含机械、测控、自动化、飞行器方向，需查分流规则。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "工科试验班（航空航天）",
       "riskTags": [
         "大类分流/专业清待核",
         "近视度数不宜就读待核"
@@ -1970,6 +2978,8 @@
       "admissionCategory": "院校最低分覆盖审计",
       "isCoverageAudit": true,
       "notes": "全量985覆盖审计：掌上高考2025陕西物理类院校最低分637；此处不是专业最低分。北理工强工科、车辆、信息、兵器、智能制造平台强，需核2025陕西普通批分专业录取和2026普通类计划。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "覆盖审计：信息/智能制造/车辆/工科试验班方向待核",
       "riskTags": [
         "院校最低分待核",
         "大类分流/专业清待核"
@@ -2004,6 +3014,8 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "计算机科学与技术",
       "riskTags": [],
       "priorityGroups": [
         "985重点"
@@ -2034,6 +3046,8 @@
       "admissionCategory": "院校最低分覆盖审计",
       "isCoverageAudit": true,
       "notes": "掌上高考2025陕西物理类院校最低分631；中山大学校区和专业组差异大，需核具体专业、校区和分流规则。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "覆盖审计：计算机/电子信息/人工智能/软件方向待核",
       "riskTags": [
         "院校最低分待核"
       ],
@@ -2066,12 +3080,48 @@
       "admissionCategory": "普通类",
       "isCoverageAudit": false,
       "notes": "愿意训练编程，未来AI时代需要系统能力和工程基本功。",
+      "planMatchType": "2025候选基线",
+      "matched2025Major": "软件工程",
       "riskTags": [],
       "priorityGroups": [
         "985重点"
       ],
       "focusOrder": 99,
       "action": "作为985好专业横向比较项，防止只盯重点校漏掉强专业。"
+    },
+    {
+      "schoolKey": "uestc",
+      "school": "电子科技大学",
+      "shortName": "成电",
+      "city": "成都",
+      "tier": "985/双一流",
+      "major": "经济管理试验班（管理与电子工程双学位培养）",
+      "minScore": null,
+      "avgScore": null,
+      "maxScore": null,
+      "rank": null,
+      "maxRank": null,
+      "plan": 5,
+      "planYear": 2026,
+      "scoreGap": null,
+      "rankGap": null,
+      "band": "2025待核",
+      "track": "电子信息/通信/集成电路/电气",
+      "recommendation": "待核",
+      "expertScore": 0,
+      "sourceLevel": "A",
+      "admissionCategory": "普通类",
+      "isCoverageAudit": false,
+      "notes": "2026计划专业；2025未找到同名或足够近似的普通类专业录取数据，需向招生办确认参考口径。",
+      "planMatchType": "2025无同名或近似专业",
+      "matched2025Major": "",
+      "riskTags": [
+        "2025无匹配"
+      ],
+      "priorityGroups": [
+        "985重点"
+      ],
+      "focusOrder": 99
     }
   ]
 }
